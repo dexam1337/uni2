@@ -1,0 +1,13 @@
+package ai;
+import springSpiel.Feld;
+
+public class Ai {
+	Vector<Turn> possibleTurns = new Vector<Turn>(10);
+	Ai(){
+		
+	}
+	
+	public void findTurn(Feld gameField){
+		
+	}
+}

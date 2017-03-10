@@ -1,12 +1,4 @@
-19:10:05 **** Build of configuration Debug for project mainTest ****
-make all 
-Building file: ../main.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
-Finished building: ../main.cpp
- 
-Building target: mainTest
-Invoking: Cross G++ Linker
-g++  -o "mainTest"  ./main.o   
-Finished building target: mainTest
+22:40:21 **** Clean-only build of configuration Debug for project springSpiel ****
+make clean 
+rm -rf  ./src/feld.o ./src/main.o ./src/punkt.o  ./main.o  ./src/feld.d ./src/main.d ./src/punkt.d  ./main.d  springSpiel
  

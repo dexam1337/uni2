@@ -1,0 +1,7 @@
+22:40:21 **** Clean-only build of configuration Debug for project springSpiel ****
+make clean 
+rm -rf  ./src/feld.o ./src/main.o ./src/punkt.o  ./main.o  ./src/feld.d ./src/main.d ./src/punkt.d  ./main.d  springSpiel
+ 
+
+22:40:21 Build Finished (took 59ms)
+

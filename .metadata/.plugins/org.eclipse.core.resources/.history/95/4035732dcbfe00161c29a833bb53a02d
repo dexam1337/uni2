@@ -1,0 +1,12 @@
+package springSpiel;
+
+public class Main {
+	
+	private Feld gameField;
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

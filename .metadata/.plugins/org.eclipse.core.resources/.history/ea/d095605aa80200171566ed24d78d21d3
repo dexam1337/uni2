@@ -1,0 +1,19 @@
+package springSpiel;
+
+import java.util.Vector;
+
+public class Solver {
+	
+	Vector<Feld> savedGames = new Vector<Feld>(10);
+	Vector<Turn> usedTurns = new Vector<Turn>(10);
+	Feld m_begin;
+	public Solver(Feld begin){
+		m_begin = begin;
+	}
+
+	public void worldRecord() throws InterruptedException{
+		Thread.sleep(1000);
+		m_begin.jump(3, 1, "RECHTS");
+		Thread.sleep(1000);
+	}
+}

@@ -1,0 +1,22 @@
+package ai;
+import springSpiel.Feld;
+import java.util.Vector;
+
+public class SpielStand {
+	
+	Vector<Zug> possibleTurns = new Vector<Zug>(10);
+	Feld[][] m_field;
+	
+	SpielStand(Feld[][] field){
+		m_field = field;
+	}
+	
+	private void findTurns(){
+		for(int i = 0; i < m_field.length; i++){
+			for(int j = 0; j < m_field[i].length; j++){
+				
+			}
+		}
+	}
+
+}

@@ -1,0 +1,20 @@
+/*
+ * spiel.h
+ *
+ *  Created on: Mar 1, 2017
+ *      Author: sebastian
+ */
+
+#ifndef SRC_SPIEL_H_
+#define SRC_SPIEL_H_
+
+
+class spiel{
+private:
+
+public:
+	spiel();
+};
+
+
+#endif /* SRC_SPIEL_H_ */

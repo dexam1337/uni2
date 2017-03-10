@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="manS" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="manS"/>
+			<item value="0,3"/>
+			<item value="gameField.jump(1, 2, selected);"/>
+			<item value="gameField.jump(0, 4, selected);"/>
+			<item value="gameField.jump(0, 3, selected);"/>
+			<item value="&quot;Verbleibende Steine: &quot; + (gameField.getPieces()-1) + &quot;    Zug Nr.&quot; + gameField.getTurn() + &quot;.&quot;"/>
+			<item value="&quot;Verbleibende Steine: &quot; + ((gameField.getPieces()-1)-1) + &quot;    Zug Nr.&quot; + gameField.getTurn() + &quot;.&quot;"/>
+			<item value="gameField.getPieces()"/>
+		</list>
+		<list key="replacehistory">
+			<item value="6,4"/>
+			<item value="6,3"/>
+			<item value="6,2"/>
+			<item value="5,4"/>
+			<item value="5,3"/>
+			<item value="5,2"/>
+			<item value="4,6"/>
+			<item value="4,5"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="225" key="DIALOG_WIDTH"/>
+		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="280" key="DIALOG_HEIGHT"/>
+		<item value="1017" key="DIALOG_X_ORIGIN"/>
+		<item value="389" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

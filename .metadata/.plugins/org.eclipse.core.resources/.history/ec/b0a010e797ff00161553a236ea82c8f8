@@ -1,0 +1,27 @@
+package ai;
+
+public class Zug {
+	
+	int m_x;
+	int m_y;
+	String m_richtung;
+	
+	Zug(int x, int y, String richtung){
+		m_x = x;
+		m_y = y;
+		m_richtung = richtung;
+	}
+	
+	int getX(){
+		return m_x;
+	}
+	
+	int getY(){
+		return m_y;
+	}
+	
+	String getRichtung(){
+		return m_richtung;
+	}
+
+}

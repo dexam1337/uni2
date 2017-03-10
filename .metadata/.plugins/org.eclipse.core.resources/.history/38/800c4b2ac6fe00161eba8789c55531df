@@ -1,0 +1,41 @@
+/*
+ * punkt.cpp
+ *
+ *  Created on: Mar 1, 2017
+ *      Author: sebastian
+ */
+
+#include "punkt.h"
+
+punkt::punkt() {
+	x = 0;
+	y = 0;
+	blocked = true;
+}
+
+punkt::punkt(int x, int y) {
+	x = 0;
+	y = 0;
+	blocked = true;
+}
+
+punkt::punkt(int x, int y, bool newState) {
+	x = 0;
+	y = 0;
+	blocked = true;
+}
+
+
+bool punkt::toogleState() {
+	blocked = !(blocked);
+	return blocked;
+}
+bool punkt::getState() {
+
+}
+int punkt::getX() {
+
+}
+int punkt::getY() {
+
+}

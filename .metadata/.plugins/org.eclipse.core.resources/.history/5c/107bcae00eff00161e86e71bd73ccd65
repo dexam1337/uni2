@@ -1,0 +1,11 @@
+package ai;
+
+public class Turn {
+	int m_x;
+	int m_y;
+	String m_direction;
+	
+	Turn(int x, int y, String direction){
+		
+	}
+}

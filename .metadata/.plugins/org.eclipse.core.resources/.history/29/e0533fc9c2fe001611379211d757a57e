@@ -1,0 +1,19 @@
+/*
+ * punkt.h
+ *
+ *  Created on: Mar 1, 2017
+ *      Author: sebastian
+ */
+
+#ifndef SRC_PUNKT_H_
+#define SRC_PUNKT_H_
+
+
+class punkt{
+private:
+
+public:
+};
+
+
+#endif /* SRC_PUNKT_H_ */

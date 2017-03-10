@@ -1,0 +1,18 @@
+package springSpiel;
+
+public class Punkt {
+
+	private int x;
+	private int y;
+	private boolean blocked;
+	
+	Punkt() {
+		
+	}
+Punkt(int x, int y) {
+		
+	}
+Punkt(int x, int y, boolean isBlocked) {
+	
+}
+}

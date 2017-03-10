@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;SpringSpiel/punk.cpp&apos; to &apos;punkt.cpp&apos;" description="Rename resource &apos;punk.cpp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="punk.cpp" name="punkt.cpp" stamp="1488402668349" updateReferences="true"/>
+</session>

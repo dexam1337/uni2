@@ -1,0 +1,31 @@
+/*
+ * punkt.h
+ *
+ *  Created on: Mar 1, 2017
+ *      Author: sebastian
+ */
+
+#ifndef SRC_PUNKT_H_
+#define SRC_PUNKT_H_
+
+#include "punkt.cpp"
+#include <iostream>
+
+using namespace std;
+class punkt{
+private:
+	int x;
+	int y;
+	bool blocked;
+public:
+	punkt();
+	punkt(int x, int y);
+	punkt(int x, int y, bool newState);
+	bool toogleState();
+	bool getState();
+	int getX();
+	int getY();
+};
+
+
+#endif /* SRC_PUNKT_H_ */

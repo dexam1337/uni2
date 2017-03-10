@@ -1,0 +1,7 @@
+package springSpiel;
+
+public class Punkt {
+	Punkt punkt(){
+		
+	}
+}

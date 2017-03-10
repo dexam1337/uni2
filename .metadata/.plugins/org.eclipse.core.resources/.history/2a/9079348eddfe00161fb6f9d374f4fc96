@@ -1,0 +1,19 @@
+package springSpiel;
+
+public class Main {
+
+
+	public static void main(String[] args) {
+
+		Feld gameField = new Feld();
+		System.out.println(gameField.isFree(1, 1));
+		System.out.println(gameField.isFree(1, 4));
+		System.out.println(gameField.isFree(8, 8));
+		System.out.println(gameField.isFree(3, 3));
+		System.out.println(gameField.jump(1, 3, "RUNTER"));
+		System.out.println(gameField.jump(2, 3, "RUNTER"));
+		System.out.println(gameField.jump(8, 3, "RUNTER"));
+		
+	}
+
+}

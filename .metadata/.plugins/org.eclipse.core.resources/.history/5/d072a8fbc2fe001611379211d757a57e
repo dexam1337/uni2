@@ -1,0 +1,13 @@
+/*
+ * punk.cpp
+ *
+ *  Created on: Mar 1, 2017
+ *      Author: sebastian
+ */
+
+
+#include 'src/punkt.h'
+
+punkt::punkt(){
+
+}

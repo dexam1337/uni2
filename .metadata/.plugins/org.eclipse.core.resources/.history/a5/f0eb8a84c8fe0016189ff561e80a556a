@@ -1,0 +1,12 @@
+package springSpiel;
+
+public class Punkt {
+
+	int x;
+	int y;
+	boolean blocked;
+	
+	Punkt() {
+		
+	}
+}

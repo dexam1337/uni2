@@ -1,0 +1,14 @@
+package ai;
+import springSpiel.Feld;
+import java.util.Vector;
+
+public class SpielStand {
+	
+	Vector<Zug> possibleTurns = new Vector<Zug>(10);
+	Feld m_field;
+	
+	SpielStand(){
+		
+	}
+
+}

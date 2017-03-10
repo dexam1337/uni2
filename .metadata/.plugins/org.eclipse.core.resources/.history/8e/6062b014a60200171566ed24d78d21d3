@@ -1,0 +1,13 @@
+package springSpiel;
+
+public class Turn {
+	int m_x;
+	int m_y;
+	String m_direction;
+	
+	public Turn(int x, int y, String direction){
+		m_x = x;
+		m_y = y;
+		m_direction = direction;
+	}
+}

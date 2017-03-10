@@ -1,0 +1,15 @@
+22:13:42 **** Incremental Build of configuration Debug for project SpringSpiel ****
+make all 
+Building file: ../punkt.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"punkt.d" -MT"punkt.o" -o "punkt.o" "../punkt.cpp"
+In file included from ../punkt.h:11:0,
+                 from ../punkt.cpp:9:
+../punkt.cpp:11:1: error: ???punkt??? does not name a type
+subdir.mk:21: recipe for target 'punkt.o' failed
+ punkt::punkt(){
+ ^
+make: *** [punkt.o] Error 1
+
+22:13:42 Build Finished (took 58ms)
+
