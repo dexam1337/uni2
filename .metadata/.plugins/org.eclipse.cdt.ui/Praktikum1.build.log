@@ -1,0 +1,21 @@
+17:22:23 **** Incremental Build of configuration Debug for project Praktikum1 ****
+make all 
+Building file: ../src/Ticket.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Ticket.d" -MT"src/Ticket.o" -o "src/Ticket.o" "../src/Ticket.cpp"
+../src/Ticket.cpp: In Konstruktor »Ticket::Ticket()«:
+../src/Ticket.cpp:13:11: Fehler: ungültige Umwandlung von »int« in »Status« [-fpermissive]
+  m_status = -1;
+           ^
+../src/Ticket.cpp:16:12: Fehler: Erhöhung der schreibgeschützten Variable »Ticket::id_counter«
+  id_counter++;
+            ^
+../src/Ticket.cpp: In Konstruktor »Ticket::Ticket(std::string, std::string)«:
+../src/Ticket.cpp:25:12: Fehler: Erhöhung der schreibgeschützten Variable »Ticket::id_counter«
+  id_counter++;
+            ^
+make: *** [src/Ticket.o] Error 1
+src/subdir.mk:24: recipe for target 'src/Ticket.o' failed
+
+17:22:23 Build Finished (took 168ms)
+

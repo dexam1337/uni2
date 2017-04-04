@@ -1,8 +1,0 @@
-package springSpiel;
-
-public enum Richtung {
-	LINKS,
-	RECHTS,
-	HOCH,
-	RUNTER,
-}

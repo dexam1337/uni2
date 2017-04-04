@@ -1,0 +1,30 @@
+/*
+ * Ticket.h
+ *
+ *  Created on: 04.04.2017
+ *      Author: sebastian
+ */
+
+
+#ifndef TICKET_H_
+#define TICKET_H_
+
+#include <string>
+
+enum Status{
+	 open,
+	 closed,
+	 duplicate
+};
+
+class Ticket{
+private:
+
+	string text;
+	string owner:
+
+public:};
+
+
+
+#endif /* TICKET_H_ */

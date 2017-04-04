@@ -1,9 +1,0 @@
-package ai;
-import springSpiel.Feld;
-
-public class Ai {
-
-	Ai(){
-		
-	}
-}

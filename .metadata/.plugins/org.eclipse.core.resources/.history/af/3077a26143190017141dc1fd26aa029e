@@ -1,0 +1,21 @@
+/*
+ * Ticket.h
+ *
+ *  Created on: 04.04.2017
+ *      Author: sebastian
+ */
+#include <String>
+
+#ifndef TICKET_H_
+#define TICKET_H_
+
+class Ticket{
+private:
+
+	string text;
+
+public:};
+
+
+
+#endif /* TICKET_H_ */
