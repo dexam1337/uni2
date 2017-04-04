@@ -17,13 +17,13 @@ using namespace std;
 enum Status{
 	 open,
 	 closed,
-	 duplicate
+	 duplicate,
+	 invalid
 };
 
-class Ticket{
+struct Ticket{
 private:
-	static int id_counter = 1;
-
+	static int id_counter;// = 1;
 	string m_text;
 	string m_owner;
 	Status m_status;
@@ -40,6 +40,6 @@ public:
 	void print() const;
 };
 
-
+int Ticket::id_counter = 0;
 
 #endif /* TICKET_H_ */

@@ -1,0 +1,51 @@
+//============================================================================
+// Name        : Praktikum1.cpp
+// Author      : Sebastian Schuch
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+#include "PrioQueue.cpp"
+using namespace std;
+
+int main() {
+	PrioQueue<t> queue = new PrioQueue<t>();
+	Ticket t = new Ticket("Seb",
+			"Alleadsj. asedl. asdasd . asdi . asdasd. . . asd ... asdasd.");
+	queue.push(t);
+	Ticket t = new Ticket("Du", "Tolle Arbeit! :).");
+	queue.push(t);
+	Ticket t = new Ticket("Du", "Einfach mal ein Satz ohne Punkt!");
+	queue.push(t);
+	Ticket t = new Ticket("Er", "");
+	queue.push(t);
+	while (menue())
+		;
+	return 0;
+}
+
+bool menue() {
+	cout << "1. new ticket \n2. clear \n3. next \n4. EXIT \n" << endl;
+	int input;
+	cin >> input;
+	switch (input) {
+	case 1:
+
+		return 1;
+	case 2:
+		queue = new PrioQueue<Ticket>();
+		return 1;
+	case 3:
+		Ticket ticket = queue.pop();
+		ticket.print();
+		return 1;
+	case 4:
+		return 0;
+	default:
+		cout << "Invalid input. Exiting"
+		return 0;
+	}
+	return 0;
+}
