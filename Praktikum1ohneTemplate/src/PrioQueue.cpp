@@ -1,0 +1,22 @@
+/*
+ * PrioQueue.cpp
+ *
+ *  Created on: 04.04.2017
+ *      Author: sebastian
+ */
+
+#include "PrioQueue.h"
+
+PrioQueue::PrioQueue(){
+	m_obj = new vector<Ticket>();
+}
+
+void PrioQueue::push(Ticket newObj){
+	m_obj.push_back(newObj);
+}
+
+Ticket* PrioQueue::pop(){
+	Ticket obj = m_obj.front();
+	m_obj.erase(m_obj.begin());
+	return obj;
+}

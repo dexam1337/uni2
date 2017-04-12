@@ -1,57 +1,25 @@
-20:24:39 **** Incremental Build of configuration Debug for project Praktikum1 ****
+20:40:11 **** Build of configuration Debug for project Praktikum1ohneTemplate ****
 make all 
 Building file: ../src/Praktikum1.cpp
 Invoking: GCC C++ Compiler
 g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Praktikum1.d" -MT"src/Praktikum1.o" -o "src/Praktikum1.o" "../src/Praktikum1.cpp"
-../src/Praktikum1.cpp: In Funktion »int main()«:
-../src/Praktikum1.cpp:16:8: Fehler: no match for »operator=« (operand types are »PrioQueue<Ticket>« and »PrioQueue<Ticket>*«)
-  queue = new PrioQueue<Ticket>();
-        ^
-../src/Praktikum1.cpp:16:8: Anmerkung: Kandidat ist:
-In file included from ../src/PrioQueue.cpp:8:0,
-                 from ../src/Praktikum1.cpp:10:
-../src/PrioQueue.h:18:7: Anmerkung: PrioQueue<Ticket>& PrioQueue<Ticket>::operator=(const PrioQueue<Ticket>&)
- class PrioQueue{
-       ^
-../src/PrioQueue.h:18:7: Anmerkung:   keine bekannte Umwandlung für Argument 1 von »PrioQueue<Ticket>*« nach »const PrioQueue<Ticket>&«
-../src/Praktikum1.cpp:18:66: Fehler: Umwandlung von »Ticket*« in nicht-skalaren Typen »Ticket« angefordert
-    "Alleadsj. asedl. asdasd . asdi . asdasd. . . asd ... asdasd.");
-                                                                  ^
-../src/Praktikum1.cpp:20:9: Fehler: Redeklaration von »Ticket t«
-  Ticket t = new Ticket("Du", "Tolle Arbeit! :).");
-         ^
-../src/Praktikum1.cpp:17:9: Anmerkung: »Ticket t« wurde bereits hier deklariert
-  Ticket t = new Ticket("Seb",
-         ^
-../src/Praktikum1.cpp:22:9: Fehler: Redeklaration von »Ticket t«
-  Ticket t = new Ticket("Du", "Einfach mal ein Satz ohne Punkt!");
-         ^
-../src/Praktikum1.cpp:17:9: Anmerkung: »Ticket t« wurde bereits hier deklariert
-  Ticket t = new Ticket("Seb",
-         ^
-../src/Praktikum1.cpp:24:9: Fehler: Redeklaration von »Ticket t«
-  Ticket t = new Ticket("Er", "");
-         ^
-../src/Praktikum1.cpp:17:9: Anmerkung: »Ticket t« wurde bereits hier deklariert
-  Ticket t = new Ticket("Seb",
-         ^
-../src/Praktikum1.cpp:26:15: Fehler: »menue« wurde in diesem Gültigkeitsbereich nicht definiert
-  while (menue())
-               ^
-In file included from ../src/Praktikum1.cpp:10:0:
-../src/PrioQueue.cpp: In Instanziierung von »PrioQueue<T>::PrioQueue() [with T = Ticket]«:
-../src/Praktikum1.cpp:13:19:   von hier erfordert
-../src/PrioQueue.cpp:12:8: Fehler: no match for »operator=« (operand types are »std::vector<Ticket, std::allocator<Ticket> >« and »std::vector<Ticket, std::allocator<Ticket> >*«)
-  m_obj = new vector<T>();
-        ^
-../src/PrioQueue.cpp:12:8: Anmerkung: Kandidat ist:
-In file included from /usr/include/c++/4.9.2/vector:69:0,
-                 from ../src/PrioQueue.h:8,
-                 from ../src/PrioQueue.cpp:8,
-                 from ../src/Praktikum1.cpp:10:
-/usr/include/c++/4.9.2/bits/vector.tcc:167:5: Anmerkung: std::vector<_Tp, _Alloc>& std::vector<_Tp, _Alloc>::operator=(const std::vector<_Tp, _Alloc>&) [with _Tp = Ticket; _Alloc = std::allocator<Ticket>]
-     vector<_Tp, _Alloc>::
+../src/Praktikum1.cpp: In Funktion »bool menue(PrioQueue*)«:
+../src/Praktikum1.cpp:25:5: Fehler: no match for »operator=« (operand types are »Ticket« and »Ticket*«)
+   t = queue->pop();
      ^
-/usr/include/c++/4.9.2/bits/vector.tcc:167:5: Anmerkung:   keine bekannte Umwandlung für Argument 1 von »std::vector<Ticket, std::allocator<Ticket> >*« nach »const std::vector<Ticket, std::allocator<Ticket> >&«
+../src/Praktikum1.cpp:25:5: Anmerkung: Kandidat ist:
+In file included from ../src/PrioQueue.h:9:0,
+                 from ../src/Praktikum1.cpp:9:
+../src/Ticket.h:24:7: Anmerkung: Ticket& Ticket::operator=(const Ticket&)
+ class Ticket{
+       ^
+../src/Ticket.h:24:7: Anmerkung:   keine bekannte Umwandlung für Argument 1 von »Ticket*« nach »const Ticket&«
+../src/Praktikum1.cpp: In Funktion »int main()«:
+../src/Praktikum1.cpp:38:34: Fehler: Umwandlung von »PrioQueue*« in nicht-skalaren Typen »PrioQueue« angefordert
+  PrioQueue queue = new PrioQueue();
+                                  ^
+../src/Praktikum1.cpp:43:20: Fehler: »PrioQueue« kann nicht nach »PrioQueue*« für Argument »1« nach »bool menue(PrioQueue*)« umgewandelt werden
+  while (menue(queue))
+                    ^
 make: *** [src/Praktikum1.o] Error 1
 src/subdir.mk:24: recipe for target 'src/Praktikum1.o' failed

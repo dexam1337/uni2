@@ -1,0 +1,28 @@
+20:40:11 **** Build of configuration Debug for project Praktikum1ohneTemplate ****
+make all 
+Building file: ../src/Praktikum1.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Praktikum1.d" -MT"src/Praktikum1.o" -o "src/Praktikum1.o" "../src/Praktikum1.cpp"
+../src/Praktikum1.cpp: In Funktion »bool menue(PrioQueue*)«:
+../src/Praktikum1.cpp:25:5: Fehler: no match for »operator=« (operand types are »Ticket« and »Ticket*«)
+   t = queue->pop();
+     ^
+../src/Praktikum1.cpp:25:5: Anmerkung: Kandidat ist:
+In file included from ../src/PrioQueue.h:9:0,
+                 from ../src/Praktikum1.cpp:9:
+../src/Ticket.h:24:7: Anmerkung: Ticket& Ticket::operator=(const Ticket&)
+ class Ticket{
+       ^
+../src/Ticket.h:24:7: Anmerkung:   keine bekannte Umwandlung für Argument 1 von »Ticket*« nach »const Ticket&«
+../src/Praktikum1.cpp: In Funktion »int main()«:
+../src/Praktikum1.cpp:38:34: Fehler: Umwandlung von »PrioQueue*« in nicht-skalaren Typen »PrioQueue« angefordert
+  PrioQueue queue = new PrioQueue();
+                                  ^
+../src/Praktikum1.cpp:43:20: Fehler: »PrioQueue« kann nicht nach »PrioQueue*« für Argument »1« nach »bool menue(PrioQueue*)« umgewandelt werden
+  while (menue(queue))
+                    ^
+make: *** [src/Praktikum1.o] Error 1
+src/subdir.mk:24: recipe for target 'src/Praktikum1.o' failed
+
+20:40:11 Build Finished (took 158ms)
+
