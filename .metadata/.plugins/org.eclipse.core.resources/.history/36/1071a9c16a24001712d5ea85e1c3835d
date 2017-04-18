@@ -23,7 +23,7 @@ enum Status{
 
 struct Ticket{
 private:
-	static int id_counter;// = 0;
+	//static int id_counter;// = 0;
 	string m_text;
 	string m_owner;
 	Status m_status;
@@ -40,5 +40,5 @@ public:
 	void print() const;
 };
 
-int Ticket::id_counter = 0;
+//static int id_counter = 0;
 #endif /* TICKET_H_ */

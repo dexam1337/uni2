@@ -40,5 +40,5 @@ public:
 	void print() const;
 };
 
-int Ticket::id_counter = 0;
+int id_counter = 0;
 #endif /* TICKET_H_ */

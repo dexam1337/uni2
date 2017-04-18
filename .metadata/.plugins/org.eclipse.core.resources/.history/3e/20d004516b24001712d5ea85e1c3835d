@@ -31,7 +31,7 @@ bool menue(PrioQueue<Ticket>& queue) {
 		//queue = new PrioQueue<Ticket>();
 		return 1;
 	case 3:
-		//t = queue.pop();
+		t = queue.pop();
 		t.print();
 		return 1;
 	case 4:
