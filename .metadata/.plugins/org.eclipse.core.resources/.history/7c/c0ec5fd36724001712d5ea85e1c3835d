@@ -11,7 +11,7 @@
 #include "Ticket.h"
 using namespace std;
 
-bool menue(PrioQueue<Ticket> queue);
+bool menue();
 
 int main() {
 
