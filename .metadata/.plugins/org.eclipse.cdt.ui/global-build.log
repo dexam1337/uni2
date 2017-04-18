@@ -1,27 +1,19 @@
-20:46:16 **** Incremental Build of configuration Debug for project Praktikum1 ****
+20:52:22 **** Incremental Build of configuration Debug for project Praktikum1 ****
 make all 
 Building file: ../src/Praktikum1.cpp
 Invoking: Cross G++ Compiler
 g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Praktikum1.d" -MT"src/Praktikum1.o" -o "src/Praktikum1.o" "../src/Praktikum1.cpp"
-../src/Praktikum1.cpp: In Funktion »bool menue(PrioQueue<Ticket>)«:
-../src/Praktikum1.cpp:31:9: Fehler: no match for »operator=« (operand types are »PrioQueue<Ticket>« and »PrioQueue<Ticket>*«)
-   queue = new PrioQueue<Ticket>();
-         ^
-../src/Praktikum1.cpp:31:9: Anmerkung: Kandidaten sind:
-In file included from ../src/Praktikum1.cpp:10:0:
-../src/PrioQueue.h:18:7: Anmerkung: PrioQueue<Ticket>& PrioQueue<Ticket>::operator=(const PrioQueue<Ticket>&)
- class PrioQueue{
-       ^
-../src/PrioQueue.h:18:7: Anmerkung:   keine bekannte Umwandlung für Argument 1 von »PrioQueue<Ticket>*« nach »const PrioQueue<Ticket>&«
-../src/PrioQueue.h:18:7: Anmerkung: PrioQueue<Ticket>& PrioQueue<Ticket>::operator=(PrioQueue<Ticket>&&)
-../src/PrioQueue.h:18:7: Anmerkung:   keine bekannte Umwandlung für Argument 1 von »PrioQueue<Ticket>*« nach »PrioQueue<Ticket>&&«
-../src/Praktikum1.cpp:41:3: Fehler: expected »;« before »return«
-   return 0;
-   ^
 In file included from ../src/Praktikum1.cpp:11:0:
-../src/Ticket.h: Im globalen Gültigkeitsbereich:
 ../src/Ticket.h:43:12: Warnung: »id_counter« definiert, aber nicht verwendet [-Wunused-variable]
  static int id_counter = 0;
             ^
-src/subdir.mk:24: recipe for target 'src/Praktikum1.o' failed
-make: *** [src/Praktikum1.o] Error 1
+Finished building: ../src/Praktikum1.cpp
+ 
+Building target: Praktikum1
+Invoking: Cross G++ Linker
+g++  -o "Praktikum1"  ./src/Praktikum1.o ./src/PrioQueue.o ./src/Ticket.o   
+./src/Praktikum1.o: In function `menue(PrioQueue<Ticket>)':
+/home/sebastian/workspace/Praktikum1/Debug/../src/Praktikum1.cpp:34: undefined reference to `PrioQueue<Ticket>::pop()'
+makefile:45: recipe for target 'Praktikum1' failed
+collect2: Fehler: ld gab 1 als Ende-Status zurück
+make: *** [Praktikum1] Error 1

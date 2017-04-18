@@ -28,7 +28,7 @@ bool menue(PrioQueue<Ticket> queue) {
 
 		return 1;
 	case 2:
-		//queue = new PrioQueue<Ticket>();
+		queue = new PrioQueue<Ticket>();
 		return 1;
 	case 3:
 		t = queue.pop();
@@ -37,7 +37,7 @@ bool menue(PrioQueue<Ticket> queue) {
 	case 4:
 		return 0;
 	default:
-		cout << "Invalid input. Exiting";
+		cout << "Invalid input. Exiting"
 		return 0;
 	}
 	return 0;
