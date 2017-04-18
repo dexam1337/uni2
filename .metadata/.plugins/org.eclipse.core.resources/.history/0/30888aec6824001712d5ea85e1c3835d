@@ -11,14 +11,14 @@
 #include "Ticket.h"
 using namespace std;
 
-bool menue(PrioQueue<Ticket>& queue);
+bool menue(PrioQueue<Ticket> queue);
 
 int main() {
 
 	return 0;
 }
 
-bool menue(PrioQueue<Ticket>& queue) {
+bool menue(PrioQueue<Ticket> queue) {
 	cout << "1. new ticket \n2. clear \n3. next \n4. EXIT \n" << endl;
 	int input;
 	Ticket t;
@@ -28,7 +28,7 @@ bool menue(PrioQueue<Ticket>& queue) {
 
 		return 1;
 	case 2:
-		//queue = new PrioQueue<Ticket>();
+		queue = new PrioQueue<Ticket>();
 		return 1;
 	case 3:
 		t = queue.pop();

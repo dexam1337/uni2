@@ -1,4 +1,4 @@
-20:52:22 **** Incremental Build of configuration Debug for project Praktikum1 ****
+20:57:58 **** Build of configuration Debug for project Praktikum1 ****
 make all 
 Building file: ../src/Praktikum1.cpp
 Invoking: Cross G++ Compiler
@@ -9,6 +9,16 @@ In file included from ../src/Praktikum1.cpp:11:0:
             ^
 Finished building: ../src/Praktikum1.cpp
  
+Building file: ../src/PrioQueue.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/PrioQueue.d" -MT"src/PrioQueue.o" -o "src/PrioQueue.o" "../src/PrioQueue.cpp"
+Finished building: ../src/PrioQueue.cpp
+ 
+Building file: ../src/Ticket.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Ticket.d" -MT"src/Ticket.o" -o "src/Ticket.o" "../src/Ticket.cpp"
+Finished building: ../src/Ticket.cpp
+ 
 Building target: Praktikum1
 Invoking: Cross G++ Linker
 g++  -o "Praktikum1"  ./src/Praktikum1.o ./src/PrioQueue.o ./src/Ticket.o   
@@ -18,5 +28,5 @@ makefile:45: recipe for target 'Praktikum1' failed
 collect2: Fehler: ld gab 1 als Ende-Status zurück
 make: *** [Praktikum1] Error 1
 
-20:52:22 Build Finished (took 262ms)
+20:57:58 Build Finished (took 467ms)
 
