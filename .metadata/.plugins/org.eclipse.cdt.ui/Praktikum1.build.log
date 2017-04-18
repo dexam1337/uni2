@@ -1,41 +1,30 @@
-16:15:49 **** Incremental Build of configuration Debug for project Praktikum1 ****
+20:46:16 **** Incremental Build of configuration Debug for project Praktikum1 ****
 make all 
 Building file: ../src/Praktikum1.cpp
-Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Praktikum1.d" -MT"src/Praktikum1.o" -o "src/Praktikum1.o" "../src/Praktikum1.cpp"
-../src/Praktikum1.cpp: In Funktion »int main()«:
-../src/Praktikum1.cpp:18:8: Fehler: no match for »operator=« (operand types are »PrioQueue<Ticket>« and »PrioQueue<Ticket>*«)
-  queue = new PrioQueue<Ticket>();
-        ^
-../src/Praktikum1.cpp:18:8: Anmerkung: Kandidat ist:
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Praktikum1.d" -MT"src/Praktikum1.o" -o "src/Praktikum1.o" "../src/Praktikum1.cpp"
+../src/Praktikum1.cpp: In Funktion »bool menue(PrioQueue<Ticket>)«:
+../src/Praktikum1.cpp:31:9: Fehler: no match for »operator=« (operand types are »PrioQueue<Ticket>« and »PrioQueue<Ticket>*«)
+   queue = new PrioQueue<Ticket>();
+         ^
+../src/Praktikum1.cpp:31:9: Anmerkung: Kandidaten sind:
 In file included from ../src/Praktikum1.cpp:10:0:
 ../src/PrioQueue.h:18:7: Anmerkung: PrioQueue<Ticket>& PrioQueue<Ticket>::operator=(const PrioQueue<Ticket>&)
  class PrioQueue{
        ^
 ../src/PrioQueue.h:18:7: Anmerkung:   keine bekannte Umwandlung für Argument 1 von »PrioQueue<Ticket>*« nach »const PrioQueue<Ticket>&«
-../src/Praktikum1.cpp:20:66: Fehler: Umwandlung von »Ticket*« in nicht-skalaren Typen »Ticket« angefordert
-    "Alleadsj. asedl. asdasd . asdi . asdasd. . . asd ... asdasd.");
-                                                                  ^
-../src/Praktikum1.cpp:22:9: Fehler: Redeklaration von »Ticket t«
-  Ticket t = new Ticket("Du", "Tolle Arbeit! :).");
-         ^
-../src/Praktikum1.cpp:19:9: Anmerkung: »Ticket t« wurde bereits hier deklariert
-  Ticket t = new Ticket("Seb",
-         ^
-../src/Praktikum1.cpp:24:9: Fehler: Redeklaration von »Ticket t«
-  Ticket t = new Ticket("Du", "Einfach mal ein Satz ohne Punkt!");
-         ^
-../src/Praktikum1.cpp:19:9: Anmerkung: »Ticket t« wurde bereits hier deklariert
-  Ticket t = new Ticket("Seb",
-         ^
-../src/Praktikum1.cpp:26:9: Fehler: Redeklaration von »Ticket t«
-  Ticket t = new Ticket("Er", "");
-         ^
-../src/Praktikum1.cpp:19:9: Anmerkung: »Ticket t« wurde bereits hier deklariert
-  Ticket t = new Ticket("Seb",
-         ^
-make: *** [src/Praktikum1.o] Error 1
+../src/PrioQueue.h:18:7: Anmerkung: PrioQueue<Ticket>& PrioQueue<Ticket>::operator=(PrioQueue<Ticket>&&)
+../src/PrioQueue.h:18:7: Anmerkung:   keine bekannte Umwandlung für Argument 1 von »PrioQueue<Ticket>*« nach »PrioQueue<Ticket>&&«
+../src/Praktikum1.cpp:41:3: Fehler: expected »;« before »return«
+   return 0;
+   ^
+In file included from ../src/Praktikum1.cpp:11:0:
+../src/Ticket.h: Im globalen Gültigkeitsbereich:
+../src/Ticket.h:43:12: Warnung: »id_counter« definiert, aber nicht verwendet [-Wunused-variable]
+ static int id_counter = 0;
+            ^
 src/subdir.mk:24: recipe for target 'src/Praktikum1.o' failed
+make: *** [src/Praktikum1.o] Error 1
 
-16:15:49 Build Finished (took 209ms)
+20:46:16 Build Finished (took 211ms)
 

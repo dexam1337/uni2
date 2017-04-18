@@ -7,6 +7,8 @@
 
 #include "Ticket.h"
 
+
+
 Ticket::Ticket() {
 	m_text = "NULL";
 	m_owner = "NOONE";

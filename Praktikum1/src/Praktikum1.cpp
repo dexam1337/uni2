@@ -11,28 +11,17 @@
 #include "Ticket.h"
 using namespace std;
 
-PrioQueue<Ticket> queue;
 bool menue();
 
 int main() {
-	queue = new PrioQueue<Ticket>();
-	Ticket t = new Ticket("Seb",
-			"Alleadsj. asedl. asdasd . asdi . asdasd. . . asd ... asdasd.");
-	queue.push(t);
-	Ticket t = new Ticket("Du", "Tolle Arbeit! :).");
-	queue.push(t);
-	Ticket t = new Ticket("Du", "Einfach mal ein Satz ohne Punkt!");
-	queue.push(t);
-	Ticket t = new Ticket("Er", "");
-	queue.push(t);
-	while (menue())
-		;
+
 	return 0;
 }
 
-bool menue() {/*
+bool menue(PrioQueue<Ticket> queue) {
 	cout << "1. new ticket \n2. clear \n3. next \n4. EXIT \n" << endl;
 	int input;
+	Ticket t;
 	cin >> input;
 	switch (input) {
 	case 1:
@@ -42,14 +31,14 @@ bool menue() {/*
 		queue = new PrioQueue<Ticket>();
 		return 1;
 	case 3:
-		Ticket t = queue.pop();
-		ticket.print();
+		t = queue.pop();
+		t.print();
 		return 1;
 	case 4:
 		return 0;
 	default:
 		cout << "Invalid input. Exiting"
 		return 0;
-	}*/
+	}
 	return 0;
 }

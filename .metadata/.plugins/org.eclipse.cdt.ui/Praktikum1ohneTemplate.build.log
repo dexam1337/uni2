@@ -1,28 +1,32 @@
-20:40:11 **** Build of configuration Debug for project Praktikum1ohneTemplate ****
+19:49:14 **** Incremental Build of configuration Debug for project Praktikum1ohneTemplate ****
 make all 
 Building file: ../src/Praktikum1.cpp
 Invoking: GCC C++ Compiler
 g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Praktikum1.d" -MT"src/Praktikum1.o" -o "src/Praktikum1.o" "../src/Praktikum1.cpp"
-../src/Praktikum1.cpp: In Funktion »bool menue(PrioQueue*)«:
-../src/Praktikum1.cpp:25:5: Fehler: no match for »operator=« (operand types are »Ticket« and »Ticket*«)
-   t = queue->pop();
-     ^
-../src/Praktikum1.cpp:25:5: Anmerkung: Kandidat ist:
-In file included from ../src/PrioQueue.h:9:0,
-                 from ../src/Praktikum1.cpp:9:
-../src/Ticket.h:24:7: Anmerkung: Ticket& Ticket::operator=(const Ticket&)
- class Ticket{
-       ^
-../src/Ticket.h:24:7: Anmerkung:   keine bekannte Umwandlung für Argument 1 von »Ticket*« nach »const Ticket&«
-../src/Praktikum1.cpp: In Funktion »int main()«:
-../src/Praktikum1.cpp:38:34: Fehler: Umwandlung von »PrioQueue*« in nicht-skalaren Typen »PrioQueue« angefordert
-  PrioQueue queue = new PrioQueue();
-                                  ^
-../src/Praktikum1.cpp:43:20: Fehler: »PrioQueue« kann nicht nach »PrioQueue*« für Argument »1« nach »bool menue(PrioQueue*)« umgewandelt werden
-  while (menue(queue))
-                    ^
-make: *** [src/Praktikum1.o] Error 1
-src/subdir.mk:24: recipe for target 'src/Praktikum1.o' failed
+Finished building: ../src/Praktikum1.cpp
+ 
+Building file: ../src/PrioQueue.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/PrioQueue.d" -MT"src/PrioQueue.o" -o "src/PrioQueue.o" "../src/PrioQueue.cpp"
+Finished building: ../src/PrioQueue.cpp
+ 
+Building file: ../src/Ticket.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Ticket.d" -MT"src/Ticket.o" -o "src/Ticket.o" "../src/Ticket.cpp"
+Finished building: ../src/Ticket.cpp
+ 
+Building target: Praktikum1ohneTemplate
+Invoking: GCC C++ Linker
+g++  -o "Praktikum1ohneTemplate"  ./src/Praktikum1.o ./src/PrioQueue.o ./src/Ticket.o   
+./src/PrioQueue.o: In function `__gnu_cxx::new_allocator<Ticket>::new_allocator()':
+/home/sebastian/workspace/Praktikum1ohneTemplate/Debug/../src/PrioQueue.cpp:10: multiple definition of `Ticket::id_counter'
+makefile:45: recipe for target 'Praktikum1ohneTemplate' failed
+./src/Praktikum1.o:/home/sebastian/workspace/Praktikum1ohneTemplate/Debug/../src/Praktikum1.cpp:12: first defined here
+./src/Ticket.o: In function `Ticket::Ticket()':
+/home/sebastian/workspace/Praktikum1ohneTemplate/Debug/../src/Ticket.cpp:10: multiple definition of `Ticket::id_counter'
+./src/Praktikum1.o:/home/sebastian/workspace/Praktikum1ohneTemplate/Debug/../src/Praktikum1.cpp:12: first defined here
+collect2: Fehler: ld gab 1 als Ende-Status zurück
+make: *** [Praktikum1ohneTemplate] Error 1
 
-20:40:11 Build Finished (took 158ms)
+19:49:15 Build Finished (took 459ms)
 

@@ -1,0 +1,10 @@
+//============================================================================
+// Name        : Praktikum1.cpp
+// Author      : Sebastian Schuch
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include "PrioQueue.h"
+using namespace std;
