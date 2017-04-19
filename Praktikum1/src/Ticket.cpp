@@ -11,18 +11,21 @@
 
 Ticket::Ticket() {
 	m_text = "NULL";
-	m_owner = "NOONE";
+	m_owner = "NONE";
 	m_status = invalid;
-	m_id = id_counter;
-
-	id_counter++;
+	m_id = -1;
+        m_prio = -1;
+//	id_counter++;
 }
 
-Ticket::Ticket(string ownerName, string description) {
+Ticket::Ticket(string ownerName, string description,int prio) {
+    if(prio <0||ownerName ==""||description=="")
+        throw invalid_argument("Ungültige Parameter in Konstruktor von Ticket");
 	m_text = description;
 	m_owner = ownerName;
 	m_status = open;
 	m_id = id_counter;
+        m_prio = prio;
 
 	id_counter++;
 }
@@ -62,6 +65,12 @@ string Ticket::getStatusAsString() const /*throw(string)*/ {
 }
 
 void Ticket::print() const{
-	cout << "ID: " << m_id << "\nStatus: " << getStatusAsString() << "\nErsteller: " << m_owner << "\n" << m_text << endl;
+    if(m_id!=-1)
+	cout << "ID: " << m_id << "\nStatus: " << getStatusAsString() << "\nErsteller: " << m_owner << "\nPriorität: " << m_prio << "\n" << m_text<< endl;
 }
 
+
+int Ticket::getPrio() const
+{
+    return m_prio;
+}
