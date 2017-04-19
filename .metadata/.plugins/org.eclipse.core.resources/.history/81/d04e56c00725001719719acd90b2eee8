@@ -18,7 +18,7 @@ Ticket::Ticket() {
 
 Ticket::Ticket(string ownerName, string description, int prio) {
 	if (prio < 0 || ownerName == "" || description == "")
-		throw "Ungültige Parameter in Konstruktor von Ticket";
+		throw invalid_argument("Ungültige Parameter in Konstruktor von Ticket");
 	m_text = description;
 	m_owner = ownerName;
 	m_status = open;

@@ -44,7 +44,7 @@ public:
     {
         cout<<m_obj.size()<<endl;
         if(m_obj.size() == 0){
-            throw "kein obj";
+            throw runtime_error("kein obj");
             
         }
         T obj = m_obj.front();

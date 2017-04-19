@@ -1,29 +1,6 @@
-21:15:25 **** Build of configuration Debug for project Praktikum1 ****
+15:58:25 **** Incremental Build of configuration Debug for project Praktikum1 ****
 make all 
-Building file: ../src/Praktikum1.cpp
-Invoking: Cross G++ Compiler
-g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Praktikum1.d" -MT"src/Praktikum1.o" -o "src/Praktikum1.o" "../src/Praktikum1.cpp"
-Finished building: ../src/Praktikum1.cpp
- 
-Building file: ../src/PrioQueue.cpp
-Invoking: Cross G++ Compiler
-g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/PrioQueue.d" -MT"src/PrioQueue.o" -o "src/PrioQueue.o" "../src/PrioQueue.cpp"
-Finished building: ../src/PrioQueue.cpp
- 
-Building file: ../src/Ticket.cpp
-Invoking: Cross G++ Compiler
-g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Ticket.d" -MT"src/Ticket.o" -o "src/Ticket.o" "../src/Ticket.cpp"
-Finished building: ../src/Ticket.cpp
- 
-Building target: Praktikum1
-Invoking: Cross G++ Linker
-g++  -o "Praktikum1"  ./src/Praktikum1.o ./src/PrioQueue.o ./src/Ticket.o   
-./src/Ticket.o: In function `Ticket::Ticket()':
-/home/sebastian/workspace/Praktikum1/Debug/../src/Ticket.cpp:12: multiple definition of `Ticket::id_counter'
-./src/Praktikum1.o:/home/sebastian/workspace/Praktikum1/Debug/../src/Praktikum1.cpp:16: first defined here
-collect2: Fehler: ld gab 1 als Ende-Status zurück
-makefile:45: recipe for target 'Praktikum1' failed
-make: *** [Praktikum1] Error 1
+make: Nothing to be done for 'all'.
 
-21:15:26 Build Finished (took 461ms)
+15:58:25 Build Finished (took 58ms)
 
