@@ -1,15 +1,6 @@
-23:45:33 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+23:58:40 **** Incremental Build of configuration Debug for project DungeonCrawler ****
 make all 
-Building file: ../main.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
-Finished building: ../main.cpp
- 
-Building target: DungeonCrawler
-Invoking: Cross G++ Linker
-g++  -o "DungeonCrawler"  ./Character.o ./DungeonMap.o ./GameEngine.o ./Title.o ./main.o   
-Finished building target: DungeonCrawler
- 
+make: Nothing to be done for 'all'.
 
-23:45:33 Build Finished (took 107ms)
+23:58:40 Build Finished (took 59ms)
 

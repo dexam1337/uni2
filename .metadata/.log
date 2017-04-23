@@ -5443,3 +5443,15 @@ java.io.IOException: Unable to resolve plug-in "platform:/plugin/org.eclipse.jdt
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:610)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1519)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1492)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-04-23 23:57:31.493
+!MESSAGE Indexed 'DungeonCrawler' (5 sources, 4 headers) in 0,013 sec: 25 declarations; 30 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-04-23 23:58:00.552
+!MESSAGE Indexed 'DungeonCrawler' (5 sources, 4 headers) in 0,013 sec: 25 declarations; 30 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0 %)
+
+!ENTRY org.eclipse.launchbar.core 2 0 2017-04-23 23:58:40.199
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2017-04-23 23:58:40.200
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
