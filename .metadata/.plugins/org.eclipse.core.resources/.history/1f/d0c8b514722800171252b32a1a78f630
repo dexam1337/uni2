@@ -9,10 +9,8 @@
 #define DUNGEONMAP_H_
 
 typedef struct{
-	unsigned int x;
-	unsigned int y;
-} pos;
 
+} pos;
 class DungeonMap{
 private:
 	Tile*** m_map = 0;

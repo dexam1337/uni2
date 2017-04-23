@@ -9,8 +9,7 @@
 #define DUNGEONMAP_H_
 
 typedef struct{
-	unsigned int x;
-	unsigned int y;
+
 } pos;
 
 class DungeonMap{

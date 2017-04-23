@@ -20,23 +20,19 @@ Character* Tile::getCharacter() {
 	return m_character;
 }
 
-bool Tile::hasCharacter() {
-	if (m_character == nullptr)
+bool Tile::hasCharacter(){
+	if(m_character == nullptr)
 		return false;
 	return true;
 }
 
-void Tile::setCharacter(Character* character) {
+void Tile::setCharacter(Character* character){
 	m_character = character;
 }
 
-void Tile::onLeave(Tile* toTile) {
-	if (toTile->hasCharacter() == false) {
-		toTile->onEnter(m_character, this);
-		m_character = nullptr;
-	}
-}
+void Tile::onLeave(Tile* toTile){
 
-void Tile::onEnter(Character* c, Tile* fromTile) {
-	m_character = c;
 }
+	void Tile::onEnter(Character* c, Tile* fromTile){
+
+	}

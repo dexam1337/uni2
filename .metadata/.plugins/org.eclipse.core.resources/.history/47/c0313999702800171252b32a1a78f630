@@ -32,11 +32,11 @@ void Tile::setCharacter(Character* character) {
 
 void Tile::onLeave(Tile* toTile) {
 	if (toTile->hasCharacter() == false) {
-		toTile->onEnter(m_character, this);
-		m_character = nullptr;
+		Character* leaving = m_character;
+		m_character = nullprt;
 	}
 }
 
 void Tile::onEnter(Character* c, Tile* fromTile) {
-	m_character = c;
+
 }

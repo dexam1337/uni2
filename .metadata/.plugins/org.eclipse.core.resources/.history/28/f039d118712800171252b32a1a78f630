@@ -38,5 +38,5 @@ void Tile::onLeave(Tile* toTile) {
 }
 
 void Tile::onEnter(Character* c, Tile* fromTile) {
-	m_character = c;
+
 }

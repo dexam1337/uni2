@@ -28,8 +28,6 @@ public:
 	Character* getCharacter();
 	bool hasCharacter();
 	void setCharacter(Character* character);
-	void onLeave(Tile* toTile);
-	void onEnter(Character* c, Tile* fromTile);
 };
 
 
