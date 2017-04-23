@@ -5,7 +5,6 @@
  *      Author: sebastian
  */
 
-
 #ifndef DUNGEONMAP_H_
 #define DUNGEONMAP_H_
 
@@ -14,18 +13,18 @@
 #include "Tile.h"
 
 typedef struct{
-	unsigned int height;
-	unsigned int width;
+	unsigned int hoehe;
+	unsigned int breite;
 } pos;
 
 class DungeonMap{
 private:
 	Tile*** m_map = 0;
 public:
-	const unsigned int maxHeight;
-	const unsigned int maxWidth;
+	const unsigned int maxHoehe;
+	const unsigned int maxBreite;
 	DungeonMap(int height, int width);
-	DungeonMap(int height, int width, const vector<string>& data);
+	//DungeonMap(int height, int width, const vector<string>& data);
 };
 
 

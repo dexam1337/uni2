@@ -1,6 +1,17 @@
-23:58:40 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+00:21:51 **** Incremental Build of configuration Debug for project DungeonCrawler ****
 make all 
-make: Nothing to be done for 'all'.
+Building file: ../DungeonMap.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DungeonMap.d" -MT"DungeonMap.o" -o "DungeonMap.o" "../DungeonMap.cpp"
+In file included from ../DungeonMap.cpp:9:0:
+../DungeonMap.h:28:42: Fehler: »vector« bezeichnet keinen Typ
+  DungeonMap(int height, int width, const vector<string>& data);
+                                          ^
+../DungeonMap.h:28:48: Fehler: expected »,« or »...« before »<« token
+  DungeonMap(int height, int width, const vector<string>& data);
+                                                ^
+subdir.mk:30: recipe for target 'DungeonMap.o' failed
+make: *** [DungeonMap.o] Error 1
 
-23:58:40 Build Finished (took 59ms)
+00:21:51 Build Finished (took 160ms)
 
