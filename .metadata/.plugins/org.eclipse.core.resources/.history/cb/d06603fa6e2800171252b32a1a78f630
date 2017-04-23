@@ -1,0 +1,33 @@
+/*
+ * Title.h
+ *
+ *  Created on: 23.04.2017
+ *      Author: sebastian
+ */
+
+
+#ifndef TITLE_H_
+#define TITLE_H_
+
+#include "Character.h"
+
+
+typedef enum {
+	Floor,
+	Wall
+} Typ;
+
+class Title{
+private:
+	Typ m_typ;
+	Character* m_character = nullptr;
+
+public:
+	Title(Typ typ, Character* character);
+	Typ getTyp();
+	Character* getCharacter();
+};
+
+
+
+#endif /* TITLE_H_ */

@@ -1,0 +1,24 @@
+/*
+ * Title.h
+ *
+ *  Created on: 23.04.2017
+ *      Author: sebastian
+ */
+
+#ifndef TITLE_H_
+#define TITLE_H_
+
+
+
+class Title{
+public:
+	enum{
+		Floor,
+		Wall
+	};
+private:
+};
+
+
+
+#endif /* TITLE_H_ */

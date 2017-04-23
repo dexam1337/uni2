@@ -1,0 +1,20 @@
+/*
+ * Title.cpp
+ *
+ *  Created on: 23.04.2017
+ *      Author: sebastian
+ */
+
+#include "Title.h"
+
+Title::Title(Typ typ, Character* character) {
+	m_typ = typ;
+	m_character = character;
+}
+
+Typ Title::getTyp() {
+
+}
+Character* Title::getCharacter() {
+
+}

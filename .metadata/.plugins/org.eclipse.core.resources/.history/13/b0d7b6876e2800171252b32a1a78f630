@@ -1,0 +1,11 @@
+/*
+ * Title.cpp
+ *
+ *  Created on: 23.04.2017
+ *      Author: sebastian
+ */
+
+#include "Title.h"
+
+
+Title(Typ typ, Character* character);
