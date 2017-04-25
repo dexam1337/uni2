@@ -11,25 +11,28 @@
 
 #include "Character.h"
 
+class Tile
+{
 
-typedef enum {
-	Floor,
-	Wall
-} Typ;
 
-class Tile{
+
+
+public:  
+    enum Typ
+    {
+        Floor,
+        Wall
+    };
+    Tile(Typ typ, Character* character);
+    Typ getTyp();
+    Character* getCharacter();
+    bool hasCharacter();
+    void setCharacter(Character* character);
+    void onLeave(Tile* toTile);
+    void onEnter(Character* c, Tile* fromTile);
 private:
-	Typ m_typ;
-	Character* m_character = nullptr;
-
-public:
-	Tile(Typ typ, Character* character);
-	Typ getTyp();
-	Character* getCharacter();
-	bool hasCharacter();
-	void setCharacter(Character* character);
-	void onLeave(Tile* toTile);
-	void onEnter(Character* c, Tile* fromTile);
+    Typ m_typ;
+    Character* m_character = nullptr;
 };
 
 
