@@ -13,7 +13,7 @@ Tile::Tile(Typ typ, Character* character)
     m_character = character;
 }
 
-Typ Tile::getTyp()
+Tile::Typ Tile::getTyp()
 {
     return m_typ;
 }

@@ -1,0 +1,23 @@
+/*
+ * DungeonMap.cpp
+ *
+ *  Created on: 23.04.2017
+ *      Author: sebastian
+ */
+
+#include "DungeonMap.h"
+
+DungeonMap::DungeonMap(const unsigned int height,const unsigned int width)
+{
+    m_maxHeight = height;
+    m_maxWidth = width;
+
+    m_map = new Tile[5][5](Tile::Floor, nullptr)*;
+}
+
+DungeonMap::DungeonMap(const unsigned int height,const unsigned int width, const vector<string>& data)
+{
+    m_maxHeight = height;
+    m_maxWidth = width;
+
+}

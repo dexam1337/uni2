@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="GitCommitMessageComponent">
+		<list key="/home/sebastian/workspace/.git">
+			<item value="false"/>
+			<item value="Corship &lt;schuch1996@gmail.com&gt;"/>
+			<item value="Initial create"/>
+			<item value="Corship &lt;schuch1996@gmail.com&gt;"/>
+			<item value="71d9ad840cbd304b3c19d6be6705bec2ac1c6a16"/>
+		</list>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.staging.StagingView">
+		<item value="200,200" key="STAGING_SASH_FORM_WEIGHT"/>
+		<item value="false" key="sortItemState"/>
+		<item value="200,200" key="HORIZONTAL_SASH_FORM_WEIGHT"/>
+	</section>
+</section>
