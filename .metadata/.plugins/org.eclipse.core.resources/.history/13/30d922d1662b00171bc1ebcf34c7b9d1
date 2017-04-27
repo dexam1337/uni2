@@ -38,20 +38,3 @@ DungeonMap::DungeonMap(const unsigned int height, const unsigned int width,
 		}
 	}
 }
-
-
-void DungeonMap::place(Position pos, Character* c){
-
-}
-    Position DungeonMap::findTile(Tile* t){
-
-    }
-    Tile* DungeonMap::findTile(Position pos){
-
-    }
-    Position DungeonMap::findCharacter(Character* c){
-
-    }
-    void DungeonMap::print(){
-
-    }

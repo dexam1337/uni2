@@ -33,8 +33,6 @@ public:
     void place(Position pos, Character* c);
     Position findTile(Tile* t);
     Tile* findTile(Position pos);
-    Position findCharacter(Character* c);
-    void print();
 };
 
 

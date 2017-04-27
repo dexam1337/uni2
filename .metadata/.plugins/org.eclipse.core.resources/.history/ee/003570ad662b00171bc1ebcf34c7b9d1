@@ -18,7 +18,7 @@ typedef struct
 {
     unsigned int height;
     unsigned int width;
-} Position;
+} pos;
 
 class DungeonMap
 {
@@ -29,12 +29,6 @@ public:
     unsigned int m_maxWidth;
     DungeonMap(const unsigned int height,const unsigned int width);
     DungeonMap(const unsigned int height,const unsigned int width, const vector<string>& data);
-
-    void place(Position pos, Character* c);
-    Position findTile(Tile* t);
-    Tile* findTile(Position pos);
-    Position findCharacter(Character* c);
-    void print();
 };
 
 
