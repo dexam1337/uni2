@@ -13,7 +13,7 @@ class GameEngine{
 public:
 	GameEngine(const unsigned int height,const unsigned int width, const vector<string>& data);
 	void run();
-	void turn();
+	void turn()
 	bool finished();
 private:
 	DungeonMap m_map;

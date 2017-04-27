@@ -1,4 +1,4 @@
-19:42:02 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+19:44:30 **** Incremental Build of configuration Debug for project DungeonCrawler ****
 make all 
 Building file: ../GameEngine.cpp
 Invoking: GCC C++ Compiler
@@ -39,5 +39,5 @@ In file included from ../GameEngine.h:10:0,
 subdir.mk:30: recipe for target 'GameEngine.o' failed
 make: *** [GameEngine.o] Error 1
 
-19:42:02 Build Finished (took 220ms)
+19:44:30 Build Finished (took 216ms)
 

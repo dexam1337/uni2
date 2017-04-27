@@ -12,9 +12,7 @@
 class GameEngine{
 public:
 	GameEngine(const unsigned int height,const unsigned int width, const vector<string>& data);
-	void run();
-	void turn();
-	bool finished();
+	run();
 private:
 	DungeonMap m_map;
 	vector<Character *> characters;
