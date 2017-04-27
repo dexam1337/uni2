@@ -102,3 +102,124 @@ make: Nothing to be done for 'all'.
 19:31:06 **** Incremental Build of configuration Debug for project DungeonCrawler ****
 make all 
 make: Nothing to be done for 'all'.
+19:36:35 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+Building file: ../GameEngine.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"GameEngine.d" -MT"GameEngine.o" -o "GameEngine.o" "../GameEngine.cpp"
+Finished building: ../GameEngine.cpp
+ 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In Funktion »int main()«:
+../main.cpp:11:2: Fehler: »vector« wurde in diesem Gültigkeitsbereich nicht definiert
+  vector<string> data{
+subdir.mk:30: recipe for target 'main.o' failed
+  ^
+../main.cpp:11:9: Fehler: »string« wurde in diesem Gültigkeitsbereich nicht definiert
+  vector<string> data{
+         ^
+../main.cpp:11:17: Fehler: »data« wurde in diesem Gültigkeitsbereich nicht definiert
+  vector<string> data{
+                 ^
+../main.cpp:23:5: Fehler: »class GameEngine« hat kein Element namens »run«
+  ge.run();
+     ^
+make: *** [main.o] Error 1
+19:37:46 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+Building file: ../GameEngine.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"GameEngine.d" -MT"GameEngine.o" -o "GameEngine.o" "../GameEngine.cpp"
+Finished building: ../GameEngine.cpp
+ 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In Funktion »int main()«:
+../main.cpp:11:2: Fehler: »vector« wurde in diesem Gültigkeitsbereich nicht definiert
+  vector<string> data{
+  ^
+../main.cpp:11:9: Fehler: »string« wurde in diesem Gültigkeitsbereich nicht definiert
+  vector<string> data{
+subdir.mk:30: recipe for target 'main.o' failed
+         ^
+../main.cpp:11:17: Fehler: »data« wurde in diesem Gültigkeitsbereich nicht definiert
+  vector<string> data{
+                 ^
+../main.cpp:23:5: Fehler: »class GameEngine« hat kein Element namens »run«
+  ge.run();
+     ^
+make: *** [main.o] Error 1
+19:38:54 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+Building file: ../GameEngine.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"GameEngine.d" -MT"GameEngine.o" -o "GameEngine.o" "../GameEngine.cpp"
+Finished building: ../GameEngine.cpp
+ 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In Funktion »int main()«:
+../main.cpp:22:26: Fehler: keine passende Funktion für Aufruf von »GameEngine::GameEngine(int, int, std::vector<std::basic_string<char> >&)«
+  GameEngine ge(10,10,data);
+                          ^
+../main.cpp:22:26: Anmerkung: Kandidaten sind:
+In file included from ../main.cpp:7:0:
+../GameEngine.h:14:2: Anmerkung: GameEngine::GameEngine()
+  GameEngine();
+  ^
+../GameEngine.h:14:2: Anmerkung:   Kandidat erwartet 0 Argumente, 3 angegeben
+../GameEngine.h:12:7: Anmerkung: constexpr GameEngine::GameEngine(const GameEngine&)
+ class GameEngine{
+       ^
+../GameEngine.h:12:7: Anmerkung:   Kandidat erwartet 1 Argument, 3 angegeben
+../GameEngine.h:12:7: Anmerkung: constexpr GameEngine::GameEngine(GameEngine&&)
+../GameEngine.h:12:7: Anmerkung:   Kandidat erwartet 1 Argument, 3 angegeben
+../main.cpp:23:5: Fehler: »class GameEngine« hat kein Element namens »run«
+  ge.run();
+     ^
+subdir.mk:30: recipe for target 'main.o' failed
+make: *** [main.o] Error 1
+19:42:02 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+Building file: ../GameEngine.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"GameEngine.d" -MT"GameEngine.o" -o "GameEngine.o" "../GameEngine.cpp"
+../GameEngine.cpp: In Konstruktor »GameEngine::GameEngine(unsigned int, unsigned int, const std::vector<std::basic_string<char> >&)«:
+../GameEngine.cpp:12:102: Fehler: keine passende Funktion für Aufruf von »DungeonMap::DungeonMap()«
+ GameEngine::GameEngine(const unsigned int height,const unsigned int width, const vector<string>& data){
+                                                                                                      ^
+../GameEngine.cpp:12:102: Anmerkung: Kandidaten sind:
+In file included from ../GameEngine.h:10:0,
+                 from ../GameEngine.cpp:10:
+../DungeonMap.h:33:5: Anmerkung: DungeonMap::DungeonMap(unsigned int, unsigned int, const std::vector<std::basic_string<char> >&)
+     DungeonMap(const unsigned int height,const unsigned int width, const vector<string>& data);
+     ^
+../DungeonMap.h:33:5: Anmerkung:   Kandidat erwartet 3 Argumente, 0 angegeben
+../DungeonMap.h:32:5: Anmerkung: DungeonMap::DungeonMap(unsigned int, unsigned int)
+     DungeonMap(const unsigned int height,const unsigned int width);
+     ^
+../DungeonMap.h:32:5: Anmerkung:   Kandidat erwartet 2 Argumente, 0 angegeben
+../DungeonMap.h:25:7: Anmerkung: constexpr DungeonMap::DungeonMap(const DungeonMap&)
+ class DungeonMap
+       ^
+../DungeonMap.h:25:7: Anmerkung:   Kandidat erwartet 1 Argument, 0 angegeben
+../DungeonMap.h:25:7: Anmerkung: constexpr DungeonMap::DungeonMap(DungeonMap&&)
+../DungeonMap.h:25:7: Anmerkung:   Kandidat erwartet 1 Argument, 0 angegeben
+../GameEngine.cpp:13:20: Fehler: expected primary-expression before »(« token
+  m_map = DungeonMap(const unsigned int height,const unsigned int width, const vector<string>& data);
+                    ^
+../GameEngine.cpp:13:21: Fehler: expected primary-expression before »const«
+  m_map = DungeonMap(const unsigned int height,const unsigned int width, const vector<string>& data);
+                     ^
+../GameEngine.cpp:13:47: Fehler: expected primary-expression before »const«
+  m_map = DungeonMap(const unsigned int height,const unsigned int width, const vector<string>& data);
+                                               ^
+../GameEngine.cpp:13:73: Fehler: expected primary-expression before »const«
+  m_map = DungeonMap(const unsigned int height,const unsigned int width, const vector<string>& data);
+                                                                         ^
+subdir.mk:30: recipe for target 'GameEngine.o' failed
+make: *** [GameEngine.o] Error 1

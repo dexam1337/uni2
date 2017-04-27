@@ -4,7 +4,7 @@
  *  Created on: 23.04.2017
  *      Author: sebastian
  */
-#include "GameEngine.h"
+#include "DungeonMap.h"
 
 int main(){
 

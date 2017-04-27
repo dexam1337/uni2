@@ -7,14 +7,12 @@
 
 #ifndef GAMEENGINE_H_
 #define GAMEENGINE_H_
-#include "DungeonMap.h"
+
 
 class GameEngine{
 public:
-	GameEngine(const unsigned int height,const unsigned int width, const vector<string>& data);
+	GameEngine();
 private:
-	DungeonMap m_map;
-	vector<Character *> characters;
 };
 
 
