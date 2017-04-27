@@ -30,6 +30,8 @@ public:
     void setCharacter(Character* character);
     void onLeave(Tile* toTile);
     void onEnter(Character* c, Tile* fromTile);
+    char print();
+
 private:
     Typ m_typ;
     Character* m_character = nullptr;

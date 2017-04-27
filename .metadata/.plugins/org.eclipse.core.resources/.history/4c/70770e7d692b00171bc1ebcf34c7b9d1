@@ -1,0 +1,69 @@
+/*
+ * DungeonMap.cpp
+ *
+ *  Created on: 23.04.2017
+ *      Author: sebastian
+ */
+
+#include "DungeonMap.h"
+
+DungeonMap::DungeonMap(const unsigned int height, const unsigned int width) {
+	m_maxHeight = height;
+	m_maxWidth = width;
+
+	m_map = new Tile**[height];
+	for (unsigned int i = 0; i < height; i++) {
+		m_map[i] = new Tile*[width];
+		for (unsigned int j = 0; j < width; j++) {
+			m_map[i][j] = new Tile(Tile::Floor, nullptr);
+		}
+	}
+}
+
+DungeonMap::DungeonMap(const unsigned int height, const unsigned int width,
+		const vector<string>& data) {
+	m_maxHeight = height;
+	m_maxWidth = width;
+
+	m_map = new Tile**[height];
+	for (unsigned int i = 0; i < height; i++) {
+		m_map[i] = new Tile*[width];
+		for (unsigned int j = 0; j < width; j++) {
+			//if(data.at(hier stelle?) == '.'){
+			//m_map[i][j] = new Tile(Tile::Floor, nullptr);
+			//}
+			//else{
+			//m_map[i][j] = new Tile(Tile::Wall, nullptr);
+			//}
+		}
+	}
+}
+
+void DungeonMap::place(Position pos, Character* c) {
+	m_map[pos.height][pos.width]->setCharacter(c);
+}
+
+Position DungeonMap::findTile(Tile* t) {
+	for (unsigned int i = 0; i < m_maxHeight; i++) {
+			for (unsigned int j = 0; j < m_maxWidth; j++) {
+				if(m_map[m_maxHeight][m_maxWidth] == t){
+					Position p;
+					p.height = i;
+					p.width = j;
+					return p;
+				}
+			}
+		}
+	throw std::out_of_range ("Außerhalb des Spielfelds");
+}
+
+Tile* DungeonMap::findTile(Position pos) {
+	return m_map[pos.height][pos.width];
+}
+Position DungeonMap::findCharacter(Character* c) {
+
+}
+
+void DungeonMap::print() {
+
+}

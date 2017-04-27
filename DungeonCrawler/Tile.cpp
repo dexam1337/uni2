@@ -48,3 +48,15 @@ void Tile::onEnter(Character* c, Tile* fromTile)
 {
     m_character = c;
 }
+
+char Tile::print(){
+	if(hasCharacter()){
+		return 'm';
+	}
+	else if(m_typ == Tile::Floor){
+		return '.';
+	}
+	else {
+		return '#';
+	}
+}

@@ -1,109 +1,69 @@
-18:13:21 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+19:18:51 **** Incremental Build of configuration Debug for project DungeonCrawler ****
 make all 
+Building target: DungeonCrawler
+Invoking: Cross G++ Linker
+g++  -o "DungeonCrawler"  ./Character.o ./DungeonMap.o ./GameEngine.o ./Tile.o ./main.o   
+Finished building target: DungeonCrawler
+ 
+19:19:20 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+make: Nothing to be done for 'all'.
+19:19:22 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+make: Nothing to be done for 'all'.
+19:19:24 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+make: Nothing to be done for 'all'.
+19:19:43 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+Building file: ../Character.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Character.d" -MT"Character.o" -o "Character.o" "../Character.cpp"
+Finished building: ../Character.cpp
+ 
 Building file: ../DungeonMap.cpp
 Invoking: GCC C++ Compiler
-g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DungeonMap.d" -MT"DungeonMap.o" -o "DungeonMap.o" "../DungeonMap.cpp"
-../DungeonMap.cpp: In Konstruktor »DungeonMap::DungeonMap(unsigned int, unsigned int)«:
-../DungeonMap.cpp:15:24: Fehler: keine passende Funktion für Aufruf von »Tile::Tile()«
-     m_map = new Tile [5];
-                        ^
-../DungeonMap.cpp:15:24: Anmerkung: Kandidaten sind:
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DungeonMap.d" -MT"DungeonMap.o" -o "DungeonMap.o" "../DungeonMap.cpp"
 In file included from ../DungeonMap.h:14:0,
                  from ../DungeonMap.cpp:8:
-../Tile.h:26:5: Anmerkung: Tile::Tile(Tile::Typ, Character*)
-     Tile(Typ typ, Character* character);
+../Tile.h:37:5: Warnung: Bezeichner »nullptr« wird in C++11 zum Schlüsselwort [-Wc++0x-compat]
+     Character* m_character = nullptr;
      ^
-../Tile.h:26:5: Anmerkung:   Kandidat erwartet 2 Argumente, 0 angegeben
-../Tile.h:14:7: Anmerkung: constexpr Tile::Tile(const Tile&)
- class Tile
-       ^
-../Tile.h:14:7: Anmerkung:   Kandidat erwartet 1 Argument, 0 angegeben
-../Tile.h:14:7: Anmerkung: constexpr Tile::Tile(Tile&&)
-../Tile.h:14:7: Anmerkung:   Kandidat erwartet 1 Argument, 0 angegeben
-../DungeonMap.cpp:15:11: Fehler: »Tile*« kann nicht nach »Tile***« in Zuweisung umgewandelt werden
-     m_map = new Tile [5];
-           ^
-subdir.mk:30: recipe for target 'DungeonMap.o' failed
-make: *** [DungeonMap.o] Error 1
-18:16:14 **** Incremental Build of configuration Debug for project DungeonCrawler ****
-make all 
-Building file: ../DungeonMap.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DungeonMap.d" -MT"DungeonMap.o" -o "DungeonMap.o" "../DungeonMap.cpp"
+../Tile.h:37:30: Warnung: nicht-statische Initialisierungen für Datenelemente nur mit -std=c++11 oder -std=gnu++11 verfügbar
+     Character* m_character = nullptr;
+                              ^
+../Tile.h:37:30: Fehler: »nullptr« wurde in diesem Gültigkeitsbereich nicht definiert
+In file included from ../DungeonMap.cpp:8:0:
+../DungeonMap.h:28:21: Warnung: nicht-statische Initialisierungen für Datenelemente nur mit -std=c++11 oder -std=gnu++11 verfügbar
+     Tile*** m_map = 0;
+                     ^
 ../DungeonMap.cpp: In Konstruktor »DungeonMap::DungeonMap(unsigned int, unsigned int)«:
-../DungeonMap.cpp:15:26: Fehler: keine passende Funktion für Aufruf von »Tile::Tile()«
-     m_map = new Tile[5][5];
-                          ^
-../DungeonMap.cpp:15:26: Anmerkung: Kandidaten sind:
-In file included from ../DungeonMap.h:14:0,
-                 from ../DungeonMap.cpp:8:
-../Tile.h:26:5: Anmerkung: Tile::Tile(Tile::Typ, Character*)
-     Tile(Typ typ, Character* character);
-     ^
-../Tile.h:26:5: Anmerkung:   Kandidat erwartet 2 Argumente, 0 angegeben
-../Tile.h:14:7: Anmerkung: constexpr Tile::Tile(const Tile&)
- class Tile
-       ^
-../Tile.h:14:7: Anmerkung:   Kandidat erwartet 1 Argument, 0 angegeben
-../Tile.h:14:7: Anmerkung: constexpr Tile::Tile(Tile&&)
-../Tile.h:14:7: Anmerkung:   Kandidat erwartet 1 Argument, 0 angegeben
-../DungeonMap.cpp:15:11: Fehler: »Tile (*)[5]« kann nicht nach »Tile***« in Zuweisung umgewandelt werden
-     m_map = new Tile[5][5];
-           ^
-subdir.mk:30: recipe for target 'DungeonMap.o' failed
+../DungeonMap.cpp:19:40: Fehler: »nullptr« wurde in diesem Gültigkeitsbereich nicht definiert
+    m_map[i][j] = new Tile(Tile::Floor, nullptr);
+                                        ^
 make: *** [DungeonMap.o] Error 1
-18:17:05 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+subdir.mk:30: recipe for target 'DungeonMap.o' failed
+19:20:05 **** Incremental Build of configuration Debug for project DungeonCrawler ****
 make all 
-Building file: ../DungeonMap.cpp
+Building file: ../Character.cpp
 Invoking: GCC C++ Compiler
-g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DungeonMap.d" -MT"DungeonMap.o" -o "DungeonMap.o" "../DungeonMap.cpp"
-../DungeonMap.cpp: In Konstruktor »DungeonMap::DungeonMap(unsigned int, unsigned int)«:
-../DungeonMap.cpp:15:48: Fehler: geklammerte Initialisierung in Feld-»new« [-fpermissive]
-     m_map = new Tile[5][5](Tile::Floor, nullptr);
-                                                ^
-../DungeonMap.cpp:15:48: nicht implementiert: mehrdimensionales Feld kann nicht initialisiert werden
-../DungeonMap.cpp:15:11: Fehler: »Tile (*)[5]« kann nicht nach »Tile***« in Zuweisung umgewandelt werden
-     m_map = new Tile[5][5](Tile::Floor, nullptr);
-           ^
-subdir.mk:30: recipe for target 'DungeonMap.o' failed
-make: *** [DungeonMap.o] Error 1
-18:17:31 **** Incremental Build of configuration Debug for project DungeonCrawler ****
-make all 
-Building file: ../DungeonMap.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DungeonMap.d" -MT"DungeonMap.o" -o "DungeonMap.o" "../DungeonMap.cpp"
-../DungeonMap.cpp: In Konstruktor »DungeonMap::DungeonMap(unsigned int, unsigned int)«:
-../DungeonMap.cpp:15:17: Fehler: expected type-specifier before »*« token
-     m_map = new *Tile[5][5](Tile::Floor, nullptr);
-                 ^
-../DungeonMap.cpp:15:22: Fehler: expected primary-expression before »[« token
-     m_map = new *Tile[5][5](Tile::Floor, nullptr);
-                      ^
-make: *** [DungeonMap.o] Error 1
-subdir.mk:30: recipe for target 'DungeonMap.o' failed
-18:17:47 **** Incremental Build of configuration Debug for project DungeonCrawler ****
-make all 
-Building file: ../DungeonMap.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DungeonMap.d" -MT"DungeonMap.o" -o "DungeonMap.o" "../DungeonMap.cpp"
-../DungeonMap.cpp: In Konstruktor »DungeonMap::DungeonMap(unsigned int, unsigned int)«:
-../DungeonMap.cpp:15:49: Fehler: geklammerte Initialisierung in Feld-»new« [-fpermissive]
-     m_map = new Tile*[5][5](Tile::Floor, nullptr);
-                                                 ^
-../DungeonMap.cpp:15:49: nicht implementiert: mehrdimensionales Feld kann nicht initialisiert werden
-../DungeonMap.cpp:15:49: Fehler: Ausdrucksliste als zusammengesetzten Ausdruck in Initialisierung behandelt [-fpermissive]
-../DungeonMap.cpp:15:49: Warnung: linker Operand des Komma-Operators hat keinen Effekt [-Wunused-value]
-../DungeonMap.cpp:15:11: Fehler: »Tile* (*)[5]« kann nicht nach »Tile***« in Zuweisung umgewandelt werden
-     m_map = new Tile*[5][5](Tile::Floor, nullptr);
-           ^
-make: *** [DungeonMap.o] Error 1
-subdir.mk:30: recipe for target 'DungeonMap.o' failed
-18:18:30 **** Incremental Build of configuration Debug for project DungeonCrawler ****
-make all 
+g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Character.d" -MT"Character.o" -o "Character.o" "../Character.cpp"
+Finished building: ../Character.cpp
+ 
 Building file: ../DungeonMap.cpp
 Invoking: GCC C++ Compiler
 g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DungeonMap.d" -MT"DungeonMap.o" -o "DungeonMap.o" "../DungeonMap.cpp"
 Finished building: ../DungeonMap.cpp
+ 
+Building file: ../GameEngine.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"GameEngine.d" -MT"GameEngine.o" -o "GameEngine.o" "../GameEngine.cpp"
+Finished building: ../GameEngine.cpp
+ 
+Building file: ../Tile.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Tile.d" -MT"Tile.o" -o "Tile.o" "../Tile.cpp"
+Finished building: ../Tile.cpp
  
 Building file: ../main.cpp
 Invoking: GCC C++ Compiler
@@ -115,27 +75,30 @@ Invoking: GCC C++ Linker
 g++  -o "DungeonCrawler"  ./Character.o ./DungeonMap.o ./GameEngine.o ./Tile.o ./main.o   
 Finished building target: DungeonCrawler
  
-18:19:42 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+19:20:15 **** Incremental Build of configuration Debug for project DungeonCrawler ****
 make all 
-Building file: ../DungeonMap.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DungeonMap.d" -MT"DungeonMap.o" -o "DungeonMap.o" "../DungeonMap.cpp"
-Finished building: ../DungeonMap.cpp
- 
-Building target: DungeonCrawler
-Invoking: GCC C++ Linker
-g++  -o "DungeonCrawler"  ./Character.o ./DungeonMap.o ./GameEngine.o ./Tile.o ./main.o   
-Finished building target: DungeonCrawler
- 
-18:21:55 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make: Nothing to be done for 'all'.
+19:20:29 **** Incremental Build of configuration Debug for project DungeonCrawler ****
 make all 
-Building file: ../DungeonMap.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DungeonMap.d" -MT"DungeonMap.o" -o "DungeonMap.o" "../DungeonMap.cpp"
-Finished building: ../DungeonMap.cpp
- 
-Building target: DungeonCrawler
-Invoking: GCC C++ Linker
-g++  -o "DungeonCrawler"  ./Character.o ./DungeonMap.o ./GameEngine.o ./Tile.o ./main.o   
-Finished building target: DungeonCrawler
- 
+make: Nothing to be done for 'all'.
+19:23:15 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+make: Nothing to be done for 'all'.
+19:24:08 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+make: Nothing to be done for 'all'.
+19:24:19 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+make: Nothing to be done for 'all'.
+19:24:31 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+make: Nothing to be done for 'all'.
+19:24:47 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+make: Nothing to be done for 'all'.
+19:29:33 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+make: Nothing to be done for 'all'.
+19:31:06 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+make: Nothing to be done for 'all'.

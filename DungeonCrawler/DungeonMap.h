@@ -12,6 +12,8 @@
 #include <vector>
 #include <string>
 #include "Tile.h"
+#include <stdexcept>
+#include <iostream>
 using namespace std;
 
 typedef struct
