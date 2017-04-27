@@ -10,8 +10,12 @@
 
 class Character{
 private:
+    char m_symbol;
 
 public:
+    Character(char symbol);
+    char getSymbol();
+    int move();
 };
 
 
