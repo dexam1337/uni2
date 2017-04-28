@@ -7,6 +7,7 @@
 
 #include "Tile.h"
 
+
 Tile::Tile(Typ typ, Character* character)
 {
     m_typ = typ;
@@ -51,7 +52,7 @@ void Tile::onEnter(Character* c, Tile* fromTile)
 
 char Tile::print(){
 	if(hasCharacter()){
-		return 'm';
+		return m_character->getSymbol();
 	}
 	else if(m_typ == Tile::Floor){
 		return '.';

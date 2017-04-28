@@ -7,7 +7,6 @@
 
 #include "DungeonMap.h"
 
-
 DungeonMap::DungeonMap(const unsigned int height, const unsigned int width) {
 	m_maxHeight = height;
 	m_maxWidth = width;
@@ -30,57 +29,68 @@ DungeonMap::DungeonMap(const unsigned int height, const unsigned int width,
 	for (unsigned int i = 0; i < height; i++) {
 		m_map[i] = new Tile*[width];
 		for (unsigned int j = 0; j < width; j++) {
-			//if(data.at(hier stelle?) == '.'){
-			//m_map[i][j] = new Tile(Tile::Floor, nullptr);
-			//}
-			//else{
-			//m_map[i][j] = new Tile(Tile::Wall, nullptr);
-			//}
+			if(data.at(i).at(j) == '.'){
+			m_map[i][j] = new Tile(Tile::Floor, nullptr);
+			}
+			else{
+			m_map[i][j] = new Tile(Tile::Wall, nullptr);
+			}
 		}
 	}
 }
 
+DungeonMap::~DungeonMap() {
+	delete[] m_map;
+	m_maxHeight = 0;
+	m_maxWidth = 0;
+}
+
 void DungeonMap::place(Position pos, Character* c) {
+	if(pos.height > m_maxHeight || pos.width > m_maxWidth)
+		throw out_of_range("Zielposition außerhalb des Spielfelds");
 	m_map[pos.height][pos.width]->setCharacter(c);
 }
 
 Position DungeonMap::findTile(Tile* t) {
 	for (unsigned int i = 0; i < m_maxHeight; i++) {
-			for (unsigned int j = 0; j < m_maxWidth; j++) {
-				if(m_map[m_maxHeight][m_maxWidth] == t){
-					Position p;
-					p.height = i;
-					p.width = j;
-					return p;
-				}
+		for (unsigned int j = 0; j < m_maxWidth; j++) {
+			if (m_map[m_maxHeight][m_maxWidth] == t) {
+				Position p;
+				p.height = i;
+				p.width = j;
+				return p;
 			}
 		}
-	 throw out_of_range("Außerhalb des Spielfelds");
+	}
+	throw out_of_range("Tile außerhalb des Spielfelds");
 }
 
 Tile* DungeonMap::findTile(Position pos) {
+	if(pos.height > m_maxHeight || pos.width > m_maxWidth)
+			throw out_of_range("Gesuchtes Tile außerhalb des Spielfelds");
 	return m_map[pos.height][pos.width];
 }
-Position DungeonMap::findCharacter(Character* c){
+
+Position DungeonMap::findCharacter(Character* c) {
 	for (unsigned int i = 0; i < m_maxHeight; i++) {
-				for (unsigned int j = 0; j < m_maxWidth; j++) {
-					if(m_map[m_maxHeight][m_maxWidth]->getCharacter() == c){
-						Position p;
-						p.height = i;
-						p.width = j;
-						return p;
-					}
-				}
+		for (unsigned int j = 0; j < m_maxWidth; j++) {
+			if (m_map[m_maxHeight][m_maxWidth]->getCharacter() == c) {
+				Position p;
+				p.height = i;
+				p.width = j;
+				return p;
 			}
-		 throw invalid_argument("Außerhalb des Spielfelds");
+		}
+	}
+	throw invalid_argument("Character außerhalb des Spielfelds");
 }
 
 void DungeonMap::print() {
 	for (unsigned int i = 0; i < m_maxHeight; i++) {
-					for (unsigned int j = 0; j < m_maxWidth; j++) {
-						cout << m_map[m_maxHeight][m_maxWidth]->print();
-					}
-					cout << endl;
-				}
+		for (unsigned int j = 0; j < m_maxWidth; j++) {
+			cout << m_map[m_maxHeight][m_maxWidth]->print();
+		}
+		cout << endl;
+	}
 
 }

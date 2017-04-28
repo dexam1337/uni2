@@ -1,43 +1,45 @@
-19:44:30 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+11:57:27 **** Incremental Build of configuration Debug for project DungeonCrawler ****
 make all 
 Building file: ../GameEngine.cpp
 Invoking: GCC C++ Compiler
 g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"GameEngine.d" -MT"GameEngine.o" -o "GameEngine.o" "../GameEngine.cpp"
 ../GameEngine.cpp: In Konstruktor »GameEngine::GameEngine(unsigned int, unsigned int, const std::vector<std::basic_string<char> >&)«:
-../GameEngine.cpp:12:102: Fehler: keine passende Funktion für Aufruf von »DungeonMap::DungeonMap()«
- GameEngine::GameEngine(const unsigned int height,const unsigned int width, const vector<string>& data){
-                                                                                                      ^
-../GameEngine.cpp:12:102: Anmerkung: Kandidaten sind:
+../GameEngine.cpp:10:103: Fehler: keine passende Funktion für Aufruf von »DungeonMap::DungeonMap()«
+ GameEngine::GameEngine(const unsigned int height, const unsigned int width, const vector<string>& data) {
+                                                                                                       ^
+../GameEngine.cpp:10:103: Anmerkung: Kandidaten sind:
 In file included from ../GameEngine.h:10:0,
-                 from ../GameEngine.cpp:10:
-../DungeonMap.h:33:5: Anmerkung: DungeonMap::DungeonMap(unsigned int, unsigned int, const std::vector<std::basic_string<char> >&)
+                 from ../GameEngine.cpp:8:
+../DungeonMap.h:36:5: Anmerkung: DungeonMap::DungeonMap(unsigned int, unsigned int, const std::vector<std::basic_string<char> >&)
      DungeonMap(const unsigned int height,const unsigned int width, const vector<string>& data);
      ^
-../DungeonMap.h:33:5: Anmerkung:   Kandidat erwartet 3 Argumente, 0 angegeben
-../DungeonMap.h:32:5: Anmerkung: DungeonMap::DungeonMap(unsigned int, unsigned int)
+../DungeonMap.h:36:5: Anmerkung:   Kandidat erwartet 3 Argumente, 0 angegeben
+../DungeonMap.h:35:5: Anmerkung: DungeonMap::DungeonMap(unsigned int, unsigned int)
      DungeonMap(const unsigned int height,const unsigned int width);
      ^
-../DungeonMap.h:32:5: Anmerkung:   Kandidat erwartet 2 Argumente, 0 angegeben
-../DungeonMap.h:25:7: Anmerkung: constexpr DungeonMap::DungeonMap(const DungeonMap&)
- class DungeonMap
+../DungeonMap.h:35:5: Anmerkung:   Kandidat erwartet 2 Argumente, 0 angegeben
+../DungeonMap.h:29:5: Anmerkung: DungeonMap::DungeonMap(DungeonMap&)
+     DungeonMap(DungeonMap& map); //Nicht implementierter KopierKonstruktor
+     ^
+../DungeonMap.h:29:5: Anmerkung:   Kandidat erwartet 1 Argument, 0 angegeben
+../GameEngine.cpp:12:37: Fehler: keine passende Funktion für Aufruf von »std::vector<Character*>::push_back(Character)«
+  characters.push_back(Character('o'));
+                                     ^
+../GameEngine.cpp:12:37: Anmerkung: Kandidaten sind:
+In file included from /usr/include/c++/4.9.2/vector:64:0,
+                 from ../DungeonMap.h:12,
+                 from ../GameEngine.h:10,
+                 from ../GameEngine.cpp:8:
+/usr/include/c++/4.9.2/bits/stl_vector.h:913:7: Anmerkung: void std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = Character*; _Alloc = std::allocator<Character*>; std::vector<_Tp, _Alloc>::value_type = Character*]
+       push_back(const value_type& __x)
        ^
-../DungeonMap.h:25:7: Anmerkung:   Kandidat erwartet 1 Argument, 0 angegeben
-../DungeonMap.h:25:7: Anmerkung: constexpr DungeonMap::DungeonMap(DungeonMap&&)
-../DungeonMap.h:25:7: Anmerkung:   Kandidat erwartet 1 Argument, 0 angegeben
-../GameEngine.cpp:13:20: Fehler: expected primary-expression before »(« token
-  m_map = DungeonMap(const unsigned int height,const unsigned int width, const vector<string>& data);
-                    ^
-../GameEngine.cpp:13:21: Fehler: expected primary-expression before »const«
-  m_map = DungeonMap(const unsigned int height,const unsigned int width, const vector<string>& data);
-                     ^
-../GameEngine.cpp:13:47: Fehler: expected primary-expression before »const«
-  m_map = DungeonMap(const unsigned int height,const unsigned int width, const vector<string>& data);
-                                               ^
-../GameEngine.cpp:13:73: Fehler: expected primary-expression before »const«
-  m_map = DungeonMap(const unsigned int height,const unsigned int width, const vector<string>& data);
-                                                                         ^
-subdir.mk:30: recipe for target 'GameEngine.o' failed
+/usr/include/c++/4.9.2/bits/stl_vector.h:913:7: Anmerkung:   keine bekannte Umwandlung für Argument 1 von »Character« nach »Character* const&«
+/usr/include/c++/4.9.2/bits/stl_vector.h:931:7: Anmerkung: void std::vector<_Tp, _Alloc>::push_back(std::vector<_Tp, _Alloc>::value_type&&) [with _Tp = Character*; _Alloc = std::allocator<Character*>; std::vector<_Tp, _Alloc>::value_type = Character*]
+       push_back(value_type&& __x)
+       ^
+/usr/include/c++/4.9.2/bits/stl_vector.h:931:7: Anmerkung:   keine bekannte Umwandlung für Argument 1 von »Character« nach »Character*&&«
 make: *** [GameEngine.o] Error 1
+subdir.mk:30: recipe for target 'GameEngine.o' failed
 
-19:44:30 Build Finished (took 216ms)
+11:57:27 Build Finished (took 209ms)
 

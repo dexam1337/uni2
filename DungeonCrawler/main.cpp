@@ -20,7 +20,7 @@ int main(){
 	"#........#",
 	"##########",};
 	GameEngine ge(10,10,data);
-	//ge.run();
+	ge.run();
 	return 0;
 
 }

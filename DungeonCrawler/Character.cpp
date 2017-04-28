@@ -35,3 +35,4 @@ int Character::move()
     }
     return -1;
 }
+

@@ -25,12 +25,17 @@ typedef struct
 class DungeonMap
 {
 private:
-    Tile*** m_map = 0;
-public:
+    Tile*** m_map;
+    DungeonMap(DungeonMap& map); //Nicht implementierter KopierKonstruktor
     unsigned int m_maxHeight;
     unsigned int m_maxWidth;
+
+public:
+
     DungeonMap(const unsigned int height,const unsigned int width);
     DungeonMap(const unsigned int height,const unsigned int width, const vector<string>& data);
+    ~DungeonMap();
+
 
     void place(Position pos, Character* c);
     Position findTile(Tile* t);

@@ -1,0 +1,25 @@
+/*
+ * GameEngine.cpp
+ *
+ *  Created on: 23.04.2017
+ *      Author: sebastian
+ */
+
+#include "GameEngine.h"
+
+GameEngine::GameEngine(const unsigned int height, const unsigned int width,
+		const vector<string>& data) {
+
+}
+void GameEngine::run() {
+	while (!finished())
+	turn();
+}
+void GameEngine::turn() {
+	for(unsigned int i = 0; i < characters.size() ; i++){
+		Position pos = m_map.findCharacter(characters.at(i));
+	}
+}
+bool GameEngine::finished() {
+	return false;
+}
