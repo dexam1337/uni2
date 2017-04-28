@@ -29,11 +29,10 @@ DungeonMap::DungeonMap(const unsigned int height, const unsigned int width,
 	for (unsigned int i = 0; i < height; i++) {
 		m_map[i] = new Tile*[width];
 		for (unsigned int j = 0; j < width; j++) {
-			if(data.at(i).at(j) == '.'){
-			m_map[i][j] = new Tile(Tile::Floor, nullptr);
-			}
-			else{
-			m_map[i][j] = new Tile(Tile::Wall, nullptr);
+			if (data.at(i).at(j) == '.') {
+				m_map[i][j] = new Tile(Tile::Floor, nullptr);
+			} else {
+				m_map[i][j] = new Tile(Tile::Wall, nullptr);
 			}
 		}
 	}
@@ -46,7 +45,7 @@ DungeonMap::~DungeonMap() {
 }
 
 void DungeonMap::place(Position pos, Character* c) {
-	if(pos.height > m_maxHeight || pos.width > m_maxWidth)
+	if (pos.height > m_maxHeight || pos.width > m_maxWidth)
 		throw out_of_range("Zielposition außerhalb des Spielfelds");
 	m_map[pos.height][pos.width]->setCharacter(c);
 }
@@ -66,8 +65,8 @@ Position DungeonMap::findTile(Tile* t) {
 }
 
 Tile* DungeonMap::findTile(Position pos) {
-	if(pos.height > m_maxHeight || pos.width > m_maxWidth)
-			throw out_of_range("Gesuchtes Tile außerhalb des Spielfelds");
+	if (pos.height > m_maxHeight || pos.width > m_maxWidth)
+		throw out_of_range("Gesuchtes Tile außerhalb des Spielfelds");
 	return m_map[pos.height][pos.width];
 }
 

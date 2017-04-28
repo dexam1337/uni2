@@ -1,0 +1,39 @@
+/*
+ * GameEngine.cpp
+ *
+ *  Created on: 23.04.2017
+ *      Author: sebastian
+ */
+
+#include "GameEngine.h"
+
+GameEngine::GameEngine(const unsigned int height, const unsigned int width, const vector<string>& data) {
+	m_map = DungeonMap(height, width, data);
+	characters.push_back(Character('o'));
+}
+void GameEngine::run() {
+	while (!finished())
+	turn();
+}
+void GameEngine::turn() {
+	for(unsigned int i = 0; i < characters.size() ; i++){
+		Position pos;
+		try{
+		pos = m_map.findCharacter(characters.at(i));
+		}
+		catch(const invalid_argument& ie){
+			cerr << "Error in turn: "  << ie.what() << '\n';
+		}
+		Tile* actTile = m_map.findTile(pos);
+		actTile->print();
+		//hier switchcase für Bewegungsrichtung;
+
+		//finden der ZielTile
+
+		//onLeave und onEnter;
+
+	}
+}
+bool GameEngine::finished() {
+	return false;
+}

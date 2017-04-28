@@ -7,22 +7,22 @@
 
 #include "GameEngine.h"
 
-GameEngine::GameEngine(const unsigned int height, const unsigned int width, const vector<string>& data) {
+GameEngine::GameEngine(const unsigned int height, const unsigned int width,
+		const vector<string>& data) {
 	m_map = DungeonMap(height, width, data);
-	characters.push_back(Character('o'));
+	characters.push_back(new Character('o')); //Wegen pointer
 }
 void GameEngine::run() {
 	while (!finished())
-	turn();
+		turn();
 }
 void GameEngine::turn() {
-	for(unsigned int i = 0; i < characters.size() ; i++){
+	for (unsigned int i = 0; i < characters.size(); i++) {
 		Position pos;
-		try{
-		pos = m_map.findCharacter(characters.at(i));
-		}
-		catch(const invalid_argument& ie){
-			cerr << "Error in turn: "  << ie.what() << '\n';
+		try {
+			pos = m_map.findCharacter(characters.at(i));
+		} catch (const invalid_argument& ie) {
+			cerr << "Error in turn: " << ie.what() << '\n';
 		}
 		Tile* actTile = m_map.findTile(pos);
 		actTile->print();
@@ -36,4 +36,10 @@ void GameEngine::turn() {
 }
 bool GameEngine::finished() {
 	return false;
+}
+GameEngine::~GameEngine() {
+	//delete[] characters;
+	for (unsigned int i = characters.size(); i >= 0; i++)
+		delete characters.at(i);
+	m_map.~DungeonMap();
 }
