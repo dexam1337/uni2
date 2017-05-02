@@ -76,7 +76,7 @@ Position DungeonMap::findTile(Tile* t) {
 	}
 	throw out_of_range("Tile außerhalb des Spielfelds");
 }
-
+ 
 Tile* DungeonMap::findTile(Position pos) {
         cout<<pos.height<<" "<<pos.width<<endl;
 	if (pos.height >= m_maxHeight || pos.width >= m_maxWidth)
