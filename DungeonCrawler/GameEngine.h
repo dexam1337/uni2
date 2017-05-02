@@ -9,17 +9,18 @@
 #define GAMEENGINE_H_
 #include "DungeonMap.h"
 
-class GameEngine {
+class GameEngine
+{
 public:
-	GameEngine(const unsigned int height, const unsigned int width,
-			const vector<string>& data);
-	void run();
-	void turn();
-	bool finished();
-	~GameEngine();
+    GameEngine(const unsigned int height, const unsigned int width,
+               const vector<string>& data);
+    void run();
+    void turn();
+    bool finished();
+    ~GameEngine();
 private:
-	DungeonMap m_map;
-	vector<Character *> characters;
+    DungeonMap m_map;
+    vector<Character *> characters;
 };
 
 #endif /* GAMEENGINE_H_ */

@@ -22,7 +22,7 @@ int Character::move() {
 	int returnvalue;
 	cout << "\n Wohin möchten sie laufen?\n";
 	cin >> returnvalue;
-	if (isdigit(returnvalue)) {
+	if (isdigit(returnvalue)&&returnvalue<=9&&returnvalue>0) {
 		return returnvalue;
 	} else {
 		cout << "\nFehler bei der Eingabe!" << endl;
