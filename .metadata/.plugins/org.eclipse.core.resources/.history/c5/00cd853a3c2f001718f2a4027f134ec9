@@ -10,7 +10,7 @@
 GameEngine::GameEngine(const unsigned int height, const unsigned int width,
 		const vector<string>& data) {
 	m_map = DungeonMap(height, width, data);
-	characters.push_back(new Character('o')); //Wegen pointer
+	//characters.push_back(new Character('o')); //Wegen pointer
 	round = 0;
 }
 
