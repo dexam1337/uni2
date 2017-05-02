@@ -1,208 +1,13 @@
-22:06:58 **** Clean-only build of configuration Debug for project DungeonCrawler ****
-make clean 
-rm -rf  ./Character.o ./DungeonMap.o ./GameEngine.o ./Tile.o ./main.o  ./Character.d ./DungeonMap.d ./GameEngine.d ./Tile.d ./main.d  DungeonCrawler
- 
-22:07:01 **** Build of configuration Debug for project DungeonCrawler ****
-make all 
-Building file: ../Character.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Character.d" -MT"Character.o" -o "Character.o" "../Character.cpp"
-Finished building: ../Character.cpp
- 
-Building file: ../DungeonMap.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DungeonMap.d" -MT"DungeonMap.o" -o "DungeonMap.o" "../DungeonMap.cpp"
-Finished building: ../DungeonMap.cpp
- 
-Building file: ../GameEngine.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"GameEngine.d" -MT"GameEngine.o" -o "GameEngine.o" "../GameEngine.cpp"
-../GameEngine.cpp: In Konstruktor »GameEngine::GameEngine(unsigned int, unsigned int, const std::vector<std::basic_string<char> >&)«:
-../GameEngine.cpp:11:29: Fehler: keine passende Funktion für Aufruf von »DungeonMap::DungeonMap()«
-   const vector<string>& data) {
-                             ^
-../GameEngine.cpp:11:29: Anmerkung: Kandidaten sind:
-In file included from ../GameEngine.h:10:0,
-                 from ../GameEngine.cpp:8:
-../DungeonMap.h:35:2: Anmerkung: DungeonMap::DungeonMap(unsigned int, unsigned int, const std::vector<std::basic_string<char> >&)
-  DungeonMap(const unsigned int height, const unsigned int width,
-  ^
-../DungeonMap.h:35:2: Anmerkung:   Kandidat erwartet 3 Argumente, 0 angegeben
-../DungeonMap.h:34:2: Anmerkung: DungeonMap::DungeonMap(unsigned int, unsigned int)
-  DungeonMap(const unsigned int height, const unsigned int width);
-  ^
-../DungeonMap.h:34:2: Anmerkung:   Kandidat erwartet 2 Argumente, 0 angegeben
-../DungeonMap.h:28:2: Anmerkung: DungeonMap::DungeonMap(DungeonMap&)
-  DungeonMap(DungeonMap& map); //Nicht implementierter KopierKonstruktor
-  ^
-../DungeonMap.h:28:2: Anmerkung:   Kandidat erwartet 1 Argument, 0 angegeben
-make: *** [GameEngine.o] Error 1
-subdir.mk:30: recipe for target 'GameEngine.o' failed
-22:08:23 **** Incremental Build of configuration Debug for project DungeonCrawler ****
-make all 
-Building file: ../DungeonMap.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DungeonMap.d" -MT"DungeonMap.o" -o "DungeonMap.o" "../DungeonMap.cpp"
-Finished building: ../DungeonMap.cpp
- 
-Building file: ../GameEngine.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"GameEngine.d" -MT"GameEngine.o" -o "GameEngine.o" "../GameEngine.cpp"
-../GameEngine.cpp: In Konstruktor »GameEngine::GameEngine(unsigned int, unsigned int, const std::vector<std::basic_string<char> >&)«:
-../GameEngine.cpp:11:29: Fehler: keine passende Funktion für Aufruf von »DungeonMap::DungeonMap()«
-   const vector<string>& data) {
-                             ^
-../GameEngine.cpp:11:29: Anmerkung: Kandidaten sind:
-In file included from ../GameEngine.h:10:0,
-                 from ../GameEngine.cpp:8:
-../DungeonMap.h:35:2: Anmerkung: DungeonMap::DungeonMap(unsigned int, unsigned int, const std::vector<std::basic_string<char> >&)
-  DungeonMap(const unsigned int height, const unsigned int width, const vector<string>& data);
-  ^
-../DungeonMap.h:35:2: Anmerkung:   Kandidat erwartet 3 Argumente, 0 angegeben
-../DungeonMap.h:34:2: Anmerkung: DungeonMap::DungeonMap(unsigned int, unsigned int)
-  DungeonMap(const unsigned int height, const unsigned int width);
-  ^
-../DungeonMap.h:34:2: Anmerkung:   Kandidat erwartet 2 Argumente, 0 angegeben
-../DungeonMap.h:28:2: Anmerkung: DungeonMap::DungeonMap(DungeonMap&)
-  DungeonMap(DungeonMap& map); //Nicht implementierter KopierKonstruktor
-  ^
-../DungeonMap.h:28:2: Anmerkung:   Kandidat erwartet 1 Argument, 0 angegeben
-make: *** [GameEngine.o] Error 1
-subdir.mk:30: recipe for target 'GameEngine.o' failed
-22:08:53 **** Incremental Build of configuration Debug for project DungeonCrawler ****
-make all 
-Building file: ../DungeonMap.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DungeonMap.d" -MT"DungeonMap.o" -o "DungeonMap.o" "../DungeonMap.cpp"
-Finished building: ../DungeonMap.cpp
- 
-Building file: ../GameEngine.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"GameEngine.d" -MT"GameEngine.o" -o "GameEngine.o" "../GameEngine.cpp"
-../GameEngine.cpp: In Konstruktor »GameEngine::GameEngine(unsigned int, unsigned int, const std::vector<std::basic_string<char> >&)«:
-../GameEngine.cpp:11:29: Fehler: keine passende Funktion für Aufruf von »DungeonMap::DungeonMap()«
-   const vector<string>& data) {
-                             ^
-../GameEngine.cpp:11:29: Anmerkung: Kandidaten sind:
-In file included from ../GameEngine.h:10:0,
-                 from ../GameEngine.cpp:8:
-../DungeonMap.h:35:2: Anmerkung: DungeonMap::DungeonMap(unsigned int, unsigned int, const std::vector<std::basic_string<char> >&)
-  DungeonMap(const unsigned int height, const unsigned int width, const vector<string>& data);
-  ^
-../DungeonMap.h:35:2: Anmerkung:   Kandidat erwartet 3 Argumente, 0 angegeben
-../DungeonMap.h:34:2: Anmerkung: DungeonMap::DungeonMap(unsigned int, unsigned int)
-  DungeonMap(const unsigned int height, const unsigned int width);
-  ^
-../DungeonMap.h:34:2: Anmerkung:   Kandidat erwartet 2 Argumente, 0 angegeben
-../DungeonMap.h:24:7: Anmerkung: constexpr DungeonMap::DungeonMap(const DungeonMap&)
- class DungeonMap
-       ^
-../DungeonMap.h:24:7: Anmerkung:   Kandidat erwartet 1 Argument, 0 angegeben
-subdir.mk:30: recipe for target 'GameEngine.o' failed
-make: *** [GameEngine.o] Error 1
-22:09:18 **** Incremental Build of configuration Debug for project DungeonCrawler ****
-make all 
-Building file: ../DungeonMap.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DungeonMap.d" -MT"DungeonMap.o" -o "DungeonMap.o" "../DungeonMap.cpp"
-Finished building: ../DungeonMap.cpp
- 
-Building file: ../GameEngine.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"GameEngine.d" -MT"GameEngine.o" -o "GameEngine.o" "../GameEngine.cpp"
-../GameEngine.cpp: In Konstruktor »GameEngine::GameEngine(unsigned int, unsigned int, const std::vector<std::basic_string<char> >&)«:
-../GameEngine.cpp:11:29: Fehler: keine passende Funktion für Aufruf von »DungeonMap::DungeonMap()«
-   const vector<string>& data) {
-                             ^
-../GameEngine.cpp:11:29: Anmerkung: Kandidaten sind:
-In file included from ../GameEngine.h:10:0,
-                 from ../GameEngine.cpp:8:
-../DungeonMap.h:35:2: Anmerkung: DungeonMap::DungeonMap(unsigned int, unsigned int, const std::vector<std::basic_string<char> >&)
-  DungeonMap(const unsigned int height, const unsigned int width, const vector<string>& data);
-  ^
-../DungeonMap.h:35:2: Anmerkung:   Kandidat erwartet 3 Argumente, 0 angegeben
-../DungeonMap.h:34:2: Anmerkung: DungeonMap::DungeonMap(unsigned int, unsigned int)
-  DungeonMap(const unsigned int height, const unsigned int width);
-  ^
-../DungeonMap.h:34:2: Anmerkung:   Kandidat erwartet 2 Argumente, 0 angegeben
-../DungeonMap.h:28:2: Anmerkung: DungeonMap::DungeonMap(DungeonMap&)
-  DungeonMap(DungeonMap& map); //Nicht implementierter KopierKonstruktor
-  ^
-../DungeonMap.h:28:2: Anmerkung:   Kandidat erwartet 1 Argument, 0 angegeben
-make: *** [GameEngine.o] Error 1
-subdir.mk:30: recipe for target 'GameEngine.o' failed
-22:10:41 **** Incremental Build of configuration Debug for project DungeonCrawler ****
-make all 
-Building file: ../Character.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Character.d" -MT"Character.o" -o "Character.o" "../Character.cpp"
-Finished building: ../Character.cpp
- 
-Building file: ../DungeonMap.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DungeonMap.d" -MT"DungeonMap.o" -o "DungeonMap.o" "../DungeonMap.cpp"
-Finished building: ../DungeonMap.cpp
- 
-Building file: ../GameEngine.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"GameEngine.d" -MT"GameEngine.o" -o "GameEngine.o" "../GameEngine.cpp"
-../GameEngine.cpp: In Konstruktor »GameEngine::GameEngine(unsigned int, unsigned int, const std::vector<std::basic_string<char> >&)«:
-../GameEngine.cpp:11:29: Fehler: keine passende Funktion für Aufruf von »DungeonMap::DungeonMap()«
-   const vector<string>& data) {
-                             ^
-../GameEngine.cpp:11:29: Anmerkung: Kandidaten sind:
-In file included from ../GameEngine.h:10:0,
-                 from ../GameEngine.cpp:8:
-../DungeonMap.h:33:2: Anmerkung: DungeonMap::DungeonMap(unsigned int, unsigned int, const std::vector<std::basic_string<char> >&)
-  DungeonMap(const unsigned int height, const unsigned int width,
-  ^
-../DungeonMap.h:33:2: Anmerkung:   Kandidat erwartet 3 Argumente, 0 angegeben
-../DungeonMap.h:32:2: Anmerkung: DungeonMap::DungeonMap(unsigned int, unsigned int)
-  DungeonMap(const unsigned int height, const unsigned int width);
-  ^
-../DungeonMap.h:32:2: Anmerkung:   Kandidat erwartet 2 Argumente, 0 angegeben
-../DungeonMap.h:26:2: Anmerkung: DungeonMap::DungeonMap(DungeonMap&)
-  DungeonMap(DungeonMap& map); //Nicht implementierter KopierKonstruktor
-  ^
-../DungeonMap.h:26:2: Anmerkung:   Kandidat erwartet 1 Argument, 0 angegeben
-subdir.mk:30: recipe for target 'GameEngine.o' failed
-make: *** [GameEngine.o] Error 1
-22:11:10 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+14:35:57 **** Incremental Build of configuration Debug for project DungeonCrawler ****
 make all 
 Building file: ../GameEngine.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"GameEngine.d" -MT"GameEngine.o" -o "GameEngine.o" "../GameEngine.cpp"
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"GameEngine.d" -MT"GameEngine.o" -o "GameEngine.o" "../GameEngine.cpp"
 ../GameEngine.cpp: In Konstruktor »GameEngine::GameEngine(unsigned int, unsigned int, const std::vector<std::basic_string<char> >&)«:
-../GameEngine.cpp:11:29: Fehler: keine passende Funktion für Aufruf von »DungeonMap::DungeonMap()«
-   const vector<string>& data) {
-                             ^
-../GameEngine.cpp:11:29: Anmerkung: Kandidaten sind:
-In file included from ../GameEngine.h:10:0,
-                 from ../GameEngine.cpp:8:
-../DungeonMap.h:33:2: Anmerkung: DungeonMap::DungeonMap(unsigned int, unsigned int, const std::vector<std::basic_string<char> >&)
-  DungeonMap(const unsigned int height, const unsigned int width,
-  ^
-../DungeonMap.h:33:2: Anmerkung:   Kandidat erwartet 3 Argumente, 0 angegeben
-../DungeonMap.h:32:2: Anmerkung: DungeonMap::DungeonMap(unsigned int, unsigned int)
-  DungeonMap(const unsigned int height, const unsigned int width);
-  ^
-../DungeonMap.h:32:2: Anmerkung:   Kandidat erwartet 2 Argumente, 0 angegeben
-../DungeonMap.h:26:2: Anmerkung: DungeonMap::DungeonMap(DungeonMap&)
-  DungeonMap(DungeonMap& map); //Nicht implementierter KopierKonstruktor
-  ^
-../DungeonMap.h:26:2: Anmerkung:   Kandidat erwartet 1 Argument, 0 angegeben
-subdir.mk:30: recipe for target 'GameEngine.o' failed
-make: *** [GameEngine.o] Error 1
-22:11:24 **** Incremental Build of configuration Debug for project DungeonCrawler ****
-make all 
-Building file: ../GameEngine.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"GameEngine.d" -MT"GameEngine.o" -o "GameEngine.o" "../GameEngine.cpp"
-../GameEngine.cpp: In Konstruktor »GameEngine::GameEngine(unsigned int, unsigned int, const std::vector<std::basic_string<char> >&)«:
-../GameEngine.cpp:11:29: Fehler: keine passende Funktion für Aufruf von »DungeonMap::DungeonMap()«
-   const vector<string>& data) {
-                             ^
-../GameEngine.cpp:11:29: Anmerkung: Kandidaten sind:
+../GameEngine.cpp:11:50: Fehler: keine passende Funktion für Aufruf von »DungeonMap::DungeonMap()«
+                        const vector<string>& data)
+                                                  ^
+../GameEngine.cpp:11:50: Anmerkung: Kandidaten sind:
 In file included from ../GameEngine.h:10:0,
                  from ../GameEngine.cpp:8:
 ../DungeonMap.h:33:2: Anmerkung: DungeonMap::DungeonMap(unsigned int, unsigned int, const std::vector<std::basic_string<char> >&)
@@ -219,16 +24,68 @@ In file included from ../GameEngine.h:10:0,
 ../DungeonMap.h:26:2: Anmerkung:   Kandidat erwartet 1 Argument, 0 angegeben
 make: *** [GameEngine.o] Error 1
 subdir.mk:30: recipe for target 'GameEngine.o' failed
-22:16:30 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+14:38:27 **** Incremental Build of configuration Debug for project DungeonCrawler ****
 make all 
 Building file: ../GameEngine.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"GameEngine.d" -MT"GameEngine.o" -o "GameEngine.o" "../GameEngine.cpp"
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"GameEngine.d" -MT"GameEngine.o" -o "GameEngine.o" "../GameEngine.cpp"
 ../GameEngine.cpp: In Konstruktor »GameEngine::GameEngine(unsigned int, unsigned int, const std::vector<std::basic_string<char> >&)«:
-../GameEngine.cpp:11:29: Fehler: keine passende Funktion für Aufruf von »DungeonMap::DungeonMap()«
-   const vector<string>& data) {
-                             ^
-../GameEngine.cpp:11:29: Anmerkung: Kandidaten sind:
+../GameEngine.cpp:11:50: Fehler: keine passende Funktion für Aufruf von »DungeonMap::DungeonMap()«
+                        const vector<string>& data)
+                                                  ^
+../GameEngine.cpp:11:50: Anmerkung: Kandidaten sind:
+In file included from ../GameEngine.h:10:0,
+                 from ../GameEngine.cpp:8:
+../DungeonMap.h:33:2: Anmerkung: DungeonMap::DungeonMap(unsigned int, unsigned int, const std::vector<std::basic_string<char> >&)
+  DungeonMap(const unsigned int height, const unsigned int width,
+  ^
+../DungeonMap.h:33:2: Anmerkung:   Kandidat erwartet 3 Argumente, 0 angegeben
+../DungeonMap.h:32:2: Anmerkung: DungeonMap::DungeonMap(unsigned int, unsigned int)
+  DungeonMap(const unsigned int height, const unsigned int width);
+  ^
+../DungeonMap.h:32:2: Anmerkung:   Kandidat erwartet 2 Argumente, 0 angegeben
+../DungeonMap.h:26:2: Anmerkung: DungeonMap::DungeonMap(DungeonMap&)
+  DungeonMap(DungeonMap& map); //Nicht implementierter KopierKonstruktor
+  ^
+../DungeonMap.h:26:2: Anmerkung:   Kandidat erwartet 1 Argument, 0 angegeben
+make: *** [GameEngine.o] Error 1
+subdir.mk:30: recipe for target 'GameEngine.o' failed
+14:43:23 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+Building file: ../DungeonMap.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DungeonMap.d" -MT"DungeonMap.o" -o "DungeonMap.o" "../DungeonMap.cpp"
+Finished building: ../DungeonMap.cpp
+ 
+Building file: ../GameEngine.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"GameEngine.d" -MT"GameEngine.o" -o "GameEngine.o" "../GameEngine.cpp"
+In file included from ../GameEngine.h:10:0,
+                 from ../GameEngine.cpp:8:
+../DungeonMap.h: In Konstruktor »GameEngine::GameEngine(unsigned int, unsigned int, const std::vector<std::basic_string<char> >&)«:
+../DungeonMap.h:27:2: Fehler: »DungeonMap::DungeonMap()« ist privat
+  DungeonMap();
+  ^
+../GameEngine.cpp:11:50: Fehler: in diesem Zusammenhang
+                        const vector<string>& data)
+                                                  ^
+make: *** [GameEngine.o] Error 1
+subdir.mk:30: recipe for target 'GameEngine.o' failed
+14:43:43 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+Building file: ../DungeonMap.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DungeonMap.d" -MT"DungeonMap.o" -o "DungeonMap.o" "../DungeonMap.cpp"
+Finished building: ../DungeonMap.cpp
+ 
+Building file: ../GameEngine.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"GameEngine.d" -MT"GameEngine.o" -o "GameEngine.o" "../GameEngine.cpp"
+../GameEngine.cpp: In Konstruktor »GameEngine::GameEngine(unsigned int, unsigned int, const std::vector<std::basic_string<char> >&)«:
+../GameEngine.cpp:11:50: Fehler: keine passende Funktion für Aufruf von »DungeonMap::DungeonMap()«
+                        const vector<string>& data)
+                                                  ^
+../GameEngine.cpp:11:50: Anmerkung: Kandidaten sind:
 In file included from ../GameEngine.h:10:0,
                  from ../GameEngine.cpp:8:
 ../DungeonMap.h:33:2: Anmerkung: DungeonMap::DungeonMap(unsigned int, unsigned int, const std::vector<std::basic_string<char> >&)
@@ -245,3 +102,317 @@ In file included from ../GameEngine.h:10:0,
 ../DungeonMap.h:26:2: Anmerkung:   Kandidat erwartet 1 Argument, 0 angegeben
 subdir.mk:30: recipe for target 'GameEngine.o' failed
 make: *** [GameEngine.o] Error 1
+14:43:55 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+Building file: ../DungeonMap.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DungeonMap.d" -MT"DungeonMap.o" -o "DungeonMap.o" "../DungeonMap.cpp"
+Finished building: ../DungeonMap.cpp
+ 
+Building file: ../GameEngine.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"GameEngine.d" -MT"GameEngine.o" -o "GameEngine.o" "../GameEngine.cpp"
+Finished building: ../GameEngine.cpp
+ 
+Building file: ../Tile.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Tile.d" -MT"Tile.o" -o "Tile.o" "../Tile.cpp"
+Finished building: ../Tile.cpp
+ 
+Building file: ../main.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: DungeonCrawler
+Invoking: Cross G++ Linker
+g++  -o "DungeonCrawler"  ./Character.o ./DungeonMap.o ./GameEngine.o ./Tile.o ./main.o   
+./GameEngine.o: In function `GameEngine::GameEngine(unsigned int, unsigned int, std::vector<std::string, std::allocator<std::string> > const&)':
+/home/sebastian/workspace/DungeonCrawler/Debug/../GameEngine.cpp:11: undefined reference to `DungeonMap::DungeonMap()'
+makefile:44: recipe for target 'DungeonCrawler' failed
+collect2: Fehler: ld gab 1 als Ende-Status zurück
+make: *** [DungeonCrawler] Error 1
+14:46:56 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+Building file: ../DungeonMap.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DungeonMap.d" -MT"DungeonMap.o" -o "DungeonMap.o" "../DungeonMap.cpp"
+Finished building: ../DungeonMap.cpp
+ 
+Building target: DungeonCrawler
+Invoking: Cross G++ Linker
+g++  -o "DungeonCrawler"  ./Character.o ./DungeonMap.o ./GameEngine.o ./Tile.o ./main.o   
+Finished building target: DungeonCrawler
+ 
+14:47:38 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+Building file: ../DungeonMap.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DungeonMap.d" -MT"DungeonMap.o" -o "DungeonMap.o" "../DungeonMap.cpp"
+Finished building: ../DungeonMap.cpp
+ 
+Building target: DungeonCrawler
+Invoking: Cross G++ Linker
+g++  -o "DungeonCrawler"  ./Character.o ./DungeonMap.o ./GameEngine.o ./Tile.o ./main.o   
+Finished building target: DungeonCrawler
+ 
+14:47:42 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+make: Nothing to be done for 'all'.
+14:47:52 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+make: Nothing to be done for 'all'.
+14:47:52 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+make: Nothing to be done for 'all'.
+14:47:52 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+make: Nothing to be done for 'all'.
+14:47:53 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+make: Nothing to be done for 'all'.
+14:47:54 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+make: Nothing to be done for 'all'.
+14:48:10 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+make: Nothing to be done for 'all'.
+14:48:14 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+make: Nothing to be done for 'all'.
+14:49:35 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+Building file: ../main.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In Funktion »int main()«:
+../main.cpp:14:19: Warnung: Vergleich zwischen vorzeichenbehafteten und vorzeichenlosen Ganzzahlausdrücken [-Wsign-compare]
+  for(int i = 0; i < data.size(); i++){
+                   ^
+Finished building: ../main.cpp
+ 
+Building target: DungeonCrawler
+Invoking: Cross G++ Linker
+g++  -o "DungeonCrawler"  ./Character.o ./DungeonMap.o ./GameEngine.o ./Tile.o ./main.o   
+Finished building target: DungeonCrawler
+ 
+14:58:16 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+Building file: ../GameEngine.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"GameEngine.d" -MT"GameEngine.o" -o "GameEngine.o" "../GameEngine.cpp"
+../GameEngine.cpp: In Elementfunktion »void GameEngine::turn()«:
+../GameEngine.cpp:30:9: Warnung: Variable »actTile« wird nicht verwendet [-Wunused-variable]
+   Tile* actTile = m_map.findTile(pos);
+         ^
+Finished building: ../GameEngine.cpp
+ 
+Building file: ../main.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In Funktion »int main()«:
+../main.cpp:14:19: Warnung: Vergleich zwischen vorzeichenbehafteten und vorzeichenlosen Ganzzahlausdrücken [-Wsign-compare]
+  for(int i = 0; i < data.size(); i++){
+                   ^
+Finished building: ../main.cpp
+ 
+Building target: DungeonCrawler
+Invoking: Cross G++ Linker
+g++  -o "DungeonCrawler"  ./Character.o ./DungeonMap.o ./GameEngine.o ./Tile.o ./main.o   
+Finished building target: DungeonCrawler
+ 
+14:58:50 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+Building file: ../GameEngine.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"GameEngine.d" -MT"GameEngine.o" -o "GameEngine.o" "../GameEngine.cpp"
+../GameEngine.cpp: In Elementfunktion »void GameEngine::turn()«:
+../GameEngine.cpp:30:9: Warnung: Variable »actTile« wird nicht verwendet [-Wunused-variable]
+   Tile* actTile = m_map.findTile(pos);
+         ^
+../GameEngine.cpp: In Elementfunktion »bool GameEngine::finished()«:
+../GameEngine.cpp:44:2: Fehler: »else« ohne vorheriges »if«
+  else
+  ^
+subdir.mk:30: recipe for target 'GameEngine.o' failed
+make: *** [GameEngine.o] Error 1
+14:59:32 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+Building file: ../GameEngine.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"GameEngine.d" -MT"GameEngine.o" -o "GameEngine.o" "../GameEngine.cpp"
+../GameEngine.cpp: In Elementfunktion »void GameEngine::turn()«:
+../GameEngine.cpp:30:9: Warnung: Variable »actTile« wird nicht verwendet [-Wunused-variable]
+   Tile* actTile = m_map.findTile(pos);
+         ^
+Finished building: ../GameEngine.cpp
+ 
+Building target: DungeonCrawler
+Invoking: Cross G++ Linker
+g++  -o "DungeonCrawler"  ./Character.o ./DungeonMap.o ./GameEngine.o ./Tile.o ./main.o   
+Finished building target: DungeonCrawler
+ 
+14:59:53 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+Building file: ../GameEngine.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"GameEngine.d" -MT"GameEngine.o" -o "GameEngine.o" "../GameEngine.cpp"
+../GameEngine.cpp: In Elementfunktion »void GameEngine::turn()«:
+../GameEngine.cpp:30:9: Warnung: Variable »actTile« wird nicht verwendet [-Wunused-variable]
+   Tile* actTile = m_map.findTile(pos);
+         ^
+Finished building: ../GameEngine.cpp
+ 
+Building target: DungeonCrawler
+Invoking: Cross G++ Linker
+g++  -o "DungeonCrawler"  ./Character.o ./DungeonMap.o ./GameEngine.o ./Tile.o ./main.o   
+Finished building target: DungeonCrawler
+ 
+15:00:11 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+Building file: ../GameEngine.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"GameEngine.d" -MT"GameEngine.o" -o "GameEngine.o" "../GameEngine.cpp"
+../GameEngine.cpp: In Elementfunktion »void GameEngine::turn()«:
+../GameEngine.cpp:30:9: Warnung: Variable »actTile« wird nicht verwendet [-Wunused-variable]
+   Tile* actTile = m_map.findTile(pos);
+         ^
+Finished building: ../GameEngine.cpp
+ 
+Building target: DungeonCrawler
+Invoking: Cross G++ Linker
+g++  -o "DungeonCrawler"  ./Character.o ./DungeonMap.o ./GameEngine.o ./Tile.o ./main.o   
+Finished building target: DungeonCrawler
+ 
+15:27:09 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+Building file: ../DungeonMap.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DungeonMap.d" -MT"DungeonMap.o" -o "DungeonMap.o" "../DungeonMap.cpp"
+Finished building: ../DungeonMap.cpp
+ 
+Building file: ../GameEngine.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"GameEngine.d" -MT"GameEngine.o" -o "GameEngine.o" "../GameEngine.cpp"
+../GameEngine.cpp: In Elementfunktion »void GameEngine::turn()«:
+../GameEngine.cpp:41:8: Fehler: Sprung zur case-Marke [-fpermissive]
+   case 2:
+        ^
+../GameEngine.cpp:38:10: Fehler:   überschneidet Initialisierung von »Tile* newTile«
+    Tile* newTile = m_map.findTile(newPos);
+          ^
+../GameEngine.cpp:43:10: Fehler: Redeklaration von »Tile* newTile«
+    Tile* newTile = m_map.findTile(newPos);
+          ^
+../GameEngine.cpp:38:10: Anmerkung: »Tile* newTile« wurde bereits hier deklariert
+    Tile* newTile = m_map.findTile(newPos);
+          ^
+../GameEngine.cpp:46:8: Fehler: Sprung zur case-Marke [-fpermissive]
+   case 3:
+        ^
+../GameEngine.cpp:38:10: Fehler:   überschneidet Initialisierung von »Tile* newTile«
+    Tile* newTile = m_map.findTile(newPos);
+          ^
+../GameEngine.cpp:49:10: Fehler: Redeklaration von »Tile* newTile«
+    Tile* newTile = m_map.findTile(newPos);
+          ^
+../GameEngine.cpp:38:10: Anmerkung: »Tile* newTile« wurde bereits hier deklariert
+    Tile* newTile = m_map.findTile(newPos);
+          ^
+../GameEngine.cpp:52:8: Fehler: Sprung zur case-Marke [-fpermissive]
+   case 4:
+        ^
+../GameEngine.cpp:38:10: Fehler:   überschneidet Initialisierung von »Tile* newTile«
+    Tile* newTile = m_map.findTile(newPos);
+          ^
+../GameEngine.cpp:54:10: Fehler: Redeklaration von »Tile* newTile«
+    Tile* newTile = m_map.findTile(newPos);
+          ^
+../GameEngine.cpp:38:10: Anmerkung: »Tile* newTile« wurde bereits hier deklariert
+    Tile* newTile = m_map.findTile(newPos);
+          ^
+../GameEngine.cpp:57:8: Fehler: Sprung zur case-Marke [-fpermissive]
+   case 5:
+        ^
+../GameEngine.cpp:38:10: Fehler:   überschneidet Initialisierung von »Tile* newTile«
+    Tile* newTile = m_map.findTile(newPos);
+          ^
+../GameEngine.cpp:58:10: Fehler: Redeklaration von »Tile* newTile«
+    Tile* newTile = m_map.findTile(newPos);
+          ^
+../GameEngine.cpp:38:10: Anmerkung: »Tile* newTile« wurde bereits hier deklariert
+    Tile* newTile = m_map.findTile(newPos);
+          ^
+../GameEngine.cpp:61:8: Fehler: Sprung zur case-Marke [-fpermissive]
+   case 6:
+        ^
+../GameEngine.cpp:38:10: Fehler:   überschneidet Initialisierung von »Tile* newTile«
+    Tile* newTile = m_map.findTile(newPos);
+          ^
+../GameEngine.cpp:63:10: Fehler: Redeklaration von »Tile* newTile«
+    Tile* newTile = m_map.findTile(newPos);
+          ^
+../GameEngine.cpp:38:10: Anmerkung: »Tile* newTile« wurde bereits hier deklariert
+    Tile* newTile = m_map.findTile(newPos);
+          ^
+../GameEngine.cpp:66:8: Fehler: Sprung zur case-Marke [-fpermissive]
+   case 7:
+        ^
+../GameEngine.cpp:38:10: Fehler:   überschneidet Initialisierung von »Tile* newTile«
+    Tile* newTile = m_map.findTile(newPos);
+          ^
+../GameEngine.cpp:69:10: Fehler: Redeklaration von »Tile* newTile«
+    Tile* newTile = m_map.findTile(newPos);
+          ^
+../GameEngine.cpp:38:10: Anmerkung: »Tile* newTile« wurde bereits hier deklariert
+    Tile* newTile = m_map.findTile(newPos);
+          ^
+../GameEngine.cpp:72:8: Fehler: Sprung zur case-Marke [-fpermissive]
+   case 8:
+        ^
+../GameEngine.cpp:38:10: Fehler:   überschneidet Initialisierung von »Tile* newTile«
+    Tile* newTile = m_map.findTile(newPos);
+          ^
+../GameEngine.cpp:74:10: Fehler: Redeklaration von »Tile* newTile«
+    Tile* newTile = m_map.findTile(newPos);
+          ^
+../GameEngine.cpp:38:10: Anmerkung: »Tile* newTile« wurde bereits hier deklariert
+    Tile* newTile = m_map.findTile(newPos);
+          ^
+../GameEngine.cpp:77:8: Fehler: Sprung zur case-Marke [-fpermissive]
+   case 9:
+        ^
+../GameEngine.cpp:38:10: Fehler:   überschneidet Initialisierung von »Tile* newTile«
+    Tile* newTile = m_map.findTile(newPos);
+          ^
+../GameEngine.cpp:80:10: Fehler: Redeklaration von »Tile* newTile«
+    Tile* newTile = m_map.findTile(newPos);
+          ^
+../GameEngine.cpp:38:10: Anmerkung: »Tile* newTile« wurde bereits hier deklariert
+    Tile* newTile = m_map.findTile(newPos);
+          ^
+../GameEngine.cpp:83:3: Fehler: Sprung zur case-Marke [-fpermissive]
+   default:
+   ^
+../GameEngine.cpp:38:10: Fehler:   überschneidet Initialisierung von »Tile* newTile«
+    Tile* newTile = m_map.findTile(newPos);
+          ^
+subdir.mk:30: recipe for target 'GameEngine.o' failed
+make: *** [GameEngine.o] Error 1
+15:28:19 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+Building file: ../GameEngine.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"GameEngine.d" -MT"GameEngine.o" -o "GameEngine.o" "../GameEngine.cpp"
+Finished building: ../GameEngine.cpp
+ 
+Building file: ../Tile.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Tile.d" -MT"Tile.o" -o "Tile.o" "../Tile.cpp"
+Finished building: ../Tile.cpp
+ 
+Building target: DungeonCrawler
+Invoking: Cross G++ Linker
+g++  -o "DungeonCrawler"  ./Character.o ./DungeonMap.o ./GameEngine.o ./Tile.o ./main.o   
+Finished building target: DungeonCrawler
+ 

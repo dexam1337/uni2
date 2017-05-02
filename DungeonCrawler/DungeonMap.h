@@ -28,7 +28,7 @@ private:
 	unsigned int m_maxWidth;
 
 public:
-
+	DungeonMap();
 	DungeonMap(const unsigned int height, const unsigned int width);
 	DungeonMap(const unsigned int height, const unsigned int width,
 			const vector<string>& data);
