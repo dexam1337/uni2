@@ -28,7 +28,6 @@ void GameEngine::turn() {
 			cerr << "Error in turn: " << ie.what() << '\n';
 		}
 		Tile* oldTile = m_map.findTile(pos);
-		//hier switchcase für Bewegungsrichtung;
 		Position newPos = pos;
 		Tile* newTile;
 		switch (characters.at(i)->move()) {
@@ -85,10 +84,11 @@ void GameEngine::turn() {
 			break;
 		}
 	}
+        round++;
 }
 
 bool GameEngine::finished() {
-	round++;
+	
 	cout << round << endl;
 	if (round <= 10)
 		return false;
