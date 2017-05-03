@@ -1,4 +1,4 @@
-20:17:34 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+20:26:27 **** Incremental Build of configuration Debug for project DungeonCrawler ****
 make all 
 Building file: ../DungeonMap.cpp
 Invoking: Cross G++ Compiler
@@ -7,46 +7,23 @@ g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DungeonMap.d" -M
 ../DungeonMap.cpp:15:28: Fehler: »Floor« ist kein Element von »Tile«
      m_map[i][j] = new Tile(Tile::Floor, nullptr);
                             ^
-../DungeonMap.cpp:15:48: Fehler: invalid new-expression of abstract class type »Tile«
-     m_map[i][j] = new Tile(Tile::Floor, nullptr);
-                                                ^
-In file included from ../DungeonMap.h:13:0,
-                 from ../DungeonMap.cpp:8:
-../Tile.h:13:7: Anmerkung:   denn die folgenden virtuellen Funktionen sind rein innerhalb »Tile«:
- class Tile {
-       ^
-../Tile.h:21:15: Anmerkung: 	virtual void Tile::onLeave(Tile*) const
-  virtual void onLeave(Tile* toTile) const = 0;
-               ^
-../Tile.h:22:15: Anmerkung: 	virtual void Tile::onEnter(Character*, Tile*) const
-  virtual void onEnter(Character* c, Tile* fromTile) const = 0;
-               ^
 ../DungeonMap.cpp: In Konstruktor »DungeonMap::DungeonMap(unsigned int, unsigned int)«:
 ../DungeonMap.cpp:31:27: Fehler: »Floor« ist kein Element von »Tile«
     m_map[i][j] = new Tile(Tile::Floor, nullptr);
                            ^
-../DungeonMap.cpp:31:47: Fehler: invalid new-expression of abstract class type »Tile«
-    m_map[i][j] = new Tile(Tile::Floor, nullptr);
-                                               ^
 ../DungeonMap.cpp: In Konstruktor »DungeonMap::DungeonMap(unsigned int, unsigned int, const std::vector<std::basic_string<char> >&)«:
 ../DungeonMap.cpp:47:28: Fehler: »Floor« ist kein Element von »Tile«
      m_map[i][j] = new Tile(Tile::Floor, nullptr);
                             ^
-../DungeonMap.cpp:47:48: Fehler: invalid new-expression of abstract class type »Tile«
-     m_map[i][j] = new Tile(Tile::Floor, nullptr);
-                                                ^
 ../DungeonMap.cpp:49:28: Fehler: »Wall« ist kein Element von »Tile«
      m_map[i][j] = new Tile(Tile::Wall, nullptr);
                             ^
-../DungeonMap.cpp:49:47: Fehler: invalid new-expression of abstract class type »Tile«
-     m_map[i][j] = new Tile(Tile::Wall, nullptr);
-                                               ^
 ../DungeonMap.cpp: In Destruktor »DungeonMap::~DungeonMap()«:
-../DungeonMap.cpp:60:30: Warnung: Löschen des Objekts mit abstraktem Klassentyp »Tile« mit nicht-virtuellem Destruktor bewirkt undefiniertes Verhalten [-Wdelete-non-virtual-dtor]
+../DungeonMap.cpp:60:30: Warnung: Löschen des Objekts mit polymorphem Klassentyp »Tile« mit nicht-virtuellem Destruktor bewirkt möglicherweise undefiniertes Verhalten [-Wdelete-non-virtual-dtor]
              delete m_map[i][j];
                               ^
 make: *** [DungeonMap.o] Error 1
 subdir.mk:36: recipe for target 'DungeonMap.o' failed
 
-20:17:34 Build Finished (took 209ms)
+20:26:27 Build Finished (took 216ms)
 

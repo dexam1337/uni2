@@ -32,8 +32,8 @@ void Tile::setCharacter(Character* character)
 {
 	m_character = character;
 }
-
-virtual void Tile::onLeave(Tile* toTile)
+/*
+void Tile::onLeave(Tile* toTile)
 {
 	if (toTile->hasCharacter() == false)
 	{
@@ -42,11 +42,11 @@ virtual void Tile::onLeave(Tile* toTile)
 	}
 }
 
-virtual void Tile::onEnter(Character* c, Tile* fromTile)
+void Tile::onEnter(Character* c, Tile* fromTile)
 {
 	m_character = c;
 }
-
+*/
 char Tile::print()
 {
 	if (hasCharacter())

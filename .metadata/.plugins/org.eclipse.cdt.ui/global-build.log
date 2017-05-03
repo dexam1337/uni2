@@ -733,3 +733,29 @@ In file included from ../DungeonMap.h:13:0,
                               ^
 make: *** [DungeonMap.o] Error 1
 subdir.mk:36: recipe for target 'DungeonMap.o' failed
+20:26:27 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+Building file: ../DungeonMap.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DungeonMap.d" -MT"DungeonMap.o" -o "DungeonMap.o" "../DungeonMap.cpp"
+../DungeonMap.cpp: In Konstruktor »DungeonMap::DungeonMap()«:
+../DungeonMap.cpp:15:28: Fehler: »Floor« ist kein Element von »Tile«
+     m_map[i][j] = new Tile(Tile::Floor, nullptr);
+                            ^
+../DungeonMap.cpp: In Konstruktor »DungeonMap::DungeonMap(unsigned int, unsigned int)«:
+../DungeonMap.cpp:31:27: Fehler: »Floor« ist kein Element von »Tile«
+    m_map[i][j] = new Tile(Tile::Floor, nullptr);
+                           ^
+../DungeonMap.cpp: In Konstruktor »DungeonMap::DungeonMap(unsigned int, unsigned int, const std::vector<std::basic_string<char> >&)«:
+../DungeonMap.cpp:47:28: Fehler: »Floor« ist kein Element von »Tile«
+     m_map[i][j] = new Tile(Tile::Floor, nullptr);
+                            ^
+../DungeonMap.cpp:49:28: Fehler: »Wall« ist kein Element von »Tile«
+     m_map[i][j] = new Tile(Tile::Wall, nullptr);
+                            ^
+../DungeonMap.cpp: In Destruktor »DungeonMap::~DungeonMap()«:
+../DungeonMap.cpp:60:30: Warnung: Löschen des Objekts mit polymorphem Klassentyp »Tile« mit nicht-virtuellem Destruktor bewirkt möglicherweise undefiniertes Verhalten [-Wdelete-non-virtual-dtor]
+             delete m_map[i][j];
+                              ^
+make: *** [DungeonMap.o] Error 1
+subdir.mk:36: recipe for target 'DungeonMap.o' failed
