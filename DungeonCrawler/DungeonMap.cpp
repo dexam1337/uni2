@@ -42,17 +42,27 @@ DungeonMap::DungeonMap(const unsigned int height, const unsigned int width,
 	for (unsigned int i = 0; i < height; i++) {
 		m_map[i] = new Tile*[width];
 		for (unsigned int j = 0; j < width; j++) {
+                    cout << i << " " << j << endl;
 			if (data.at(i).at(j) == '.') {
 				m_map[i][j] = new Tile(Tile::Floor, nullptr);
-			} else {
+			} else if(data.at(i).at(j) == '#') {
 				m_map[i][j] = new Tile(Tile::Wall, nullptr);
 			}
+                        else
+                            throw std::runtime_error("sdgsgs");
 		}
 	}
-}
+} 
 
 DungeonMap::~DungeonMap() {
-	delete[] m_map;
+    for(int i = 0; i < m_maxHeight; i++){
+        for(int j = 0; j < m_maxWidth; j++)
+            delete m_map[i][j];
+        delete[] m_map[i];
+    }
+        delete[] m_map;
+        
+        m_map = nullptr;
 	m_maxHeight = 0;
 	m_maxWidth = 0;
 }
@@ -78,7 +88,6 @@ Position DungeonMap::findTile(Tile* t) {
 }
  
 Tile* DungeonMap::findTile(Position pos) {
-        cout<<pos.height<<" "<<pos.width<<endl;
 	if (pos.height >= m_maxHeight || pos.width >= m_maxWidth)
 		throw out_of_range("Gesuchtes Tile außerhalb des Spielfelds");
 	return m_map[pos.height][pos.width];
@@ -101,8 +110,8 @@ Position DungeonMap::findCharacter(Character* c) {
 void DungeonMap::print() {
 	for (unsigned int i = 0; i < m_maxHeight; i++) {
 		for (unsigned int j = 0; j < m_maxWidth; j++) {
-			cout << m_map[i][j]->print();
-		}
+                     cout << m_map[i][j]->print();
+			}
 		cout << endl;
 	}
 

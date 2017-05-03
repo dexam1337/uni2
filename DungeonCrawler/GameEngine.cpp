@@ -8,9 +8,13 @@
 #include "GameEngine.h"
 
 GameEngine::GameEngine(const unsigned int height, const unsigned int width,
-		const vector<string>& data) {
-	m_map = DungeonMap(height, width, data);
+		const vector<string>& data): m_map(height, width, data) {
+//	m_map = DungeonMap(height, width, data);
 	characters.push_back(new Character('o')); //Wegen pointer
+        Position pos;
+        pos.height = 5;
+        pos.width = 5;
+        m_map.place(pos,characters.at(0));
 	round = 0;
 }
 
@@ -20,6 +24,7 @@ void GameEngine::run() {
 }
 
 void GameEngine::turn() {
+
 	for (unsigned int i = 0; i < characters.size(); i++) {
 		Position pos;
 		try {
@@ -30,7 +35,8 @@ void GameEngine::turn() {
 		Tile* oldTile = m_map.findTile(pos);
 		Position newPos = pos;
 		Tile* newTile;
-		switch (characters.at(i)->move()) {
+                int eingabe = characters.at(i)->move();
+		switch (eingabe) {
 		case 1:
 			newPos.height++;
 			newPos.width--;
@@ -54,8 +60,7 @@ void GameEngine::turn() {
 			oldTile->onLeave(newTile);
 			break;
 		case 5:
-			newTile = m_map.findTile(newPos);
-			oldTile->onLeave(newTile);
+
 			break;
 		case 6:
 			newPos.width++;
@@ -88,17 +93,17 @@ void GameEngine::turn() {
 }
 
 bool GameEngine::finished() {
-	
+        m_map.print();
 	cout << round << endl;
-	if (round <= 10)
+	if (round <= 9)
 		return false;
 	else
 		return true;
 }
 
 GameEngine::~GameEngine() {
-	//delete[] characters;
-	for (unsigned int i = characters.size(); i > 0; i++)
-		delete characters.at(i);
+    for(int i = 0;i <characters.size();i++)
+        delete characters.at(i);
+	characters.erase(characters.begin(),characters.end());
 	m_map.~DungeonMap();
 }
