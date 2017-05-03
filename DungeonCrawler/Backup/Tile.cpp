@@ -12,7 +12,7 @@ Tile::Tile(Typ typ, Character* character) {
 	m_character = character;
 }
 
-Typ Tile::getTyp() {
+Tile::Typ Tile::getTyp() {
 	return m_typ;
 }
 
@@ -31,7 +31,7 @@ void Tile::setCharacter(Character* character) {
 }
 
 void Tile::onLeave(Tile* toTile) {
-	if (toTile->hasCharacter() == false) {
+	if (toTile->hasCharacter() == false && toTile->getTyp() == Floor) {
 		toTile->onEnter(m_character, this);
 		m_character = nullptr;
 	}
@@ -39,4 +39,14 @@ void Tile::onLeave(Tile* toTile) {
 
 void Tile::onEnter(Character* c, Tile* fromTile) {
 	m_character = c;
+}
+
+char Tile::print() {
+	if (hasCharacter()) {
+		return m_character->getSymbol();
+	} else if (m_typ == Tile::Floor) {
+		return '.';
+	} else {
+		return '#';
+	}
 }
