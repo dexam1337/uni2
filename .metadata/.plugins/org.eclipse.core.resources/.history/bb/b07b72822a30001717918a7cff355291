@@ -42,7 +42,7 @@ DungeonMap::DungeonMap(const unsigned int height, const unsigned int width,
 	for (unsigned int i = 0; i < height; i++) {
 		m_map[i] = new Tile*[width];
 		for (unsigned int j = 0; j < width; j++) {
-                   // cout << i << " " << j << endl;
+                    cout << i << " " << j << endl;
 			if (data.at(i).at(j) == '.') {
 				m_map[i][j] = new Tile(Tile::Floor, nullptr);
 			} else if(data.at(i).at(j) == '#') {

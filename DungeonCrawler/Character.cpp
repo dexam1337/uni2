@@ -25,7 +25,7 @@ int Character::move()
     cout << "\n Wohin möchten sie laufen?\n";
     cin >> returnvalue;
     cin.clear();
-    if (returnvalue <= 9 && returnvalue > 0)
+    if (returnvalue <= 9 && returnvalue >= 0)
     {
         return returnvalue;
     }

@@ -78,7 +78,7 @@ void GameEngine::turn()
 
 			break;
 		case 0:
-			round = 10;
+			round = 9;
 			break;
 		default:
 			cout << "Fehler in switchcase in turn()";

@@ -572,3 +572,103 @@ make: Nothing to be done for 'all'.
 15:51:59 **** Incremental Build of configuration Debug for project DungeonCrawler ****
 make all 
 make: Nothing to be done for 'all'.
+19:56:30 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+Building file: ../Character.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Character.d" -MT"Character.o" -o "Character.o" "../Character.cpp"
+Finished building: ../Character.cpp
+ 
+Building file: ../DungeonMap.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DungeonMap.d" -MT"DungeonMap.o" -o "DungeonMap.o" "../DungeonMap.cpp"
+../DungeonMap.cpp: In Destruktor »DungeonMap::~DungeonMap()«:
+../DungeonMap.cpp:58:22: Warnung: Vergleich zwischen vorzeichenbehafteten und vorzeichenlosen Ganzzahlausdrücken [-Wsign-compare]
+     for(int i = 0; i < m_maxHeight; i++){
+                      ^
+../DungeonMap.cpp:59:26: Warnung: Vergleich zwischen vorzeichenbehafteten und vorzeichenlosen Ganzzahlausdrücken [-Wsign-compare]
+         for(int j = 0; j < m_maxWidth; j++)
+                          ^
+Finished building: ../DungeonMap.cpp
+ 
+Building file: ../GameEngine.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"GameEngine.d" -MT"GameEngine.o" -o "GameEngine.o" "../GameEngine.cpp"
+../GameEngine.cpp: In Destruktor »GameEngine::~GameEngine()«:
+../GameEngine.cpp:105:21: Warnung: Vergleich zwischen vorzeichenbehafteten und vorzeichenlosen Ganzzahlausdrücken [-Wsign-compare]
+     for(int i = 0;i <characters.size();i++)
+                     ^
+Finished building: ../GameEngine.cpp
+ 
+Building file: ../Tile.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Tile.d" -MT"Tile.o" -o "Tile.o" "../Tile.cpp"
+Finished building: ../Tile.cpp
+ 
+Building file: ../main.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: DungeonCrawler
+Invoking: Cross G++ Linker
+g++  -o "DungeonCrawler"  ./Character.o ./DungeonMap.o ./GameEngine.o ./Tile.o ./main.o   
+Finished building target: DungeonCrawler
+ 
+19:57:17 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+Building file: ../DungeonMap.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DungeonMap.d" -MT"DungeonMap.o" -o "DungeonMap.o" "../DungeonMap.cpp"
+Finished building: ../DungeonMap.cpp
+ 
+Building target: DungeonCrawler
+Invoking: Cross G++ Linker
+g++  -o "DungeonCrawler"  ./Character.o ./DungeonMap.o ./GameEngine.o ./Tile.o ./main.o   
+Finished building target: DungeonCrawler
+ 
+19:58:07 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+make: Nothing to be done for 'all'.
+19:59:44 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+Building file: ../Character.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Character.d" -MT"Character.o" -o "Character.o" "../Character.cpp"
+Finished building: ../Character.cpp
+ 
+Building file: ../GameEngine.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"GameEngine.d" -MT"GameEngine.o" -o "GameEngine.o" "../GameEngine.cpp"
+../GameEngine.cpp: In Destruktor »GameEngine::~GameEngine()«:
+../GameEngine.cpp:106:20: Warnung: Vergleich zwischen vorzeichenbehafteten und vorzeichenlosen Ganzzahlausdrücken [-Wsign-compare]
+  for (int i = 0; i < characters.size(); i++)
+                    ^
+Finished building: ../GameEngine.cpp
+ 
+Building target: DungeonCrawler
+Invoking: Cross G++ Linker
+g++  -o "DungeonCrawler"  ./Character.o ./DungeonMap.o ./GameEngine.o ./Tile.o ./main.o   
+Finished building target: DungeonCrawler
+ 
+20:01:20 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+make all 
+Building file: ../DungeonMap.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DungeonMap.d" -MT"DungeonMap.o" -o "DungeonMap.o" "../DungeonMap.cpp"
+Finished building: ../DungeonMap.cpp
+ 
+Building file: ../GameEngine.cpp
+Invoking: Cross G++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"GameEngine.d" -MT"GameEngine.o" -o "GameEngine.o" "../GameEngine.cpp"
+../GameEngine.cpp: In Destruktor »GameEngine::~GameEngine()«:
+../GameEngine.cpp:106:20: Warnung: Vergleich zwischen vorzeichenbehafteten und vorzeichenlosen Ganzzahlausdrücken [-Wsign-compare]
+  for (int i = 0; i < characters.size(); i++)
+                    ^
+Finished building: ../GameEngine.cpp
+ 
+Building target: DungeonCrawler
+Invoking: Cross G++ Linker
+g++  -o "DungeonCrawler"  ./Character.o ./DungeonMap.o ./GameEngine.o ./Tile.o ./main.o   
+Finished building target: DungeonCrawler
+ 
