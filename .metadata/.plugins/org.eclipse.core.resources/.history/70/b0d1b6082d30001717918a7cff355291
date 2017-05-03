@@ -1,0 +1,28 @@
+/*
+ * Wall.cpp
+ *
+ *  Created on: 03.05.2017
+ *      Author: sebastian
+ */
+
+#include "Wall.h"
+
+Wall::Wall()
+{
+	// TODO Auto-generated constructor stub
+
+}
+
+Wall::~Wall()
+{
+	// TODO Auto-generated destructor stub
+}
+
+char print()
+{
+	if(Tile::m_character == nullptr)
+		return ".";
+	else
+		return Tile::m_character->getSymbol();
+
+}

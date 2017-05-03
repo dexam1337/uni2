@@ -1,0 +1,24 @@
+/*
+ * Wall.h
+ *
+ *  Created on: 03.05.2017
+ *      Author: sebastian
+ */
+
+#ifndef WALL_H_
+#define WALL_H_
+
+#include "Tile.h"
+
+class Wall: public Tile
+{
+public:
+	Wall();
+	Wall(Character* character);
+	virtual ~Wall();
+	void onLeave(Tile* toTile) override;
+	void onEnter(Character* c, Tile* fromTile) override;
+	char print() override;
+};
+
+#endif /* WALL_H_ */

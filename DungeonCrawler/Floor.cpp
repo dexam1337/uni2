@@ -1,0 +1,46 @@
+/*
+ * Floor.cpp
+ *
+ *  Created on: 03.05.2017
+ *      Author: sebastian
+ */
+
+#include "Floor.h"
+
+Floor::Floor() : Tile()
+{
+	//m_character = nullptr;
+
+}
+
+Floor::Floor(Character* character) : Tile(character){
+	//m_character = character;
+}
+
+Floor::~Floor()
+{
+	// TODO Auto-generated destructor stub
+}
+
+void onLeave(Tile* toTile)
+{
+	toTile->onEnter(Tile::m_character, this);
+}
+void onEnter(Character* c, Tile* fromTile)
+{
+	if(Tile::m_character == nullptr){
+		Tile::m_character = c;
+		fromTile->setCharacter(nullptr);
+	}
+	else{
+		fromTile->onEnter(c,this);
+	}
+}
+char print()
+{
+	if(Tile::m_character == nullptr)
+		return ".";
+	else
+		return Tile::m_character->getSymbol();
+
+}

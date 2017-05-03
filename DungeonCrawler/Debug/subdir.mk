@@ -6,22 +6,28 @@
 CPP_SRCS += \
 ../Character.cpp \
 ../DungeonMap.cpp \
+../Floor.cpp \
 ../GameEngine.cpp \
 ../Tile.cpp \
+../Wall.cpp \
 ../main.cpp 
 
 OBJS += \
 ./Character.o \
 ./DungeonMap.o \
+./Floor.o \
 ./GameEngine.o \
 ./Tile.o \
+./Wall.o \
 ./main.o 
 
 CPP_DEPS += \
 ./Character.d \
 ./DungeonMap.d \
+./Floor.d \
 ./GameEngine.d \
 ./Tile.d \
+./Wall.d \
 ./main.d 
 
 

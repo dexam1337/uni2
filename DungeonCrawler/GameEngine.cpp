@@ -103,7 +103,7 @@ bool GameEngine::finished()
 
 GameEngine::~GameEngine()
 {
-	for (int i = 0; i < characters.size(); i++)
+	for (unsigned int i = 0; i < characters.size(); i++)
 		delete characters.at(i);
 	characters.erase(characters.begin(), characters.end());
 	m_map.~DungeonMap();

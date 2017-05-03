@@ -1,0 +1,20 @@
+/*
+ * Wall.h
+ *
+ *  Created on: 03.05.2017
+ *      Author: sebastian
+ */
+
+#ifndef WALL_H_
+#define WALL_H_
+
+#include "Tile.h"
+
+class Wall: public Tile
+{
+public:
+	Wall();
+	virtual ~Wall();
+};
+
+#endif /* WALL_H_ */

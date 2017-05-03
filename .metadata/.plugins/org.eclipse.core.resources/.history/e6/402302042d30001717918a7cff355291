@@ -1,0 +1,20 @@
+/*
+ * Wall.cpp
+ *
+ *  Created on: 03.05.2017
+ *      Author: sebastian
+ */
+
+#include "Wall.h"
+
+Wall::Wall()
+{
+	// TODO Auto-generated constructor stub
+
+}
+
+Wall::~Wall()
+{
+	// TODO Auto-generated destructor stub
+}
+
