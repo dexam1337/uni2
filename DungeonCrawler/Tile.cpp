@@ -7,54 +7,46 @@
 
 #include "Tile.h"
 
-Tile::Tile(Character* character)
-{
+Tile::Tile(Typ typ, Character* character) {
+	m_typ = typ;
 	m_character = character;
 }
 
-Tile::Tile(){
-	m_character = nullptr;
+Tile::Typ Tile::getTyp() {
+	return m_typ;
 }
 
-Character* Tile::getCharacter()
-{
+Character* Tile::getCharacter() {
 	return m_character;
 }
 
-bool Tile::hasCharacter()
-{
+bool Tile::hasCharacter() {
 	if (m_character == nullptr)
 		return false;
 	return true;
 }
 
-void Tile::setCharacter(Character* character)
-{
+void Tile::setCharacter(Character* character) {
 	m_character = character;
 }
 
-virtual void Tile::onLeave(Tile* toTile)
-{
-	if (toTile->hasCharacter() == false)
-	{
+void Tile::onLeave(Tile* toTile) {
+	if (toTile->hasCharacter() == false && toTile->getTyp() == Floor) {
 		toTile->onEnter(m_character, this);
 		m_character = nullptr;
 	}
 }
 
-virtual void Tile::onEnter(Character* c, Tile* fromTile)
-{
+void Tile::onEnter(Character* c, Tile* fromTile) {
 	m_character = c;
 }
 
-char Tile::print()
-{
-	if (hasCharacter())
-	{
+char Tile::print() {
+	if (hasCharacter()) {
 		return m_character->getSymbol();
-	}
-	else
-	{
-		return ' ';
+	} else if (m_typ == Tile::Floor) {
+		return '.';
+	} else {
+		return '#';
 	}
 }

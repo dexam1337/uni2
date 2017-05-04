@@ -1,24 +1,27 @@
 /*
- * Wall.h
+ * Floor.h
  *
  *  Created on: 03.05.2017
  *      Author: sebastian
  */
 
-#ifndef WALL_H_
-#define WALL_H_
+#ifndef FLOOR_H_
+#define FLOOR_H_
 
 #include "Tile.h"
 
-class Wall: public Tile
+class Floor: public Tile
 {
 public:
-	Wall();
-	Wall(Character* character);
-	virtual ~Wall();
+	Floor();
+	Floor(Character* character);
+	virtual ~Floor();
 	void onLeave(Tile* toTile) override;
 	void onEnter(Character* c, Tile* fromTile) override;
 	char print() override;
+private:
+	Character* m_character = nullptr;
+
 };
 
-#endif /* WALL_H_ */
+#endif /* FLOOR_H_ */

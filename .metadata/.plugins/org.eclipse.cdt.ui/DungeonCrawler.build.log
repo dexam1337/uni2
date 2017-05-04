@@ -1,29 +1,31 @@
-20:26:27 **** Incremental Build of configuration Debug for project DungeonCrawler ****
+11:46:13 **** Incremental Build of configuration Debug for project DungeonCrawler ****
 make all 
-Building file: ../DungeonMap.cpp
+Building file: ../Floor.cpp
 Invoking: Cross G++ Compiler
-g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DungeonMap.d" -MT"DungeonMap.o" -o "DungeonMap.o" "../DungeonMap.cpp"
-../DungeonMap.cpp: In Konstruktor »DungeonMap::DungeonMap()«:
-../DungeonMap.cpp:15:28: Fehler: »Floor« ist kein Element von »Tile«
-     m_map[i][j] = new Tile(Tile::Floor, nullptr);
-                            ^
-../DungeonMap.cpp: In Konstruktor »DungeonMap::DungeonMap(unsigned int, unsigned int)«:
-../DungeonMap.cpp:31:27: Fehler: »Floor« ist kein Element von »Tile«
-    m_map[i][j] = new Tile(Tile::Floor, nullptr);
-                           ^
-../DungeonMap.cpp: In Konstruktor »DungeonMap::DungeonMap(unsigned int, unsigned int, const std::vector<std::basic_string<char> >&)«:
-../DungeonMap.cpp:47:28: Fehler: »Floor« ist kein Element von »Tile«
-     m_map[i][j] = new Tile(Tile::Floor, nullptr);
-                            ^
-../DungeonMap.cpp:49:28: Fehler: »Wall« ist kein Element von »Tile«
-     m_map[i][j] = new Tile(Tile::Wall, nullptr);
-                            ^
-../DungeonMap.cpp: In Destruktor »DungeonMap::~DungeonMap()«:
-../DungeonMap.cpp:60:30: Warnung: Löschen des Objekts mit polymorphem Klassentyp »Tile« mit nicht-virtuellem Destruktor bewirkt möglicherweise undefiniertes Verhalten [-Wdelete-non-virtual-dtor]
-             delete m_map[i][j];
-                              ^
-make: *** [DungeonMap.o] Error 1
-subdir.mk:36: recipe for target 'DungeonMap.o' failed
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Floor.d" -MT"Floor.o" -o "Floor.o" "../Floor.cpp"
+../Floor.cpp: In Funktion »void onLeave(Tile*)«:
+../Floor.cpp:27:18: Fehler: »m_character« wurde in diesem Gültigkeitsbereich nicht definiert
+  toTile->onEnter(m_character, this);
+                  ^
+../Floor.cpp:27:31: Fehler: ungültige Verwendung von »this« in Nicht-Element-Funktion
+subdir.mk:36: recipe for target 'Floor.o' failed
+  toTile->onEnter(m_character, this);
+                               ^
+../Floor.cpp: In Funktion »void onEnter(Character*, Tile*)«:
+../Floor.cpp:31:5: Fehler: »m_character« wurde in diesem Gültigkeitsbereich nicht definiert
+  if(m_character == nullptr){
+     ^
+../Floor.cpp:36:23: Fehler: ungültige Verwendung von »this« in Nicht-Element-Funktion
+   fromTile->onEnter(c,this);
+                       ^
+../Floor.cpp: In Funktion »char print()«:
+../Floor.cpp:41:5: Fehler: »m_character« wurde in diesem Gültigkeitsbereich nicht definiert
+  if(m_character == nullptr)
+     ^
+../Floor.cpp:46:1: Warnung: Kontrollfluss erreicht Ende von Nicht-void-Funktion [-Wreturn-type]
+ }
+ ^
+make: *** [Floor.o] Error 1
 
-20:26:27 Build Finished (took 216ms)
+11:46:13 Build Finished (took 62ms)
 
