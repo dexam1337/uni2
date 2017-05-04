@@ -12,7 +12,7 @@ DungeonMap::DungeonMap(){
 		for (unsigned int i = 0; i < 1; i++) {
 			m_map[i] = new Tile*[1];
 			for (unsigned int j = 0; j < 1; j++) {
-				m_map[i][j] = new Tile(Tile::Floor, nullptr);
+				m_map[i][j] = new Floor(nullptr);
 			}
 		}
 
@@ -28,7 +28,7 @@ DungeonMap::DungeonMap(const unsigned int height, const unsigned int width) {
 	for (unsigned int i = 0; i < height; i++) {
 		m_map[i] = new Tile*[width];
 		for (unsigned int j = 0; j < width; j++) {
-			m_map[i][j] = new Tile(Tile::Floor, nullptr);
+			m_map[i][j] = new Floor(nullptr);
 		}
 	}
 }
@@ -44,9 +44,9 @@ DungeonMap::DungeonMap(const unsigned int height, const unsigned int width,
 		for (unsigned int j = 0; j < width; j++) {
                    // cout << i << " " << j << endl;
 			if (data.at(i).at(j) == '.') {
-				m_map[i][j] = new Tile(Tile::Floor, nullptr);
+				m_map[i][j] = new Floor(nullptr);
 			} else if(data.at(i).at(j) == '#') {
-				m_map[i][j] = new Tile(Tile::Wall, nullptr);
+				m_map[i][j] = new Floor(nullptr);
 			}
                         else
                             throw std::runtime_error("sdgsgs");

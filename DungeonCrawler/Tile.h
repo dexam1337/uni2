@@ -13,20 +13,20 @@
 class Tile {
 
 public:
-	enum Typ {
+	/*enum Typ {
 		Floor, Wall
-	};
-	Tile(Typ typ, Character* character);
-	Typ getTyp();
+	};*/
+	Tile(/*Typ typ,*/ Character* character);
+	//Typ getTyp();
 	Character* getCharacter();
 	bool hasCharacter();
 	void setCharacter(Character* character);
-	void onLeave(Tile* toTile);
-	void onEnter(Character* c, Tile* fromTile);
-	char print();
+	virtual void onLeave(Tile* toTile) const = 0;
+	virtual void onEnter(Character* c, Tile* fromTile) const = 0;
+	virtual char print();
 
 private:
-	Typ m_typ;
+	//Typ m_typ;
 	Character* m_character = nullptr;
 };
 

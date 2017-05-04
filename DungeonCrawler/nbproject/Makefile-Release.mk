@@ -37,8 +37,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/Character.o \
 	${OBJECTDIR}/DungeonMap.o \
+	${OBJECTDIR}/Floor.o \
 	${OBJECTDIR}/GameEngine.o \
 	${OBJECTDIR}/Tile.o \
+	${OBJECTDIR}/Wall.o \
 	${OBJECTDIR}/main.o
 
 
@@ -76,6 +78,11 @@ ${OBJECTDIR}/DungeonMap.o: DungeonMap.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DungeonMap.o DungeonMap.cpp
 
+${OBJECTDIR}/Floor.o: Floor.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Floor.o Floor.cpp
+
 ${OBJECTDIR}/GameEngine.o: GameEngine.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -85,6 +92,11 @@ ${OBJECTDIR}/Tile.o: Tile.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Tile.o Tile.cpp
+
+${OBJECTDIR}/Wall.o: Wall.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Wall.o Wall.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
