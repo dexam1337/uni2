@@ -9,10 +9,13 @@
         <group>
             <file>file:/home/sebastian/workspace/DungeonCrawler/Tile.cpp</file>
             <file>file:/home/sebastian/workspace/DungeonCrawler/Tile.h</file>
-            <file>file:/home/sebastian/workspace/DungeonCrawler/Character.h</file>
             <file>file:/home/sebastian/workspace/DungeonCrawler/DungeonMap.cpp</file>
-            <file>file:/home/sebastian/workspace/DungeonCrawler/GameEngine.h</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/Floor.cpp</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/Wall.cpp</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/Floor.h</file>
             <file>file:/home/sebastian/workspace/DungeonCrawler/GameEngine.cpp</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/main.cpp</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/Wall.h</file>
             <file>file:/home/sebastian/workspace/DungeonCrawler/DungeonMap.h</file>
             <file>file:/home/sebastian/workspace/DungeonCrawler/Character.cpp</file>
         </group>

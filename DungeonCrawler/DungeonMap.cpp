@@ -46,7 +46,7 @@ DungeonMap::DungeonMap(const unsigned int height, const unsigned int width,
 			if (data.at(i).at(j) == '.') {
 				m_map[i][j] = new Floor(nullptr);
 			} else if(data.at(i).at(j) == '#') {
-				m_map[i][j] = new Floor(nullptr);
+				m_map[i][j] = new Wall(nullptr);
 			}
                         else
                             throw std::runtime_error("sdgsgs");

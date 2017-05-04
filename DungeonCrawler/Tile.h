@@ -17,6 +17,7 @@ public:
 		Floor, Wall
 	};*/
 	Tile(/*Typ typ,*/ Character* character);
+        virtual ~Tile();
 	//Typ getTyp();
 	Character* getCharacter();
 	bool hasCharacter();

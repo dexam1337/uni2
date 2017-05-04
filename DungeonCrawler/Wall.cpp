@@ -14,7 +14,7 @@
 #include "Wall.h"
 
 Wall::Wall(Character* c) : Tile(c) {
-    Tile.setCharacter(c);
+    Tile::setCharacter(c);
 }
 
 Wall::Wall(const Wall& orig) {
