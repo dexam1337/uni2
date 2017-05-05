@@ -14,7 +14,7 @@
 #ifndef WALL_H
 #define WALL_H
 
-class Wall : public Tile{
+class Wall : public Tile {
 public:
     Wall();
     Wall(const Wall& orig);

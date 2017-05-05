@@ -9,27 +9,27 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=CLang-Linux
 CND_ARTIFACT_DIR_Debug=dist/Debug/CLang-Linux
-CND_ARTIFACT_NAME_Debug=dungeoncrawler
-CND_ARTIFACT_PATH_Debug=dist/Debug/CLang-Linux/dungeoncrawler
+CND_ARTIFACT_NAME_Debug=dungeoncrawlerbackup
+CND_ARTIFACT_PATH_Debug=dist/Debug/CLang-Linux/dungeoncrawlerbackup
 CND_PACKAGE_DIR_Debug=dist/Debug/CLang-Linux/package
-CND_PACKAGE_NAME_Debug=dungeoncrawler.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/CLang-Linux/package/dungeoncrawler.tar
+CND_PACKAGE_NAME_Debug=dungeoncrawlerbackup.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/CLang-Linux/package/dungeoncrawlerbackup.tar
 # Release configuration
 CND_PLATFORM_Release=CLang-Linux
 CND_ARTIFACT_DIR_Release=dist/Release/CLang-Linux
-CND_ARTIFACT_NAME_Release=dungeoncrawler
-CND_ARTIFACT_PATH_Release=dist/Release/CLang-Linux/dungeoncrawler
+CND_ARTIFACT_NAME_Release=dungeoncrawlerbackup
+CND_ARTIFACT_PATH_Release=dist/Release/CLang-Linux/dungeoncrawlerbackup
 CND_PACKAGE_DIR_Release=dist/Release/CLang-Linux/package
-CND_PACKAGE_NAME_Release=dungeoncrawler.tar
-CND_PACKAGE_PATH_Release=dist/Release/CLang-Linux/package/dungeoncrawler.tar
+CND_PACKAGE_NAME_Release=dungeoncrawlerbackup.tar
+CND_PACKAGE_PATH_Release=dist/Release/CLang-Linux/package/dungeoncrawlerbackup.tar
 # valgrind configuration
 CND_PLATFORM_valgrind=CLang-Linux
 CND_ARTIFACT_DIR_valgrind=dist/valgrind/CLang-Linux
-CND_ARTIFACT_NAME_valgrind=dungeoncrawler
-CND_ARTIFACT_PATH_valgrind=dist/valgrind/CLang-Linux/dungeoncrawler
+CND_ARTIFACT_NAME_valgrind=dungeoncrawlerbackup
+CND_ARTIFACT_PATH_valgrind=dist/valgrind/CLang-Linux/dungeoncrawlerbackup
 CND_PACKAGE_DIR_valgrind=dist/valgrind/CLang-Linux/package
-CND_PACKAGE_NAME_valgrind=dungeoncrawler.tar
-CND_PACKAGE_PATH_valgrind=dist/valgrind/CLang-Linux/package/dungeoncrawler.tar
+CND_PACKAGE_NAME_valgrind=dungeoncrawlerbackup.tar
+CND_PACKAGE_PATH_valgrind=dist/valgrind/CLang-Linux/package/dungeoncrawlerbackup.tar
 #
 # include compiler specific variables
 #

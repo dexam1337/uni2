@@ -7,7 +7,7 @@
 # Macros
 TOP=`pwd`
 CND_PLATFORM=CLang-Linux
-CND_CONF=Debug
+CND_CONF=valgrind
 CND_DISTDIR=dist
 CND_BUILDDIR=build
 CND_DLIB_EXT=so

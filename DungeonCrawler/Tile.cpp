@@ -8,39 +8,41 @@
 #include "Tile.h"
 
 Tile::Tile(/*Typ typ,*/ Character* character) {
-	//m_typ = typ;
-	m_character = character;
+    //m_typ = typ;
+    m_character = character;
 }
+
 /*
 Tile::Typ Tile::getTyp() {
-	return m_typ;
+        return m_typ;
 }*/
 
 Character* Tile::getCharacter() {
-	return m_character;
+    return m_character;
 }
 
 bool Tile::hasCharacter() {
-	if (m_character == nullptr)
-		return false;
-	return true;
+    if (m_character == nullptr)
+        return false;
+    return true;
 }
 
 void Tile::setCharacter(Character* character) {
-	m_character = character;
+    m_character = character;
 }
+
 /*
 void Tile::onLeave(Tile* toTile) {
-	if (toTile->hasCharacter() == false && toTile->getTyp() == Floor) {
-		toTile->onEnter(m_character, this);
-		m_character = nullptr;
-	}
+        if (toTile->hasCharacter() == false && toTile->getTyp() == Floor) {
+                toTile->onEnter(m_character, this);
+                m_character = nullptr;
+        }
 }
 
 void Tile::onEnter(Character* c, Tile* fromTile) {
-	m_character = c;
+        m_character = c;
 }
-*/
+ */
 char Tile::print() {
     return ' ';
 }
