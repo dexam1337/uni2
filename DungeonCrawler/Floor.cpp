@@ -31,9 +31,9 @@ void Tile::onEnter(Character* c, Tile* fromTile) {
 }
 
 char print() {
-    if (Tile::hasCharacter() == true)
+    /*if (Tile::hasCharacter() == true)
         return Tile::getCharacter()getSymbol();
 
-    else
+    else*/
         return '.';
 }
