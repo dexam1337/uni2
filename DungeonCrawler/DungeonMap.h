@@ -10,7 +10,8 @@
 
 #include <vector>
 #include <string>
-//#include "Floor.h"
+#include "Floor.h"
+#include "Wall.h"
 #include "Tile.h"
 #include <stdexcept>
 #include <iostream>
@@ -20,6 +21,9 @@ typedef struct {
     unsigned int height;
     unsigned int width;
 } Position;
+
+/*class Floor;
+class Wall;*/
 
 class DungeonMap {
 private:

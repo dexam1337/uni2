@@ -14,11 +14,11 @@
 #ifndef FLOOR_H
 #define FLOOR_H
 
+#include "Tile.h"
+
 class Floor : public Tile {
 public:
-    Floor();
-    Floor(const Floor& orig);
-    virtual ~Floor();
+    Floor(Character* c);
     void onLeave(Tile* toTile) override;
     void onEnter(Character* c, Tile* fromTile) override;
     char print() override;

@@ -17,11 +17,6 @@ Floor::Floor(Character* c) : Tile(c) {
     Tile::setCharacter(c);
 }
 
-Floor::Floor(const Floor& orig) {
-}
-
-Floor::~Floor() {
-}
 
 void Tile::onLeave(Tile* toTile) {
     toTile->onEnter(m_character, this);
@@ -37,7 +32,7 @@ void Tile::onEnter(Character* c, Tile* fromTile) {
 
 char print() {
     if (Tile::hasCharacter() == true)
-        return Tile::getCharacter()->getSymbol();
+        return Tile::getCharacter()getSymbol();
 
     else
         return '.';

@@ -17,12 +17,6 @@ Wall::Wall(Character* c) : Tile(c) {
     Tile::setCharacter(c);
 }
 
-Wall::Wall(const Wall& orig) {
-}
-
-Wall::~Wall() {
-}
-
 void onLeave(Tile* toTile) {
     //Can't leave wall in first place
 }

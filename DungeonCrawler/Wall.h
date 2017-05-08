@@ -14,11 +14,11 @@
 #ifndef WALL_H
 #define WALL_H
 
+#include "Tile.h"
+
 class Wall : public Tile {
 public:
-    Wall();
-    Wall(const Wall& orig);
-    virtual ~Wall();
+    Wall(Character* c);
     void onLeave(Tile* toTile) override;
     void onEnter(Character* c, Tile* fromTile) override;
     char print() override;

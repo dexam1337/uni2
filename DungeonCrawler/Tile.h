@@ -21,8 +21,8 @@ public:
     Character* getCharacter();
     bool hasCharacter();
     void setCharacter(Character* character);
-    virtual void onLeave(Tile* toTile) const = 0;
-    virtual void onEnter(Character* c, Tile* fromTile) const = 0;
+    virtual void onLeave(Tile* toTile)  = 0;
+    virtual void onEnter(Character* c, Tile* fromTile)  = 0;
     virtual char print();
 
 private:

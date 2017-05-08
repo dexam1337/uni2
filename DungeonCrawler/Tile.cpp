@@ -31,9 +31,9 @@ void Tile::setCharacter(Character* character) {
     m_character = character;
 }
 
-/*
+
 void Tile::onLeave(Tile* toTile) {
-        if (toTile->hasCharacter() == false && toTile->getTyp() == Floor) {
+        if (toTile->hasCharacter() == false) {
                 toTile->onEnter(m_character, this);
                 m_character = nullptr;
         }
@@ -42,7 +42,7 @@ void Tile::onLeave(Tile* toTile) {
 void Tile::onEnter(Character* c, Tile* fromTile) {
         m_character = c;
 }
- */
+
 char Tile::print() {
     return ' ';
 }
