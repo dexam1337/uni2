@@ -7,8 +7,6 @@
 
 #include "DungeonMap.h"
 
-#include "Wall.h"
-#include "Floor.h"
 
 DungeonMap::DungeonMap() {
     m_map = new Tile**[1];
