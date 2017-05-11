@@ -10,7 +10,9 @@
 
 #include <vector>
 #include <string>
-#include "Tile.h"
+//#include "Tile.h"
+#include "Wall.h"
+#include "Floor.h"
 #include <stdexcept>
 #include <iostream>
 using namespace std;
@@ -28,7 +30,7 @@ private:
 	unsigned int m_maxWidth;
 
 public:
-	DungeonMap();
+	//DungeonMap();
 	DungeonMap(const unsigned int height, const unsigned int width);
 	DungeonMap(const unsigned int height, const unsigned int width,
 			const vector<string>& data);

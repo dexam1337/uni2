@@ -13,6 +13,8 @@
 //#include "Tile.h"
 #include "Wall.h"
 #include "Floor.h"
+#include "Switch.h"
+#include "Door.h"
 #include <stdexcept>
 #include <iostream>
 using namespace std;

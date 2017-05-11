@@ -7,13 +7,17 @@
 
 #include "Tile.h"
 
-Tile::Tile(Typ typ, Character* character) {
-	m_typ = typ;
+Tile::Tile(/*Typ typ,*/ Character* character) {
+	//m_typ = typ;
 	m_character = character;
 }
-
+/*
 Tile::Typ Tile::getTyp() {
 	return m_typ;
+}*/
+
+Tile::~Tile(){
+    delete m_character;
 }
 
 Character* Tile::getCharacter() {
@@ -29,7 +33,7 @@ bool Tile::hasCharacter() {
 void Tile::setCharacter(Character* character) {
 	m_character = character;
 }
-
+/*
 void Tile::onLeave(Tile* toTile) {
 	if (toTile->hasCharacter() == false && toTile->getTyp() == Floor) {
 		toTile->onEnter(m_character, this);
@@ -40,13 +44,14 @@ void Tile::onLeave(Tile* toTile) {
 void Tile::onEnter(Character* c, Tile* fromTile) {
 	m_character = c;
 }
-
-char Tile::print() {
+*/
+char Tile::print() {/*
 	if (hasCharacter()) {
 		return m_character->getSymbol();
 	} else if (m_typ == Tile::Floor) {
 		return '.';
 	} else {
 		return '#';
-	}
+	}*/
+    return ' ';
 }

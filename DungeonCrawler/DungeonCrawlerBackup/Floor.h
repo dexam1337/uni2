@@ -5,26 +5,27 @@
  */
 
 /* 
- * File:   Wall.h
+ * File:   Floor.h
  * Author: sebastian
  *
- * Created on 4. Mai 2017, 16:35
+ * Created on 4. Mai 2017, 16:07
  */
 
-#ifndef WALL_H
-#define WALL_H
+#ifndef FLOOR_H
+#define FLOOR_H
 
 #include "Tile.h"
 
-class Wall : public Tile {
+class Floor : public Tile {
 public:
-    Wall();
+    Floor(Character* c);
     void onLeave(Tile* toTile) override;
     void onEnter(Character* c, Tile* fromTile) override;
     char print() override;
+
 private:
 
 };
 
-#endif /* WALL_H */
+#endif /* FLOOR_H */
 

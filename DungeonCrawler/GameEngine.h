@@ -19,7 +19,8 @@ public:
     bool finished();
     ~GameEngine();
 private:
-    int round;
+    int m_limit;
+    int m_round;
     DungeonMap m_map;
     vector<Character *> characters;
 };
