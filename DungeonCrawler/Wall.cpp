@@ -17,14 +17,14 @@ Wall::Wall(Character* c) : Tile(c) {
     Tile::setCharacter(c);
 }
 
-void onLeave(Tile* toTile) {
+void Wall::onLeave(Tile* toTile) {
     //Can't leave wall in first place
 }
 
-void onEnter(Character* c, Tile* fromTile) {
+void Wall::onEnter(Character* c, Tile* fromTile) {
     //
 }
 
-char print() {
+char Wall::print() {
     return '#';
 }

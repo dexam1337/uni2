@@ -6,18 +6,6 @@
     </data>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/sebastian/workspace/DungeonCrawler/Tile.cpp</file>
-            <file>file:/home/sebastian/workspace/DungeonCrawler/Tile.h</file>
-            <file>file:/home/sebastian/workspace/DungeonCrawler/DungeonMap.cpp</file>
-            <file>file:/home/sebastian/workspace/DungeonCrawler/Floor.cpp</file>
-            <file>file:/home/sebastian/workspace/DungeonCrawler/GameEngine.h</file>
-            <file>file:/home/sebastian/workspace/DungeonCrawler/Wall.cpp</file>
-            <file>file:/home/sebastian/workspace/DungeonCrawler/Floor.h</file>
-            <file>file:/home/sebastian/workspace/DungeonCrawler/GameEngine.cpp</file>
-            <file>file:/home/sebastian/workspace/DungeonCrawler/Wall.h</file>
-            <file>file:/home/sebastian/workspace/DungeonCrawler/DungeonMap.h</file>
-            <file>file:/home/sebastian/workspace/DungeonCrawler/main.cpp</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

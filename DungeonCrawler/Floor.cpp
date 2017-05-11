@@ -18,19 +18,19 @@ Floor::Floor(Character* c) : Tile(c) {
 }
 
 
-void Tile::onLeave(Tile* toTile) {
-    toTile->onEnter(m_character, this);
+void Floor::onLeave(Tile* toTile) {
+    toTile->onEnter(Tile::getCharacter(), this);
 }
 
-void Tile::onEnter(Character* c, Tile* fromTile) {
+void Floor::onEnter(Character* c, Tile* fromTile) {
     if (Tile::hasCharacter() == false) {
-        m_character = c;
+        Tile::setCharacter(c);
         fromTile->setCharacter(nullptr);
     } else
         ;
 }
 
-char print() {
+char Floor::print() {
     /*if (Tile::hasCharacter() == true)
         return Tile::getCharacter()getSymbol();
 

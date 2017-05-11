@@ -16,6 +16,10 @@ Tile::Typ Tile::getTyp() {
 	return m_typ;
 }*/
 
+Tile::~Tile(){
+    delete m_character;
+}
+
 Character* Tile::getCharacter() {
 	return m_character;
 }

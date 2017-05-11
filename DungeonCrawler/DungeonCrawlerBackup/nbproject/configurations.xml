@@ -120,7 +120,6 @@
         </cTool>
         <ccTool>
           <standard>11</standard>
-          <commandLine>--valgrind</commandLine>
         </ccTool>
       </compileType>
       <item path="Character.cpp" ex="false" tool="1" flavor2="11">
