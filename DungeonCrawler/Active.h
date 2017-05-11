@@ -26,6 +26,7 @@ public:
     virtual void use(); //tooglet Objekt
     virtual void setStatus(bool Status);
     virtual bool getStatus();
+    virtual void setLinked(Passive* linked);
 private:
     
     Passive* m_linked; //to active Tile linked objekt, make it ** for multiple links

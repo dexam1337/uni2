@@ -23,6 +23,22 @@ m_map(height, width, data) {
 
 }
 
+GameEngine::GameEngine(const unsigned int height, const unsigned int width,
+        const vector<string>& data, const vector<string>& relations) :
+m_map(height, width, data) {
+
+    cout << "Wie viele Runden?" << endl;
+    cin >> m_limit;
+    //	m_map = DungeonMap(height, width, data);
+    characters.push_back(new Character('o')); //Wegen pointer
+    Position pos;
+    pos.height = 5;
+    pos.width = 5;
+    m_map.place(pos, characters.at(0));
+    m_round = 0;
+    linkObjects(relations);
+}
+
 void GameEngine::run() {
     while (!finished())
         turn();
@@ -103,4 +119,34 @@ GameEngine::~GameEngine() {
         delete characters.at(i);
     characters.erase(characters.begin(), characters.end());
     m_map.~DungeonMap();
+}
+
+void GameEngine::linkObjects(const vector<string>& relations){
+    Tile* passiveTile;
+    Position passiveObject;
+    for(int i = 0; i < relations.size(); i++){
+        passiveObject.height = static_cast<int>(relations.at(i).at(0));
+        passiveObject.width = static_cast<int>(relations.at(i).at(1));
+        passiveTile = m_map.findTile(passiveObject);
+        for(int j = 2; j < relations.at(i).size(); j = j+2){
+            if(relations.at(i).size() <= j+2)
+                ;
+            else{
+                Position act;
+                act.height = relations.at(i).at(j);
+                act.width = relations.at(i).at(j+1);
+                switch(relations.at(i).at(j+2)){
+                    case 'S':
+                         static_cast<Switch*>(m_map.findTile(act)).setLinked(passiveTile);
+                        break;
+                        
+                    default:
+                        throw std::runtime_error("invalid Active Tile Link");
+                }
+               
+            }
+        }
+    }
+    
+    
 }

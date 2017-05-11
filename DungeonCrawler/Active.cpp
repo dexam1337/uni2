@@ -51,3 +51,7 @@ void Active::setStatus(bool status) {
 bool Active::getStatus() {
     return m_status;
 }
+
+void Active::setLinked(Passive* linked){
+    m_linked = linked;
+}
