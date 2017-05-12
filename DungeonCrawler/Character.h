@@ -13,10 +13,11 @@
 class Character {
 private:
 	char m_symbol;
-        Controller* m_controller;
+        ConsoleController* m_controller;
 public:
 	Character(char symbol);
-	char getSymbol();
+	~Character();
+        char getSymbol();
 	int move();
 };
 

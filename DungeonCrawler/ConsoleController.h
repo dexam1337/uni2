@@ -25,7 +25,7 @@ public:
     
     ConsoleController(Character* character);
     //ConsoleController(const ConsoleController& orig);
-    virtual ~ConsoleController();
+    ~ConsoleController();
     int move();
 private:
 

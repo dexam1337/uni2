@@ -22,7 +22,7 @@ ConsoleController::ConsoleController(const ConsoleController& orig) {
 ConsoleController::~ConsoleController() {
 }
 
-int ConsoleController::move(){
+int move(){
     int returnvalue;
     cout << "\n Wohin möchten sie laufen?\n";
     cin >> returnvalue;
