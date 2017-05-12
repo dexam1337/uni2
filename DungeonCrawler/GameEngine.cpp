@@ -16,8 +16,8 @@ m_map(height, width, data) {
     //	m_map = DungeonMap(height, width, data);
     characters.push_back(new Character('o')); //Wegen pointer
     Position pos;
-    pos.height = 5;
-    pos.width = 5;
+    pos.height = 7;
+    pos.width = 2;
     m_map.place(pos, characters.at(0));
     m_round = 0;
 
@@ -32,8 +32,8 @@ m_map(height, width, data) {
     //	m_map = DungeonMap(height, width, data);
     characters.push_back(new Character('o')); //Wegen pointer
     Position pos;
-    pos.height = 5;
-    pos.width = 5;
+    pos.height = 7;
+    pos.width = 2;
     m_map.place(pos, characters.at(0));
     m_round = 0;
     linkObjects(relations);

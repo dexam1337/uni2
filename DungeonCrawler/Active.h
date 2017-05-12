@@ -13,7 +13,7 @@
 
 #ifndef ACTIVE_H
 #define ACTIVE_H
-
+#include <vector>
 #include "Tile.h"
 class Passive;
 
@@ -29,7 +29,7 @@ public:
     void setLinked(Passive* linked);
 private:
     
-    Passive* m_linked; //to active Tile linked objekt, make it ** for multiple links
+    vector<Passive*> m_linked; //to active Tile linked objekt, make it ** for multiple links
     bool m_status;
     
 };
