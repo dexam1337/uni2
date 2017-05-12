@@ -13,7 +13,7 @@
 class Character {
 private:
 	char m_symbol;
-        ConsoleController* m_controller;
+        Controller* m_controller;
 public:
 	Character(char symbol);
 	~Character();

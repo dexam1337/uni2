@@ -11,7 +11,7 @@ using namespace std;
 
 Character::Character(char symbol) {
     m_symbol = symbol;
-    m_controller = ConsoleController();
+    m_controller = new ConsoleController(this);
 }
 
 Character::~Character(){
