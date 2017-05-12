@@ -22,6 +22,8 @@ Door::~Door() {
 }
 
 char Door::print() {
+    if(this->hasCharacter())
+        return this->getCharacter()->getSymbol();
     if (Passive::getStatus() == false)
         return 'X';
     else
@@ -29,16 +31,17 @@ char Door::print() {
 }
 
 void Door::onLeave(Tile* toTile) {
-
+    toTile->onEnter(Tile::getCharacter(), this);
 }
 
 void Door::onEnter(Character* c, Tile* fromTile) {
-    if (Passive::getStatus() == false) {
+    //cout << fromTile->getCharacter();
+    if (this->getStatus() == false) {
         fromTile->onEnter(c, this);
         //cout << "Door is closed" << endl;
     }
     else{
-        Passive::setCharacter(c);
+        this->setCharacter(c);
         fromTile->setCharacter(nullptr);
     }
 }

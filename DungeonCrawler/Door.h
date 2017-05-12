@@ -21,10 +21,10 @@ public:
     Door();
     Door(const Door& orig);
     ~Door();
-    char print();
+    char print() override;
 
-    void onLeave(Tile* toTile);
-    void onEnter(Character* c, Tile* fromTile);
+    void onLeave(Tile* toTile) override;
+    void onEnter(Character* c, Tile* fromTile) override;
 private:
 
 };
