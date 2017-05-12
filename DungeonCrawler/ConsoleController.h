@@ -15,6 +15,7 @@
 #ifndef CONSOLECONTROLLER_H
 #define CONSOLECONTROLLER_H
 
+
 #include "Controller.h"
 #include <iostream>
 
@@ -26,7 +27,7 @@ public:
     ConsoleController(Character* character);
     //ConsoleController(const ConsoleController& orig);
     ~ConsoleController();
-    int move();
+    int move() override;
 private:
 
 };

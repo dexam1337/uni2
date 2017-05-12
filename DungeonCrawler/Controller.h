@@ -21,7 +21,7 @@ public:
     Controller(Character* character);
     Controller(const Controller& orig);
     virtual ~Controller();
-    virtual int move() const = 0;
+    virtual int move()  = 0;
     Character* getCharacter();
 private:
     Character* m_character;
