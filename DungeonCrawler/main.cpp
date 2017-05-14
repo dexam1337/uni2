@@ -8,20 +8,24 @@
 
 int main() {
 
-    vector<string> data{ "##########",
+    vector<string> data{
+        "##########",
         "####.....#",
         "###......#",
         "##.......#",
         "#...#D#..#",
         "#####D####",
-        "#...#D#..#",
+        "#S..#D#..#",
         "#........#",
-        "#S.S.S.S.#",
+        "#S..S..S.#",
         "##########",};
 
-    vector<string> links{"45D81S85S",
-        "55D81S83S",
-        "65D85S87S"};
+    vector<string> links{
+        "45D 81S 84S ",
+        "55D 81S 87S ",
+        "65D 84S 87S ",
+        "65D 61S ",
+        /*Test wenn auf ungültiger Cast angegeben"84S 81S "*/};
     GameEngine ge(10, 10, data, links);
     ge.run();
     return 0;

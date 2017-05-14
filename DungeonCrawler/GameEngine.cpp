@@ -131,8 +131,8 @@ void GameEngine::linkObjects(const vector<string>& relations) {
         passiveTile = dynamic_cast<Passive*> (m_map.findTile(passiveObject));
         if (passiveTile == nullptr)
             throw std::runtime_error("passive Tile not found");
-        for (int j = 3; j < relations.at(i).size(); j = j + 3) {
-            if (relations.at(i).size() <= j + 2)
+        for (int j = 4; j < relations.at(i).size(); j = j + 4) {
+            if (relations.at(i).size() <= j + 3)
                 ;
             else {
                 Position act;

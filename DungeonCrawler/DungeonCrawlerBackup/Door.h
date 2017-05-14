@@ -5,26 +5,29 @@
  */
 
 /* 
- * File:   Wall.h
+ * File:   Door.h
  * Author: sebastian
  *
- * Created on 4. Mai 2017, 16:35
+ * Created on 11. Mai 2017, 23:28
  */
 
-#ifndef WALL_H
-#define WALL_H
+#ifndef DOOR_H
+#define DOOR_H
 
-#include "Tile.h"
+#include "Passive.h"
 
-class Wall : public Tile {
+class Door : public Passive {
 public:
-    Wall();
+    Door();
+    Door(const Door& orig);
+    ~Door();
+    char print() override;
+
     void onLeave(Tile* toTile) override;
     void onEnter(Character* c, Tile* fromTile) override;
-    char print() override;
 private:
 
 };
 
-#endif /* WALL_H */
+#endif /* DOOR_H */
 

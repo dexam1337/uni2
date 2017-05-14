@@ -13,8 +13,7 @@
 
 #include "Wall.h"
 
-Wall::Wall(Character* c) : Tile(c) {
-    Tile::setCharacter(c);
+Wall::Wall() : Tile(nullptr) {
 }
 
 void Wall::onLeave(Tile* toTile) {

@@ -8,14 +8,17 @@
 #ifndef CHARACTER_H_
 #define CHARACTER_H_
 
+#include "ConsoleController.h"
+
 class Character {
 private:
-	char m_symbol;
-
+    char m_symbol;
+    Controller* m_controller;
 public:
-	Character(char symbol);
-	char getSymbol();
-	int move();
+    Character(char symbol);
+    ~Character();
+    char getSymbol();
+    int move();
 };
 
 #endif /* CHARACTER_H_ */

@@ -14,14 +14,19 @@ class GameEngine
 public:
     GameEngine(const unsigned int height, const unsigned int width,
                const vector<string>& data);
+    GameEngine(const unsigned int height, const unsigned int width,
+               const vector<string>& data, const vector<string>& relations);
     void run();
     void turn();
     bool finished();
     ~GameEngine();
 private:
-    int round;
+    int m_limit;
+    int m_round;
     DungeonMap m_map;
     vector<Character *> characters;
+    void linkObjects(const vector<string>& relations);
+    
 };
 
 #endif /* GAMEENGINE_H_ */
