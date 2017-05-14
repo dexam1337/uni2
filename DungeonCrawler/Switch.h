@@ -16,7 +16,7 @@
 
 #include "Active.h"
 
-class Switch : public Active{
+class Switch : public Active {
 public:
     Switch(Passive* passive);
     //Switch(const Switch& orig);

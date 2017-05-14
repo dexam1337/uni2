@@ -12,6 +12,7 @@
  */
 
 #include "Door.h"
+
 Door::Door() : Passive() {
 }
 
@@ -22,7 +23,7 @@ Door::~Door() {
 }
 
 char Door::print() {
-    if(this->hasCharacter())
+    if (this->hasCharacter())
         return this->getCharacter()->getSymbol();
     if (Passive::getStatus() == false)
         return 'X';
@@ -39,8 +40,7 @@ void Door::onEnter(Character* c, Tile* fromTile) {
     if (this->getStatus() == false) {
         fromTile->onEnter(c, this);
         //cout << "Door is closed" << endl;
-    }
-    else{
+    } else {
         this->setCharacter(c);
         fromTile->setCharacter(nullptr);
     }

@@ -17,7 +17,7 @@
 #include "Tile.h"
 class Passive;
 
-class Active : public Tile{
+class Active : public Tile {
 public:
     //Active();
     Active(Passive* linked);
@@ -28,10 +28,10 @@ public:
     virtual bool getStatus();
     void setLinked(Passive* linked);
 private:
-    
+
     vector<Passive*> m_linked; //to active Tile linked objekt, make it ** for multiple links
     bool m_status;
-    
+
 };
 
 #endif /* ACTIVE_H */

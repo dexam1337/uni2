@@ -12,13 +12,13 @@
 
 class Character {
 private:
-	char m_symbol;
-        Controller* m_controller;
+    char m_symbol;
+    Controller* m_controller;
 public:
-	Character(char symbol);
-	~Character();
-        char getSymbol();
-	int move();
+    Character(char symbol);
+    ~Character();
+    char getSymbol();
+    int move();
 };
 
 #endif /* CHARACTER_H_ */

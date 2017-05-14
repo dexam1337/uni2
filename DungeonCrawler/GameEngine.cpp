@@ -121,41 +121,40 @@ GameEngine::~GameEngine() {
     m_map.~DungeonMap();
 }
 
-void GameEngine::linkObjects(const vector<string>& relations){
+void GameEngine::linkObjects(const vector<string>& relations) {
     Passive* passiveTile;
     Active* activeTile;
     Position passiveObject;
-    for(int i = 0; i < relations.size(); i++){
-        passiveObject.height = static_cast<int>(relations.at(i).at(0)) - 48;
-        passiveObject.width = static_cast<int>(relations.at(i).at(1))- 48;
-        passiveTile = dynamic_cast<Passive*>(m_map.findTile(passiveObject));
-        if(passiveTile == nullptr)
+    for (int i = 0; i < relations.size(); i++) {
+        passiveObject.height = static_cast<int> (relations.at(i).at(0)) - 48;
+        passiveObject.width = static_cast<int> (relations.at(i).at(1)) - 48;
+        passiveTile = dynamic_cast<Passive*> (m_map.findTile(passiveObject));
+        if (passiveTile == nullptr)
             throw std::runtime_error("passive Tile not found");
-        for(int j = 3; j < relations.at(i).size(); j = j+3){
-            if(relations.at(i).size() <= j+2)
+        for (int j = 3; j < relations.at(i).size(); j = j + 3) {
+            if (relations.at(i).size() <= j + 2)
                 ;
-            else{
+            else {
                 Position act;
-                act.height = static_cast<int>(relations.at(i).at(j)) - 48 ;
-                act.width = static_cast<int>(relations.at(i).at(j+1)) - 48;
-                switch(relations.at(i).at(j+2)){
+                act.height = static_cast<int> (relations.at(i).at(j)) - 48;
+                act.width = static_cast<int> (relations.at(i).at(j + 1)) - 48;
+                switch (relations.at(i).at(j + 2)) {
                     case 'S':
-                        activeTile = dynamic_cast<Active*>(m_map.findTile(act));
-                        if(activeTile != nullptr){
+                        activeTile = dynamic_cast<Active*> (m_map.findTile(act));
+                        if (activeTile != nullptr) {
                             activeTile->setLinked(passiveTile);
-                        }
-                        else{
+                        } else {
                             throw std::runtime_error("Active Tile not found to be linked");
                         }
                         break;
-                        
+
                     default:
                         throw std::runtime_error("invalid Active Tile Link");
                 }
-               
+
             }
         }
     }
-    
-    
+
+
 }

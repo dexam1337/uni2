@@ -15,6 +15,7 @@
 
 Switch::Switch(Passive* passive) : Active(passive) {
 }
+
 /*
 Switch::Switch(const Switch& orig) {
 }*/

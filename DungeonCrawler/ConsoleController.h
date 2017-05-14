@@ -21,9 +21,9 @@
 
 using namespace std;
 
-class ConsoleController : public Controller{
+class ConsoleController : public Controller {
 public:
-    
+
     ConsoleController(Character* character);
     //ConsoleController(const ConsoleController& orig);
     ~ConsoleController();

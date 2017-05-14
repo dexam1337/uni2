@@ -13,8 +13,9 @@
 
 #include "ConsoleController.h"
 
-ConsoleController::ConsoleController(Character* character) : Controller(character){
+ConsoleController::ConsoleController(Character* character) : Controller(character) {
 }
+
 /*
 ConsoleController::ConsoleController(const ConsoleController& orig) {
 }*/
@@ -22,7 +23,7 @@ ConsoleController::ConsoleController(const ConsoleController& orig) {
 ConsoleController::~ConsoleController() {
 }
 
-int ConsoleController::move(){
+int ConsoleController::move() {
     int returnvalue;
     cout << "\n Wohin möchten sie laufen?\n";
     cin >> returnvalue;

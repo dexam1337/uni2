@@ -14,16 +14,17 @@ Character::Character(char symbol) {
     m_controller = new ConsoleController(this);
 }
 
-Character::~Character(){
+Character::~Character() {
     delete m_controller;
     m_controller = nullptr;
 }
+
 char Character::getSymbol() {
     return m_symbol;
 }
 
 int Character::move() {
-    if(m_controller == nullptr)
+    if (m_controller == nullptr)
         return -1;
     return m_controller->move();
 }
