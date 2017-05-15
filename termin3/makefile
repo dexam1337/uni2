@@ -14,7 +14,7 @@ aufgabe2: aufgabe2.S
 	$(GCC) -g aufgabe2.S -o aufgabe2.elf
 	
 aufgabe3: aufgabe3.S
-	$(GCC) -g aufgabe3.S -o aufgabe2.elf
+	$(GCC) -g aufgabe3.S -o aufgabe3.elf
 
 aufgabe5: aufgabe5.S
 	$(GCC) -g aufgabe5.S -o aufgabe5.elf

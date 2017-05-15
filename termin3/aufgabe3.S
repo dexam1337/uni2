@@ -21,13 +21,13 @@ main:
 	ldr	r7, = 0x80000000
 				@ R9 (hexadez.) - 						N, Z, C, V
 	ANDS	R9, R0, R3	@ 	0xaabbccdd - 0x000b774d = 0xaab05590 	- Wie werden die Flags N, Z, C, V gesetzt?	gar keine?
-	EOR	R9, R3, R3	@ 	0	- Gilt das Ergebnis für jeden Wert in R3?	ja da ein XOR bei gleichen werten immer 0 ergibt
-	SUBS	R9, R7, #3	@ 	0x80000000 - 0x30000000 = 0x50000000 	- Wie werden die Flags N, Z, C, V gesetzt?	_, _, _, _
-	RSBS	R9, R5, #3	@ 		- Wie werden die Flags N, Z, C, V gesetzt?	_, _, _, _ Reverse Subtract without carry.
-	ADDS	R9, R4, #12	@ 		- Wie werden die Flags N, Z, C, V gesetzt?	_, _, _, _
-	ADDS	R9, R6, R4	@ 		- Wie werden die Flags N, Z, C, V gesetzt?	_, _, _, _
-	TST	R4, #1		@ 		- Wie werden die Flags N, Z, C, V gesetzt?	_, _, _, _
-	TEQ	R4, R4		@ 		- Wie werden die Flags N, Z, C, V gesetzt?	_, _, _, _
+	EOR	R9, R3, R3	@ 	0	- Gilt das Ergebnis f??r jeden Wert in R3?	ja da ein XOR bei gleichen werten immer 0 ergibt
+	SUBS	R9, R7, #3	@ 	0x80000000 - 0x30000000 = 0x7ffffffd 	- Wie werden die Flags N, Z, C, V gesetzt?	_, _, _, _
+	RSBS	R9, R5, #3	@ 		- Wie werden die Flags N, Z, C, V gesetzt?	_, _, C, _ Reverse Subtract without carry.
+	ADDS	R9, R4, #12	@ 		- Wie werden die Flags N, Z, C, V gesetzt?	n?scht
+	ADDS	R9, R6, R4	@ 		- Wie werden die Flags N, Z, C, V gesetzt?	N, _, _,V
+	TST	R4, #1		@ 		- Wie werden die Flags N, Z, C, V gesetzt?	_, _, _, _ Overflow ist vom ADD bestehen geblieben 
+	TEQ	R4, R4		@ 		- Wie werden die Flags N, Z, C, V gesetzt?	_, _, _, _ XOR bei gleichen zahlen immer 0 deswegen zero flag, und Overflow aus ADD bestehen
 	CMP	R5, R4		@ 		- Wie werden die Flags N, Z, C, V gesetzt?	_, _, _, _
 	CMN	R2, R5		@ 		- Wie werden die Flags N, Z, C, V gesetzt?	_, _, _, _
 	ORR	R9, R0, R3	@ 

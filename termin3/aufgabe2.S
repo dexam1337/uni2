@@ -11,11 +11,13 @@
 main:
 	MOV	r0, #1
 	MOV	R1, #0x80000000
-
-	ADDS	r2, r0, r1	@ setzt nur das Vorzeichenflag
-	ADDS r2, r1, r1 @ 0x8 + 0x8 sollte overflow ergeben v-flag
-    SUBS r2, r1, r1 @ 0x8-0x8 sollte 0 ergeben Z-flag
-    SUBS r2, r1, r0 @ 0x8 - 1 sollte negativ sein N flag
+        MOV     R2, #0xffffffff
+        
+	ADDS	r3, r0, r1	@ setzt nur das Vorzeichenflag
+	ADDS r4, r0, r2 @ 0x1 + 0xffffffff carry und zero flag
+	ADDS r5, r2, r2 @ overflow
+        SUBS r6, r0, r0 @ 0x1-0x1 sollte 0 ergeben Z-flag
+        SUBS r7, r0, r1 @ 0x1 - 0x80000000 sollte negativ sein N flag
 
 	bx	lr
 .Lfe1:

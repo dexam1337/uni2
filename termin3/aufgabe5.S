@@ -16,6 +16,7 @@ main:
 	mov	r3, #0x80000000
 //..
 //I hate my life
+        ADDS r4, r2, r3 @ negieren
 
 	pop	{r4, r5, pc}
 .Lfe1:
