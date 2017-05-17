@@ -149,7 +149,7 @@ void GameEngine::linkObjects(const vector<string>& relations) {
                         break;
 
                     default:
-                        throw std::runtime_error("Invalid Active Tile Link");
+                        throw std::runtime_error("invalid Active Tile Link");
                 }
 
             }

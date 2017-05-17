@@ -1,5 +1,5 @@
 /*
-2 * main.cpp
+ * main.cpp
  *
  *  Created on: 23.04.2017
  *      Author: sebastian
@@ -23,7 +23,8 @@ int main() {
     vector<string> links{
         "45D 81S 84S ",
         "55D 81S 87S ",
-        "65D 84S 87S 61S ",
+        "65D 84S 87S ",
+        "65D 61S ",
         /*Test wenn auf ungültiger Cast angegeben"84S 81S "*/};
     GameEngine ge(10, 10, data, links);
     ge.run();
