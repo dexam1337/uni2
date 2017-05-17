@@ -127,7 +127,7 @@ void GameEngine::linkObjects(const vector<string>& relations) {
     Position passiveObject;
 
     for (int i = 0; i < relations.size(); i++) {
-        stringstream sstream;
+        stringstream sstream; //but why
         sstream << (relations.at(i).c_str()); //relations.at(i).c_str()
         sstream >> (passiveObject.height);
         sstream >> passiveObject.width;
