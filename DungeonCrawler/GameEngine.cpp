@@ -121,16 +121,16 @@ GameEngine::~GameEngine() {
 }
 
 void GameEngine::linkObjects(const vector<string>& relations) {
-    
+
     Passive* passiveTile;
     Active* activeTile;
     Position passiveObject;
-    
+
     for (int i = 0; i < relations.size(); i++) {
         stringstream sstream;
         sstream << (relations.at(i).c_str()); //relations.at(i).c_str()
-          sstream >> (passiveObject.height);
-         sstream >> passiveObject.width;
+        sstream >> (passiveObject.height);
+        sstream >> passiveObject.width;
         passiveTile = dynamic_cast<Passive*> (m_map.findTile(passiveObject));
         if (passiveTile == nullptr)
             throw std::runtime_error("passive Tile not found");
@@ -158,6 +158,6 @@ void GameEngine::linkObjects(const vector<string>& relations) {
             }
         }*/
 
-         }
+    }
 
 }
