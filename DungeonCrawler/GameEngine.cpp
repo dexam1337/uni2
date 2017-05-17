@@ -4,7 +4,6 @@
  *  Created on: 23.04.2017
  *      Author: sebastian
  */
-
 #include "GameEngine.h"
 
 GameEngine::GameEngine(const unsigned int height, const unsigned int width,
@@ -122,16 +121,20 @@ GameEngine::~GameEngine() {
 }
 
 void GameEngine::linkObjects(const vector<string>& relations) {
+    
     Passive* passiveTile;
     Active* activeTile;
     Position passiveObject;
+    
     for (int i = 0; i < relations.size(); i++) {
-        passiveObject.height = static_cast<int> (relations.at(i).at(0)) - 48;
-        passiveObject.width = static_cast<int> (relations.at(i).at(1)) - 48;
+        stringstream sstream;
+        sstream << (relations.at(i).c_str()); //relations.at(i).c_str()
+          sstream >> (passiveObject.height);
+         sstream >> passiveObject.width;
         passiveTile = dynamic_cast<Passive*> (m_map.findTile(passiveObject));
         if (passiveTile == nullptr)
             throw std::runtime_error("passive Tile not found");
-        for (int j = 4; j < relations.at(i).size(); j = j + 4) {
+        /*for (int j = 4; j < relations.at(i).size(); j = j + 4) {
             if (relations.at(i).size() <= j + 3)
                 ;
             else {
@@ -153,8 +156,8 @@ void GameEngine::linkObjects(const vector<string>& relations) {
                 }
 
             }
-        }
-    }
+        }*/
 
+         }
 
 }

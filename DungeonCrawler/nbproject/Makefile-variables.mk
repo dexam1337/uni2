@@ -23,13 +23,13 @@ CND_PACKAGE_DIR_Release=dist/Release/CLang-Linux/package
 CND_PACKAGE_NAME_Release=dungeoncrawler.tar
 CND_PACKAGE_PATH_Release=dist/Release/CLang-Linux/package/dungeoncrawler.tar
 # valgrind configuration
-CND_PLATFORM_valgrind=CLang-Linux
-CND_ARTIFACT_DIR_valgrind=dist/valgrind/CLang-Linux
+CND_PLATFORM_valgrind=GNU-Linux
+CND_ARTIFACT_DIR_valgrind=dist/valgrind/GNU-Linux
 CND_ARTIFACT_NAME_valgrind=dungeoncrawler
-CND_ARTIFACT_PATH_valgrind=dist/valgrind/CLang-Linux/dungeoncrawler
-CND_PACKAGE_DIR_valgrind=dist/valgrind/CLang-Linux/package
+CND_ARTIFACT_PATH_valgrind=dist/valgrind/GNU-Linux/dungeoncrawler
+CND_PACKAGE_DIR_valgrind=dist/valgrind/GNU-Linux/package
 CND_PACKAGE_NAME_valgrind=dungeoncrawler.tar
-CND_PACKAGE_PATH_valgrind=dist/valgrind/CLang-Linux/package/dungeoncrawler.tar
+CND_PACKAGE_PATH_valgrind=dist/valgrind/GNU-Linux/package/dungeoncrawler.tar
 #
 # include compiler specific variables
 #

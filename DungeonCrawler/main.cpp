@@ -21,9 +21,9 @@ int main() {
         "##########",};
 
     vector<string> links{
-        "45D 81S 84S ",
-        "55D 81S 87S ",
-        "65D 84S 87S 61S ",
+        "4 5 D 8 1 S 8 4 S ",
+        "5 5 D 8 1 S 8 7 S ",
+        "6 5 D 8 4 S 8 7 S 6 1 S ",
         /*Test wenn auf ungültiger Cast angegeben"84S 81S "*/};
     GameEngine ge(10, 10, data, links);
     ge.run();
