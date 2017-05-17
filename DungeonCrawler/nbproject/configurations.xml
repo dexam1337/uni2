@@ -54,7 +54,7 @@
   <confs>
     <conf name="Debug" type="1">
       <toolsSet>
-        <compilerSet>CLang|CLang</compilerSet>
+        <compilerSet>GNU|GNU</compilerSet>
         <dependencyChecking>true</dependencyChecking>
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
@@ -119,7 +119,7 @@
     </conf>
     <conf name="Release" type="1">
       <toolsSet>
-        <compilerSet>CLang|CLang</compilerSet>
+        <compilerSet>GNU|GNU</compilerSet>
         <dependencyChecking>true</dependencyChecking>
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
@@ -206,7 +206,7 @@
       </item>
       <item path="Active.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Character.cpp" ex="false" tool="1" flavor2="11">
+      <item path="Character.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Character.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -222,15 +222,15 @@
       </item>
       <item path="Door.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="DungeonMap.cpp" ex="false" tool="1" flavor2="11">
+      <item path="DungeonMap.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="DungeonMap.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Floor.cpp" ex="false" tool="1" flavor2="11">
+      <item path="Floor.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Floor.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="GameEngine.cpp" ex="false" tool="1" flavor2="11">
+      <item path="GameEngine.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="GameEngine.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -242,15 +242,15 @@
       </item>
       <item path="Switch.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Tile.cpp" ex="false" tool="1" flavor2="11">
+      <item path="Tile.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Tile.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Wall.cpp" ex="false" tool="1" flavor2="11">
+      <item path="Wall.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Wall.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="main.cpp" ex="false" tool="1" flavor2="11">
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
   </confs>
