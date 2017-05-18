@@ -10,6 +10,8 @@
 	.type	main,function
 main:
 	LDR	r0, Beispiel
+	
+//EOR r0, #0xFFFF0000
 //Eventuell 4mal nach rechts in register 
 //4 mal nach links in register
 //dann byteweise zusammenführen?
