@@ -7,16 +7,24 @@
 
 #include "Character.h"
 #include <iostream>
+#include <vector>
 using namespace std;
 
-Character::Character(char symbol) {
+Character::Character(char symbol, int strength, int stamina) {
     m_symbol = symbol;
     m_controller = new ConsoleController(this);
+    m_strength = strength;
+    m_stamina = stamina;
+    m_hitpoints = getMaxHP();
+    m_name = "Character";
 }
 
 Character::~Character() {
     delete m_controller;
     m_controller = nullptr;
+    for(int i = 0; i < m_items.size(); i++)
+        delete m_items.at(i);
+    m_items.clear();
 }
 
 char Character::getSymbol() {
@@ -29,3 +37,32 @@ int Character::move() {
     return m_controller->move();
 }
 
+int Character::getMaxHP() {
+    return (20 + ( getStamina() * 5));
+}
+
+void Character::showInfo() {
+    cout << m_name << ": \n" << "Hitpoints: " << m_hitpoints << " / " << getMaxHP() << "\n" <<
+            "Strength: " << m_strength << " Stamina: " << m_stamina << "\n"<<
+            "Items: " << m_items.size() << endl;
+}
+
+void Character::addItem(Item* item) {
+    m_items.push_back(item);
+}
+
+int Character::getStrength() {
+    int strength = m_strength;
+    for (int i = 0; i < m_items.size(); i++) {
+        strength = strength + m_items.at(i)->modifyStrength(m_strength); //Itemeffects don't accumulate
+    }
+    return strength;
+}
+
+int Character::getStamina() {
+    int stamina = m_stamina;
+    for (int i = 0; i < m_items.size(); i++) {
+        stamina = stamina + m_items.at(i)->modifyStamina(m_stamina); //Itemeffects don't accumulate
+    }
+    return stamina;
+}

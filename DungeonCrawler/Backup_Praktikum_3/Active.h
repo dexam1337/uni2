@@ -24,7 +24,7 @@ public:
     //Active(const Active& orig);
     virtual ~Active();
     virtual void use(); //tooglet Objekt
-    virtual void setStatus(bool Status);
+    //virtual void setStatus(bool Status);
     virtual bool getStatus();
     void setLinked(Passive* linked);
 private:

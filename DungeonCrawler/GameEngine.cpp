@@ -15,7 +15,7 @@ m_map(height, width, data) {
     cout << "Wie viele Runden?" << endl;
     cin >> m_limit;
     //	m_map = DungeonMap(height, width, data);
-    characters.push_back(new Character('o')); //Wegen pointer
+    characters.push_back(new Character('o', 10, 10)); //Wegen pointer
     Position pos;
     pos.height = 7;
     pos.width = 2;
@@ -30,7 +30,7 @@ m_map(height, width, data) {
 
     m_limit = limit;
     //	m_map = DungeonMap(height, width, data);
-    characters.push_back(new Character('o')); //Wegen pointer
+    characters.push_back(new Character('o', 10, 10)); //Wegen pointer
     Position pos;
     pos.height = 7;
     pos.width = 2;
@@ -46,7 +46,7 @@ m_map(height, width, data) {
     cout << "Wie viele Runden?" << endl;
     cin >> m_limit;
     //	m_map = DungeonMap(height, width, data);
-    characters.push_back(new Character('o')); //Wegen pointer
+    characters.push_back(new Character('o', 10, 10)); //Wegen pointer
     Position pos;
     pos.height = 7;
     pos.width = 2;
@@ -61,7 +61,7 @@ m_map(height, width, data) {
 
     m_limit = limit;
     //	m_map = DungeonMap(height, width, data);
-    characters.push_back(new Character('o')); //Wegen pointer
+    characters.push_back(new Character('o', 10, 10)); //Wegen pointer
     Position pos;
     pos.height = 7;
     pos.width = 2;
@@ -81,6 +81,8 @@ void GameEngine::turn() {
         Position pos;
         try {
             pos = m_map.findCharacter(characters.at(i));
+            //Test:
+            //characters.at(i)->showInfo();
         } catch (const invalid_argument& ie) {
             cerr << "Error in turn: " << ie.what() << '\n';
         }

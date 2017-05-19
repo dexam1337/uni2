@@ -29,7 +29,7 @@ DungeonMap::DungeonMap(const unsigned int height, const unsigned int width) {
     for (unsigned int i = 0; i < height; i++) {
         m_map[i] = new Tile*[width];
         for (unsigned int j = 0; j < width; j++) {
-            m_map[i][j] = new Floor(nullptr);
+            m_map[i][j] = new Floor(nullptr, nullptr);
         }
     }
 }
@@ -46,7 +46,7 @@ DungeonMap::DungeonMap(const unsigned int height, const unsigned int width,
             // cout << i << " " << j << endl;
             switch (data.at(i).at(j)) {
                 case '.':
-                    m_map[i][j] = new Floor(nullptr);
+                    m_map[i][j] = new Floor(nullptr, nullptr);
                     break;
                 case '#':
                     m_map[i][j] = new Wall();

@@ -22,7 +22,8 @@ Active::Active() : Tile(nullptr) {
     m_status = false;
 }
  */
-Active::Active(Passive* linked) : Tile(nullptr) {
+Active::Active(Passive* linked) : Tile(nullptr)
+{
     m_linked.push_back(linked);
     m_status = false;
 }
@@ -31,34 +32,44 @@ Active::Active(Passive* linked) : Tile(nullptr) {
 Active::Active(const Active& orig) : Tile(){
 }*/
 
-Active::~Active() {
+Active::~Active()
+{
     m_linked.clear();
 }
 
-void Active::use() {
-    for (int i = 0; i < m_linked.size(); i++) {
+void Active::use()
+{
+    for (int i = 0; i < m_linked.size(); i++)
+    {
         if (m_linked.at(i) != nullptr)
             m_linked.at(i)->use();
-        if (m_status == true) {
-            m_status = false; // code when active tile is disabled
-        } else {
-            m_status = true; //code when tile is activated
-        }
     }
+    if (m_status == true)
+    {
+        m_status = false; // code when active tile is disabled
+    }
+    else
+    {
+        m_status = true; //code when tile is activated
+    }
+
 }
 
+/*
 void Active::setStatus(bool status) {
     for (int i = 0; i < m_linked.size(); i++) {
         if (m_linked.at(i) != nullptr)
             m_linked.at(i)->setStatus(status);
         m_status = status;
     }
-}
+}*/
 
-bool Active::getStatus() {
+bool Active::getStatus()
+{
     return m_status;
 }
 
-void Active::setLinked(Passive* linked) {
+void Active::setLinked(Passive* linked)
+{
     m_linked.push_back(linked);
 }

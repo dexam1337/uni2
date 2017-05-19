@@ -27,3 +27,7 @@ void Wall::onEnter(Character* c, Tile* fromTile) {
 char Wall::print() {
     return '#';
 }
+
+bool isTransparent() {
+    return false;
+}

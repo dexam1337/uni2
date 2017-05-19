@@ -58,3 +58,7 @@ char Tile::print() {/*
 	}*/
     return ' ';
 }
+
+bool isTransparent(){
+    return true;
+}

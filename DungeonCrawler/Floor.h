@@ -15,15 +15,17 @@
 #define FLOOR_H
 
 #include "Tile.h"
+#include "Item.h"
 
 class Floor : public Tile {
 public:
-    Floor(Character* c);
+    Floor(Character* c, Item* item);
     void onLeave(Tile* toTile) override;
     void onEnter(Character* c, Tile* fromTile) override;
     char print() override;
 
 private:
+    Item* m_item;
 
 };
 

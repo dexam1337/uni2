@@ -14,6 +14,7 @@
 #include "Passive.h"
 
 Passive::Passive() : Tile(nullptr){
+    m_status = false;
 }
 /*
 Passive::Passive(const Passive& orig) {

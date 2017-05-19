@@ -13,8 +13,9 @@
 
 #include "Floor.h"
 
-Floor::Floor(Character* c) : Tile(c) {
+Floor::Floor(Character* c, Item* item) : Tile(c) {
     Tile::setCharacter(c);
+    m_item = item;
 }
 
 void Floor::onLeave(Tile* toTile) {
@@ -25,6 +26,10 @@ void Floor::onEnter(Character* c, Tile* fromTile) {
     if (Tile::hasCharacter() == false) {
         Tile::setCharacter(c);
         fromTile->setCharacter(nullptr);
+        if(m_item != nullptr) {
+            c->addItem(m_item);
+            m_item = nullptr;
+        }
     } else
         ;
 }
@@ -32,5 +37,7 @@ void Floor::onEnter(Character* c, Tile* fromTile) {
 char Floor::print() {
     if (Tile::hasCharacter() == true)
         return Tile::getCharacter()->getSymbol();
+    else if(m_item != nullptr)
+        return '*';
     return '.';
 }

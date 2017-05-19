@@ -45,3 +45,10 @@ void Door::onEnter(Character* c, Tile* fromTile) {
         fromTile->setCharacter(nullptr);
     }
 }
+
+bool isTransparent(){
+    if(Passive::getStatus() == false)
+        return false;
+    else 
+        return true;
+}
