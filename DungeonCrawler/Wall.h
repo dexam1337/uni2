@@ -22,7 +22,7 @@ public:
     void onLeave(Tile* toTile) override;
     void onEnter(Character* c, Tile* fromTile) override;
     char print() override;
-    bool isTranspatent() override;
+    bool isTranspatent();
 private:
 
 };
