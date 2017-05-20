@@ -14,7 +14,6 @@
 #include "Floor.h"
 
 Floor::Floor(Character* c, Item* item) : Tile(c) {
-    Tile::setCharacter(c);
     m_item = item;
 }
 
@@ -40,4 +39,12 @@ char Floor::print() {
     else if(m_item != nullptr)
         return '*';
     return '.';
+}
+
+Item* Floor::getItem(){
+    return m_item;
+}
+
+void Floor::setItem(Item* item){
+    m_item = item;
 }

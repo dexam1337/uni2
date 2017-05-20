@@ -21,7 +21,9 @@ private:
     string m_name;
     char m_symbol;
     Controller* m_controller;
+
 public:
+
     int getMaxHP();
     Character(char symbol, int strength, int stamina);
     ~Character();
@@ -31,6 +33,7 @@ public:
     void addItem(Item* item);
     int getStrength();
     int getStamina();
+    bool hit(int damage); //gibt true zurück wenn hp < 0;
 };
 
 #endif /* CHARACTER_H_ */

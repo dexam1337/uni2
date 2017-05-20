@@ -57,6 +57,12 @@ DungeonMap::DungeonMap(const unsigned int height, const unsigned int width,
                 case 'S':
                     m_map[i][j] = new Switch(nullptr);
                     break;
+                case 'L':
+                    m_map[i][j] = new Lever(nullptr);
+                    break;
+                case 'T':
+                    m_map[i][j] = new Trap(nullptr, -20);
+                    break;
                 default:
                     throw std::runtime_error("invalid Tile Type requested");
             }

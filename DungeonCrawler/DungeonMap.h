@@ -15,6 +15,8 @@
 #include "Floor.h"
 #include "Switch.h"
 #include "Door.h"
+#include "Lever.h"
+#include "Trap.h"
 #include <stdexcept>
 #include <iostream>
 using namespace std;

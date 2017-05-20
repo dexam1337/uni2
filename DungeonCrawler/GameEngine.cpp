@@ -82,7 +82,7 @@ void GameEngine::turn() {
         try {
             pos = m_map.findCharacter(characters.at(i));
             //Test:
-            //characters.at(i)->showInfo();
+            characters.at(i)->showInfo();
         } catch (const invalid_argument& ie) {
             cerr << "Error in turn: " << ie.what() << '\n';
         }
@@ -179,6 +179,8 @@ void GameEngine::linkObjects(const vector<string>& relations) {
             switch(target){
                 case 's':
                 case 'S':
+                case 'l':
+                case 'L':
                         activeTile = dynamic_cast<Active*> (m_map.findTile(act));
                         if (activeTile != nullptr) {
                             activeTile->setLinked(passiveTile);
