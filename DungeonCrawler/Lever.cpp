@@ -5,38 +5,37 @@
  */
 
 /* 
- * File:   Switch.cpp
+ * File:   Lever.cpp
  * Author: sebastian
  * 
- * Created on 11. Mai 2017, 23:28
+ * Created on 21. Mai 2017, 12:12 AM
  */
 
-#include "Switch.h"
+#include "Lever.h"
 
-Switch::Switch(Passive* passive) : Active(passive) {
+Lever::Lever(Passive* passive) : Active(passive) {
 }
 
 /*
-Switch::Switch(const Switch& orig) {
+Lever::Lever(const Lever& orig) {
 }*/
 
-Switch::~Switch() {
+Lever::~Lever() {
 }
 
-char Switch::print() {
+char Lever::print() {
     if (Active::getStatus() == false)
-        return 's';
+        return 'l';
     else
-        return 'S';
+        return 'L';
 }
 
-void Switch::onLeave(Tile* toTile) {
+void Lever::onLeave(Tile* toTile) {
     //can't enter on first place;
 }
 
-void Switch::onEnter(Character* c, Tile* fromTile) {
+void Lever::onEnter(Character* c, Tile* fromTile) {
     //here what to do when triggered
-    if(Active::getStatus()==false)
-        use();
+    use();
     fromTile->onEnter(c, this);
 }
