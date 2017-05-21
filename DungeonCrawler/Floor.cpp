@@ -17,6 +17,10 @@ Floor::Floor(Character* c, Item* item) : Tile(c) {
     m_item = item;
 }
 
+Floor::~Floor(){
+    delete m_item;
+    m_item = nullptr;
+}
 void Floor::onLeave(Tile* toTile) {
     toTile->onEnter(Tile::getCharacter(), this);
 }

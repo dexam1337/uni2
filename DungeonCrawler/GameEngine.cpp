@@ -121,7 +121,6 @@ void GameEngine::turn() {
             case 9:
                 newPos.height--;
                 newPos.width++;
-
                 break;
             case 0:
                 m_round = m_limit;
