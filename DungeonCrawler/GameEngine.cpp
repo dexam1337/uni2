@@ -23,7 +23,7 @@ m_map(height, width, data) {
     //pos.width = 2;
     //m_map.place(pos, characters.at(0));
     m_round = 0;
-
+ //<<Data, data, DATA!>> he cried impatiently.
 }
 
 GameEngine::GameEngine(const unsigned int height, const unsigned int width,
@@ -164,7 +164,7 @@ void GameEngine::linkObjects(const vector<string>& relations) {
         istringstream sstream(relations.at(i));
         //sstream << (relations.at(i).c_str()); //relations.at(i).c_str()
         sstream >> target;
-        if (target == "Door")
+        if (target == "Door")//Hier alle möglichen Befehlsclassifier einfügen
             doorConnector(sstream);
         else if (target == "Character")
             placeCharacter(sstream);
@@ -239,7 +239,7 @@ void GameEngine::placeItem(istringstream& stream){
     if(boden == nullptr)
         throw std::runtime_error("Can't place Item here");
     
-    if(target == "Greatsword")
+    if(target == "Greatsword") //hier die fälle für alle möglichen Items einfügen. Ich bin dafür zu faul. Liebe Grüße Vergangenheits-Seb
         item = new Greatsword;
     else
         throw std::runtime_error("Unknow item");
