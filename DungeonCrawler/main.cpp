@@ -12,20 +12,19 @@ int main() {
         "##########",
         "####.....#",
         "###......#",
-        "##..#D#..#",
-        "#...#D#..#",
-        "#####D####",
-        "#T..#D#..#",
+        "##.......#",
         "#........#",
-        "#L.S.S.L.#",
+        "#####D####",
+        "#....T...#",
+        "#........#",
+        "#....L...#",
         "##########",};
 
     vector<string> links{
-        "3 5 D 8 1 L 8 5 S 8 7 L",
-        "4 5 D 8 1 L 8 3 S",
-        "5 5 D 8 3 S 8 5 S",
-        "6 5 D 8 5 S",
-        /*Test wenn auf ungültiger Cast angegeben"84S 81S "*/};
+        "Door 5 5 Lever 8 5",
+        "Character Hans @ 5 5 ConsoleController 7 1",
+        "Character Peter % 2 3 StationaryController 1 5",
+        "Item Greatsword 3 5"};
     GameEngine ge(10, 10, data, links, 200);
     ge.run();
     return 0;

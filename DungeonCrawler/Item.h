@@ -36,6 +36,7 @@ public:
 };
 
 class Greatsword : public Item{
+    public:
     Greatsword();
     //Greatsword(const Greatsword& orig);
     //~Greatsword();
@@ -44,6 +45,7 @@ class Greatsword : public Item{
 };
 
 class Club : public Item{
+    public:
     Club();
     //Club(const Club& orig);
     //~Club();
@@ -52,6 +54,7 @@ class Club : public Item{
 };
 
 class Rapier : public Item{
+    public:
     Rapier();
     //Rapier(const Rapier& orig);
     //~Rapier();
@@ -60,6 +63,7 @@ class Rapier : public Item{
 };
 
 class Dagger : public Item{
+    public:
     Dagger();
     //Dagger(const Dagger& orig);
     //~Dagger();
@@ -68,6 +72,7 @@ class Dagger : public Item{
 };
 
 class Gambeson : public Item{
+    public:
     Gambeson();
     //Gambeson(const Gambeson& orig);
     //~Gambeson();
@@ -76,6 +81,7 @@ class Gambeson : public Item{
 };
 
 class MailArmour : public Item{
+    public:
     MailArmour();
     //MailArmour(const MailArmour& orig);
     //~MailArmour();
@@ -84,6 +90,7 @@ class MailArmour : public Item{
 };
 
 class Shield : public Item{
+    public:
     Shield();
     //Shield(const Shield& orig);
     //~Shield();
@@ -92,6 +99,7 @@ class Shield : public Item{
 };
 
 class FullPlateArmour : public Item{
+    public:
     FullPlateArmour();
     //FullPlateArmour(const FullPlateArmour& orig);
     //~FullPlateArmour();

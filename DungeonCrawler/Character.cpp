@@ -9,7 +9,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-
+/*
 Character::Character(char symbol, int strength, int stamina) {
     m_symbol = symbol;
     m_controller = new ConsoleController(this);
@@ -17,6 +17,15 @@ Character::Character(char symbol, int strength, int stamina) {
     m_stamina = stamina;
     m_hitpoints = getMaxHP();
     m_name = "Character";
+}*/
+
+Character::Character(string name, char symbol, int strength, int stamina, Controller* controller) {
+    m_name = name;
+    m_symbol = symbol;
+    m_controller = controller;
+    m_strength = strength;
+    m_stamina = stamina;
+    m_hitpoints = getMaxHP();
 }
 
 Character::~Character() {
@@ -49,6 +58,7 @@ void Character::showInfo() {
 
 void Character::addItem(Item* item) {
     m_items.push_back(item);
+    //m_hitpoints = getMaxHP(); //Do items affect health?
 }
 
 int Character::getStrength() {

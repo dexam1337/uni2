@@ -25,7 +25,7 @@ private:
 public:
 
     int getMaxHP();
-    Character(char symbol, int strength, int stamina);
+    Character(string name, char symbol, int strength, int stamina, Controller* controller);
     ~Character();
     char getSymbol();
     int move();

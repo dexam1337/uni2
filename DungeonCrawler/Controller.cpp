@@ -14,7 +14,7 @@
 #include "Controller.h"
 #include "Character.h"
 
-Controller::Controller(Character* character) {
+Controller::Controller(Character* character) {//warum soll controller seinen character kennen?
     m_character = character;
 }
 

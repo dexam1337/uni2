@@ -12,12 +12,12 @@
 class GameEngine
 {
 public:
-    GameEngine(const unsigned int height, const unsigned int width,
-               const vector<string>& data);
+    /*GameEngine(const unsigned int height, const unsigned int width,
+               const vector<string>& data);*/
     GameEngine(const unsigned int height, const unsigned int width,
                const vector<string>& data, const vector<string>& relations);
-    GameEngine(const unsigned int height, const unsigned int width,
-               const vector<string>& data, int limit);
+    /*GameEngine(const unsigned int height, const unsigned int width,
+               const vector<string>& data, int limit);*/
     GameEngine(const unsigned int height, const unsigned int width,
                const vector<string>& data, const vector<string>& relations, int limit);
     void run();
@@ -30,6 +30,9 @@ private:
     DungeonMap m_map;
     vector<Character *> characters;
     void linkObjects(const vector<string>& relations);
+    void doorConnector(istringstream& stream);
+    void placeCharacter(istringstream& stream);
+    void placeItem(istringstream& stream);
     
 };
 

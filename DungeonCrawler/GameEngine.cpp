@@ -5,9 +5,11 @@
  *      Author: sebastian
  */
 #include "GameEngine.h"
+#include "StationaryController.h"
 //#include <iostream>
 #include <sstream>
 
+/*
 GameEngine::GameEngine(const unsigned int height, const unsigned int width,
         const vector<string>& data) :
 m_map(height, width, data) {
@@ -15,11 +17,11 @@ m_map(height, width, data) {
     cout << "Wie viele Runden?" << endl;
     cin >> m_limit;
     //	m_map = DungeonMap(height, width, data);
-    characters.push_back(new Character('o', 10, 10)); //Wegen pointer
-    Position pos;
-    pos.height = 7;
-    pos.width = 2;
-    m_map.place(pos, characters.at(0));
+    //characters.push_back(new Character('o', 10, 10)); //Wegen pointer
+    //Position pos;
+    //pos.height = 7;
+    //pos.width = 2;
+    //m_map.place(pos, characters.at(0));
     m_round = 0;
 
 }
@@ -30,14 +32,14 @@ m_map(height, width, data) {
 
     m_limit = limit;
     //	m_map = DungeonMap(height, width, data);
-    characters.push_back(new Character('o', 10, 10)); //Wegen pointer
-    Position pos;
-    pos.height = 7;
-    pos.width = 2;
-    m_map.place(pos, characters.at(0));
+    //characters.push_back(new Character('o', 10, 10)); //Wegen pointer
+    //Position pos;
+    //pos.height = 7;
+    //pos.width = 2;
+    //m_map.place(pos, characters.at(0));
     m_round = 0;
 
-}
+}*/
 
 GameEngine::GameEngine(const unsigned int height, const unsigned int width,
         const vector<string>& data, const vector<string>& relations) :
@@ -46,11 +48,11 @@ m_map(height, width, data) {
     cout << "Wie viele Runden?" << endl;
     cin >> m_limit;
     //	m_map = DungeonMap(height, width, data);
-    characters.push_back(new Character('o', 10, 10)); //Wegen pointer
-    Position pos;
-    pos.height = 7;
-    pos.width = 2;
-    m_map.place(pos, characters.at(0));
+    //characters.push_back(new Character('o', 10, 10)); //Wegen pointer
+    //Position pos;
+    //pos.height = 7;
+    //pos.width = 2;
+    //m_map.place(pos, characters.at(0));
     m_round = 0;
     linkObjects(relations);
 }
@@ -61,11 +63,11 @@ m_map(height, width, data) {
 
     m_limit = limit;
     //	m_map = DungeonMap(height, width, data);
-    characters.push_back(new Character('o', 10, 10)); //Wegen pointer
-    Position pos;
-    pos.height = 7;
-    pos.width = 2;
-    m_map.place(pos, characters.at(0));
+    //characters.push_back(new Character('o', 10, 10)); //Wegen pointer
+    //Position pos;
+    //pos.height = 7;
+    //pos.width = 2;
+    //m_map.place(pos, characters.at(0));
     m_round = 0;
     linkObjects(relations);
 }
@@ -155,46 +157,92 @@ GameEngine::~GameEngine() {
 
 void GameEngine::linkObjects(const vector<string>& relations) {
 
+
+
+    for (int i = 0; i < relations.size(); i++) {
+        string target;
+        istringstream sstream(relations.at(i));
+        //sstream << (relations.at(i).c_str()); //relations.at(i).c_str()
+        sstream >> target;
+        if (target == "Door")
+            doorConnector(sstream);
+        else if (target == "Character")
+            placeCharacter(sstream);
+        else if (target == "Item")
+            placeItem(sstream);
+        else
+            throw std::runtime_error("Unknown target in relations");
+
+
+
+    }
+
+}
+
+void GameEngine::doorConnector(istringstream& sstream) {
+    string target;
     Passive* passiveTile;
     Active* activeTile;
     Position passiveObject;
 
-    for (int i = 0; i < relations.size(); i++) {
-        char target;
-        istringstream sstream(relations.at(i));
-        //sstream << (relations.at(i).c_str()); //relations.at(i).c_str()
-        sstream >> (passiveObject.height);
-        sstream >> passiveObject.width;
-        sstream >> target;
-        passiveTile = dynamic_cast<Passive*> (m_map.findTile(passiveObject));
-        if (passiveTile == nullptr)
-            throw std::runtime_error("passive Tile not found");
-        
-        while(!sstream.eof()){
-            Position act;
-            sstream >> act.height;
-            sstream >> act.width;
-            sstream >> target;
-            switch(target){
-                case 's':
-                case 'S':
-                case 'l':
-                case 'L':
-                        activeTile = dynamic_cast<Active*> (m_map.findTile(act));
-                        if (activeTile != nullptr) {
-                            activeTile->setLinked(passiveTile);
-                        } else {
-                            throw std::runtime_error("Active Tile not found to be linked");
-                        }
-                        break;
+    sstream >> (passiveObject.height);
+    sstream >> passiveObject.width;
 
-                    default:
-                        throw std::runtime_error("Invalid Active Tile Link");
-            }   
-            sstream.ignore(1);
-            
+    passiveTile = dynamic_cast<Passive*> (m_map.findTile(passiveObject));
+    if (passiveTile == nullptr)
+        throw std::runtime_error("passive Tile not found");
+
+
+    while (!sstream.eof()) {
+        Position act;
+        sstream >> target;
+        sstream >> act.height;
+        sstream >> act.width;
+
+        activeTile = dynamic_cast<Active*> (m_map.findTile(act));
+        if (activeTile != nullptr) {
+            activeTile->setLinked(passiveTile);
+        } else {
+            throw std::runtime_error("Active Tile not found to be linked");
         }
 
-    }
 
+        sstream.ignore(1);
+
+    }
+}
+
+void GameEngine::placeCharacter(istringstream& stream) {
+    string name;
+    char symbol;
+    int strength;
+    int stamina;
+    Position pos;
+    string target;
+    stream >> name >> symbol >> strength >> stamina >> target >> pos.height >> pos.width;
+    Controller* controller;
+    if(target == "ConsoleController")
+        controller = new ConsoleController(nullptr);
+    if(target == "StationaryController")
+        controller = new StationaryController(nullptr);
+    characters.push_back(new Character(name, symbol, strength, stamina, controller));
+    m_map.place(pos, characters.back());
+}
+
+void GameEngine::placeItem(istringstream& stream){
+    string target;
+    Position pos;
+    Item* item;
+    stream >> target >> pos.height >> pos.width;
+    Floor* boden;
+    boden =  dynamic_cast<Floor*> (m_map.findTile(pos));
+    if(boden == nullptr)
+        throw std::runtime_error("Can't place Item here");
+    
+    if(target == "Greatsword")
+        item = new Greatsword;
+    else
+        throw std::runtime_error("Unknow item");
+    
+    boden->setItem(item);
 }
