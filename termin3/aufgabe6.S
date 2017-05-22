@@ -11,11 +11,19 @@
 main:
 	LDR	r0, Beispiel
 	
-//EOR r0, #0xFFFF0000
-//Eventuell 4mal nach rechts in register 
-//4 mal nach links in register
-//dann byteweise zusammenführen?
 
+  AND r1, r0, #0xff000000
+  AND r2, r0, #0xff00
+  LSR r1, r1,  #8
+  LSR r2, r2, #8
+  ORR r3, r2, r1
+  AND r1, r0, #0x00ff0000
+  AND r2, r0, #0xff
+  LSL r1, r1, #8
+  LSL r2, r2, #8
+  ORR r4, r2, r1
+  ORR r5, r4, r3
+  
 	bx	lr
 Beispiel:
 	.word	0x1234ABCD

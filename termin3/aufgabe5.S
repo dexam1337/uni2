@@ -15,9 +15,11 @@ main:
 	mov	r2, #15
 	mov	r3, #0x80000000
 //..
-//I hate my life
-        ADDS r4, r2, r3 @ negieren
-
+        ADD r4, r2, #0x80000000 @
+	EOR r5, r2, #0x80000000 @
+	SUB r6, r2, #0x80000000 @
+	
+		
 	pop	{r4, r5, pc}
 .Lfe1:
 	.size	main,.Lfe1-main
