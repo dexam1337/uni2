@@ -45,6 +45,7 @@ public:
 	Tile* findTile(Position pos);
 	Position findCharacter(Character* c);
 	void print();
+       
 };
 
 #endif /* DUNGEONMAP_H_ */

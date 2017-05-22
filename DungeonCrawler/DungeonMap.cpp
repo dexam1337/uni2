@@ -20,7 +20,7 @@
                 m_maxHeight = 1;
                 m_maxWidth = 1;
 
-}*/
+}
 DungeonMap::DungeonMap(const unsigned int height, const unsigned int width) {
     m_maxHeight = height;
     m_maxWidth = width;
@@ -33,7 +33,7 @@ DungeonMap::DungeonMap(const unsigned int height, const unsigned int width) {
         }
     }
 }
-
+*/
 DungeonMap::DungeonMap(const unsigned int height, const unsigned int width,
         const vector<string>& data) {
     m_maxHeight = height;

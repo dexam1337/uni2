@@ -8,6 +8,7 @@
 #include "StationaryController.h"
 //#include <iostream>
 #include <sstream>
+#include <fstream>
 
 /*
 GameEngine::GameEngine(const unsigned int height, const unsigned int width,
@@ -44,7 +45,7 @@ m_map(height, width, data) {
 GameEngine::GameEngine(const unsigned int height, const unsigned int width,
         const vector<string>& data, const vector<string>& relations) :
 m_map(height, width, data) {
-
+    m_leave = false;
     cout << "Wie viele Runden?" << endl;
     cin >> m_limit;
     //	m_map = DungeonMap(height, width, data);
@@ -60,7 +61,7 @@ m_map(height, width, data) {
 GameEngine::GameEngine(const unsigned int height, const unsigned int width,
         const vector<string>& data, const vector<string>& relations, int limit) :
 m_map(height, width, data) {
-
+    m_leave = false;
     m_limit = limit;
     //	m_map = DungeonMap(height, width, data);
     //characters.push_back(new Character('o', 10, 10)); //Wegen pointer
@@ -84,7 +85,7 @@ void GameEngine::turn() {
         try {
             pos = m_map.findCharacter(characters.at(i));
             //Test:
-            characters.at(i)->showInfo();
+            //characters.at(i)->showInfo();
         } catch (const invalid_argument& ie) {
             cerr << "Error in turn: " << ie.what() << '\n';
         }
@@ -125,7 +126,7 @@ void GameEngine::turn() {
                 newPos.width++;
                 break;
             case 0:
-                m_round = m_limit;
+                m_leave = true;
                 break;
             default:
                 cout << "Fehler in switchcase in turn()";
@@ -140,10 +141,14 @@ void GameEngine::turn() {
 
 bool GameEngine::finished() {
     m_round++;
-    cout << m_round << endl;
+    cout << endl;
+    //cout << m_round << endl;
     m_map.print();
-    if (m_round <= m_limit)
+    if (m_leave == true)
+        return true;
+    else if (m_round <= m_limit)
         return false;
+
     else
         return true;
 }
@@ -221,28 +226,39 @@ void GameEngine::placeCharacter(istringstream& stream) {
     string target;
     stream >> name >> symbol >> strength >> stamina >> target >> pos.height >> pos.width;
     Controller* controller;
-    if(target == "ConsoleController")
+    if (target == "ConsoleController")
         controller = new ConsoleController(nullptr);
-    if(target == "StationaryController")
+    if (target == "StationaryController")
         controller = new StationaryController(nullptr);
     characters.push_back(new Character(name, symbol, strength, stamina, controller));
     m_map.place(pos, characters.back());
 }
 
-void GameEngine::placeItem(istringstream& stream){
+void GameEngine::placeItem(istringstream& stream) {
     string target;
     Position pos;
     Item* item;
     stream >> target >> pos.height >> pos.width;
     Floor* boden;
-    boden =  dynamic_cast<Floor*> (m_map.findTile(pos));
-    if(boden == nullptr)
+    boden = dynamic_cast<Floor*> (m_map.findTile(pos));
+    if (boden == nullptr)
         throw std::runtime_error("Can't place Item here");
-    
-    if(target == "Greatsword") //hier die fälle für alle möglichen Items einfügen. Ich bin dafür zu faul. Liebe Grüße Vergangenheits-Seb
+
+    if (target == "Greatsword") //hier die fälle für alle möglichen Items einfügen. Ich bin dafür zu faul. Liebe Grüße Vergangenheits-Seb
         item = new Greatsword;
     else
         throw std::runtime_error("Unknow item");
-    
+
     boden->setItem(item);
+}
+
+void GameEngine::showPlayerInfo(){
+    for(int i = 0; i < characters.size(); i++)
+        characters.at(i)->showInfo();
+    cout << endl;
+}
+
+void GameEngine::showPlayerInfo(int n){
+    characters.at(n)->showInfo();
+    cout << endl;
 }
