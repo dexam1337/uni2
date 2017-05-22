@@ -263,3 +263,37 @@ void GameEngine::showPlayerInfo(int n){
     characters.at(n)->showInfo();
     cout << endl;
 }
+
+
+void GameEngine::loadFromFile(string filename) {
+    ifstream save;
+    save.open(filename);
+    if (save.good() == false)
+        throw std::runtime_error("couldn't open file");
+    int hoehe, breite;
+    save >> hoehe >> breite;
+    vector<string> data;
+    vector<string> links;
+    string line;
+    for (int i = 0; i <= hoehe; i++) {
+        getline(save, line);
+        data.push_back(line);
+    }
+    data.erase(data.begin());
+    do {
+        getline(save, line);
+        links.push_back(line);
+
+    } while (save.good());
+    
+    links.pop_back();
+
+    save.close();
+    
+    m_map = DungeonMap(hoehe, breite, data);
+    m_leave = false;
+    m_limit = 2147483647;
+    m_round = 0;
+    linkObjects(links);
+    
+}

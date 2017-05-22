@@ -8,7 +8,7 @@
 
 #include "GameEngine.h"
 
-void loadFromFile(string filename, GameEngine& ge);
+
 bool menue(GameEngine& ge);
 
 int main(int argc, char *argv[]) {
@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
     vector<string> links;
     GameEngine ge(0, 0, data, links);
 
-    loadFromFile(argv[1], ge);
+    ge.loadFromFile(argv[1]);
 
     while (menue(ge)) {
 
@@ -26,32 +26,6 @@ int main(int argc, char *argv[]) {
 
 }
 
-void loadFromFile(string filename, GameEngine& ge) {
-    ifstream save;
-    save.open(filename);
-    if (save.good() == false)
-        throw std::runtime_error("couldn't open file");
-    int hoehe, breite;
-    save >> hoehe >> breite;
-    vector<string> data;
-    vector<string> links;
-    string line;
-    for (int i = 0; i <= hoehe; i++) {
-        getline(save, line);
-        data.push_back(line);
-    }
-    data.erase(data.begin());
-    do {
-        getline(save, line);
-        links.push_back(line);
-
-    } while (save.good());
-    
-    links.pop_back();
-
-    save.close();
-    ge = GameEngine(hoehe, breite, data, links); //objekt wird beim verlassen der schleife zerstört.
-}
 
 bool menue(GameEngine& ge) {
     int eingabe = -1;
@@ -74,7 +48,7 @@ bool menue(GameEngine& ge) {
         case 4:
             cout << "Spielpfad?" << endl;
             cin >> pfad;
-            loadFromFile(pfad, ge);
+            ge.loadFromFile(pfad);
             break;
         case 0:
             cout << "ende" << endl;

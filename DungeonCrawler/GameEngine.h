@@ -25,6 +25,7 @@ public:
     ~GameEngine();
     void showPlayerInfo();
     void showPlayerInfo(int n);
+    void loadFromFile(string filename);
 private:
     bool m_leave;
     int m_limit;
