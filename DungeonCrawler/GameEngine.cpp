@@ -241,6 +241,7 @@ void GameEngine::placeItem(istringstream& stream) {
     Item* item;
     stream >> target >> pos.height >> pos.width;
     Floor* boden;
+    cout << m_map.findTile(pos);
     boden = dynamic_cast<Floor*> (m_map.findTile(pos));
     if (boden == nullptr)
         throw std::runtime_error("Can't place Item here");
