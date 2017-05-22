@@ -4,72 +4,84 @@
  *  Created on: 23.04.2017
  *      Author: sebastian
  */
+#include <fstream>
+
 #include "GameEngine.h"
 
-void loadFromFile(string filename);
+void loadFromFile(string filename, GameEngine& ge);
 bool menue(GameEngine& ge);
 
-int main(int argc,char *argv[]) {
+int main(int argc, char *argv[]) {
 
-    
-    vector<string> data{
-        "##########",
-        "####.....#",
-        "###......#",
-        "##.......#",
-        "#........#",
-        "#####D####",
-        "#....T...#",
-        "#........#",
-        "#....L...#",
-        "##########",};
+    vector<string> data;
+    vector<string> links;
+    GameEngine ge(0, 0, data, links);
 
-    vector<string> links{
-        "Door 5 5 Lever 8 5", //hint: falls mehr passive Tiles als Door existieren, befehlsidentifier durch "Passive" ersetzen und dort dann zwischen den passive Tiles unterschgeiden
-        "Character Hans @ 5 5 ConsoleController 7 1", //Syntax: EinheitenTyp Name zeichen Stärke Stamina Controller Xpos Ypos
-        "Character Peter % 2 3 StationaryController 1 5",
-        "Item Greatsword 3 5"}; //Was? Was genau?, Wohin?*/
-    GameEngine ge(10, 10, data, links, 200);
-    
-    while(menue(ge)){
-        
+    loadFromFile(argv[1], ge);
+
+    while (menue(ge)) {
+
     }
     return 0;
 
 }
 
-void loadFromFile(string filename){
-    cout << filename << endl;
+void loadFromFile(string filename, GameEngine& ge) {
+    ifstream save;
+    save.open(filename);
+    if (save.good() == false)
+        throw std::runtime_error("couldn't open file");
+    int hoehe, breite;
+    save >> hoehe >> breite;
+    vector<string> data;
+    vector<string> links;
+    string line;
+    for (int i = 0; i <= hoehe; i++) {
+        getline(save, line);
+        data.push_back(line);
+    }
+    data.erase(data.begin());
+    do {
+        getline(save, line);
+        links.push_back(line);
+
+    } while (save.good());
+    
+    links.pop_back();
+
+    save.close();
+    ge = GameEngine(hoehe, breite, data, links);
 }
-bool menue(GameEngine& ge){
+
+bool menue(GameEngine& ge) {
     int eingabe = -1;
     int player = 0;
     string pfad;
     cout << "1. weiter \n2. infos aller spieler \n3. infos des nten spielers \n4. laden \n0.beenden" << endl;
-        cin >> eingabe;
-        switch(eingabe){
-            case 1:
-                ge.run();
-                break;
-            case 2:
-                ge.showPlayerInfo();
-                break;
-            case 3:
-                cout << "Welcher Spieler?" << endl;
-                cin >> player;
-                ge.showPlayerInfo(player);
-                break;
-            case 4:
-                cout << "Spielpfad?" << endl;
-                cin >> pfad;
-                loadFromFile(pfad);
-                break;
-            case 0:
-                cout << "ende" << endl;
-                return false;
-                break;
-            default:
-                break;
-        }
-        return true;
+    cin >> eingabe;
+    switch (eingabe) {
+        case 1:
+            ge.run();
+            break;
+        case 2:
+            ge.showPlayerInfo();
+            break;
+        case 3:
+            cout << "Welcher Spieler?" << endl;
+            cin >> player;
+            ge.showPlayerInfo(player);
+            break;
+        case 4:
+            cout << "Spielpfad?" << endl;
+            cin >> pfad;
+            loadFromFile(pfad, ge);
+            break;
+        case 0:
+            cout << "ende" << endl;
+            return false;
+            break;
+        default:
+            break;
+    }
+    return true;
 }

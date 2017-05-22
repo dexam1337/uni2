@@ -46,8 +46,9 @@ GameEngine::GameEngine(const unsigned int height, const unsigned int width,
         const vector<string>& data, const vector<string>& relations) :
 m_map(height, width, data) {
     m_leave = false;
-    cout << "Wie viele Runden?" << endl;
-    cin >> m_limit;
+    m_limit = 2147483647;
+    //cout << "Wie viele Runden?" << endl;
+    //cin >> m_limit;
     //	m_map = DungeonMap(height, width, data);
     //characters.push_back(new Character('o', 10, 10)); //Wegen pointer
     //Position pos;
