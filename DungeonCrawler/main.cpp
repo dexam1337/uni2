@@ -50,7 +50,7 @@ void loadFromFile(string filename, GameEngine& ge) {
     links.pop_back();
 
     save.close();
-    ge = GameEngine(hoehe, breite, data, links);
+    ge = GameEngine(hoehe, breite, data, links); //objekt wird beim verlassen der schleife zerstört.
 }
 
 bool menue(GameEngine& ge) {
