@@ -60,7 +60,7 @@ bool menue(GameEngine& ge) {
     int eingabe = -1;
     int player = 0;
     string pfad;
-    cout << "1. weiter \n2. infos aller spieler \n3. infos des nten spielers \n4. laden \n0.beenden" << endl;
+    cout << "1. weiter \n2. infos aller spieler \n3. infos des nten spielers \n4. laden \n0.beenden\n" << endl;
     cin >> eingabe;
     switch (eingabe) {
         case 1:

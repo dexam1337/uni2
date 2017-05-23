@@ -24,7 +24,7 @@ private:
     bool m_leave;
     int m_limit;
     int m_round;
-    DungeonMap m_map;
+    DungeonMap* m_map;
     vector<Character *> characters;
     void linkObjects(const vector<string>& relations);
     void doorConnector(istringstream& stream);

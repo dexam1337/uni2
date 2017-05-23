@@ -53,7 +53,7 @@ int Character::getMaxHP() {
 void Character::showInfo() {
     cout << m_name << ": \n" << "Hitpoints: " << m_hitpoints << " / " << getMaxHP() << "\n" <<
             "Strength: " << m_strength << " Stamina: " << m_stamina << "\n"<<
-            "Items: " << m_items.size() << endl;
+            "Items: " << m_items.size() << "\n" << endl;
 }
 
 void Character::addItem(Item* item) {
