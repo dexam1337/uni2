@@ -26,14 +26,26 @@ DungeonMap::DungeonMap(const unsigned int height, const unsigned int width,
                 case '#':
                     m_map[i][j] = new Wall();
                     break;
-                case 'D':
+                case 'X':
                     m_map[i][j] = new Door();
+                    break;
+                case '/':
+                    m_map[i][j] = new Door();
+                    dynamic_cast<Door*> (m_map[i][j])->use();
                     break;
                 case 'S':
                     m_map[i][j] = new Switch(nullptr);
                     break;
+                case 's':
+                    m_map[i][j] = new Switch(nullptr);
+                    dynamic_cast<Switch*> (m_map[i][j])->use();
+                    break;
                 case 'L':
                     m_map[i][j] = new Lever(nullptr);
+                    break;
+                    case 'l':
+                    m_map[i][j] = new Lever(nullptr);
+                    dynamic_cast<Lever*> (m_map[i][j])->use();
                     break;
                 case 'T':
                     m_map[i][j] = new Trap(nullptr, -20);
@@ -57,6 +69,7 @@ DungeonMap::~DungeonMap() {
     m_maxHeight = 0;
     m_maxWidth = 0;
 }
+
 /*
 DungeonMap::DungeonMap(DungeonMap& map) {
     m_maxHeight = map.m_maxHeight;

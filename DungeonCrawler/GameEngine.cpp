@@ -245,3 +245,7 @@ void GameEngine::loadFromFile(string filename) { //Ein nachträglich geladenes S
     m_round = 0;
     linkObjects(links);
 }
+
+void GameEngine::saveToFile(string filename){
+    
+}
