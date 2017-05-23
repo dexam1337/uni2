@@ -23,6 +23,7 @@ public:
         void onLeave(Tile* toTile) override;
     void onEnter(Character* c, Tile* fromTile) override;
     char print() override;
+    void setActivated(bool activated);
 private:
     int m_damage; //negative Werte für Schaden, positiv für Heilung
     bool m_activated;

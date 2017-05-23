@@ -33,8 +33,13 @@ void Floor::onEnter(Character* c, Tile* fromTile) {
             c->addItem(m_item);
             m_item = nullptr;
         }
-    } else
-        ;
+    } else{
+        /*if(!(this->getCharacter()->hit(c->getStrength() * -1)))
+            c->hit(this->getCharacter()->getStrength() * -1);
+        c->showInfo();
+        this->getCharacter()->showInfo();*/
+    }
+        
 }
 
 char Floor::print() {
