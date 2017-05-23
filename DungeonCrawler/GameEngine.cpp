@@ -20,13 +20,15 @@ GameEngine::GameEngine(const unsigned int height, const unsigned int width,
 }
 
 void GameEngine::run() {
+    m_map->print();
     while (!finished())
         turn();
 }
 
 void GameEngine::turn() {
 
-    m_map->print(); //Wenn jeder spielbare Charakter sein eigenes Sichtfeld bekommt entfällt das print an dieser Stelle, 
+
+    //Wenn jeder spielbare Charakter sein eigenes Sichtfeld bekommt entfällt das print an dieser Stelle, 
 
     for (unsigned int i = 0; i < characters.size(); i++) {
         Position pos;
@@ -57,8 +59,7 @@ void GameEngine::turn() {
                 newPos.width--;
                 break;
             case 5:
-
-                break;
+                return;
             case 6:
                 newPos.width++;
                 break;
@@ -75,14 +76,16 @@ void GameEngine::turn() {
                 break;
             case 0:
                 m_leave = true;
-                break;
+                return;
             default:
                 cout << "Fehler in switchcase in turn()";
                 break;
         }
 
+        system("clear");//nicht gut, unix befehl an cli, sicherheitslücke und systemabhängig
         newTile = m_map->findTile(newPos);
         oldTile->onLeave(newTile);
+        m_map->print();
     }
 
 }
@@ -236,7 +239,7 @@ void GameEngine::loadFromFile(string filename) { //Ein nachträglich geladenes S
 
     //this(hoehe, breite, data, links);
     delete m_map;
-    for(int i = 0; i < characters.size(); i++)
+    for (int i = 0; i < characters.size(); i++)
         delete characters.at(i);
     characters.clear();
     m_map = new DungeonMap(hoehe, breite, data);
@@ -246,6 +249,6 @@ void GameEngine::loadFromFile(string filename) { //Ein nachträglich geladenes S
     linkObjects(links);
 }
 
-void GameEngine::saveToFile(string filename){
-    
+void GameEngine::saveToFile(string filename) {
+
 }

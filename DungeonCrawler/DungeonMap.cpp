@@ -131,6 +131,7 @@ Position DungeonMap::findCharacter(Character* c) {
 }
 
 void DungeonMap::print() {
+    
     for (unsigned int i = 0; i < m_maxHeight; i++) {
         for (unsigned int j = 0; j < m_maxWidth; j++) {
             cout << m_map[i][j]->print();

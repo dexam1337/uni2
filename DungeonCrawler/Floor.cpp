@@ -26,18 +26,18 @@ void Floor::onLeave(Tile* toTile) {
 }
 
 void Floor::onEnter(Character* c, Tile* fromTile) {
-    if (Tile::hasCharacter() == false) {
-        Tile::setCharacter(c);
+    if (hasCharacter() == false) {
+        setCharacter(c);
         fromTile->setCharacter(nullptr);
         if(m_item != nullptr) {
             c->addItem(m_item);
             m_item = nullptr;
         }
     } else{
-        /*if(!(this->getCharacter()->hit(c->getStrength() * -1)))
-            c->hit(this->getCharacter()->getStrength() * -1);
+        if(!(getCharacter()->hit(c->getStrength() * -1)))
+            c->hit(getCharacter()->getStrength() * -1);
         c->showInfo();
-        this->getCharacter()->showInfo();*/
+        getCharacter()->showInfo();
     }
         
 }
