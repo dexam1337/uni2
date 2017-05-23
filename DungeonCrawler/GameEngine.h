@@ -21,6 +21,7 @@ public:
     void showPlayerInfo(int n);
     void loadFromFile(string filename);
     void saveToFile(string filename);
+
 private:
     bool m_leave;
     int m_limit;

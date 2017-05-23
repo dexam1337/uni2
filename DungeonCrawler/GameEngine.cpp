@@ -37,7 +37,10 @@ void GameEngine::turn() {
             //Test:
             //characters.at(i)->showInfo(); //Bei eigenem Sichtfeld hier jeden Character seine Sichtweise zeichnen lassen
         } catch (const invalid_argument& ie) {
-            cerr << "Error in turn: " << ie.what() << '\n';
+            //cerr << "Error in turn: " << ie.what() << "\nCharacter wird gelöscht!\n" << endl;
+            delete characters.at(i);
+            characters.erase(characters.begin()+i);
+            break;
         }
         Tile* oldTile = m_map->findTile(pos);
         Position newPos = pos;

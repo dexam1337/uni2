@@ -78,10 +78,14 @@ int Character::getStamina() {
 }
 
 bool Character::hit(int damage){
-    m_hitpoints = m_hitpoints + damage;
-    if(m_hitpoints < 0)
+    m_hitpoints = m_hitpoints - damage;
+    if(m_hitpoints <= 0)
         return true;
     else if(m_hitpoints > getMaxHP())
         m_hitpoints = getMaxHP();
     return false;
+}
+
+bool Character::heal(int damage){
+    return hit(damage * -1);
 }
