@@ -44,3 +44,7 @@
 
 #snavigator
 *.proj
+
+
+#valgrind
+vgcore.*

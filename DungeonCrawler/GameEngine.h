@@ -11,14 +11,8 @@
 
 class GameEngine {
 public:
-    /*GameEngine(const unsigned int height, const unsigned int width,
-               const vector<string>& data);*/
     GameEngine(const unsigned int height, const unsigned int width,
             const vector<string>& data, const vector<string>& relations);
-    /*GameEngine(const unsigned int height, const unsigned int width,
-               const vector<string>& data, int limit);*/
-    GameEngine(const unsigned int height, const unsigned int width,
-            const vector<string>& data, const vector<string>& relations, int limit);
     void run();
     void turn();
     bool finished();
