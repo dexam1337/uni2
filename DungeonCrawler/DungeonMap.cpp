@@ -5,35 +5,10 @@
  *      Author: sebastian
  */
 
+#include <memory>
+
 #include "DungeonMap.h"
 
-
-/*DungeonMap::DungeonMap(){
-        m_map = new Tile**[1];
-                for (unsigned int i = 0; i < 1; i++) {
-                        m_map[i] = new Tile*[1];
-                        for (unsigned int j = 0; j < 1; j++) {
-                                m_map[i][j] = new Floor(nullptr);
-                        }
-                }
-
-                m_maxHeight = 1;
-                m_maxWidth = 1;
-
-}
-DungeonMap::DungeonMap(const unsigned int height, const unsigned int width) {
-    m_maxHeight = height;
-    m_maxWidth = width;
-
-    m_map = new Tile**[height];
-    for (unsigned int i = 0; i < height; i++) {
-        m_map[i] = new Tile*[width];
-        for (unsigned int j = 0; j < width; j++) {
-            m_map[i][j] = new Floor(nullptr, nullptr);
-        }
-    }
-}
-*/
 DungeonMap::DungeonMap(const unsigned int height, const unsigned int width,
         const vector<string>& data) {
     m_maxHeight = height;
@@ -66,9 +41,6 @@ DungeonMap::DungeonMap(const unsigned int height, const unsigned int width,
                 default:
                     throw std::runtime_error("invalid Tile Type requested");
             }
-
-
-
         }
     }
 }
@@ -85,6 +57,21 @@ DungeonMap::~DungeonMap() {
     m_maxHeight = 0;
     m_maxWidth = 0;
 }
+/*
+DungeonMap::DungeonMap(DungeonMap& map) {
+    m_maxHeight = map.m_maxHeight;
+    m_maxWidth = map.m_maxWidth;
+    Position pos;
+    m_map = new Tile**[m_maxHeight];
+    for (unsigned int i = 0; i < m_maxHeight; i++) {
+        pos.height = i;
+        m_map[i] = new Tile*[m_maxWidth];
+        for (unsigned int j = 0; j < m_maxWidth; j++) {
+            pos.width = j;
+            m_map[i][j] = map.findTile(pos);
+        }
+    }
+}*/
 
 void DungeonMap::place(Position pos, Character* c) {
     if (pos.height > m_maxHeight || pos.width > m_maxWidth)

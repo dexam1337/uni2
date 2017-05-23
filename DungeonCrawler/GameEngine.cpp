@@ -210,7 +210,7 @@ void GameEngine::loadFromFile(string filename) { //Ein nachträglich geladenes S
     save.open(filename);
     if (save.good() == false) {
         cerr << "Datei konnte nicht geöffnet werden!" << endl;
-        return -1;
+        return;
     }
     int hoehe, breite;
     save >> hoehe >> breite;
@@ -234,10 +234,11 @@ void GameEngine::loadFromFile(string filename) { //Ein nachträglich geladenes S
 
     save.close();
 
-    m_map = DungeonMap(hoehe, breite, data);
+    //this(hoehe, breite, data, links);
+    m_map.~DungeonMap();
+    m_map = DungeonMap(hoehe, breite, data); //An der stelle ist der wert des Tile* von m_map null?
     m_leave = false;
-    m_limit = 2147483647;
+    m_limit = 2147483647; // Die maximale Anzahl an Spielrunden auf einmal ist das maximum eines integers, wobei das eigentlich obsolet ist.  
     m_round = 0;
     linkObjects(links);
-
 }
