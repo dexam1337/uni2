@@ -13,8 +13,6 @@
         <gdb_interceptlist>
           <gdbinterceptoptions gdb_all="false" gdb_unhandled="true" gdb_unexpected="true"/>
         </gdb_interceptlist>
-        <gdb_signals>
-        </gdb_signals>
         <gdb_options>
           <DebugOptions>
           </DebugOptions>
@@ -29,8 +27,9 @@
           <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
           <runcommandpicklistitem>"${OUTPUT_PATH}" </runcommandpicklistitem>
           <runcommandpicklistitem>"${OUTPUT_PATH}" level1.txt</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}" --load level1.txt</runcommandpicklistitem>
         </runcommandpicklist>
-        <runcommand>"${OUTPUT_PATH}" level1.txt</runcommand>
+        <runcommand>"${OUTPUT_PATH}" --load level1.txt</runcommand>
         <rundir></rundir>
         <buildfirst>true</buildfirst>
         <terminal-type>0</terminal-type>
@@ -96,8 +95,9 @@
         <runcommandpicklist>
           <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
           <runcommandpicklistitem>valgrind --leak-check=full "${OUTPUT_PATH}"</runcommandpicklistitem>
+          <runcommandpicklistitem>valgrind --leak-check=full "${OUTPUT_PATH}" --load level1.txt</runcommandpicklistitem>
         </runcommandpicklist>
-        <runcommand>valgrind --leak-check=full "${OUTPUT_PATH}"</runcommand>
+        <runcommand>valgrind --leak-check=full "${OUTPUT_PATH}" --load level1.txt</runcommand>
         <rundir></rundir>
         <buildfirst>true</buildfirst>
         <terminal-type>0</terminal-type>

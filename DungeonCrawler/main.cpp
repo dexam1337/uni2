@@ -15,10 +15,15 @@ int main(int argc, char *argv[]) {
 
     vector<string> data; //<<Data, data, data!>>he cried impatiently.
     vector<string> links;
-    
-    
+
+    string level = "level1.txt";
+    for (int i = 0; i < argc; i++)
+        if (argv[i] == "--load")
+            level = argv[i + 1];
+
+
     ifstream save;
-    save.open(argv[1]);
+    save.open(level);
     if (save.good() == false)
         throw std::runtime_error("couldn't open file");
     int hoehe, breite;
@@ -34,11 +39,11 @@ int main(int argc, char *argv[]) {
         links.push_back(line);
 
     } while (save.good());
-    
+
     links.pop_back();
 
     save.close();
-    
+
     GameEngine ge(hoehe, breite, data, links);
 
     while (menue(ge)) {
@@ -47,7 +52,6 @@ int main(int argc, char *argv[]) {
     return 0;
 
 }
-
 
 bool menue(GameEngine& ge) {
     int eingabe = -1;
