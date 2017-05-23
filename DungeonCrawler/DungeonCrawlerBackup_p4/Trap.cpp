@@ -54,3 +54,7 @@ char Trap::print() {
         return 'T';
     return '.';
 }
+
+void Trap::setActivated(bool activated){
+    m_activated = activated;
+}

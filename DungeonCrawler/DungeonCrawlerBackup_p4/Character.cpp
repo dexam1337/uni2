@@ -53,7 +53,7 @@ int Character::getMaxHP() {
 void Character::showInfo() {
     cout << m_name << ": \n" << "Hitpoints: " << m_hitpoints << " / " << getMaxHP() << "\n" <<
             "Strength: " << m_strength << " Stamina: " << m_stamina << "\n"<<
-            "Items: " << m_items.size() << endl;
+            "Items: " << m_items.size() << "\n" << endl;
 }
 
 void Character::addItem(Item* item) {
@@ -78,10 +78,14 @@ int Character::getStamina() {
 }
 
 bool Character::hit(int damage){
-    m_hitpoints = m_hitpoints + damage;
-    if(m_hitpoints < 0)
+    m_hitpoints = m_hitpoints - damage;
+    if(m_hitpoints <= 0)
         return true;
     else if(m_hitpoints > getMaxHP())
         m_hitpoints = getMaxHP();
     return false;
+}
+
+bool Character::heal(int damage){
+    return hit(damage * -1);
 }

@@ -10,87 +10,39 @@
 #include <sstream>
 #include <fstream>
 
-/*
 GameEngine::GameEngine(const unsigned int height, const unsigned int width,
-        const vector<string>& data) :
-m_map(height, width, data) {
-
-    cout << "Wie viele Runden?" << endl;
-    cin >> m_limit;
-    //	m_map = DungeonMap(height, width, data);
-    //characters.push_back(new Character('o', 10, 10)); //Wegen pointer
-    //Position pos;
-    //pos.height = 7;
-    //pos.width = 2;
-    //m_map.place(pos, characters.at(0));
-    m_round = 0;
- //<<Data, data, DATA!>> he cried impatiently.
-}
-
-GameEngine::GameEngine(const unsigned int height, const unsigned int width,
-        const vector<string>& data, int limit) :
-m_map(height, width, data) {
-
-    m_limit = limit;
-    //	m_map = DungeonMap(height, width, data);
-    //characters.push_back(new Character('o', 10, 10)); //Wegen pointer
-    //Position pos;
-    //pos.height = 7;
-    //pos.width = 2;
-    //m_map.place(pos, characters.at(0));
-    m_round = 0;
-
-}*/
-
-GameEngine::GameEngine(const unsigned int height, const unsigned int width,
-        const vector<string>& data, const vector<string>& relations) :
-m_map(height, width, data) {
+        const vector<string>& data, const vector<string>& relations) {
+    m_map = new DungeonMap(height, width, data);
     m_leave = false;
-    m_limit = 2147483647;
-    //cout << "Wie viele Runden?" << endl;
-    //cin >> m_limit;
-    //	m_map = DungeonMap(height, width, data);
-    //characters.push_back(new Character('o', 10, 10)); //Wegen pointer
-    //Position pos;
-    //pos.height = 7;
-    //pos.width = 2;
-    //m_map.place(pos, characters.at(0));
-    m_round = 0;
-    linkObjects(relations);
-}
-
-GameEngine::GameEngine(const unsigned int height, const unsigned int width,
-        const vector<string>& data, const vector<string>& relations, int limit) :
-m_map(height, width, data) {
-    m_leave = false;
-    m_limit = limit;
-    //	m_map = DungeonMap(height, width, data);
-    //characters.push_back(new Character('o', 10, 10)); //Wegen pointer
-    //Position pos;
-    //pos.height = 7;
-    //pos.width = 2;
-    //m_map.place(pos, characters.at(0));
+    m_limit = 2147483647; // Die maximale Anzahl an Spielrunden auf einmal ist das maximum eines integers, wobei das eigentlich obsolet ist.  
     m_round = 0;
     linkObjects(relations);
 }
 
 void GameEngine::run() {
+    m_map->print();
     while (!finished())
         turn();
 }
 
 void GameEngine::turn() {
 
+
+    //Wenn jeder spielbare Charakter sein eigenes Sichtfeld bekommt entfällt das print an dieser Stelle, 
+
     for (unsigned int i = 0; i < characters.size(); i++) {
         Position pos;
         try {
-            pos = m_map.findCharacter(characters.at(i));
+            pos = m_map->findCharacter(characters.at(i));
             //Test:
-            //characters.at(i)->showInfo();
+            //characters.at(i)->showInfo(); //Bei eigenem Sichtfeld hier jeden Character seine Sichtweise zeichnen lassen
         } catch (const invalid_argument& ie) {
-            cerr << "Error in turn: " << ie.what() << '\n';
+            //cerr << "Error in turn: " << ie.what() << "\nCharacter wird gelöscht!\n" << endl;
+            delete characters.at(i);
+            characters.erase(characters.begin()+i);
+            break;
         }
-        Tile* oldTile = m_map.findTile(pos);
+        Tile* oldTile = m_map->findTile(pos);
         Position newPos = pos;
         Tile* newTile;
         int eingabe = characters.at(i)->move();
@@ -110,8 +62,7 @@ void GameEngine::turn() {
                 newPos.width--;
                 break;
             case 5:
-
-                break;
+                return;
             case 6:
                 newPos.width++;
                 break;
@@ -128,14 +79,16 @@ void GameEngine::turn() {
                 break;
             case 0:
                 m_leave = true;
-                break;
+                return;
             default:
                 cout << "Fehler in switchcase in turn()";
                 break;
         }
 
-        newTile = m_map.findTile(newPos);
+        system("clear");//nicht gut, unix befehl an cli, sicherheitslücke und systemabhängig
+        newTile = m_map->findTile(newPos);
         oldTile->onLeave(newTile);
+        m_map->print();
     }
 
 }
@@ -144,7 +97,6 @@ bool GameEngine::finished() {
     m_round++;
     cout << endl;
     //cout << m_round << endl;
-    m_map.print();
     if (m_leave == true)
         return true;
     else if (m_round <= m_limit)
@@ -158,15 +110,13 @@ GameEngine::~GameEngine() {
     for (int i = 0; i < characters.size(); i++)
         delete characters.at(i);
     characters.erase(characters.begin(), characters.end());
-    m_map.~DungeonMap();
+    delete m_map;
 }
 
 void GameEngine::linkObjects(const vector<string>& relations) {
 
-
-
     for (int i = 0; i < relations.size(); i++) {
-        string target;
+        string target = "";
         istringstream sstream(relations.at(i));
         //sstream << (relations.at(i).c_str()); //relations.at(i).c_str()
         sstream >> target;
@@ -178,8 +128,6 @@ void GameEngine::linkObjects(const vector<string>& relations) {
             placeItem(sstream);
         else
             throw std::runtime_error("Unknown target in relations");
-
-
 
     }
 
@@ -193,9 +141,9 @@ void GameEngine::doorConnector(istringstream& sstream) {
 
     sstream >> (passiveObject.height);
     sstream >> passiveObject.width;
-
-    passiveTile = dynamic_cast<Passive*> (m_map.findTile(passiveObject));
-    if (passiveTile == nullptr)
+    //m_map->print();
+    passiveTile = dynamic_cast<Passive*> (m_map->findTile(passiveObject));
+    if (passiveTile == nullptr) //Überprüfung ob Angegebene Koordinate wirklich eine Tür ists
         throw std::runtime_error("passive Tile not found");
 
 
@@ -204,12 +152,12 @@ void GameEngine::doorConnector(istringstream& sstream) {
         sstream >> target;
         sstream >> act.height;
         sstream >> act.width;
-
-        activeTile = dynamic_cast<Active*> (m_map.findTile(act));
-        if (activeTile != nullptr) {
+        //cout << m_map->findTile(act)->print(); WICHTIG zur überprüfung ob man sich eventuell bei der position der Objekte verzählt hat.
+        activeTile = dynamic_cast<Active*> (m_map->findTile(act));
+        if (activeTile != nullptr) { //Überprüfung ob die aktuelle Position wirklich ein active Tile ist.
             activeTile->setLinked(passiveTile);
         } else {
-            throw std::runtime_error("Active Tile not found to be linked");
+            cerr << "Ungültiges activeTile." << endl;
         }
 
 
@@ -219,31 +167,29 @@ void GameEngine::doorConnector(istringstream& sstream) {
 }
 
 void GameEngine::placeCharacter(istringstream& stream) {
-    string name;
+    string name, target;
     char symbol;
-    int strength;
-    int stamina;
+    int strength, stamina;
     Position pos;
-    string target;
-    stream >> name >> symbol >> strength >> stamina >> target >> pos.height >> pos.width;
+    stream >> name >> symbol >> strength >> stamina >> target >> pos.height >> pos.width; //Variablen vom gegeben Stream füllen
     Controller* controller;
-    if (target == "ConsoleController")
+    if (target == "ConsoleController") //Hier Controllerunterscheidungen einfügen
         controller = new ConsoleController(nullptr);
     if (target == "StationaryController")
         controller = new StationaryController(nullptr);
-    characters.push_back(new Character(name, symbol, strength, stamina, controller));
-    m_map.place(pos, characters.back());
+    characters.push_back(new Character(name, symbol, strength, stamina, controller)); //Characterpointer von auf Heap abgelegten Character speichern
+    m_map->place(pos, characters.back()); //Charakter in der Spielwelt platzieren
 }
 
 void GameEngine::placeItem(istringstream& stream) {
     string target;
     Position pos;
     Item* item;
-    stream >> target >> pos.height >> pos.width;
+    stream >> target >> pos.height >> pos.width; //Variablen vom gegeben Stream füllen
     Floor* boden;
     //cout << m_map.findTile(pos);
-    boden = dynamic_cast<Floor*> (m_map.findTile(pos));
-    if (boden == nullptr)
+    boden = dynamic_cast<Floor*> (m_map->findTile(pos));
+    if (boden == nullptr) //Überprüfung ob an dieser Stelle ein Item platziert werden kann. Eine Falle geht auch!
         throw std::runtime_error("Can't place Item here");
 
     if (target == "Greatsword") //hier die fälle für alle möglichen Items einfügen. Ich bin dafür zu faul. Liebe Grüße Vergangenheits-Seb
@@ -254,47 +200,58 @@ void GameEngine::placeItem(istringstream& stream) {
     boden->setItem(item);
 }
 
-void GameEngine::showPlayerInfo(){
-    for(int i = 0; i < characters.size(); i++)
+void GameEngine::showPlayerInfo() {
+    for (int i = 0; i < characters.size(); i++)
         characters.at(i)->showInfo();
     cout << endl;
 }
 
-void GameEngine::showPlayerInfo(int n){
+void GameEngine::showPlayerInfo(int n) {
     characters.at(n)->showInfo();
     cout << endl;
 }
 
-
-void GameEngine::loadFromFile(string filename) {
+void GameEngine::loadFromFile(string filename) { //Ein nachträglich geladenes Spielfeld wirft einen Segmentationfault
     ifstream save;
     save.open(filename);
-    if (save.good() == false)
-        throw std::runtime_error("couldn't open file");
+    if (save.good() == false) {
+        cerr << "Datei konnte nicht geöffnet werden!" << endl;
+        return;
+    }
     int hoehe, breite;
     save >> hoehe >> breite;
     vector<string> data;
     vector<string> links;
     string line;
-    for (int i = 0; i <= hoehe; i++) {
+    for (int i = 0; i < hoehe; i++) {
         getline(save, line);
-        data.push_back(line);
+        if (line != "") //leere Zeilen ignorieren
+            data.push_back(line);
+        else
+            i--; //wenn noch nicht am ende der Karte angekommen, leere zeilen ignorieren
     }
-    data.erase(data.begin());
     do {
         getline(save, line);
-        links.push_back(line);
+        if (line != "") //leere Zeilen ignorieren
+            links.push_back(line);
 
     } while (save.good());
-    
-    links.pop_back();
+
 
     save.close();
-    
-    m_map = DungeonMap(hoehe, breite, data);
+
+    //this(hoehe, breite, data, links);
+    delete m_map;
+    for (int i = 0; i < characters.size(); i++)
+        delete characters.at(i);
+    characters.clear();
+    m_map = new DungeonMap(hoehe, breite, data);
     m_leave = false;
-    m_limit = 2147483647;
+    m_limit = 2147483647; // Die maximale Anzahl an Spielrunden auf einmal ist das maximum eines integers, wobei das eigentlich obsolet ist.  
     m_round = 0;
     linkObjects(links);
-    
+}
+
+void GameEngine::saveToFile(string filename) {
+
 }

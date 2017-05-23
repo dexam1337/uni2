@@ -11,14 +11,8 @@
 
 class GameEngine {
 public:
-    /*GameEngine(const unsigned int height, const unsigned int width,
-               const vector<string>& data);*/
     GameEngine(const unsigned int height, const unsigned int width,
             const vector<string>& data, const vector<string>& relations);
-    /*GameEngine(const unsigned int height, const unsigned int width,
-               const vector<string>& data, int limit);*/
-    GameEngine(const unsigned int height, const unsigned int width,
-            const vector<string>& data, const vector<string>& relations, int limit);
     void run();
     void turn();
     bool finished();
@@ -26,11 +20,13 @@ public:
     void showPlayerInfo();
     void showPlayerInfo(int n);
     void loadFromFile(string filename);
+    void saveToFile(string filename);
+
 private:
     bool m_leave;
     int m_limit;
     int m_round;
-    DungeonMap m_map;
+    DungeonMap* m_map;
     vector<Character *> characters;
     void linkObjects(const vector<string>& relations);
     void doorConnector(istringstream& stream);

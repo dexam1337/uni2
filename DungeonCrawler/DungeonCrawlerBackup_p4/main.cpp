@@ -13,9 +13,6 @@ bool menue(GameEngine& ge);
 
 int main(int argc, char *argv[]) {
 
-    vector<string> data; //<<Data, data, data!>>he cried impatiently.
-    vector<string> links;
-
     string level = "level1.txt";
     for (int i = 0; i < argc; i++)
         if (argv[i] == "--load")
@@ -24,23 +21,29 @@ int main(int argc, char *argv[]) {
 
     ifstream save;
     save.open(level);
-    if (save.good() == false)
-        throw std::runtime_error("couldn't open file");
+    if (save.good() == false) {
+        cerr << "Datei konnte nicht geöffnet werden!" << endl;
+        return -1;
+    }
     int hoehe, breite;
     save >> hoehe >> breite;
+    vector<string> data;
+    vector<string> links;
     string line;
-    for (int i = 0; i <= hoehe; i++) {
+    for (int i = 0; i < hoehe; i++) {
         getline(save, line);
-        data.push_back(line);
+        if (line != "") //leere Zeilen ignorieren
+            data.push_back(line);
+        else 
+                i--; //wenn noch nicht am ende der Karte angekommen, leere zeilen ignorieren
     }
-    data.erase(data.begin());
     do {
         getline(save, line);
-        links.push_back(line);
+        if (line != "") //leere Zeilen ignorieren
+            links.push_back(line);
 
     } while (save.good());
 
-    links.pop_back();
 
     save.close();
 
@@ -57,7 +60,7 @@ bool menue(GameEngine& ge) {
     int eingabe = -1;
     int player = 0;
     string pfad;
-    cout << "1. weiter \n2. infos aller spieler \n3. infos des nten spielers \n4. laden \n0.beenden" << endl;
+    cout << "1. weiter \n2. infos aller spieler \n3. infos des nten spielers \n4. laden \n0.beenden\n" << endl;
     cin >> eingabe;
     switch (eingabe) {
         case 1:
