@@ -13,11 +13,33 @@ bool menue(GameEngine& ge);
 
 int main(int argc, char *argv[]) {
 
-    vector<string> data;
+    vector<string> data; //<<Data, data, data!>>he cried impatiently.
     vector<string> links;
-    GameEngine ge(0, 0, data, links);
+    
+    
+    ifstream save;
+    save.open(argv[1]);
+    if (save.good() == false)
+        throw std::runtime_error("couldn't open file");
+    int hoehe, breite;
+    save >> hoehe >> breite;
+    string line;
+    for (int i = 0; i <= hoehe; i++) {
+        getline(save, line);
+        data.push_back(line);
+    }
+    data.erase(data.begin());
+    do {
+        getline(save, line);
+        links.push_back(line);
 
-    ge.loadFromFile(argv[1]);
+    } while (save.good());
+    
+    links.pop_back();
+
+    save.close();
+    
+    GameEngine ge(hoehe, breite, data, links);
 
     while (menue(ge)) {
 
@@ -59,3 +81,4 @@ bool menue(GameEngine& ge) {
     }
     return true;
 }
+
