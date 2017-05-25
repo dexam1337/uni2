@@ -207,6 +207,8 @@ void GameEngine::showPlayerInfo() {
 }
 
 void GameEngine::showPlayerInfo(int n) {
+    if(n > characters.size())
+        throw std::out_of_range("Player does not exist");
     characters.at(n)->showInfo();
     cout << endl;
 }
