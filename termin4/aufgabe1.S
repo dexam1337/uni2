@@ -16,9 +16,9 @@ main:
 	mov 	r0, #0
 	str 	r1, [r0, #4] 	// speichert aus r1 auf Adresse 0x0 plus ein offset von 4 danach steht in r0 0x0
 	mov 	r0, #0
-	str 	r1, [r0]! 	// auf Adresse 0x0 danach steht in r0 0x0 (aber sollte 0x4 sein wegen write back)
+	str 	r1, [r0]! 	// auf Adresse 0x0 danach steht in r0 0x0 
 	mov 	r0, #0
-	str 	r1, [r0, #4]! 	// auf Adresse 0x0 danach steht in r0 0x4 (sollte aber 0x8 sein)
+	str 	r1, [r0, #4]! 	// auf Adresse 0x0 danach steht in r0 0x4 wegen offset 4 und writeback
 	mov 	r0, #0
 	strb 	r1, [r0, #1]! 	// auf Adresse 0x0 mitr offset 4 danach steht in r0 0x1
 	mov 	r1, #4

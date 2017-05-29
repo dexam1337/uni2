@@ -12,25 +12,23 @@ main:
 	stmfd sp!, {r4, r5, lr} @ Ruecksprungadresse und Register sichern
 kopieren:
 @ hier Ihr Programm zum Kopieren einer Byte-Tabelle (je 8Bit) in eine Word-Tabelle (je 32Bit) einfuegen
-LDR r1, =Liste1 ; r1 zeigt auf Table1
-LDR r2, =Liste2 ; r2 zeigt auf Table2
+    LDR r1, =Liste1 @ r1 zeigt auf Liste1
+    LDR r2, =Liste2 @ r2 zeigt auf Liste2
+    LDRB r3, [r1] @anzahl der elemente holen
+schleife:
 
-schleife:+
-
-LDR r0, [r1] ; lade ersten Wert
-STR r0,[r2] ; speichere ihn in Tabelle2
-ADD r1, #4 ; Lesezeiger verschieben
-ADD r2, #4 ; Schreibzeiger verschieben
-
-
-vorzeichen:
-@ hier Ihr Programm um die 8Bit-Zahlen auf vorzeichenrichtige 32Bit-Zahlen zu wandeln
-
-		
-	
+    LDRSB r0, [r1] @ lade ersten Wert
+    @konvertieren in 32-bit durcg LDRSB
+    
+    STR r0,[r2] @ speichere ihn in Liste2
+    ADD r1, #1 @ Lesezeiger verschieben
+    ADD r2, #4 @ Schreibzeiger verschieben
+    SUBS r3, #1 @runterzaehlen und flags updaten
+    bne schleife
+    	
 sortieren:
 @ hier Ihr Programm um die vorzeichenrichtige Zahlen in Liste2 zu sortieren
-
+    
 
 fertig:
 	ldmfd sp!, {r4, r5, pc} @ Ruecksprungadresse und Register
