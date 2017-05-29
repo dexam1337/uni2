@@ -41,6 +41,9 @@
 /MainTest/dist/
 /MainTest/build/
 /termin3/SNDB4/
+/termin4/SNDB4/
+/termin5/SNDB4/
+/termin6/SNDB4/
 
 #snavigator
 *.proj
