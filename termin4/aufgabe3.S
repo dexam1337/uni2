@@ -25,20 +25,27 @@ schleife:
     ADD r2, #4 @ Schreibzeiger verschieben
     SUBS r3, #1 @runterzaehlen und flags updaten
     bne schleife
-    	
+    
+    LDR r4, [r2] @für redurchlauefe
+    	   
 sortieren:
 @ hier Ihr Programm um die vorzeichenrichtige Zahlen in Liste2 zu sortieren
    LDR r2, = Liste2 @Liste 2 pointer holen
    LDR r3, [r2] @Anzahl der elemente holen
-   SUB r3, #1
+   SUB r3, #2 @die größe und das erste register nicht mitzaelen
    ADD r2, #4 @Increment
+   
+   SUBS r4, #1
+   bne sortieren
+   bal fertig
+   
    
 check: @ueberpruefung ob r0 < r1 ist
    LDR r0, [r2]
    LDR r1, [r2, #4]
    CMP r0, r1
-   bmi tauschen
-   bal nicht_tauschen
+   bmi nicht_tauschen
+   bal tauschen
 
 
    
@@ -49,6 +56,7 @@ tauschen:
    STR r0, [r2, #4 ]! @den ersten wert danach speichern >> getauscht.
    SUBS r3, #1
    bne check
+   bal sortieren
    
 nicht_tauschen:
    @SUB r2, #4 @zum vorherigen register
@@ -57,6 +65,7 @@ nicht_tauschen:
    STR r1, [r2, #4]! @den zweiten wert danach speichern >> nicht getauscht.
    SUBS r3, #1
    bne check
+   bal sortieren
 fertig:
 	ldmfd sp!, {r4, r5, pc} @ Ruecksprungadresse und Register
 
