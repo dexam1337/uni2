@@ -16,11 +16,11 @@ main:
 	mov 	r0, #0
 	str 	r1, [r0, #4] 	// speichert aus r1 auf Adresse 0x0 plus ein offset von 4 danach steht in r0 0x0
 	mov 	r0, #0
-	str 	r1, [r0]! 	// auf Adresse 0x0 danach steht in r0 0x0
+	str 	r1, [r0]! 	// auf Adresse 0x0 danach steht in r0 0x0 (aber sollte 0x4 sein wegen write back)
 	mov 	r0, #0
-	str 	r1, [r0, #4]! 	// auf Adresse 0x0 danach steht in r0 0x4
+	str 	r1, [r0, #4]! 	// auf Adresse 0x0 danach steht in r0 0x4 (sollte aber 0x8 sein)
 	mov 	r0, #0
-	strb 	r1, [r0, #1]! 	// auf Adresse 0x0 danach steht in r0 0x1
+	strb 	r1, [r0, #1]! 	// auf Adresse 0x0 mitr offset 4 danach steht in r0 0x1
 	mov 	r1, #4
 	strb 	r1, [r0, r1]! 	// speichert r1 auf Adresse 0x1 danach steht in r0 0x5 weil 0x1 aus r0 + 0x4 aus r1 in unser adressregister speichert werden.
 	

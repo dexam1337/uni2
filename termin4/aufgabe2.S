@@ -9,15 +9,22 @@
 	.global	main		@ nimmt das Symbol main in die globale Sysmboltabelle auf
 	.type	main,function
 main:
+mov r2, #0x9000013
+adr r1, marke
+@msr cpsr, #128
+msr cpsr, r2
+marke: mov r0, #0
 
 
+end:
+bne marke
 
-		
 
 
 
 	
 .Lfe1:
 	.size	main,.Lfe1-main
+	
 
 // End of File

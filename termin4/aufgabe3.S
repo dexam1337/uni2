@@ -12,7 +12,15 @@ main:
 	stmfd sp!, {r4, r5, lr} @ Ruecksprungadresse und Register sichern
 kopieren:
 @ hier Ihr Programm zum Kopieren einer Byte-Tabelle (je 8Bit) in eine Word-Tabelle (je 32Bit) einfuegen
- 
+LDR r1, =Liste1 ; r1 zeigt auf Table1
+LDR r2, =Liste2 ; r2 zeigt auf Table2
+
+schleife:+
+
+LDR r0, [r1] ; lade ersten Wert
+STR r0,[r2] ; speichere ihn in Tabelle2
+ADD r1, #4 ; Lesezeiger verschieben
+ADD r2, #4 ; Schreibzeiger verschieben
 
 
 vorzeichen:
