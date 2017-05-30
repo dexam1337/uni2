@@ -140,30 +140,3 @@ void DungeonMap::print() {
     }
 
 }
-
-
-bool DungeonMap::testTransparent((Position from, Position to)
-{
-    double x = to.width - from.width;  
-    double y = to.height - from.height;
-    double len = std::sqrt( (x*x) + (y*y) );
-
-    if(!len)  //eigene Tile
-        return true;
-
-    double stepx = x / len;
-    double stepy = y / len;
-
-    x = from.width;
-    y = from.height;
-    for( double i = 1; i < len; i += 1 )
-    {
-          ;
-        if( m_map[(int)x][(int)y]->isTransparent() == false)
-            return false;
-
-        x += stepx; 
-        y += stepy;
-    }
-    return true;//hat sicht
-}
