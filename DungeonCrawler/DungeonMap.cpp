@@ -143,7 +143,7 @@ void DungeonMap::print() {
 }
 
 
-bool DungeonMap::testTransparent(Position from, Position to)
+bool DungeonMap::hasLineOfSight(Position from, Position to)
 {
     double x = to.width - from.width;  
     double y = to.height - from.height;
