@@ -41,8 +41,8 @@ public:
     Position findTile(Tile* t);
     Tile* findTile(Position pos);
     Position findCharacter(Character* c);
-    void print();
-    bool testTransparent(Position from, Position to);
+    void print(Position center);
+    bool hasLineOfSight(Position from, Position to);
 };
 
 #endif /* DUNGEONMAP_H_ */

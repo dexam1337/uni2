@@ -22,7 +22,7 @@ GameEngine::GameEngine(const unsigned int height, const unsigned int width,
 
 void GameEngine::run()
 {
-    m_map->print();
+
     while (!finished())
         turn();
 }
@@ -39,6 +39,7 @@ void GameEngine::turn()
         try
         {
             pos = m_map->findCharacter(characters.at(i));
+                m_map->print(pos);
             //Test:
             //characters.at(i)->showInfo(); //Bei eigenem Sichtfeld hier jeden Character seine Sichtweise zeichnen lassen
         }
@@ -96,7 +97,7 @@ void GameEngine::turn()
         system("clear"); //nicht gut, unix befehl an cli, sicherheitslücke und systemabhängig
         newTile = m_map->findTile(newPos);
         oldTile->onLeave(newTile);
-        m_map->print();
+        m_map->print(newPos);
     }
 
 }

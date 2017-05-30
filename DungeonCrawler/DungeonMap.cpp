@@ -131,11 +131,18 @@ Position DungeonMap::findCharacter(Character* c) {
     throw invalid_argument("Character außerhalb des Spielfelds");
 }
 
-void DungeonMap::print() {
+void DungeonMap::print(Position center) {
     
     for (unsigned int i = 0; i < m_maxHeight; i++) {
         for (unsigned int j = 0; j < m_maxWidth; j++) {
-            cout << m_map[i][j]->print();
+            Position aktPos;
+            aktPos.height=i;
+            aktPos.width=j;
+            if(hasLineOfSight(center,aktPos)){
+                cout << m_map[i][j]->print();
+            }else{
+                cout<< "#";
+            }
         }
         cout << endl;
     }
@@ -143,7 +150,7 @@ void DungeonMap::print() {
 }
 
 
-bool DungeonMap::testTransparent(Position from, Position to)
+bool DungeonMap::hasLineOfSight(Position from, Position to)
 {
     double x = to.width - from.width;  
     double y = to.height - from.height;
