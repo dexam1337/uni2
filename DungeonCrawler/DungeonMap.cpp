@@ -5,9 +5,10 @@
  *      Author: sebastian
  */
 
-#include <memory>
+//#include <memory>
 
 #include "DungeonMap.h"
+#include <math.h>
 
 DungeonMap::DungeonMap(const unsigned int height, const unsigned int width,
         const vector<string>& data) {
@@ -142,11 +143,11 @@ void DungeonMap::print() {
 }
 
 
-bool DungeonMap::testTransparent((Position from, Position to)
+bool DungeonMap::testTransparent(Position from, Position to)
 {
     double x = to.width - from.width;  
     double y = to.height - from.height;
-    double len = std::sqrt( (x*x) + (y*y) );
+    double len = sqrt( (x*x) + (y*y) );
 
     if(!len)  //eigene Tile
         return true;

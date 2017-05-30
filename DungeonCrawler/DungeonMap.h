@@ -42,7 +42,7 @@ public:
     Tile* findTile(Position pos);
     Position findCharacter(Character* c);
     void print();
-    bool testTransparent();
+    bool testTransparent(Position from, Position to);
 };
 
 #endif /* DUNGEONMAP_H_ */
