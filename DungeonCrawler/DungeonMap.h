@@ -41,11 +41,7 @@ public:
     Position findTile(Tile* t);
     Tile* findTile(Position pos);
     Position findCharacter(Character* c);
-<<<<<<< HEAD
     void print(Position center);
-=======
-    void print();
->>>>>>> caa52a968512a2a4f86cc8e463aa0ceb270567ad
     bool hasLineOfSight(Position from, Position to);
 };
 

@@ -152,6 +152,25 @@ void DungeonMap::print(Position center) {
 
 bool DungeonMap::hasLineOfSight(Position from, Position to)
 {
+    
+    double steigung = (2*(to.height-from.height) - to.width-from.width);
+    double d0 = 2*(to.height-from.height);
+    double dno = 2*((to.height-from.height) - (to.width-from.width));
+    int y = from.height;
+    
+    for(int i = from.width + 1; i < to.width; i++){
+        if(steigung <= 0)
+            steigung = steigung + d0;
+        else{
+            steigung = steigung + dno;
+            y++;
+        }
+        if(m_map[i][y]->isTransparent() == false)
+            return false;
+    }
+    return true;
+    
+    /*
     double x = to.width - from.width;  
     double y = to.height - from.height;
     double len = sqrt( (x*x) + (y*y) );
@@ -166,12 +185,11 @@ bool DungeonMap::hasLineOfSight(Position from, Position to)
     y = from.height;
     for( double i = 1; i < len; i += 1 )
     {
-          ;
         if( m_map[(int)x][(int)y]->isTransparent() == false)
             return false;
 
         x += stepx; 
         y += stepy;
     }
-    return true;//hat sicht
+    return true;//hat sicht*/
 }
