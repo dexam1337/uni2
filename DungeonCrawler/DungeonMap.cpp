@@ -140,3 +140,8 @@ void DungeonMap::print() {
     }
 
 }
+
+
+void DungeonMap::testTransparent(){
+    cout << m_map[0][0]->isTransparent();
+}
