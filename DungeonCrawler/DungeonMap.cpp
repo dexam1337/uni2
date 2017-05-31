@@ -183,9 +183,9 @@ bool DungeonMap::hasLineOfSight(Position from, Position to)
 
     x = from.width;
     y = from.height;
-    for( double i = 1; i < len; i += 1 )
+    for( double i = 0; i < len; i += 1 )
     {
-        if( m_map[(int)y][(int)x]->isTransparent() == false)
+        if( m_map[static_cast<int>(y)][static_cast<int>(x)]->isTransparent() == false)
             return false;
 
         x += stepx; 
