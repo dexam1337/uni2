@@ -24,7 +24,7 @@ public:
     virtual void onLeave(Tile* toTile) = 0;
     virtual void onEnter(Character* c, Tile* fromTile) = 0;
     virtual char print();
-    bool isTransparent();
+    virtual bool isTransparent();
 private:
     //Typ m_typ;
     Character* m_character = nullptr;

@@ -28,6 +28,6 @@ char Wall::print() {
     return '#';
 }
 
-bool Wall::isTranspatent() {
+bool Wall::isTransparent() {
     return false;
 }
