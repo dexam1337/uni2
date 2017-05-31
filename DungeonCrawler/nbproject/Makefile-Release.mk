@@ -78,87 +78,87 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/dungeoncrawler: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/dungeoncrawler ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/Active.o: Active.cpp
+${OBJECTDIR}/Active.o: Active.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Active.o Active.cpp
 
-${OBJECTDIR}/Character.o: Character.cpp
+${OBJECTDIR}/Character.o: Character.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Character.o Character.cpp
 
-${OBJECTDIR}/ConsoleController.o: ConsoleController.cpp
+${OBJECTDIR}/ConsoleController.o: ConsoleController.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ConsoleController.o ConsoleController.cpp
 
-${OBJECTDIR}/Controller.o: Controller.cpp
+${OBJECTDIR}/Controller.o: Controller.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Controller.o Controller.cpp
 
-${OBJECTDIR}/Door.o: Door.cpp
+${OBJECTDIR}/Door.o: Door.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Door.o Door.cpp
 
-${OBJECTDIR}/DungeonMap.o: DungeonMap.cpp
+${OBJECTDIR}/DungeonMap.o: DungeonMap.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DungeonMap.o DungeonMap.cpp
 
-${OBJECTDIR}/Floor.o: Floor.cpp
+${OBJECTDIR}/Floor.o: Floor.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Floor.o Floor.cpp
 
-${OBJECTDIR}/GameEngine.o: GameEngine.cpp
+${OBJECTDIR}/GameEngine.o: GameEngine.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/GameEngine.o GameEngine.cpp
 
-${OBJECTDIR}/Item.o: Item.cpp
+${OBJECTDIR}/Item.o: Item.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Item.o Item.cpp
 
-${OBJECTDIR}/Lever.o: Lever.cpp
+${OBJECTDIR}/Lever.o: Lever.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Lever.o Lever.cpp
 
-${OBJECTDIR}/Passive.o: Passive.cpp
+${OBJECTDIR}/Passive.o: Passive.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Passive.o Passive.cpp
 
-${OBJECTDIR}/StationaryController.o: StationaryController.cpp
+${OBJECTDIR}/StationaryController.o: StationaryController.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/StationaryController.o StationaryController.cpp
 
-${OBJECTDIR}/Switch.o: Switch.cpp
+${OBJECTDIR}/Switch.o: Switch.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Switch.o Switch.cpp
 
-${OBJECTDIR}/Tile.o: Tile.cpp
+${OBJECTDIR}/Tile.o: Tile.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Tile.o Tile.cpp
 
-${OBJECTDIR}/Trap.o: Trap.cpp
+${OBJECTDIR}/Trap.o: Trap.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Trap.o Trap.cpp
 
-${OBJECTDIR}/Wall.o: Wall.cpp
+${OBJECTDIR}/Wall.o: Wall.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Wall.o Wall.cpp
 
-${OBJECTDIR}/main.o: main.cpp
+${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
@@ -169,6 +169,7 @@ ${OBJECTDIR}/main.o: main.cpp
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/dungeoncrawler
 
 # Subprojects
 .clean-subprojects:

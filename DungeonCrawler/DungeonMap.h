@@ -22,8 +22,8 @@
 using namespace std;
 
 typedef struct {
-    unsigned int height;
-    unsigned int width;
+     int height;
+     int width;
 } Position;
 
 class DungeonMap {
