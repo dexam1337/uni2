@@ -13,16 +13,18 @@
 
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
-
+#include <string>
 class Character;
 
 class Controller {
+
 public:
     Controller(Character* character);
     Controller(const Controller& orig);
     virtual ~Controller();
     virtual int move() = 0;
     Character* getCharacter();
+    virtual std::string getControllerName() = 0;
 private:
     Character* m_character;
 };

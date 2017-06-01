@@ -9,6 +9,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
+
 /*
 Character::Character(char symbol, int strength, int stamina) {
     m_symbol = symbol;
@@ -31,7 +32,7 @@ Character::Character(string name, char symbol, int strength, int stamina, Contro
 Character::~Character() {
     delete m_controller;
     m_controller = nullptr;
-    for(int i = 0; i < m_items.size(); i++)
+    for (int i = 0; i < m_items.size(); i++)
         delete m_items.at(i);
     m_items.clear();
 }
@@ -47,12 +48,12 @@ int Character::move() {
 }
 
 int Character::getMaxHP() {
-    return (20 + ( getStamina() * 5));
+    return (20 + (getStamina() * 5));
 }
 
 void Character::showInfo() {
     cout << m_name << ": \n" << "Hitpoints: " << m_hitpoints << " / " << getMaxHP() << "\n" <<
-            "Strength: " << m_strength << " Stamina: " << m_stamina << "\n"<<
+            "Strength: " << m_strength << " Stamina: " << m_stamina << "\n" <<
             "Items: " << m_items.size() << "\n" << endl;
 }
 
@@ -77,15 +78,23 @@ int Character::getStamina() {
     return stamina;
 }
 
-bool Character::hit(int damage){
+bool Character::hit(int damage) {
     m_hitpoints = m_hitpoints - damage;
-    if(m_hitpoints <= 0)
+    if (m_hitpoints <= 0)
         return true;
-    else if(m_hitpoints > getMaxHP())
+    else if (m_hitpoints > getMaxHP())
         m_hitpoints = getMaxHP();
     return false;
 }
 
-bool Character::heal(int damage){
+bool Character::heal(int damage) {
     return hit(damage * -1);
+}
+
+ostream& Character::operator<<(ostream& outputstream, const Character& character) {
+
+    outputstream << "Character " << m_name << " " << m_symbol << " " << m_strength << " " << m_stamina << " " << m_controller->getControllerName() << " "; //Controller einen << Operator implementieren
+    //Keine neue zeile wegen Ort der noch angehängt werden muss!
+
+    return outputstream;
 }

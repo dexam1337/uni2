@@ -28,6 +28,8 @@ public:
     //ConsoleController(const ConsoleController& orig);
     ~ConsoleController();
     int move() override;
+    
+    string getControllerName() override;
 private:
 
 };

@@ -25,3 +25,7 @@ StationaryController::~StationaryController() {
 int StationaryController::move(){
     return 5;
 }
+
+string StationaryController::getControllerName(){
+    return "StationaryController";
+}

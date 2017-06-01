@@ -28,3 +28,4 @@ Controller::~Controller() {
 Character* Controller::getCharacter(){
     return m_character;
 }
+

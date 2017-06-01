@@ -36,3 +36,7 @@ int ConsoleController::move() {
     }
     return -1;
 }
+
+string ConsoleController::getControllerName(){
+    return "ConsoleController";
+}

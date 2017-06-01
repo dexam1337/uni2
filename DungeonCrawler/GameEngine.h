@@ -32,7 +32,7 @@ private:
     void doorConnector(istringstream& stream);
     void placeCharacter(istringstream& stream);
     void placeItem(istringstream& stream);
-
+    
 };
 
 #endif /* GAMEENGINE_H_ */

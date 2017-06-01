@@ -35,6 +35,7 @@ public:
     int getStamina();
     bool hit(int damage); //gibt true zurück wenn hp < 0;
     bool heal(int damage);
+    ostream& operator<<(ostream& outputstream, const Character& character);
 };
 
 #endif /* CHARACTER_H_ */

@@ -43,6 +43,7 @@ public:
     Position findCharacter(Character* c);
     void print(Position center);
     bool hasLineOfSight(Position from, Position to);
+    ostream& operator<<(ostream& outputstream, const DungeonMap& map);
 };
 
 #endif /* DUNGEONMAP_H_ */
