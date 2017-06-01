@@ -25,26 +25,38 @@ schleife:
     ADD r2, #4 @ Schreibzeiger verschieben
     SUBS r3, #1 @runterzaehlen und flags updaten
     bne schleife
+ 
+ 
+ bubblesort:
+ 
+    LDR r2, =Liste2 @Listenpointer
+    LDR r3, [r2] @Anzahl der elemente
+    ADD r2, #4 @pointer auf erstes element bewegen
+    SUB r3, #1 @anzahl der elemente nicht mitzaehlen
+    MOV r4, r3 @kopieren
+ sort:
+    LDR r2, =Liste2 @an anfang
+    ADD r2, #4 @weitergehen
     
-    LDR r4, [r2] @für redurchlauefe
-    	   
-sortieren:
-@ hier Ihr Programm um die vorzeichenrichtige Zahlen in Liste2 zu sortieren
-   LDR r2, = Liste2 @Liste 2 pointer holen
-   LDR r3, [r2] @Anzahl der elemente holen
-   SUB r3, #2 @die größe und das erste register nicht mitzaelen
-   ADD r2, #4 @Increment
-   
-   SUBS r4, #1
-   bne sortieren
-   bal fertig
-   
+    bal subsort @aufruf der sortierschleife
+    
+    SUBS r4, #1 @Hauptschleife runterzaehlen
+    bne sort @falls nicht 0 nochmal
+    bal fertig @ansonsten raus
+    
+ subsort:
+ 
+    @ADD r2, #4 @eins weitergehe
+    
+    SUBS r3, #1 @nebenzaehler reduzieren
+    bne check @ falls nicht am ende des arrays nochmal
+    bal sort @ ansonsten Hauptschleife
    
 check: @ueberpruefung ob r0 < r1 ist
    LDR r0, [r2]
    LDR r1, [r2, #4]
    CMP r0, r1
-   bmi nicht_tauschen
+   bpl nicht_tauschen
    bal tauschen
 
 
@@ -54,18 +66,11 @@ tauschen:
    STR r1, [r2] @den zweiten wert zuerst speichern
    @ADD r2, #4 @hochzaehlen
    STR r0, [r2, #4 ]! @den ersten wert danach speichern >> getauscht.
-   SUBS r3, #1
-   bne check
-   bal sortieren
+   bal subsort
    
 nicht_tauschen:
-   @SUB r2, #4 @zum vorherigen register
-   STR r0, [r2] @den ersten wert zuerst speichern
-   @ADD r2, #4 @hochzaehlen
-   STR r1, [r2, #4]! @den zweiten wert danach speichern >> nicht getauscht.
-   SUBS r3, #1
-   bne check
-   bal sortieren
+   ADD r2, #4 @ weitergehen
+   bal subsort
 fertig:
 	ldmfd sp!, {r4, r5, pc} @ Ruecksprungadresse und Register
 
