@@ -97,4 +97,4 @@ ostream& Character::operator<<(ostream& outputstream, const Character& character
     //Keine neue zeile wegen Ort der noch angehängt werden muss!
 
     return outputstream;
-}
+};
