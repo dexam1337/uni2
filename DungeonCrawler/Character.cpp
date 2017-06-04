@@ -91,7 +91,7 @@ bool Character::heal(int damage) {
     return hit(damage * -1);
 }
 
-ostream& operator<<(ostream& outputstream, const Character& character) {
+std::ostream& operator<<(std::ostream& outputstream, const Character& character) {
 
     outputstream << "Character " << character.m_name << " " << character.m_symbol << " " << character.m_strength << " " << character.m_stamina << " " << character.m_controller->getControllerName() << " "; //Controller einen << Operator implementieren
     //Keine neue zeile weil Ort der noch angehängt werden muss!
