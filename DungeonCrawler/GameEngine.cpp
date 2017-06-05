@@ -300,4 +300,18 @@ void GameEngine::loadFromFile(string filename)
 void GameEngine::saveToFile(string filename)
 {
 
+    ofstream save;
+    save.open(filename);
+    if(save.good() == false){
+        cerr << "Datei zum speichern konnte nicht geöffnet werden!" << endl;
+        return;
+    }
+    
+    save << *m_map;
+    
+    for(int i = 0; i < characters.size(); i++){
+        Position pos = m_map->findCharacter(characters.at(i));
+        save <<*(characters.at(i)) << " " << pos.height << "/" << pos.width <<"\n";
+    }
+    
 }

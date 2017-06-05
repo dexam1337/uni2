@@ -57,6 +57,10 @@ char Floor::print() {
     return '.';
 }
 
+char Floor::save(){
+    return '.';
+}
+
 Item* Floor::getItem() {
     return m_item;
 }

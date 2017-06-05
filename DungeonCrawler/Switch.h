@@ -21,7 +21,8 @@ public:
     Switch(Passive* passive);
     //Switch(const Switch& orig);
     ~Switch();
-    char print();
+    char print() override;
+    char save() override;
     void onLeave(Tile* toTile);
     void onEnter(Character* c, Tile* fromTile);
 private:

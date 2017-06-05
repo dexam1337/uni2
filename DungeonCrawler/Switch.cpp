@@ -30,6 +30,9 @@ char Switch::print() {
         return 'S';
 }
 
+char Switch::save(){
+    return this->print();
+}
 void Switch::onLeave(Tile* toTile) {
     //can't enter on first place;
 }

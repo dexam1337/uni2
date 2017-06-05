@@ -24,6 +24,7 @@ public:
     void onLeave(Tile* toTile) override;
     void onEnter(Character* c, Tile* fromTile) override;
     char print() override;
+    char save() override;
     Item* getItem();
     void setItem(Item* item);
 private:

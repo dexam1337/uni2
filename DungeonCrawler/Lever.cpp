@@ -11,6 +11,7 @@
  * Created on 21. Mai 2017, 12:12 AM
  */
 
+
 #include "Lever.h"
 
 Lever::Lever(Passive* passive) : Active(passive) {
@@ -25,9 +26,13 @@ Lever::~Lever() {
 
 char Lever::print() {
     if (Active::getStatus() == false)
-        return 'l';
-    else
         return 'L';
+    else
+        return 'l';
+}
+
+char Lever::save(){
+    return this->print();
 }
 
 void Lever::onLeave(Tile* toTile) {
