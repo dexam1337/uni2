@@ -148,13 +148,13 @@ void GameEngine::linkObjects(const vector<string>& relations)
 
 void GameEngine::doorConnector(istringstream& sstream)
 {
+    char tmp;
     string target;
     Passive* passiveTile;
     Active* activeTile;
     Position passiveObject;
 
-    sstream >> (passiveObject.height);
-    sstream >> passiveObject.width;
+    sstream >> (passiveObject.height) >> tmp >> passiveObject.width;
     //m_map->print();
     passiveTile = dynamic_cast<Passive*> (m_map->findTile(passiveObject));
     if (passiveTile == nullptr) //Überprüfung ob Angegebene Koordinate wirklich eine Tür ists
@@ -164,9 +164,8 @@ void GameEngine::doorConnector(istringstream& sstream)
     while (!sstream.eof())
     {
         Position act;
-        sstream >> target;
-        sstream >> act.height;
-        sstream >> act.width;
+        char tmp;
+        sstream >> target >> act.height >> tmp >> act.width;
         //cout << m_map->findTile(act)->print(); WICHTIG zur überprüfung ob man sich eventuell bei der position der Objekte verzählt hat.
         activeTile = dynamic_cast<Active*> (m_map->findTile(act));
         if (activeTile != nullptr)
@@ -187,10 +186,10 @@ void GameEngine::doorConnector(istringstream& sstream)
 void GameEngine::placeCharacter(istringstream& stream)
 {
     string name, target;
-    char symbol;
+    char symbol, tmp;
     int strength, stamina;
     Position pos;
-    stream >> name >> symbol >> strength >> stamina >> target >> pos.height >> pos.width; //Variablen vom gegeben Stream füllen
+    stream >> name >> symbol >> strength >> stamina >> target >> pos.height >> tmp >> pos.width; //Variablen vom gegeben Stream füllen
     Controller* controller;
     if (target == "ConsoleController") //Hier Controllerunterscheidungen einfügen
         controller = new ConsoleController(nullptr);
@@ -202,10 +201,11 @@ void GameEngine::placeCharacter(istringstream& stream)
 
 void GameEngine::placeItem(istringstream& stream)
 {
+    char tmp;
     string target;
     Position pos;
     Item* item;
-    stream >> target >> pos.height >> pos.width; //Variablen vom gegeben Stream füllen
+    stream >> target >> pos.height >>tmp >> pos.width; //Variablen vom gegeben Stream füllen
     Floor* boden;
     //cout << m_map.findTile(pos);
     boden = dynamic_cast<Floor*> (m_map->findTile(pos));

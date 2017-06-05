@@ -23,7 +23,7 @@ public:
     //StationaryController(const StationaryController& orig);
     virtual ~StationaryController();
     int move() override;
-    string getControllerName() override;
+    std::string getControllerName() override;
 private:
 
 };

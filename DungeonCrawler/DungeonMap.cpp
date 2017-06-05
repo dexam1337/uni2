@@ -181,3 +181,9 @@ ostream& operator<<(ostream& outputstream, const DungeonMap& map){
     
     return outputstream;
 }
+
+istream& operator>>(istream& inputstream, Position& pos){
+    char tmp;
+    inputstream >> pos.height >> tmp >> pos.width;
+    return inputstream;
+}

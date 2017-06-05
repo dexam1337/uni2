@@ -19,7 +19,7 @@
 #..................#
 #..................#
 ####################
-Character Peter @ 5 5 ConsoleController 1 1
-Character Hans % 2 2 StationaryController 3 4
-Item Greatsword 16 4
-Door 13 9 Lever 11 4
+Character Peter @ 5 5 ConsoleController 1/1
+Character Hans % 2 2 StationaryController 3/4
+Item Greatsword 16/4
+Door 13/9 Lever 11/4

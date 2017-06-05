@@ -26,6 +26,6 @@ int StationaryController::move(){
     return 5;
 }
 
-string StationaryController::getControllerName(){
+std::string StationaryController::getControllerName(){
     return "StationaryController";
 }
