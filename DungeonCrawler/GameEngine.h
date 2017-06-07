@@ -8,7 +8,7 @@
 #ifndef GAMEENGINE_H_
 #define GAMEENGINE_H_
 #include "DungeonMap.h"
-
+#include "Character.h"
 class GameEngine {
 public:
     GameEngine(const unsigned int height, const unsigned int width,
@@ -21,7 +21,7 @@ public:
     void showPlayerInfo(int n);
     void loadFromFile(string filename);
     void saveToFile(string filename);
-
+    bool noPlayer();
 private:
     bool m_leave;
     int m_limit;

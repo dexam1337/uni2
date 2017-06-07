@@ -13,17 +13,20 @@
 
 #ifndef ITEM_H
 #define ITEM_H
-
+#include <iostream>
+//#include <string>
 class Item {
 public:
-    Item();
+    Item(std::string name);
     Item(const Item& orig);
     virtual ~Item();
     virtual int modifyStrength(int strength) = 0;
     virtual int modifyStamina(int stamina) = 0;
     char print();
+    friend std::ostream& operator<<(std::ostream& outputstream, Item& item);
 private:
     char m_symbol;
+    std::string m_name;
 };
 
 class ArmingSword : public Item{

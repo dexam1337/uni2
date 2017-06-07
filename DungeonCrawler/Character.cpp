@@ -42,6 +42,7 @@ char Character::getSymbol() {
 }
 
 int Character::move() {
+    cout << endl << m_name << " ist am Zug:";
     if (m_controller == nullptr)
         return -1;
     return m_controller->move();
@@ -98,3 +99,11 @@ std::ostream& operator<<(std::ostream& outputstream, const Character& character)
 
     return outputstream;
 };
+
+
+bool Character::isPlayer(){
+    if(dynamic_cast<ConsoleController*>(m_controller) != nullptr)
+        return true;
+    else 
+        return false;
+}

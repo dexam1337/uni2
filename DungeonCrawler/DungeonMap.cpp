@@ -9,6 +9,7 @@
 
 #include "DungeonMap.h"
 #include <math.h>
+#include <memory>
 
 DungeonMap::DungeonMap(const unsigned int height, const unsigned int width,
         const vector<string>& data) {
@@ -190,4 +191,15 @@ istream& operator>>(istream& inputstream, Position& pos) {
     char tmp;
     inputstream >> pos.height >> tmp >> pos.width;
     return inputstream;
+}
+
+void DungeonMap::saveItems(ostream& outputstream){
+    for(int i = 0; i < m_maxHeight; i++){
+        for ( int j = 0; j < m_maxWidth; j++){
+            if(dynamic_cast<Floor*>(m_map[i][j]) != nullptr){
+                if(dynamic_cast<Floor*>(m_map[i][j])->getItem() != nullptr)
+                outputstream << *(dynamic_cast<Floor*>(m_map[i][j])->getItem()) << " " << i << "/" << j << endl;
+            }
+        }
+    }
 }

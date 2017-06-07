@@ -11,8 +11,7 @@
 #include <fstream>
 
 GameEngine::GameEngine(const unsigned int height, const unsigned int width,
-                       const vector<string>& data, const vector<string>& relations)
-{
+        const vector<string>& data, const vector<string>& relations) {
     m_map = new DungeonMap(height, width, data);
     m_leave = false;
     m_limit = 2147483647; // Die maximale Anzahl an Spielrunden auf einmal ist das maximum eines integers, wobei das eigentlich obsolet ist.  
@@ -20,31 +19,25 @@ GameEngine::GameEngine(const unsigned int height, const unsigned int width,
     linkObjects(relations);
 }
 
-void GameEngine::run()
-{
+void GameEngine::run() {
 
     while (!finished())
         turn();
 }
 
-void GameEngine::turn()
-{
+void GameEngine::turn() {
 
 
     //Wenn jeder spielbare Charakter sein eigenes Sichtfeld bekommt entfällt das print an dieser Stelle, 
 
-    for (unsigned int i = 0; i < characters.size(); i++)
-    {
+    for (unsigned int i = 0; i < characters.size(); i++) {
         Position pos;
-        try
-        {
+        try {
             pos = m_map->findCharacter(characters.at(i));
-                m_map->print(pos);
+            m_map->print(pos);
             //Test:
             //characters.at(i)->showInfo(); //Bei eigenem Sichtfeld hier jeden Character seine Sichtweise zeichnen lassen
-        }
-        catch (const invalid_argument& ie)
-        {
+        }        catch (const invalid_argument& ie) {
             //cerr << "Error in turn: " << ie.what() << "\nCharacter wird gelöscht!\n" << endl;
             delete characters.at(i);
             characters.erase(characters.begin() + i);
@@ -54,44 +47,43 @@ void GameEngine::turn()
         Position newPos = pos;
         Tile* newTile;
         int eingabe = characters.at(i)->move();
-        switch (eingabe)
-        {
-        case 1:
-            newPos.height++;
-            newPos.width--;
-            break;
-        case 2:
-            newPos.height++;
-            break;
-        case 3:
-            newPos.height++;
-            newPos.width++;
-            break;
-        case 4:
-            newPos.width--;
-            break;
-        case 5:
-            return;
-        case 6:
-            newPos.width++;
-            break;
-        case 7:
-            newPos.height--;
-            newPos.width--;
-            break;
-        case 8:
-            newPos.height--;
-            break;
-        case 9:
-            newPos.height--;
-            newPos.width++;
-            break;
-        case 0:
-            m_leave = true;
-            return;
-        default:
-            cout << "Fehler in switchcase in turn()";
-            break;
+        switch (eingabe) {
+            case 1:
+                newPos.height++;
+                newPos.width--;
+                break;
+            case 2:
+                newPos.height++;
+                break;
+            case 3:
+                newPos.height++;
+                newPos.width++;
+                break;
+            case 4:
+                newPos.width--;
+                break;
+            case 5:
+                return;
+            case 6:
+                newPos.width++;
+                break;
+            case 7:
+                newPos.height--;
+                newPos.width--;
+                break;
+            case 8:
+                newPos.height--;
+                break;
+            case 9:
+                newPos.height--;
+                newPos.width++;
+                break;
+            case 0:
+                m_leave = true;
+                return;
+            default:
+                cout << "Fehler in switchcase in turn()";
+                break;
         }
 
         system("clear"); //nicht gut, unix befehl an cli, sicherheitslücke und systemabhängig
@@ -102,13 +94,14 @@ void GameEngine::turn()
 
 }
 
-bool GameEngine::finished()
-{
+bool GameEngine::finished() {
     m_round++;
     cout << endl;
     //cout << m_round << endl;
     if (m_leave == true)
         return true;
+    else if (noPlayer())
+       return true;
     else if (m_round <= m_limit)
         return false;
 
@@ -116,19 +109,16 @@ bool GameEngine::finished()
         return true;
 }
 
-GameEngine::~GameEngine()
-{
+GameEngine::~GameEngine() {
     for (int i = 0; i < characters.size(); i++)
         delete characters.at(i);
     characters.erase(characters.begin(), characters.end());
     delete m_map;
 }
 
-void GameEngine::linkObjects(const vector<string>& relations)
-{
+void GameEngine::linkObjects(const vector<string>& relations) {
 
-    for (int i = 0; i < relations.size(); i++)
-    {
+    for (int i = 0; i < relations.size(); i++) {
         string target = "";
         istringstream sstream(relations.at(i));
         //sstream << (relations.at(i).c_str()); //relations.at(i).c_str()
@@ -146,8 +136,7 @@ void GameEngine::linkObjects(const vector<string>& relations)
 
 }
 
-void GameEngine::doorConnector(istringstream& sstream)
-{
+void GameEngine::doorConnector(istringstream& sstream) {
     char tmp;
     string target;
     Passive* passiveTile;
@@ -161,19 +150,15 @@ void GameEngine::doorConnector(istringstream& sstream)
         throw std::runtime_error("passive Tile not found");
 
 
-    while (!sstream.eof())
-    {
+    while (!sstream.eof()) {
         Position act;
         char tmp;
         sstream >> target >> act.height >> tmp >> act.width;
         //cout << m_map->findTile(act)->print(); WICHTIG zur überprüfung ob man sich eventuell bei der position der Objekte verzählt hat.
         activeTile = dynamic_cast<Active*> (m_map->findTile(act));
-        if (activeTile != nullptr)
-        { //Überprüfung ob die aktuelle Position wirklich ein active Tile ist.
+        if (activeTile != nullptr) { //Überprüfung ob die aktuelle Position wirklich ein active Tile ist.
             activeTile->setLinked(passiveTile);
-        }
-        else
-        {
+        } else {
             cerr << "Ungültiges activeTile." << endl;
         }
 
@@ -183,8 +168,7 @@ void GameEngine::doorConnector(istringstream& sstream)
     }
 }
 
-void GameEngine::placeCharacter(istringstream& stream)
-{
+void GameEngine::placeCharacter(istringstream& stream) {
     string name, target;
     char symbol, tmp;
     int strength, stamina;
@@ -199,13 +183,12 @@ void GameEngine::placeCharacter(istringstream& stream)
     m_map->place(pos, characters.back()); //Charakter in der Spielwelt platzieren
 }
 
-void GameEngine::placeItem(istringstream& stream)
-{
+void GameEngine::placeItem(istringstream& stream) {
     char tmp;
     string target;
     Position pos;
     Item* item;
-    stream >> target >> pos.height >>tmp >> pos.width; //Variablen vom gegeben Stream füllen
+    stream >> target >> pos.height >> tmp >> pos.width; //Variablen vom gegeben Stream füllen
     Floor* boden;
     //cout << m_map.findTile(pos);
     boden = dynamic_cast<Floor*> (m_map->findTile(pos));
@@ -236,27 +219,23 @@ void GameEngine::placeItem(istringstream& stream)
     boden->setItem(item);
 }
 
-void GameEngine::showPlayerInfo()
-{
+void GameEngine::showPlayerInfo() {
     for (int i = 0; i < characters.size(); i++)
         characters.at(i)->showInfo();
     cout << endl;
 }
 
-void GameEngine::showPlayerInfo(int n)
-{
+void GameEngine::showPlayerInfo(int n) {
     if (n > characters.size())
         throw std::out_of_range("Player does not exist");
     characters.at(n)->showInfo();
     cout << endl;
 }
 
-void GameEngine::loadFromFile(string filename)
-{ //Ein nachträglich geladenes Spielfeld wirft einen Segmentationfault
+void GameEngine::loadFromFile(string filename) { //Ein nachträglich geladenes Spielfeld wirft einen Segmentationfault
     ifstream save;
     save.open(filename);
-    if (save.good() == false)
-    {
+    if (save.good() == false) {
         cerr << "Datei konnte nicht geöffnet werden!" << endl;
         return;
     }
@@ -265,22 +244,19 @@ void GameEngine::loadFromFile(string filename)
     vector<string> data;
     vector<string> links;
     string line;
-    for (int i = 0; i < hoehe; i++)
-    {
+    for (int i = 0; i < hoehe; i++) {
         getline(save, line);
         if (line != "") //leere Zeilen ignorieren
             data.push_back(line);
         else
             i--; //wenn noch nicht am ende der Karte angekommen, leere zeilen ignorieren
     }
-    do
-    {
+    do {
         getline(save, line);
         if (line != "") //leere Zeilen ignorieren
             links.push_back(line);
 
-    }
-    while (save.good());
+    }    while (save.good());
 
 
     save.close();
@@ -297,21 +273,30 @@ void GameEngine::loadFromFile(string filename)
     linkObjects(links);
 }
 
-void GameEngine::saveToFile(string filename)
-{
+void GameEngine::saveToFile(string filename) {
 
     ofstream save;
     save.open(filename);
-    if(save.good() == false){
+    if (save.good() == false) {
         cerr << "Datei zum speichern konnte nicht geöffnet werden!" << endl;
         return;
     }
-    
+    //speichern der Karte
     save << *m_map;
-    
-    for(int i = 0; i < characters.size(); i++){
+    //speichern der Charactere
+    for (int i = 0; i < characters.size(); i++) {
         Position pos = m_map->findCharacter(characters.at(i));
-        save <<*(characters.at(i)) << " " << pos.height << "/" << pos.width <<"\n";
+        save << *(characters.at(i)) << " " << pos.height << "/" << pos.width << "\n";
     }
-    
+    //speichern der vorhandenen Items auf Karte
+    m_map->saveItems(save);
+
+}
+
+bool GameEngine::noPlayer() {
+    for (int i = 0; i < characters.size(); i++)
+        if (characters.at(i)->isPlayer())
+            return false;
+    cout << endl << "Kein Spieler mehr übrig!" << endl << endl;
+    return true;
 }

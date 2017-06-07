@@ -45,6 +45,7 @@ public:
     bool hasLineOfSight(Position from, Position to);
     friend ostream& operator<<(ostream& outputstream, const DungeonMap& map);
     friend istream& operator>>(istream& inputstream, Position& pos);
+    void saveItems(ostream& outputstream);
 };
 
 #endif /* DUNGEONMAP_H_ */
