@@ -6,20 +6,6 @@
     </data>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/ldapusers/istsnscuc/workspace/uni2/DungeonCrawler/DungeonMap.cpp</file>
-            <file>file:/home/ldapusers/istsnscuc/workspace/uni2/DungeonCrawler/Character.cpp</file>
-            <file>file:/home/ldapusers/istsnscuc/workspace/uni2/DungeonCrawler/ConsoleController.cpp</file>
-            <file>file:/home/ldapusers/istsnscuc/workspace/uni2/DungeonCrawler/Tile.cpp</file>
-            <file>file:/home/ldapusers/istsnscuc/workspace/uni2/DungeonCrawler/main.cpp</file>
-            <file>file:/home/ldapusers/istsnscuc/workspace/uni2/DungeonCrawler/GameEngine.h</file>
-            <file>file:/home/ldapusers/istsnscuc/workspace/uni2/DungeonCrawler/DungeonMap.h</file>
-            <file>file:/home/ldapusers/istsnscuc/workspace/uni2/DungeonCrawler/Wall.cpp</file>
-            <file>file:/home/ldapusers/istsnscuc/workspace/uni2/DungeonCrawler/Floor.cpp</file>
-            <file>file:/home/ldapusers/istsnscuc/workspace/uni2/DungeonCrawler/GameEngine.cpp</file>
-            <file>file:/home/ldapusers/istsnscuc/workspace/uni2/DungeonCrawler/Door.cpp</file>
-            <file>file:/home/ldapusers/istsnscuc/workspace/uni2/DungeonCrawler/Tile.h</file>
-            <file>file:/home/ldapusers/istsnscuc/workspace/uni2/DungeonCrawler/Passive.cpp</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

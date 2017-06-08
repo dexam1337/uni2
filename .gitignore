@@ -51,3 +51,5 @@
 
 #valgrind
 vgcore.*
+/FlugTicketSystem/dist/
+/FlugTicketSystem/build/
