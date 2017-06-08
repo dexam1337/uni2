@@ -28,6 +28,10 @@ char Wall::print() {
     return '#';
 }
 
+char Wall::save(){
+    return print();
+}
+
 bool Wall::isTransparent() {
     return false;
 }

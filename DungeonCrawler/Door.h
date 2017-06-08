@@ -22,7 +22,7 @@ public:
     Door(const Door& orig);
     ~Door();
     char print() override;
-
+    char save() override;
     void onLeave(Tile* toTile) override;
     void onEnter(Character* c, Tile* fromTile) override;
     bool isTransparent();

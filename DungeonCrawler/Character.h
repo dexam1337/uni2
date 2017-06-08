@@ -23,7 +23,7 @@ private:
     Controller* m_controller;
 
 public:
-
+    
     int getMaxHP();
     Character(string name, char symbol, int strength, int stamina, Controller* controller);
     ~Character();
@@ -36,6 +36,7 @@ public:
     bool hit(int damage); //gibt true zurück wenn hp < 0;
     bool heal(int damage);
     friend std::ostream& operator<<(std::ostream& outputstream, const Character& character);
+    bool isPlayer();
 };
 
 

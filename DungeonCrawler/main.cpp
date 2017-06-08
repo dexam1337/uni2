@@ -79,6 +79,11 @@ bool menue(GameEngine& ge) {
             cin >> pfad;
             ge.loadFromFile(pfad);
             break;
+        case 5:
+            cout << "Speicherpfad?" << endl;
+            cin >> pfad;
+            ge.saveToFile(pfad);
+            break;
         case 0:
             cout << "ende" << endl;
             return false;

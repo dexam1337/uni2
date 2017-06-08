@@ -38,7 +38,9 @@ void Floor::onEnter(Character* c, Tile* fromTile) {
         if (!(getCharacter()->hit(c->getStrength()))) {
             c->hit(getCharacter()->getStrength());
             c->showInfo();
-            getCharacter()->showInfo();
+            getCharacter()->showInfo();  
+            if(c->hit(0))
+                fromTile->setCharacter(nullptr);//Character außerhalb des Feldes bewegen
         } else {
             setCharacter(nullptr);
             c->showInfo();
@@ -54,6 +56,10 @@ char Floor::print() {
         return Tile::getCharacter()->getSymbol();
     else if (m_item != nullptr)
         return '*';
+    return '.';
+}
+
+char Floor::save(){
     return '.';
 }
 

@@ -9,6 +9,7 @@
 
 #include "DungeonMap.h"
 #include <math.h>
+#include <memory>
 
 DungeonMap::DungeonMap(const unsigned int height, const unsigned int width,
         const vector<string>& data) {
@@ -44,7 +45,7 @@ DungeonMap::DungeonMap(const unsigned int height, const unsigned int width,
                 case 'L':
                     m_map[i][j] = new Lever(nullptr);
                     break;
-                    case 'l':
+                case 'l':
                     m_map[i][j] = new Lever(nullptr);
                     dynamic_cast<Lever*> (m_map[i][j])->use();
                     break;
@@ -132,16 +133,16 @@ Position DungeonMap::findCharacter(Character* c) {
 }
 
 void DungeonMap::print(Position center) {
-    
+
     for (unsigned int i = 0; i < m_maxHeight; i++) {
         for (unsigned int j = 0; j < m_maxWidth; j++) {
             Position aktPos;
-            aktPos.height=i;
-            aktPos.width=j;
-            if(hasLineOfSight(center,aktPos)){
+            aktPos.height = i;
+            aktPos.width = j;
+            if (hasLineOfSight(center, aktPos)) {
                 cout << m_map[i][j]->print();
-            }else{
-                cout<< "#";
+            } else {
+                cout << "#";
             }
         }
         cout << endl;
@@ -149,14 +150,12 @@ void DungeonMap::print(Position center) {
 
 }
 
-
-bool DungeonMap::hasLineOfSight(Position from, Position to)
-{
-    double x = to.width - from.width;  
+bool DungeonMap::hasLineOfSight(Position from, Position to) {
+    double x = to.width - from.width;
     double y = to.height - from.height;
-    double len = sqrt( (x*x) + (y*y) );
+    double len = sqrt((x * x) + (y * y));
 
-    if(!len)  //eigene Tile
+    if (!len) //eigene Tile
         return true;
 
     double stepx = x / len;
@@ -164,20 +163,43 @@ bool DungeonMap::hasLineOfSight(Position from, Position to)
 
     x = from.width;
     y = from.height;
-    for( double i = 0; i < len; i += 1 )
-    {
-        if( m_map[static_cast<int>(y)][static_cast<int>(x)]->isTransparent() == false)
+    for (double i = 0; i < len; i += 1) {
+        if (m_map[static_cast<int> (y)][static_cast<int> (x)]->isTransparent() == false)
             return false;
 
-        x += stepx; 
+        x += stepx;
         y += stepy;
     }
-    return true;//hat sicht*/
+    return true; //hat sicht*/
 }
 
-ostream& operator<<(ostream& outputstream, const DungeonMap& map){
-    
-    //Hier wie die karte in den stream Eingefuegt werden soll
-    
+ostream& operator<<(ostream& outputstream, const DungeonMap& map) {
+
+    outputstream << map.m_maxHeight << " " << map.m_maxWidth << "\n";
+    for (int i = 0; i < map.m_maxHeight; i++) {
+        for (int j = 0; j < map.m_maxWidth; j++) {
+            outputstream << map.m_map[i][j]->save();
+        }
+        outputstream << "\n";
+    }
+    outputstream << "\n";
+
     return outputstream;
+}
+
+istream& operator>>(istream& inputstream, Position& pos) {
+    char tmp;
+    inputstream >> pos.height >> tmp >> pos.width;
+    return inputstream;
+}
+
+void DungeonMap::saveItems(ostream& outputstream){
+    for(int i = 0; i < m_maxHeight; i++){
+        for ( int j = 0; j < m_maxWidth; j++){
+            if(dynamic_cast<Floor*>(m_map[i][j]) != nullptr){
+                if(dynamic_cast<Floor*>(m_map[i][j])->getItem() != nullptr)
+                outputstream << *(dynamic_cast<Floor*>(m_map[i][j])->getItem()) << " " << i << "/" << j << endl;
+            }
+        }
+    }
 }

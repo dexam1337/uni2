@@ -15,14 +15,16 @@
 #define TRAP_H
 
 #include "Floor.h"
-class Trap : public Floor{
+
+class Trap : public Floor {
 public:
     Trap(Item* item, int damage);
     Trap(const Trap& orig);
     virtual ~Trap();
-        void onLeave(Tile* toTile) override;
+    void onLeave(Tile* toTile) override;
     void onEnter(Character* c, Tile* fromTile) override;
     char print() override;
+    char save() override;
     void setActivated(bool activated);
 private:
     int m_damage; //negative Werte für Schaden, positiv für Heilung

@@ -52,3 +52,7 @@ bool Door::isTransparent(){
     else 
         return true;
 }
+
+char Door::save(){
+    return this->print();
+}

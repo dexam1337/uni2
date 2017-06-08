@@ -62,3 +62,7 @@ char Tile::print() {/*
 bool Tile::isTransparent(){
     return true;
 }
+
+char Tile::save() {
+    return this->print();
+}

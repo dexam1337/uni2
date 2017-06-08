@@ -21,7 +21,8 @@ public:
     Lever(Passive* passive);
     //Lever(const Lever& orig);
     ~Lever();
-    char print();
+    char print() override;
+    char save() override;
     void onLeave(Tile* toTile);
     void onEnter(Character* c, Tile* fromTile);
 private:
