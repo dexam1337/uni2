@@ -28,50 +28,40 @@ schleife:
  
  
  bubblesort:
- 
-    LDR r2, =Liste2 @Listenpointer
-    LDR r3, [r2] @Anzahl der elemente
-    ADD r2, #4 @pointer auf erstes element bewegen
-    SUB r3, #1 @anzahl der elemente nicht mitzaehlen
-    MOV r4, r3 @kopieren
- sort:
-    LDR r2, =Liste2 @an anfang
-    ADD r2, #4 @weitergehen
+    LDR r3, =Liste2 @ listenpointer holen
+    LDRB r4, [r3] @erstes element holen aka groeße
+    SUB r4, #2
+    ADD r3, #4 @listenpointer weiterschieben
     
-    bal subsort @aufruf der sortierschleife
+    outerloop:
+    LDR r3, =Liste2
+    @ADD r3, #1 @ an anfang der liste springen
+    mov r5, r4 @aktuelle anzahl der unsortieren elemente fuer innere schleife holen
     
-    SUBS r4, #1 @Hauptschleife runterzaehlen
-    bne sort @falls nicht 0 nochmal
-    bal fertig @ansonsten raus
+    innerloop:
+    ADD r3, #4
+    LDR r1, [r3]
+    LDR r2, [r3, #4]
     
- subsort:
- 
-    @ADD r2, #4 @eins weitergehe
+      check:
+	cmp r2, r1 @ r1-r2 und ergebnis verwerfen
+	bmi swap @falls negativ flag, tauschen
+      afterCheck:
+	STR r1, [r3]
+	STR r2, [r3, #4]
+	subs r5, #1 @ inneren schleifenzaeahler
+	bne innerloop @falls noch nicht 0 nochmal
     
-    SUBS r3, #1 @nebenzaehler reduzieren
-    bne check @ falls nicht am ende des arrays nochmal
-    bal sort @ ansonsten Hauptschleife
-   
-check: @ueberpruefung ob r0 < r1 ist
-   LDR r0, [r2]
-   LDR r1, [r2, #4]
-   CMP r0, r1
-   bpl nicht_tauschen
-   bal tauschen
-
-
-   
-tauschen:
-   @SUB r2, #4 @zum vorherigen register
-   STR r1, [r2] @den zweiten wert zuerst speichern
-   @ADD r2, #4 @hochzaehlen
-   STR r0, [r2, #4 ]! @den ersten wert danach speichern >> getauscht.
-   bal subsort
-   
-nicht_tauschen:
-   ADD r2, #4 @ weitergehen
-   bal subsort
-fertig:
+    subs r4, #1 @aueßere schleife runterzaehlen
+    bne outerloop
+    bal fertig
+    
+	  swap:
+	    mov r0, r1 @ dreieckstausch
+	    mov r1, r2
+	    mov r2, r0
+	  bal afterCheck
+ fertig:
 	ldmfd sp!, {r4, r5, pc} @ Ruecksprungadresse und Register
 
 TAB2: .word Liste2 @ Beispiel um an Adressen aus anderen Segmenten zu kommen
