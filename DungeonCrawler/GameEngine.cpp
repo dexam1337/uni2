@@ -174,7 +174,7 @@ void GameEngine::placeCharacter(istringstream& stream) {
     char symbol, tmp;
     int strength, stamina;
     Position pos;
-    stream >> name >> symbol >> strength >> stamina >> target >> pos.height >> tmp >> pos.width; //Variablen vom gegeben Stream füllen
+    stream >> name >> symbol >> strength >> stamina >> target >> pos; //Variablen vom gegeben Stream füllen
     Controller* controller;
     if (target == "ConsoleController") //Hier Controllerunterscheidungen einfügen
         controller = new ConsoleController(nullptr);
