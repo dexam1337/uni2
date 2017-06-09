@@ -35,9 +35,12 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/Buchung.o \
 	${OBJECTDIR}/CUI.o \
 	${OBJECTDIR}/Flug.o \
 	${OBJECTDIR}/Flugplan.o \
+	${OBJECTDIR}/Kunde.o \
+	${OBJECTDIR}/Ticket.o \
 	${OBJECTDIR}/main.o
 
 
@@ -65,6 +68,11 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/flugticketsystem: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/flugticketsystem ${OBJECTFILES} ${LDLIBSOPTIONS}
 
+${OBJECTDIR}/Buchung.o: Buchung.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Buchung.o Buchung.cpp
+
 ${OBJECTDIR}/CUI.o: CUI.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -79,6 +87,16 @@ ${OBJECTDIR}/Flugplan.o: Flugplan.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Flugplan.o Flugplan.cpp
+
+${OBJECTDIR}/Kunde.o: Kunde.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Kunde.o Kunde.cpp
+
+${OBJECTDIR}/Ticket.o: Ticket.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Ticket.o Ticket.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}

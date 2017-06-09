@@ -4,9 +4,12 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>Buchung.h</itemPath>
       <itemPath>CUI.h</itemPath>
       <itemPath>Flug.h</itemPath>
       <itemPath>Flugplan.h</itemPath>
+      <itemPath>Kunde.h</itemPath>
+      <itemPath>Ticket.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -15,9 +18,12 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>Buchung.cpp</itemPath>
       <itemPath>CUI.cpp</itemPath>
       <itemPath>Flug.cpp</itemPath>
       <itemPath>Flugplan.cpp</itemPath>
+      <itemPath>Kunde.cpp</itemPath>
+      <itemPath>Ticket.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -45,6 +51,10 @@
           <standard>8</standard>
         </ccTool>
       </compileType>
+      <item path="Buchung.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Buchung.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="CUI.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="CUI.h" ex="false" tool="3" flavor2="0">
@@ -56,6 +66,14 @@
       <item path="Flugplan.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Flugplan.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Kunde.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Kunde.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Ticket.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Ticket.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -81,6 +99,10 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="Buchung.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Buchung.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="CUI.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="CUI.h" ex="false" tool="3" flavor2="0">
@@ -92,6 +114,14 @@
       <item path="Flugplan.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Flugplan.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Kunde.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Kunde.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Ticket.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Ticket.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -107,6 +137,10 @@
           <standard>8</standard>
         </ccTool>
       </compileType>
+      <item path="Buchung.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Buchung.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="CUI.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="CUI.h" ex="false" tool="3" flavor2="0">
@@ -118,6 +152,14 @@
       <item path="Flugplan.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Flugplan.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Kunde.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Kunde.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Ticket.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Ticket.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="8">
       </item>

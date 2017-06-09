@@ -14,12 +14,21 @@
 #include "Flugplan.h"
 
 Flugplan::Flugplan() {
+    Flug* flug = new Flug(20, 100);
+    flug->addSubFlight("start1", "lande1");
+    m_fluege.push_back(flug);
+    
 }
 
 Flugplan::Flugplan(const Flugplan& orig) {
 }
 
 Flugplan::~Flugplan() {
+    vector<Flug*>::iterator it;
+    for(it = m_fluege.begin(); it < m_fluege.end(); it++)
+        delete (*it);
+    
+    m_fluege.clear();
 }
 
 void Flugplan::ladeFluege(const string dateiPfad){
@@ -38,7 +47,12 @@ vector<Flug*> Flugplan::sucheFlug(const string startOrt, const string landeOrt){
     vector<Flug*> foundFluege;
     vector<Flug*>::iterator it;
     for(it = m_fluege.begin(); it < m_fluege.end(); it++)
-        if((*it)->getFlugnummer() == startOrt)
+        if((*it)->hasStart(startOrt) != -1)
             foundFluege.push_back(*it);
+    
+    for(it = foundFluege.begin(); it < foundFluege.end(); it++){
+        if((*it)->hasStopAfter(landeOrt, (*it)->hasStart(startOrt)) == -1)
+            foundFluege.erase(it);
+    }
     return foundFluege;
 }

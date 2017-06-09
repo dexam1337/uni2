@@ -5,25 +5,21 @@
  */
 
 /* 
- * File:   CUI.h
+ * File:   Kunde.cpp
  * Author: sebastian
- *
- * Created on 7. Juni 2017, 23:45
+ * 
+ * Created on 9. Juni 2017, 23:09
  */
 
-#ifndef CUI_H
-#define CUI_H
+#include "Kunde.h"
+#include "Buchung.h"
 
-#include "Flugplan.h"
+Kunde::Kunde() {
+}
 
-class CUI {
-public:
-    CUI();
-    CUI(const CUI& orig);
-    virtual ~CUI();
-private:
-    
-};
+Kunde::Kunde(const Kunde& orig) {
+}
 
-#endif /* CUI_H */
+Kunde::~Kunde() {
+}
 

@@ -5,25 +5,20 @@
  */
 
 /* 
- * File:   CUI.h
+ * File:   Buchung.cpp
  * Author: sebastian
- *
- * Created on 7. Juni 2017, 23:45
+ * 
+ * Created on 9. Juni 2017, 23:08
  */
 
-#ifndef CUI_H
-#define CUI_H
+#include "Buchung.h"
 
-#include "Flugplan.h"
+Buchung::Buchung() {
+}
 
-class CUI {
-public:
-    CUI();
-    CUI(const CUI& orig);
-    virtual ~CUI();
-private:
-    
-};
+Buchung::Buchung(const Buchung& orig) {
+}
 
-#endif /* CUI_H */
+Buchung::~Buchung() {
+}
 

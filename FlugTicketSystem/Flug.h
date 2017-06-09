@@ -28,7 +28,8 @@ public:
     friend ostream& operator<<(ostream& inputstream, const Flug& flug);
     const int getFlugnummer();
     int hasStart(const string startOrt);
-    bool hasStopAfter(const string landeOrt, const int pos);
+    int hasStopAfter(const string landeOrt, const int pos);
+    void addSubFlight(const string startOrt, const string landeOrt);
 private:
 
     int m_flugnummer;
@@ -37,6 +38,7 @@ private:
     vector<string> m_startOrt;
     vector<string> m_landeOrt;
     int m_kapazitaet;
+    int m_freiePlaetze;
 };
 
 #endif /* FLUG_H */
