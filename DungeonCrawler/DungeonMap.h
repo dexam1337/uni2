@@ -21,10 +21,16 @@
 #include <iostream>
 using namespace std;
 
-typedef struct {
-     int height;
-     int width;
-} Position;
+class Position {
+public:
+    int height;
+    int width;
+
+    friend bool operator==(const Position& lhs, const Position& rhs) {return (lhs.height == rhs.height && lhs.width == rhs.width);};
+    friend bool operator!=(const Position& lhs, const Position& rhs) {return !(lhs == rhs);};
+    friend istream& operator>>(istream& inputstream, Position& pos);
+    friend ostream& operator<<(ostream& outputstream, const Position& pos);
+};
 
 class DungeonMap {
 private:
@@ -44,8 +50,9 @@ public:
     void print(Position center);
     bool hasLineOfSight(Position from, Position to);
     friend ostream& operator<<(ostream& outputstream, const DungeonMap& map);
-    friend istream& operator>>(istream& inputstream, Position& pos);
     void saveItems(ostream& outputstream);
+    const vector<Position> getPathTo(const Position from, const Position to);
+    vector<Position>& pathHelper(const Position from, const Position to, vector<Position>& path);
 };
 
 #endif /* DUNGEONMAP_H_ */

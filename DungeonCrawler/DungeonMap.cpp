@@ -8,6 +8,7 @@
 //#include <memory>
 
 #include "DungeonMap.h"
+#include "Glass.h"
 #include <math.h>
 #include <memory>
 
@@ -55,6 +56,9 @@ DungeonMap::DungeonMap(const unsigned int height, const unsigned int width,
                 case 'T':
                     m_map[i][j] = new Trap(nullptr, -20);
                     dynamic_cast<Trap*> (m_map[i][j])->setActivated(true);
+                    break;
+                case ' ':
+                    m_map[i][j] = new Glass();
                     break;
                 default:
                     throw std::runtime_error("invalid Tile Type requested");
@@ -193,6 +197,11 @@ istream& operator>>(istream& inputstream, Position& pos) {
     return inputstream;
 }
 
+ostream& operator<<(ostream& outputstream,const Position& pos) {
+    outputstream << pos.height << "/" << pos.width;
+    return outputstream;
+}
+
 void DungeonMap::saveItems(ostream& outputstream){
     for(int i = 0; i < m_maxHeight; i++){
         for ( int j = 0; j < m_maxWidth; j++){
@@ -202,4 +211,24 @@ void DungeonMap::saveItems(ostream& outputstream){
             }
         }
     }
+}
+
+const vector<Position> DungeonMap::getPathTo(const Position from, const Position to){
+    vector<Position> path;
+    Position pos;
+    
+    if(from == to)
+        return path;
+    
+    
+    
+    return path;
+}
+
+vector<Position>& DungeonMap::pathHelper(const Position from, const Position to, vector<Position>& path){
+    
+    
+    
+    
+    return path;
 }

@@ -17,38 +17,14 @@ int main(int argc, char *argv[]) {
     for (int i = 0; i < argc; i++)
         if (argv[i] == "--load")
             level = argv[i + 1];
-
-
-    ifstream save;
-    save.open(level);
-    if (save.good() == false) {
-        cerr << "Datei konnte nicht geöffnet werden!" << endl;
-        return -1;
-    }
-    int hoehe, breite;
-    save >> hoehe >> breite;
+    int hoehe = 0, breite = 0;
     vector<string> data;
     vector<string> links;
-    string line;
-    for (int i = 0; i < hoehe; i++) {
-        getline(save, line);
-        if (line != "") //leere Zeilen ignorieren
-            data.push_back(line);
-        else 
-                i--; //wenn noch nicht am ende der Karte angekommen, leere zeilen ignorieren
-    }
-    do {
-        getline(save, line);
-        if (line != "") //leere Zeilen ignorieren
-            links.push_back(line);
-
-    } while (save.good());
-
-
-    save.close();
-
+    
     GameEngine ge(hoehe, breite, data, links);
-
+    
+    ge.loadFromFile(level);
+    
     while (menue(ge)) {
 
     }

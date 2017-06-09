@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/Active.o \
+	${OBJECTDIR}/AttackController.o \
 	${OBJECTDIR}/Character.o \
 	${OBJECTDIR}/ConsoleController.o \
 	${OBJECTDIR}/Controller.o \
@@ -43,6 +44,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/DungeonMap.o \
 	${OBJECTDIR}/Floor.o \
 	${OBJECTDIR}/GameEngine.o \
+	${OBJECTDIR}/Glass.o \
 	${OBJECTDIR}/Item.o \
 	${OBJECTDIR}/Lever.o \
 	${OBJECTDIR}/Passive.o \
@@ -83,6 +85,11 @@ ${OBJECTDIR}/Active.o: Active.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Active.o Active.cpp
 
+${OBJECTDIR}/AttackController.o: AttackController.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/AttackController.o AttackController.cpp
+
 ${OBJECTDIR}/Character.o: Character.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -117,6 +124,11 @@ ${OBJECTDIR}/GameEngine.o: GameEngine.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/GameEngine.o GameEngine.cpp
+
+${OBJECTDIR}/Glass.o: Glass.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Glass.o Glass.cpp
 
 ${OBJECTDIR}/Item.o: Item.cpp
 	${MKDIR} -p ${OBJECTDIR}

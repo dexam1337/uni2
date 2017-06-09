@@ -12,7 +12,7 @@
 #..................#
 #...L..............#
 #........T.........#
-#########X##########
+###   ###X##########
 #........t.........#
 #..................#
 #..................#
@@ -20,7 +20,7 @@
 #..................#
 ####################
 Character Peter @ 5 5 ConsoleController 1/1
-Character Dieter + 5 5 ConsoleController 2/2
-Character Hans % 2 2 StationaryController 3/4
+/Character Dieter + 5 5 ConsoleController 2/2
+Character Hans % 2 2 Attack Controller 3/4
 Item Greatsword 16/4
 Door 13/9 Lever 11/4

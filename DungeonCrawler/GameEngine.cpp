@@ -6,6 +6,7 @@
  */
 #include "GameEngine.h"
 #include "StationaryController.h"
+#include "AttackController.h"
 //#include <iostream>
 #include <sstream>
 #include <fstream>
@@ -177,8 +178,10 @@ void GameEngine::placeCharacter(istringstream& stream) {
     Controller* controller;
     if (target == "ConsoleController") //Hier Controllerunterscheidungen einfügen
         controller = new ConsoleController(nullptr);
-    if (target == "StationaryController")
+    else if (target == "StationaryController")
         controller = new StationaryController(nullptr);
+    else if (target == "AttackController")
+        controller = new AttackController(nullptr);
     characters.push_back(new Character(name, symbol, strength, stamina, controller)); //Characterpointer von auf Heap abgelegten Character speichern
     m_map->place(pos, characters.back()); //Charakter in der Spielwelt platzieren
 }
@@ -253,7 +256,9 @@ void GameEngine::loadFromFile(string filename) { //Ein nachträglich geladenes S
     }
     do {
         getline(save, line);
-        if (line != "") //leere Zeilen ignorieren
+        if (line == "" || line.at(0) == '/') //leere Zeilen ignorieren
+            ;
+        else
             links.push_back(line);
 
     }    while (save.good());
