@@ -14,12 +14,28 @@
 #include "Kunde.h"
 #include "Buchung.h"
 
-Kunde::Kunde() {
+Kunde::Kunde(string name, string tel, string iban, string bic, string username, string pwd) {
 }
 
 Kunde::Kunde(const Kunde& orig) {
 }
 
 Kunde::~Kunde() {
+    vector<Buchung*>::iterator it;
+    for(it = m_buchungen.begin(); it < m_buchungen.end(); it++)
+        delete (*it);
+    m_buchungen.clear();
 }
 
+bool Kunde::login(string username, string pwd) {
+    if (username == m_username && pwd == m_pwd)
+        return true;
+    else
+        return false;
+}
+
+bool Kunde::buche(Buchung* buchung){
+    //Hier zahlungsmechanismus einfuegen
+    m_buchungen.push_back(buchung);
+    return true;
+}

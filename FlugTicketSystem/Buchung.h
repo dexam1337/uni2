@@ -19,14 +19,17 @@
 
 class Buchung {
 public:
-    Buchung();
-    Buchung(const Buchung& orig);
+    Buchung(Kunde& kunde);
+    //Buchung(const Buchung& orig);
     virtual ~Buchung();
+    Kunde& getKunde(){return m_kunde;};
+    int getBuchungsnummer(){return m_buchungsnummer;};
 private:
     
     int m_buchungsnummer;
     vector<Ticket> m_tickets;
-    
+    Kunde& m_kunde;
+    static int counter;
 };
 
 #endif /* BUCHUNG_H */

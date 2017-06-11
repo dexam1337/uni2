@@ -22,18 +22,19 @@ typedef enum {
 
 class Ticket {
 public:
-    Ticket(float preis, int ticketnummer, Reiseklasse klasse);
+    Ticket(float preis, Reiseklasse klasse);
     Ticket(const Ticket& orig);
     virtual ~Ticket();
     
-    float getPreis();
-    int getTicketnummer();
-    Reiseklasse getKlasse();
+    float getPreis(){return m_preis;};
+    int getTicketnummer(){return m_ticketnummer;};
+    Reiseklasse getKlasse(){return m_klasse;};
 private:
 
     float m_preis;
     int m_ticketnummer;
     Reiseklasse m_klasse;
+    static int counter;
 };
 
 #endif /* TICKET_H */

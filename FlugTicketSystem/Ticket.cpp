@@ -13,7 +13,10 @@
 
 #include "Ticket.h"
 
-Ticket::Ticket(float preis, int ticketnummer, Reiseklasse klasse) : m_klasse(klasse), m_preis(preis), m_ticketnummer(ticketnummer) {
+int Ticket::counter = 0;
+
+Ticket::Ticket(float preis, Reiseklasse klasse) : m_klasse(klasse), m_preis(preis), m_ticketnummer(counter) {
+    counter++;
 }
 
 Ticket::Ticket(const Ticket& orig) {

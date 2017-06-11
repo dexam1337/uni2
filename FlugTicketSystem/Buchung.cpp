@@ -13,11 +13,16 @@
 
 #include "Buchung.h"
 
-Buchung::Buchung() {
+int Buchung::counter = 0;
+
+Buchung::Buchung(Kunde& kunde) : m_kunde(kunde){
+    m_buchungsnummer = counter;
+    counter++;
 }
 
-Buchung::Buchung(const Buchung& orig) {
-}
+//Buchung::Buchung(const Buchung& orig) {
+
+//}
 
 Buchung::~Buchung() {
 }

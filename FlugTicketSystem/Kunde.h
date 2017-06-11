@@ -23,18 +23,30 @@ using namespace std;
 
 class Kunde {
 public:
-    Kunde();
+    Kunde(string name, string tel, string iban, string bic, string username, string pwd);
     Kunde(const Kunde& orig);
     virtual ~Kunde();
+
+    bool login(string username, string pwd);
+    string getName() {
+        return m_name;
+    };
+    string getTel() {
+        return m_tel;
+    };
+    string getIban(){return m_iban;};
+    string getBic(){return m_bic;};
+    bool buche(Buchung* buchung);
+
 private:
-    
+
     string m_name;
     string m_tel;
     string m_iban;
     string m_bic;
     string m_username;
     string m_pwd;
-    vector<Buchung> m_buchungen;
+    vector<Buchung*> m_buchungen;
 
 };
 

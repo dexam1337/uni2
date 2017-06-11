@@ -20,7 +20,7 @@ using namespace std;
 
 class Flug {
 public:
-    Flug(int flugnummer, int kapazitaet);
+    Flug(int kapazitaet);
     Flug(const Flug& orig);
     virtual ~Flug();
     
@@ -39,6 +39,7 @@ private:
     vector<string> m_landeOrt;
     int m_kapazitaet;
     int m_freiePlaetze;
+    static int counter;
 };
 
 #endif /* FLUG_H */

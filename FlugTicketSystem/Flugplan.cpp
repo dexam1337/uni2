@@ -14,7 +14,7 @@
 #include "Flugplan.h"
 
 Flugplan::Flugplan() {
-    Flug* flug = new Flug(20, 100);
+    Flug* flug = new Flug(100);
     flug->addSubFlight("start1", "lande1");
     m_fluege.push_back(flug);
     

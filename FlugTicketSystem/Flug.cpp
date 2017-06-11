@@ -13,7 +13,10 @@
 
 #include "Flug.h"
 
-Flug::Flug(int flugnummer, int kapazitaet) : m_flugnummer(flugnummer), m_kapazitaet(kapazitaet) {
+int Flug::counter = 0;
+
+Flug::Flug(int kapazitaet) : m_flugnummer(counter), m_kapazitaet(kapazitaet) {
+    counter++;
 }
 
 Flug::Flug(const Flug& orig) {
