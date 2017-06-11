@@ -66,3 +66,7 @@ bool Tile::isTransparent(){
 char Tile::save() {
     return this->print();
 }
+
+bool Tile::canBeEntered(){
+    return false;
+}

@@ -70,3 +70,10 @@ Item* Floor::getItem() {
 void Floor::setItem(Item* item) {
     m_item = item;
 }
+
+bool Floor::canBeEntered(){
+    if(Tile::hasCharacter() == true)
+        return false;
+    else 
+        return true;
+}

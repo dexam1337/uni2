@@ -27,6 +27,7 @@ public:
     char save() override;
     Item* getItem();
     void setItem(Item* item);
+    bool canBeEntered();
 private:
     Item* m_item;
 

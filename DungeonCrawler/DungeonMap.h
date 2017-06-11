@@ -18,19 +18,9 @@
 #include "Lever.h"
 #include "Trap.h"
 #include <stdexcept>
-#include <iostream>
-using namespace std;
+#include "Position.h"
 
-class Position {
-public:
-    int height;
-    int width;
 
-    friend bool operator==(const Position& lhs, const Position& rhs) {return (lhs.height == rhs.height && lhs.width == rhs.width);};
-    friend bool operator!=(const Position& lhs, const Position& rhs) {return !(lhs == rhs);};
-    friend istream& operator>>(istream& inputstream, Position& pos);
-    friend ostream& operator<<(ostream& outputstream, const Position& pos);
-};
 
 class DungeonMap {
 private:

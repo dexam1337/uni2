@@ -46,13 +46,20 @@ void Door::onEnter(Character* c, Tile* fromTile) {
     }
 }
 
-bool Door::isTransparent(){
-    if(getStatus() == false)
+bool Door::isTransparent() {
+    if (getStatus() == false)
         return false;
-    else 
+    else
         return true;
 }
 
-char Door::save(){
+char Door::save() {
     return this->print();
+}
+
+bool Door::canBeEntered() {
+    if (Passive::getStatus() == true)
+        return true;
+    else
+        return false;
 }

@@ -26,6 +26,7 @@ public:
     virtual char print();
     virtual bool isTransparent();
     virtual char save();
+    bool canBeEntered();
 private:
     //Typ m_typ;
     Character* m_character = nullptr;

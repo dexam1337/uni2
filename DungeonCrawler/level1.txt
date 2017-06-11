@@ -19,8 +19,9 @@
 #..................#
 #..................#
 ####################
+
 Character Peter @ 5 5 ConsoleController 11/18
 /Character Dieter + 5 5 ConsoleController 2/2
 Character Hans % 2 2 AttackController 18/18
-Item Greatsword 16/4
+Item Greatsword 18/4
 Door 13/9 Lever 11/4

@@ -25,7 +25,8 @@ public:
     char save() override;
     void onLeave(Tile* toTile) override;
     void onEnter(Character* c, Tile* fromTile) override;
-    bool isTransparent();
+    bool isTransparent() override;
+    bool canBeEntered();
 private:
 
 };

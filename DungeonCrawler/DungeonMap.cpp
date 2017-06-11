@@ -11,6 +11,7 @@
 #include "Glass.h"
 #include <math.h>
 #include <memory>
+#include <map>
 
 DungeonMap::DungeonMap(const unsigned int height, const unsigned int width,
         const vector<string>& data) {
@@ -116,7 +117,7 @@ Position DungeonMap::findTile(Tile* t) {
     throw out_of_range("Tile außerhalb des Spielfelds");
 }
 
-Tile* DungeonMap::findTile(Position pos) {
+Tile* DungeonMap::findTile(const Position pos) {
     if (pos.height >= m_maxHeight || pos.width >= m_maxWidth)
         throw out_of_range("Gesuchtes Tile außerhalb des Spielfelds");
     return m_map[pos.height][pos.width];
@@ -191,16 +192,7 @@ ostream& operator<<(ostream& outputstream, const DungeonMap& map) {
     return outputstream;
 }
 
-istream& operator>>(istream& inputstream, Position& pos) {
-    char tmp;
-    inputstream >> pos.height >> tmp >> pos.width;
-    return inputstream;
-}
 
-ostream& operator<<(ostream& outputstream,const Position& pos) {
-    outputstream << pos.height << "/" << pos.width;
-    return outputstream;
-}
 
 void DungeonMap::saveItems(ostream& outputstream){
     for(int i = 0; i < m_maxHeight; i++){
@@ -216,9 +208,12 @@ void DungeonMap::saveItems(ostream& outputstream){
 const vector<Position> DungeonMap::getPathTo(const Position from, const Position to){
     vector<Position> path;
     Position pos;
+    map<Position, int> distanceToPosition;
+    
     
     if(from == to)
         return path;
+    
     
     
     
@@ -232,3 +227,4 @@ vector<Position>& DungeonMap::pathHelper(const Position from, const Position to,
     
     return path;
 }
+
