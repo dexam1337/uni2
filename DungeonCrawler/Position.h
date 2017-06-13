@@ -32,6 +32,7 @@ struct Position {
     friend ostream& operator<<(ostream& outputstream, const Position& pos);
     bool operator<(const Position& rechts);
     inline bool operator>(const Position& rechts);
+    Position operator-(const Position& rechts);
 };
 
 

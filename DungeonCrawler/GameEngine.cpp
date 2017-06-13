@@ -181,7 +181,7 @@ void GameEngine::placeCharacter(istringstream& stream) {
     else if (target == "StationaryController")
         controller = new StationaryController(nullptr);
     else if (target == "AttackController")
-        controller = new AttackController(nullptr);
+        controller = new AttackController(nullptr, m_map);
     characters.push_back(new Character(name, symbol, strength, stamina, controller)); //Characterpointer von auf Heap abgelegten Character speichern
     m_map->place(pos, characters.back()); //Charakter in der Spielwelt platzieren
 }

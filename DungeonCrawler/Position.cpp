@@ -53,6 +53,10 @@ inline bool Position::operator>(const Position& rechts) {
     return (*this < rechts);
 }
 
+Position Position::operator -(const Position& rechts){
+    return Position((this->height-rechts.height), (this->width-rechts.width));
+}
+
 Kante::Kante(Position pos1, Position pos2) {
     if (pos1 > pos2) {
         m_pos1 = pos2;
@@ -73,6 +77,11 @@ Kante::Kante(Position pos1, Position pos2) {
 }
 */
 bool operator<(const Kante& links,const Kante& rechts) {
+    if(links.m_pos1.height < rechts.m_pos1.height)
+        return true;
+    if(links.m_pos1.height == rechts.m_pos1.height && links.m_pos2.width < rechts.m_pos2.width)
+        return true;
+    else
         return false;
 
 }

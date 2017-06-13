@@ -11,9 +11,13 @@
  * Created on 8. Juni 2017, 13:25
  */
 
-#include "AttackController.h"
+#include <memory>
 
-AttackController::AttackController(Character* character) : Controller(character){
+#include "AttackController.h"
+#include "DungeonMap.h"
+
+AttackController::AttackController(Character* character, DungeonMap* map) : Controller(character){
+    m_map = map;
 }
 
 //AttackController::AttackController(const AttackController& orig) {
@@ -27,5 +31,18 @@ std::string AttackController::getControllerName(){
 }
 
 int AttackController::move(){
+    Character* foundCharacter = seesCharacter();
+    vector<Position> newPath = m_map->getPathTo(m_map->findCharacter(dynamic_cast<Character*>(this)), m_map->findCharacter(foundCharacter));
+    if(newPath.size()!=0)
+        m_lastPath = newPath;
     
+    
+    
+    if(m_lastPath.size() == 0)
+        return 5;
+    
+}
+
+Character* AttackController::seesCharacter(){
+    return nullptr;
 }

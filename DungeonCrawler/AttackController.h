@@ -15,17 +15,20 @@
 #define ATTACKCONTROLLER_H
 
 #include "Controller.h"
+#include "DungeonMap.h"
 
 class AttackController : public Controller{
 public:
-    AttackController(Character* character);
+    AttackController(Character* character, DungeonMap* map);
     virtual ~AttackController();
     int move() override;
     std::string getControllerName() override;
     
 private:
+    Character* seesCharacter();
     AttackController(const AttackController& orig);
-
+    DungeonMap* m_map;
+    vector<Position> m_lastPath;
 };
 
 #endif /* ATTACKCONTROLLER_H */
