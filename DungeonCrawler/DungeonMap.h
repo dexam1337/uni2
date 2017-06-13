@@ -44,7 +44,7 @@ public:
     void saveItems(ostream& outputstream);
     const vector<Position> getPathTo(const Position from, const Position to);
     vector<Position>& pathHelper(const Position from, const Position to, vector<Position>& path);
-    set<Position> generateGraph();
+    set<Kante>* generateGraph();
 };
 
 #endif /* DUNGEONMAP_H_ */

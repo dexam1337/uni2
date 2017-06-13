@@ -39,9 +39,12 @@ struct Position {
 struct Kante{
     
     Position m_pos1, m_pos2;
+    //Kante();
     Kante(Position pos1, Position pos2);
     
-    bool operator<(const Kante& rechts);
+    //friend bool operator==(const Kante& lhs,const Kante& rhs) {return (lhs.m_pos1 == rhs.m_pos1 && lhs.m_pos2 == rhs.m_pos2);}; //funktioniert nicht ohne friend????
+    //bool operator!=(const Kante& rhs) {return !((*this) == rhs);}; //hier schon?? warum?
+    friend bool operator<(const Kante& links, const Kante& rechts);
     inline bool operator>(const Kante& rechts);
     
 };

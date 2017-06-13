@@ -207,6 +207,11 @@ void DungeonMap::saveItems(ostream& outputstream){
 
 const vector<Position> DungeonMap::getPathTo(const Position from, const Position to){
     
+    set<Kante>* graph = generateGraph();
+    
+    
+    
+    delete graph;
 }
 
 vector<Position>& DungeonMap::pathHelper(const Position from, const Position to, vector<Position>& path){
@@ -217,8 +222,8 @@ vector<Position>& DungeonMap::pathHelper(const Position from, const Position to,
     return path;
 }
 
-set<Position> DungeonMap::generateGraph(){
-    set<Kante> graph;
+set<Kante>* DungeonMap::generateGraph(){
+    set<Kante>* graph = new set<Kante>;
     Position pos(0,0);
     for(pos.height; pos.height < m_maxHeight; pos.height++){
         for(pos.width; pos.width < m_maxWidth; pos.width++){
@@ -227,14 +232,14 @@ set<Position> DungeonMap::generateGraph(){
                     for(int j = 0; j < 3; j++){
                         if(findTile(Position(pos.height+i,pos.width+j))->canBeEntered() && findTile(Position(pos.height+i,pos.width+j)) != findTile(pos))
                             
-                            if(Kante(pos, Position(pos.height+i,pos.width+j)) < Kante(pos, Position(pos.height+i,pos.width+j)))
-                                ;
-                            //graph.insert(Kante(pos, Position(pos.height+i,pos.width+j)));
+                            //if(Kante(pos, Position(pos.height+i,pos.width+j)) < Kante(pos, Position(pos.height+i,pos.width+j)))
+                              //  ;
+                            graph->insert(Kante(pos, (Position(pos.height+i,pos.width+j))));
                             
                     }
         }
     }
     
     
-    
+    return graph;
 }
