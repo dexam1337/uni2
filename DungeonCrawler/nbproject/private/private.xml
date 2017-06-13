@@ -6,6 +6,46 @@
     </data>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/Tile.cpp</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/Item.h</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/Passive.h</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/DungeonMap.cpp</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/StationaryController.h</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/Switch.h</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/Lever.h</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/Active.h</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/GameEngine.cpp</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/ConsoleController.h</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/Position.cpp</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/Switch.cpp</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/Trap.cpp</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/GameEngine.h</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/Wall.cpp</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/Floor.h</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/ConsoleController.cpp</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/Lever.cpp</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/DungeonMap.h</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/Controller.h</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/StationaryController.cpp</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/Controller.cpp</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/Passive.cpp</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/Glass.h</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/Door.h</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/Door.cpp</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/Wall.h</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/Character.cpp</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/AttackController.cpp</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/Tile.h</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/Character.h</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/Glass.cpp</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/Floor.cpp</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/Item.cpp</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/Position.h</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/Active.cpp</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/Trap.h</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/main.cpp</file>
+            <file>file:/home/sebastian/workspace/DungeonCrawler/AttackController.h</file>
+        </group>
     </open-files>
 </project-private>

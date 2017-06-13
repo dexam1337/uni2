@@ -31,7 +31,7 @@ struct Position {
     friend istream& operator>>(istream& inputstream, Position& pos);
     friend ostream& operator<<(ostream& outputstream, const Position& pos);
     bool operator<(const Position& rechts);
-    inline bool operator> (const Position& rechts);
+    inline bool operator>(const Position& rechts);
 };
 
 
@@ -41,7 +41,7 @@ struct Kante{
     Position m_pos1, m_pos2;
     Kante(Position pos1, Position pos2);
     
-    inline bool operator<(const Kante& rechts);
+    bool operator<(const Kante& rechts);
     inline bool operator>(const Kante& rechts);
     
 };

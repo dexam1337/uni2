@@ -64,7 +64,7 @@ Kante::Kante(Position pos1, Position pos2) {
 
 }
 
-inline bool Kante::operator<(const Kante& rechts) {
+bool Kante::operator<(const Kante& rechts) {
     if(this->m_pos1 < rechts.m_pos1)
         return true;
     else

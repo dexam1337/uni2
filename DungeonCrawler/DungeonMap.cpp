@@ -226,7 +226,11 @@ set<Position> DungeonMap::generateGraph(){
                 for(int i = 0; i < 3; i++)
                     for(int j = 0; j < 3; j++){
                         if(findTile(Position(pos.height+i,pos.width+j))->canBeEntered() && findTile(Position(pos.height+i,pos.width+j)) != findTile(pos))
-                            graph.insert(Kante(pos, Position(pos.height+i,pos.width+j)));
+                            
+                            if(Kante(pos, Position(pos.height+i,pos.width+j)) < Kante(pos, Position(pos.height+i,pos.width+j)))
+                                ;
+                            //graph.insert(Kante(pos, Position(pos.height+i,pos.width+j)));
+                            
                     }
         }
     }
