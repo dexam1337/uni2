@@ -19,6 +19,7 @@
 #include "Trap.h"
 #include <stdexcept>
 #include <set>
+#include <map>
 #include "Position.h"
 
 
