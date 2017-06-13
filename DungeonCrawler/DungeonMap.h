@@ -18,6 +18,7 @@
 #include "Lever.h"
 #include "Trap.h"
 #include <stdexcept>
+#include <set>
 #include "Position.h"
 
 
@@ -43,6 +44,7 @@ public:
     void saveItems(ostream& outputstream);
     const vector<Position> getPathTo(const Position from, const Position to);
     vector<Position>& pathHelper(const Position from, const Position to, vector<Position>& path);
+    set<Position> generateGraph();
 };
 
 #endif /* DUNGEONMAP_H_ */

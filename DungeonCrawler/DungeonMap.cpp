@@ -206,18 +206,7 @@ void DungeonMap::saveItems(ostream& outputstream){
 }
 
 const vector<Position> DungeonMap::getPathTo(const Position from, const Position to){
-    vector<Position> path;
-    Position pos;
-    map<Position, int> distanceToPosition;
     
-    
-    if(from == to)
-        return path;
-    
-    
-    
-    
-    return path;
 }
 
 vector<Position>& DungeonMap::pathHelper(const Position from, const Position to, vector<Position>& path){
@@ -228,3 +217,20 @@ vector<Position>& DungeonMap::pathHelper(const Position from, const Position to,
     return path;
 }
 
+set<Position> DungeonMap::generateGraph(){
+    set<Kante> graph;
+    Position pos(0,0);
+    for(pos.height; pos.height < m_maxHeight; pos.height++){
+        for(pos.width; pos.width < m_maxWidth; pos.width++){
+            if(findTile(pos)->canBeEntered() == true)
+                for(int i = 0; i < 3; i++)
+                    for(int j = 0; j < 3; j++){
+                        if(findTile(Position(pos.height+i,pos.width+j))->canBeEntered() && findTile(Position(pos.height+i,pos.width+j)) != findTile(pos))
+                            graph.insert(Kante(pos, Position(pos.height+i,pos.width+j)));
+                    }
+        }
+    }
+    
+    
+    
+}

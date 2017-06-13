@@ -41,8 +41,8 @@ struct Kante{
     Position m_pos1, m_pos2;
     Kante(Position pos1, Position pos2);
     
-    bool operator<(const Kante& rechts);
-    bool operator>(const Kante& rechts);
+    inline bool operator<(const Kante& rechts);
+    inline bool operator>(const Kante& rechts);
     
 };
 #endif /* POSITION_H */
