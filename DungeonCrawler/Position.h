@@ -33,6 +33,7 @@ struct Position {
     bool operator<(const Position& rechts);
     inline bool operator>(const Position& rechts);
     Position operator-(const Position& rechts);
+    Position operator+(const Position& rechts);
 };
 
 

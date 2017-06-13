@@ -53,8 +53,12 @@ inline bool Position::operator>(const Position& rechts) {
     return (*this < rechts);
 }
 
-Position Position::operator -(const Position& rechts){
+Position Position::operator-(const Position& rechts){
     return Position((this->height-rechts.height), (this->width-rechts.width));
+}
+
+Position Position::operator+(const Position& rechts){
+    return Position((this->height+rechts.height), (this->width+rechts.width));
 }
 
 Kante::Kante(Position pos1, Position pos2) {

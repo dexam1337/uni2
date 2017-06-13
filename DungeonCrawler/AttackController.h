@@ -25,7 +25,7 @@ public:
     std::string getControllerName() override;
     
 private:
-    Character* seesCharacter();
+    Position seesCharacter();
     AttackController(const AttackController& orig);
     DungeonMap* m_map;
     vector<Position> m_lastPath;

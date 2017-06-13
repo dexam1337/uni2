@@ -206,21 +206,17 @@ void DungeonMap::saveItems(ostream& outputstream){
 }
 
 const vector<Position> DungeonMap::getPathTo(const Position from, const Position to){
-    
+    vector<vector<Position>> pfade;
+    vector<Position> pfad;
     set<Kante>* graph = generateGraph();
     
     
     
+    
     delete graph;
+    return pfad;
 }
 
-vector<Position>& DungeonMap::pathHelper(const Position from, const Position to, vector<Position>& path){
-    
-    
-    
-    
-    return path;
-}
 
 set<Kante>* DungeonMap::generateGraph(){
     set<Kante>* graph = new set<Kante>;

@@ -43,7 +43,6 @@ public:
     friend ostream& operator<<(ostream& outputstream, const DungeonMap& map);
     void saveItems(ostream& outputstream);
     const vector<Position> getPathTo(const Position from, const Position to);
-    vector<Position>& pathHelper(const Position from, const Position to, vector<Position>& path);
     set<Kante>* generateGraph();
 };
 

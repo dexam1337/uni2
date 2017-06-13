@@ -16,7 +16,7 @@
 #include "AttackController.h"
 #include "DungeonMap.h"
 
-AttackController::AttackController(Character* character, DungeonMap* map) : Controller(character){
+AttackController::AttackController(Character* character, DungeonMap* map) : Controller(character) {
     m_map = map;
 }
 
@@ -26,23 +26,47 @@ AttackController::AttackController(Character* character, DungeonMap* map) : Cont
 AttackController::~AttackController() {
 }
 
-std::string AttackController::getControllerName(){
+std::string AttackController::getControllerName() {
     return "AttackController";
 }
 
-int AttackController::move(){
-    Character* foundCharacter = seesCharacter();
-    vector<Position> newPath = m_map->getPathTo(m_map->findCharacter(dynamic_cast<Character*>(this)), m_map->findCharacter(foundCharacter));
-    if(newPath.size()!=0)
+int AttackController::move() {
+    Position foundCharacter = seesCharacter();
+    vector<Position> newPath = m_map->getPathTo(m_map->findCharacter(dynamic_cast<Character*> (this)), foundCharacter);
+    if (newPath.size() != 0)
         m_lastPath = newPath;
-    
-    
-    
-    if(m_lastPath.size() == 0)
+
+    if (m_lastPath.size() == 0)
         return 5;
-    
+
+    Position dp = m_map->findCharacter(dynamic_cast<Character*> (this)) - m_lastPath.at(0);
+
+    if (dp.height == 1 && dp.width == -1)
+        return 1;
+    else if (dp.height == 0 && dp.width == -1)
+        return 2;
+    else if (dp.height == -1 && dp.width == -1)
+        return 3;
+    else if (dp.height == 1 && dp.width == 0)
+        return 4;
+    else if (dp.height == 0 && dp.width == 0)
+        return 5;
+    else if (dp.height == -1 && dp.width == 0)
+        return 6;
+    else if (dp.height == 1 && dp.width == 1)
+        return 7;
+    else if (dp.height == 0 && dp.width == 1)
+        return 8;
+    else if (dp.height == -1 && dp.width == 1)
+        return 9;
+
+    return 0;
+
+
+
+
 }
 
-Character* AttackController::seesCharacter(){
-    return nullptr;
+Position AttackController::seesCharacter() {
+    return Position(0, 0);
 }
