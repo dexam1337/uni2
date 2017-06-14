@@ -206,85 +206,65 @@ void DungeonMap::saveItems(ostream& outputstream) {
 
 const vector<Position> DungeonMap::getPathTo(const Position from, const Position to) {
     vector<Position> pfad;
-    set<Kante> graph = generateGraph();
     set<Position> Q;
     map<Position, Position> prev;
     map<Position, int> dist;
 
 
     Position pos(0, 0);
-    for (pos; pos.height < m_maxHeight; pos.height++)
-    {
+    for (pos; pos.height < m_maxHeight; pos.height++) {
         for (pos; pos.width < m_maxWidth; pos.width++) {
             if (findTile(pos)->canBeEntered()) {
                 Q.insert(pos);
                 dist[pos] = numeric_limits<int>::max();
                 prev[pos] = Position(-1, -1);
+            
             }
         }
-        pos.width=0;
+        pos.width = 0;
     }
     dist[from] = 0;
     Position u;
     //cout << endl << Q.size() << endl;
-    while(Q.size() != 0){
-    auto itQ = Q.begin();
-    u = *itQ;
-    while(itQ != Q.end()){
-        
-        if(dist[*itQ] < dist[u] )
-            u = *itQ;
-        itQ++;
-    }
-    if(dist[u] == numeric_limits<int>::max())
-        return pfad;
-    
-    Q.erase(u);
-    
-    auto itGraph = graph.begin();
-    while(itGraph != graph.end()){
-        
-        if(u == (*itGraph).m_pos1){
-            prev[(*itGraph).m_pos2] = u;
-            dist[(*itGraph).m_pos2] = dist[u] + 1;
+    while (Q.size() != 0) {
+
+        //aktuelle Position mit der aktuell gerinstens distanz suchen
+        auto itQ = Q.begin();
+        u = *itQ;
+        while (itQ != Q.end()) {
+
+            if (dist[*itQ] < dist[u])
+                u = *itQ;
+            itQ++;
         }
+        //    if(dist[u] == numeric_limits<int>::max())
+        //        return pfad;
+
+        Q.erase(u); // Knoten u aus dem set entfernen
         
-        itGraph++;
-    }
-    
-    
-    }
-    
-    pfad.push_back(to);
-    Position tempPosition = to;
-    while(tempPosition != Position(-1,-1)){
-        tempPosition = prev[tempPosition];
-        pfad.push_back(tempPosition);
-    }
+        
+        //entfernung aller angrenzenden felder zu u updaten
+        for (int i = -1; i < 2; i++) {
+            for (int j = -1; j < 2; j++) {
+                if (findTile(Position(u.height+i, u.width+j))->canBeEntered() == true && dist[u] + 1 < dist[Position(u.height + i, u.width + j)]) {
+                    dist[Position(u.height + i, u.width + j)] = dist[u] + 1;
+                    prev[Position(u.height + i, u.width + j)] = u;
+                }
+            }
 
 
+        }
+    }
+        pfad.push_back(to);
+        Position tmp = to;
+        while (tmp != Position(-1, -1)) {
+            pfad.push_back(prev[tmp]);
+            tmp = prev[tmp];
+            if(tmp == prev[tmp])
+                return vector<Position>();
+        }
+
+    
+    
     return pfad;
-}
-
-set<Kante> DungeonMap::generateGraph() {
-    set<Kante> graph;
-    Position pos(0, 0);
-    for (pos.height; pos.height < m_maxHeight; pos.height++) {
-        for (pos.width; pos.width < m_maxWidth; pos.width++) {
-            if (findTile(pos)->canBeEntered() == true)
-                for (int i = -1; i < 2; i++)
-                    for (int j = -1; j < 2; j++) {
-                        if (findTile(Position(pos.height + i, pos.width + j))->canBeEntered() && findTile(Position(pos.height + i, pos.width + j)) != findTile(pos))
-
-                            //if(Kante(pos, Position(pos.height+i,pos.width+j)) < Kante(pos, Position(pos.height+i,pos.width+j)))
-                            //  ;
-                            graph.insert(Kante(pos, (Position(pos.height + i, pos.width + j))));
-
-                    }
-        }
-        pos.width = 0;
-    }
-
-
-    return graph;
 }

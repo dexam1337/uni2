@@ -7,13 +7,13 @@ CND_BASEDIR=`pwd`
 CND_BUILDDIR=build
 CND_DISTDIR=dist
 # Debug configuration
-CND_PLATFORM_Debug=clang-Linux
-CND_ARTIFACT_DIR_Debug=dist/Debug/clang-Linux
+CND_PLATFORM_Debug=CLang-Linux
+CND_ARTIFACT_DIR_Debug=dist/Debug/CLang-Linux
 CND_ARTIFACT_NAME_Debug=dungeoncrawler
-CND_ARTIFACT_PATH_Debug=dist/Debug/clang-Linux/dungeoncrawler
-CND_PACKAGE_DIR_Debug=dist/Debug/clang-Linux/package
+CND_ARTIFACT_PATH_Debug=dist/Debug/CLang-Linux/dungeoncrawler
+CND_PACKAGE_DIR_Debug=dist/Debug/CLang-Linux/package
 CND_PACKAGE_NAME_Debug=dungeoncrawler.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/clang-Linux/package/dungeoncrawler.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/CLang-Linux/package/dungeoncrawler.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux

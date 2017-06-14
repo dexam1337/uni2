@@ -31,8 +31,9 @@ std::string AttackController::getControllerName() {
 
 int AttackController::move() {
     Position foundCharacter = seesCharacter();
-    vector<Position> newPath = m_map->getPathTo(m_map->findCharacter(dynamic_cast<Character*> (this)), Position(5, 5));
-    std::reverse(newPath.begin(), newPath.end());
+    vector<Position> newPath = m_map->getPathTo(m_map->findCharacter(dynamic_cast<Character*> (this)), Position(18, 1));
+
+          std::reverse(newPath.begin(), newPath.end());
     if (newPath.size() != 0)
         m_lastPath = newPath;
 
@@ -40,6 +41,7 @@ int AttackController::move() {
         return 5;
 
     Position dp = m_map->findCharacter(dynamic_cast<Character*> (this)) - m_lastPath.at(0);
+    m_lastPath.erase(m_lastPath.begin());
 
     if (dp.height == 1 && dp.width == -1)
         return 1;
