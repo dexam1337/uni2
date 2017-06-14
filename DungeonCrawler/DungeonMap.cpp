@@ -8,11 +8,8 @@
 //#include <memory>
 
 #include "DungeonMap.h"
-#include "Glass.h"
-#include <math.h>
-#include <memory>
-#include <map>
-#include <stdint.h>
+
+
 
 DungeonMap::DungeonMap(const unsigned int height, const unsigned int width,
         const vector<string>& data) {
@@ -204,10 +201,10 @@ void DungeonMap::saveItems(ostream& outputstream) {
 }
 
 const vector<Position> DungeonMap::getPathTo(const Position from, const Position to) {
-    //Zeitaufwand bei konzentrierter arbeitsweise ohne störungen, und strickter folge des pseudocodes auf wikipedia beginn: 21:15 ende 22 Uhr
+    //Zeitaufwand bei konzentrierter arbeitsweise ohne störungen, und strickter folge des pseudocodes auf wikipedia beginn: 21:15 ende 22 Uhr mit debuggen
     //https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm#Pseudocode
     vector<Position> pfad;
-    set<Position> Q;
+    set<Position> Q, Q2;
     map<Position, Position> prev;
     map<Position, int> dist;
 
@@ -217,7 +214,7 @@ const vector<Position> DungeonMap::getPathTo(const Position from, const Position
     Position pos(0, 0);
     for (pos; pos.height < m_maxHeight; pos.height++) {
         for (pos; pos.width < m_maxWidth; pos.width++) {
-            if (findTile(pos)->canBeEntered()) { //nur begebahre tiles
+            if (findTile(pos)->canBeEntered()) { //nur begehbare tiles
                 Q.insert(pos); //zeile 9
                 dist[pos] = numeric_limits<int>::max(); // zeile 6
                 prev[pos] = Position(-1, -1); //zeile 7
@@ -226,14 +223,14 @@ const vector<Position> DungeonMap::getPathTo(const Position from, const Position
         }
         pos.width = 0;
     }
+    Q2 = Q;
 
     //pseudocode zeile 10
     dist[from] = 0;
-    Position u = from;
 
     //loop fuer alle elemente in Q pseudocode zeile 12-21
     while (Q.begin() != Q.end()) {
-
+        Position u = (*Q.begin());
         //zeile 13
         for (auto itQ = Q.begin(); itQ != Q.end(); itQ++) { //fuer alle noch vorhandenen Knoten
             if (dist[*itQ] < dist[u]) { //finde knoten mit kuerzester aktuell bekannter distanz zu from
@@ -242,16 +239,16 @@ const vector<Position> DungeonMap::getPathTo(const Position from, const Position
         }
 
         if((Q.find(u) == Q.end()))
-            cerr << "u nicht gefunden" << endl;
+            throw std::invalid_argument("u nicht in knoten vorhanden");
         Q.erase(u); //entferne element mit kleinster distanz //zeile 14
 
         //fuer alle nachbarn von u //zeile 16-20
         for (int i = -1; i < 2; i++) {
             for (int j = -1; j < 2; j++) {
                 Position newPos = Position(u.height + i, u.width + j); //neighbor v of u  where v is still in Q.
-                auto newItPos = Q.find(newPos); //ueberpruefe ob die aktuelle position (da man ja alle checkt auch wirklich noch in Q vorhanden ist
+                auto newItPos = Q2.find(newPos); //ueberpruefe ob die aktuelle position (da man ja alle checkt auch wirklich noch in Q vorhanden ist
                 int newDist = dist[u] + 1; //zeile 17
-                if (newDist < dist[newPos] && newItPos != Q.end()) {
+                if (newDist < dist[newPos] && newItPos != Q2.end()) {
                     dist[newPos] = newDist; //zeile 19;
                     prev[newPos] = u; //zeile 20
                 }

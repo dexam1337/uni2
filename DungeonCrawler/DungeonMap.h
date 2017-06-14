@@ -10,6 +10,7 @@
 
 #include <vector>
 #include <string>
+#include "Glass.h"
 //#include "Tile.h"
 #include "Wall.h"
 #include "Floor.h"
@@ -23,6 +24,10 @@
 #include "Position.h"
 #include <limits>
 #include <algorithm>
+#include <math.h>
+#include <memory>
+#include <map>
+#include <stdint.h>
 
 
 
