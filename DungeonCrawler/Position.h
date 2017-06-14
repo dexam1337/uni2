@@ -30,8 +30,8 @@ struct Position {
     bool operator!=(const Position& rhs) {return !((*this) == rhs);}; //hier schon?? warum?
     friend istream& operator>>(istream& inputstream, Position& pos);
     friend ostream& operator<<(ostream& outputstream, const Position& pos);
-    bool operator<(const Position& rechts);
-    inline bool operator>(const Position& rechts);
+    bool operator<(const Position& rechts)const ;
+    inline bool operator>(const Position& rechts) const;
     Position operator-(const Position& rechts);
     Position operator+(const Position& rechts);
 };
@@ -41,13 +41,16 @@ struct Position {
 struct Kante{
     
     Position m_pos1, m_pos2;
+    int m_dist;
+    bool m_visited;
     //Kante();
     Kante(Position pos1, Position pos2);
     
     //friend bool operator==(const Kante& lhs,const Kante& rhs) {return (lhs.m_pos1 == rhs.m_pos1 && lhs.m_pos2 == rhs.m_pos2);}; //funktioniert nicht ohne friend????
     //bool operator!=(const Kante& rhs) {return !((*this) == rhs);}; //hier schon?? warum?
-    friend bool operator<(const Kante& links, const Kante& rechts);
-    inline bool operator>(const Kante& rechts);
+    bool operator<( const Kante& rechts) const;
+    inline bool operator>(const Kante& rechts) const ;
+    
     
 };
 #endif /* POSITION_H */

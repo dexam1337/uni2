@@ -21,6 +21,7 @@
 #include <set>
 #include <map>
 #include "Position.h"
+#include <limits>
 
 
 
@@ -44,7 +45,7 @@ public:
     friend ostream& operator<<(ostream& outputstream, const DungeonMap& map);
     void saveItems(ostream& outputstream);
     const vector<Position> getPathTo(const Position from, const Position to);
-    set<Kante>* generateGraph();
+    set<Kante> generateGraph();
 };
 
 #endif /* DUNGEONMAP_H_ */

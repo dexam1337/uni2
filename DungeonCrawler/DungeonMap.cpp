@@ -12,6 +12,7 @@
 #include <math.h>
 #include <memory>
 #include <map>
+#include <stdint.h>
 
 DungeonMap::DungeonMap(const unsigned int height, const unsigned int width,
         const vector<string>& data) {
@@ -192,51 +193,98 @@ ostream& operator<<(ostream& outputstream, const DungeonMap& map) {
     return outputstream;
 }
 
-
-
-void DungeonMap::saveItems(ostream& outputstream){
-    for(int i = 0; i < m_maxHeight; i++){
-        for ( int j = 0; j < m_maxWidth; j++){
-            if(dynamic_cast<Floor*>(m_map[i][j]) != nullptr){
-                if(dynamic_cast<Floor*>(m_map[i][j])->getItem() != nullptr)
-                outputstream << *(dynamic_cast<Floor*>(m_map[i][j])->getItem()) << " " << i << "/" << j << endl;
+void DungeonMap::saveItems(ostream& outputstream) {
+    for (int i = 0; i < m_maxHeight; i++) {
+        for (int j = 0; j < m_maxWidth; j++) {
+            if (dynamic_cast<Floor*> (m_map[i][j]) != nullptr) {
+                if (dynamic_cast<Floor*> (m_map[i][j])->getItem() != nullptr)
+                    outputstream << *(dynamic_cast<Floor*> (m_map[i][j])->getItem()) << " " << i << "/" << j << endl;
             }
         }
     }
 }
 
-const vector<Position> DungeonMap::getPathTo(const Position from, const Position to){
+const vector<Position> DungeonMap::getPathTo(const Position from, const Position to) {
     vector<Position> pfad;
-    set<Kante>* graph = generateGraph();
-    
-    map<Position, vector<Kante>> map;
-    graph.
-    
-    
-    delete graph;
-    return pfad;
-}
+    set<Kante> graph = generateGraph();
+    set<Position> Q;
+    map<Position, Position> prev;
+    map<Position, int> dist;
 
 
-
-set<Kante>* DungeonMap::generateGraph(){
-    set<Kante>* graph = new set<Kante>;
-    Position pos(0,0);
-    for(pos.height; pos.height < m_maxHeight; pos.height++){
-        for(pos.width; pos.width < m_maxWidth; pos.width++){
-            if(findTile(pos)->canBeEntered() == true)
-                for(int i = 0; i < 3; i++)
-                    for(int j = 0; j < 3; j++){
-                        if(findTile(Position(pos.height+i,pos.width+j))->canBeEntered() && findTile(Position(pos.height+i,pos.width+j)) != findTile(pos))
-                            
-                            //if(Kante(pos, Position(pos.height+i,pos.width+j)) < Kante(pos, Position(pos.height+i,pos.width+j)))
-                              //  ;
-                            graph->insert(Kante(pos, (Position(pos.height+i,pos.width+j))));
-                            
-                    }
+    Position pos(0, 0);
+    for (pos; pos.height < m_maxHeight; pos.height++)
+    {
+        for (pos; pos.width < m_maxWidth; pos.width++) {
+            if (findTile(pos)->canBeEntered()) {
+                Q.insert(pos);
+                dist[pos] = numeric_limits<int>::max();
+                prev[pos] = Position(-1, -1);
+            }
         }
+        pos.width=0;
+    }
+    dist[from] = 0;
+    Position u;
+    //cout << endl << Q.size() << endl;
+    while(Q.size() != 0){
+    auto itQ = Q.begin();
+    u = *itQ;
+    while(itQ != Q.end()){
+        
+        if(dist[*itQ] < dist[u] )
+            u = *itQ;
+        itQ++;
+    }
+    if(dist[u] == numeric_limits<int>::max())
+        return pfad;
+    
+    Q.erase(u);
+    
+    auto itGraph = graph.begin();
+    while(itGraph != graph.end()){
+        
+        if(u == (*itGraph).m_pos1){
+            prev[(*itGraph).m_pos2] = u;
+            dist[(*itGraph).m_pos2] = dist[u] + 1;
+        }
+        
+        itGraph++;
     }
     
     
+    }
+    
+    pfad.push_back(to);
+    Position tempPosition = to;
+    while(tempPosition != Position(-1,-1)){
+        tempPosition = prev[tempPosition];
+        pfad.push_back(tempPosition);
+    }
+
+
+    return pfad;
+}
+
+set<Kante> DungeonMap::generateGraph() {
+    set<Kante> graph;
+    Position pos(0, 0);
+    for (pos.height; pos.height < m_maxHeight; pos.height++) {
+        for (pos.width; pos.width < m_maxWidth; pos.width++) {
+            if (findTile(pos)->canBeEntered() == true)
+                for (int i = -1; i < 2; i++)
+                    for (int j = -1; j < 2; j++) {
+                        if (findTile(Position(pos.height + i, pos.width + j))->canBeEntered() && findTile(Position(pos.height + i, pos.width + j)) != findTile(pos))
+
+                            //if(Kante(pos, Position(pos.height+i,pos.width+j)) < Kante(pos, Position(pos.height+i,pos.width+j)))
+                            //  ;
+                            graph.insert(Kante(pos, (Position(pos.height + i, pos.width + j))));
+
+                    }
+        }
+        pos.width = 0;
+    }
+
+
     return graph;
 }

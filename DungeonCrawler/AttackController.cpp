@@ -11,7 +11,6 @@
  * Created on 8. Juni 2017, 13:25
  */
 
-#include <memory>
 
 #include "AttackController.h"
 #include "DungeonMap.h"
@@ -32,7 +31,8 @@ std::string AttackController::getControllerName() {
 
 int AttackController::move() {
     Position foundCharacter = seesCharacter();
-    vector<Position> newPath = m_map->getPathTo(m_map->findCharacter(dynamic_cast<Character*> (this)), foundCharacter);
+    vector<Position> newPath = m_map->getPathTo(m_map->findCharacter(dynamic_cast<Character*> (this)), Position(5, 5));
+    std::reverse(newPath.begin(), newPath.end());
     if (newPath.size() != 0)
         m_lastPath = newPath;
 

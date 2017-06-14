@@ -40,7 +40,7 @@ ostream& operator<<(ostream& outputstream, const Position& pos) {
     return outputstream;
 }
 
-bool Position::operator<(const Position& rechts) {
+bool Position::operator<(const Position& rechts) const{
     if (this->height < rechts.height)
         return true;
     if (this->width < rechts.width && this->height == rechts.height)
@@ -49,7 +49,7 @@ bool Position::operator<(const Position& rechts) {
         return false;
 }
 
-inline bool Position::operator>(const Position& rechts) {
+inline bool Position::operator>(const Position& rechts) const{
     return (*this < rechts);
 }
 
@@ -69,6 +69,8 @@ Kante::Kante(Position pos1, Position pos2) {
         m_pos1 = pos1;
         m_pos2 = pos2;
     }
+    m_dist = 2147483647;
+    m_visited = false;
 
 }
 
@@ -80,16 +82,16 @@ Kante::Kante(Position pos1, Position pos2) {
 
 }
 */
-bool operator<(const Kante& links,const Kante& rechts) {
-    if(links.m_pos1.height < rechts.m_pos1.height)
+bool Kante::operator<(const Kante& rechts) const {
+    if(this->m_pos1.height < rechts.m_pos1.height)
         return true;
-    if(links.m_pos1.height == rechts.m_pos1.height && links.m_pos2.width < rechts.m_pos2.width)
+    if(this->m_pos1.height == rechts.m_pos1.height && this->m_pos2.width < rechts.m_pos2.width)
         return true;
     else
         return false;
 
 }
 
-inline bool Kante::operator>(const Kante& rechts) {
+inline bool Kante::operator>(const Kante& rechts) const {
     return (*this < rechts);
 }
