@@ -128,9 +128,8 @@ Position DungeonMap::findCharacter(Character* c) {
     for (unsigned int i = 0; i < m_maxHeight; i++) {
         for (unsigned int j = 0; j < m_maxWidth; j++) {
             if (m_map[i][j]->getCharacter() == c) {
-                Position p;
-                p.height = i;
-                p.width = j;
+                Position p(i,j);
+
                 return p;
             }
         }
@@ -205,66 +204,75 @@ void DungeonMap::saveItems(ostream& outputstream) {
 }
 
 const vector<Position> DungeonMap::getPathTo(const Position from, const Position to) {
+    //Zeitaufwand bei konzentrierter arbeitsweise ohne störungen, und strickter folge des pseudocodes auf wikipedia beginn: 21:15 ende 22 Uhr
+    //https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm#Pseudocode
     vector<Position> pfad;
     set<Position> Q;
     map<Position, Position> prev;
     map<Position, int> dist;
 
 
+    //Pseuodocode zeile 3-8
+    //initialisiere das set bestehen aus allen begehbaren knoten
     Position pos(0, 0);
     for (pos; pos.height < m_maxHeight; pos.height++) {
         for (pos; pos.width < m_maxWidth; pos.width++) {
-            if (findTile(pos)->canBeEntered()) {
-                Q.insert(pos);
-                dist[pos] = numeric_limits<int>::max();
-                prev[pos] = Position(-1, -1);
-            
+            if (findTile(pos)->canBeEntered()) { //nur begebahre tiles
+                Q.insert(pos); //zeile 9
+                dist[pos] = numeric_limits<int>::max(); // zeile 6
+                prev[pos] = Position(-1, -1); //zeile 7
+
             }
         }
         pos.width = 0;
     }
+
+    //pseudocode zeile 10
     dist[from] = 0;
-    Position u;
-    //cout << endl << Q.size() << endl;
-    while (Q.size() != 0) {
+    Position u = from;
 
-        //aktuelle Position mit der aktuell gerinstens distanz suchen
-        auto itQ = Q.begin();
-        u = *itQ;
-        while (itQ != Q.end()) {
+    //loop fuer alle elemente in Q pseudocode zeile 12-21
+    while (Q.begin() != Q.end()) {
 
-            if (dist[*itQ] < dist[u])
-                u = *itQ;
-            itQ++;
+        //zeile 13
+        for (auto itQ = Q.begin(); itQ != Q.end(); itQ++) { //fuer alle noch vorhandenen Knoten
+            if (dist[*itQ] < dist[u]) { //finde knoten mit kuerzester aktuell bekannter distanz zu from
+                u = (*itQ); //speichere ihn
+            }
         }
-        //    if(dist[u] == numeric_limits<int>::max())
-        //        return pfad;
 
-        Q.erase(u); // Knoten u aus dem set entfernen
-        
-        
-        //entfernung aller angrenzenden felder zu u updaten
+        if((Q.find(u) == Q.end()))
+            cerr << "u nicht gefunden" << endl;
+        Q.erase(u); //entferne element mit kleinster distanz //zeile 14
+
+        //fuer alle nachbarn von u //zeile 16-20
         for (int i = -1; i < 2; i++) {
             for (int j = -1; j < 2; j++) {
-                if (findTile(Position(u.height+i, u.width+j))->canBeEntered() == true && dist[u] + 1 < dist[Position(u.height + i, u.width + j)]) {
-                    dist[Position(u.height + i, u.width + j)] = dist[u] + 1;
-                    prev[Position(u.height + i, u.width + j)] = u;
+                Position newPos = Position(u.height + i, u.width + j); //neighbor v of u  where v is still in Q.
+                auto newItPos = Q.find(newPos); //ueberpruefe ob die aktuelle position (da man ja alle checkt auch wirklich noch in Q vorhanden ist
+                int newDist = dist[u] + 1; //zeile 17
+                if (newDist < dist[newPos] && newItPos != Q.end()) {
+                    dist[newPos] = newDist; //zeile 19;
+                    prev[newPos] = u; //zeile 20
                 }
             }
-
-
         }
+
     }
-        pfad.push_back(to);
-        Position tmp = to;
-        while (tmp != Position(-1, -1)) {
-            pfad.push_back(prev[tmp]);
-            tmp = prev[tmp];
-            if(tmp == prev[tmp])
-                return vector<Position>();
-        }
 
+    //wenn es keinen pfad zum ziel gibt gebe leeren vektor zuereuck
+    if(dist[to] == numeric_limits<int>::max())
+        return pfad;
     
-    
+    Position currentPos = to;
+    //baue rueckgabevektor
+    while (currentPos != from){ //ueberpruefe ob letzes element gleich dem startpunkt ist
+        pfad.push_back(currentPos); //speichere letzte pos
+        currentPos = prev[currentPos]; //hole vorheriges element
+    }
+
+
+    reverse(pfad.begin(), pfad.end()); //vektor umdrehen damit reihenfolge stimmt.
+
     return pfad;
 }

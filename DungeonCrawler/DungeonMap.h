@@ -22,6 +22,7 @@
 #include <map>
 #include "Position.h"
 #include <limits>
+#include <algorithm>
 
 
 
