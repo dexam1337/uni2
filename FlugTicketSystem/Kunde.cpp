@@ -17,8 +17,8 @@
 Kunde::Kunde(string name, string tel, string iban, string bic, string username, string pwd) {
 }
 
-Kunde::Kunde(const Kunde& orig) {
-}
+//Kunde::Kunde(const Kunde& orig) {
+//}
 
 Kunde::~Kunde() {
     vector<Buchung*>::iterator it;
@@ -27,15 +27,27 @@ Kunde::~Kunde() {
     m_buchungen.clear();
 }
 
-bool Kunde::login(string username, string pwd) {
-    if (username == m_username && pwd == m_pwd)
+bool Kunde::login(string pwd) {
+    if (pwd == m_pwd){
+        cout << "Login erfolgreich" << endl;
         return true;
-    else
+    }
+    else{
+        cout <<"Falsches Password" << endl;
         return false;
+    }
 }
 
 bool Kunde::buche(Buchung* buchung){
     //Hier zahlungsmechanismus einfuegen
     m_buchungen.push_back(buchung);
     return true;
+}
+
+inline bool Kunde::operator>(const Kunde& rigth) const{
+    return (m_username > rigth.m_username);
+} 
+
+inline bool Kunde::operator<(const Kunde& rigth) const{
+    return (*this > rigth);
 }

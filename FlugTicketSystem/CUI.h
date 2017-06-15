@@ -15,14 +15,27 @@
 #define CUI_H
 
 #include "Flugplan.h"
+#include "Kunde.h"
+#include "Ticket.h"
+#include <map>
+#include <iostream>
 
 class CUI {
 public:
     CUI();
     CUI(const CUI& orig);
     virtual ~CUI();
-private:
+    bool login(string username, string pwd);
+    void erstelleBuchung(int flugnummer, int nTickets);
+    bool zeigeMenue();
+    void gefundeneFluegeAnzeigen();
     
+private:
+    Flugplan m_flugplan;
+    map<string, Kunde> m_kunden;
+    map<int, Ticket> m_tickets;
+    map<int, Buchung> m_buchungen;
+    const string MENU = "Menu:\n1.login";
 };
 
 #endif /* CUI_H */

@@ -14,9 +14,8 @@
 #include <cstdlib>
 #include <iostream>
 
-#include "Flug.h"
-#include "Flugplan.h"
-#include "Buchung.h"
+#include "CUI.h"
+
 using namespace std;
 
 /*
@@ -26,6 +25,10 @@ int main(int argc, char** argv) {
     
     if(argc != 1)
         cerr << "Y u throwin arguments at mey, yo dwag!" << endl;
+    
+    CUI cui();
+    while(cui.zeigeMenue())
+        ;
     
     return 0;
 }

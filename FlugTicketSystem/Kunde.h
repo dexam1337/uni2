@@ -24,10 +24,10 @@ using namespace std;
 class Kunde {
 public:
     Kunde(string name, string tel, string iban, string bic, string username, string pwd);
-    Kunde(const Kunde& orig);
+    //Kunde(const Kunde& orig);
     virtual ~Kunde();
 
-    bool login(string username, string pwd);
+    bool login(string pwd);
     string getName() {
         return m_name;
     };
@@ -37,7 +37,8 @@ public:
     string getIban(){return m_iban;};
     string getBic(){return m_bic;};
     bool buche(Buchung* buchung);
-
+    inline bool operator>(const Kunde& rigth) const; 
+    inline bool operator<(const Kunde& rigth) const; 
 private:
 
     string m_name;

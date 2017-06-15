@@ -25,10 +25,21 @@ public:
     Ticket(float preis, Reiseklasse klasse);
     Ticket(const Ticket& orig);
     virtual ~Ticket();
-    
-    float getPreis(){return m_preis;};
-    int getTicketnummer(){return m_ticketnummer;};
-    Reiseklasse getKlasse(){return m_klasse;};
+
+    float getPreis() {
+        return m_preis;
+    };
+
+    int getTicketnummer() {
+        return m_ticketnummer;
+    };
+
+    Reiseklasse getKlasse() {
+        return m_klasse;
+    };
+
+    inline bool operator>(const Ticket& rigth) const;
+    inline bool operator<(const Ticket& rigth) const;
 private:
 
     float m_preis;
