@@ -216,7 +216,7 @@ const vector<Position> DungeonMap::getPathTo(const Position from, const Position
         for (pos; pos.width < m_maxWidth; pos.width++) {
             if (findTile(pos)->canBeEntered()) { //nur begehbare tiles
                 Q.insert(pos); //zeile 9
-                dist[pos] = numeric_limits<int>::max(); // zeile 6
+                dist[pos] = numeric_limits<int>::max()-1; // zeile 6
                 prev[pos] = Position(-1, -1); //zeile 7
 
             }
@@ -258,7 +258,7 @@ const vector<Position> DungeonMap::getPathTo(const Position from, const Position
     }
 
     //wenn es keinen pfad zum ziel gibt gebe leeren vektor zuereuck
-    if(dist[to] == numeric_limits<int>::max())
+    if(dist[to] == numeric_limits<int>::max()-1)
         return pfad;
     
     Position currentPos = to;

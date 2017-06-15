@@ -33,7 +33,7 @@ int AttackController::move() {
     vector<Position> newPath;
     Position foundCharacter = seesCharacter();
     if (foundCharacter != Position(-1, -1))
-        newPath = m_map->getPathTo(Position(18,18),Position(18,1));//m_map->findCharacter(dynamic_cast<Character*> (this)), foundCharacter);
+        newPath = m_map->getPathTo(Position(18,18),Position(18,10));//m_map->findCharacter(dynamic_cast<Character*> (this)), foundCharacter);
 
     if (newPath.size() != 0)
         m_lastPath = newPath;
