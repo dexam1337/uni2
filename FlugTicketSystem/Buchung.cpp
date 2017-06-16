@@ -12,6 +12,7 @@
  */
 
 #include "Buchung.h"
+#include "Kunde.h"
 
 int Buchung::counter = 0;
 

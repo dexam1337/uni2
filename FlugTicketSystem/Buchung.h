@@ -15,7 +15,8 @@
 #define BUCHUNG_H
 
 #include "Ticket.h"
-#include "Kunde.h"
+#include <vector>
+class Kunde;
 
 class Buchung {
 public:
@@ -27,7 +28,7 @@ public:
 private:
     
     int m_buchungsnummer;
-    vector<Ticket> m_tickets;
+    std::vector<Ticket> m_tickets;
     Kunde& m_kunde;
     static int counter;
 };

@@ -17,6 +17,7 @@
 
 
 CUI::CUI() {
+    m_kunden["Corship"] = Kunde("First Second", "APhoneNumer", "AIban", "ABic", "AUsername", "123");
 }
 
 CUI::CUI(const CUI& orig) {
@@ -27,7 +28,8 @@ CUI::~CUI() {
 
 bool CUI::zeigeMenue() {
     int eingabe, flugnummer, nTickets;
-    string username, pwd;
+    string username, pwd, name, tel, iban, bic;
+    Kunde neuerKunde;
     cout << MENU << endl;
     cin >> eingabe;
 
@@ -38,12 +40,46 @@ bool CUI::zeigeMenue() {
             login(username, pwd);
             return true;
         case 2:
+            cout << endl << "Nutzername:";
+            cin >> username;
+            if((m_kunden.find(username) != m_kunden.end()) && m_kunden.begin() != m_kunden.end()){
+                cerr << endl << "Nutzername schon vergeben!" << endl;
+                return true;
+            }
 
-            break;
+            cout << endl << "Vor und Nachname: ";
+            cin.ignore(1);
+            cin;
+            getline(cin, name);
+
+            cout << endl << "Telefonnummer: ";
+            cin.ignore(1);
+            cin;
+            getline(cin, tel);
+
+            cout << endl << "iban: ";
+            cin.ignore(1);
+            cin;
+            getline(cin, iban);
+
+            cout << endl << "Bic: ";
+            cin.ignore(1);
+            cin;
+            getline(cin, bic);
+
+            cout << endl << "Passwort: ";
+            cin >> pwd;
+            //getline(cin, pwd);
+
+            m_kunden[username] = Kunde(name, tel, iban, bic, username, pwd);
+            return true;
 
         case 3:
-            break;
-
+            cout << "Nutzername des Anzuzeigenden kunden:";
+            //cin.ignore();
+            cin >> username;
+            cout << endl << endl << m_kunden[username] << endl;
+            return true;
         case 4:
             break;
 

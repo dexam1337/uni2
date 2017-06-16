@@ -12,13 +12,23 @@
  */
 
 #include "Kunde.h"
-#include "Buchung.h"
 
+
+Kunde::Kunde(){
+    
+}
 Kunde::Kunde(string name, string tel, string iban, string bic, string username, string pwd) {
+    m_name = name;
+    m_tel = tel;
+    m_iban = iban;
+    m_bic = bic;
+    m_username = username;
+    m_pwd = pwd;
 }
 
-//Kunde::Kunde(const Kunde& orig) {
-//}
+Kunde::Kunde(const Kunde& orig) {
+    (*this) = orig;
+}
 
 Kunde::~Kunde() {
     vector<Buchung*>::iterator it;
@@ -29,11 +39,11 @@ Kunde::~Kunde() {
 
 bool Kunde::login(string pwd) {
     if (pwd == m_pwd){
-        cout << "Login erfolgreich" << endl;
+        std::cout << "Login erfolgreich" << std::endl;
         return true;
     }
     else{
-        cout <<"Falsches Password" << endl;
+        std::cout <<"Falsches Password" << std::endl;
         return false;
     }
 }
@@ -50,4 +60,9 @@ inline bool Kunde::operator>(const Kunde& rigth) const{
 
 inline bool Kunde::operator<(const Kunde& rigth) const{
     return (*this > rigth);
+}
+
+ostream& operator<<(ostream& outStream, const Kunde& kunde){
+    
+    outStream << kunde.m_name << endl << "Telefonnummer: " << kunde.m_tel << endl << "Iban: " << kunde.m_iban << " Bic: " << kunde.m_bic << endl;
 }

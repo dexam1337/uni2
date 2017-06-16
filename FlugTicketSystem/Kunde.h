@@ -16,15 +16,16 @@
 
 #include <vector>
 #include <string>
-
-class Buchung; //forwaddeclaration
+#include <iostream>
+#include "Buchung.h"
 
 using namespace std;
 
 class Kunde {
 public:
+    Kunde();
     Kunde(string name, string tel, string iban, string bic, string username, string pwd);
-    //Kunde(const Kunde& orig);
+    Kunde(const Kunde& orig);
     virtual ~Kunde();
 
     bool login(string pwd);
@@ -39,6 +40,7 @@ public:
     bool buche(Buchung* buchung);
     inline bool operator>(const Kunde& rigth) const; 
     inline bool operator<(const Kunde& rigth) const; 
+    friend ostream& operator <<(ostream& outStream, const Kunde& kunde);
 private:
 
     string m_name;

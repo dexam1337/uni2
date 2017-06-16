@@ -26,7 +26,7 @@ int main(int argc, char** argv) {
     if(argc != 1)
         cerr << "Y u throwin arguments at mey, yo dwag!" << endl;
     
-    CUI cui();
+    CUI cui = CUI();
     while(cui.zeigeMenue())
         ;
     

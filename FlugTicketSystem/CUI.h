@@ -35,7 +35,7 @@ private:
     map<string, Kunde> m_kunden;
     map<int, Ticket> m_tickets;
     map<int, Buchung> m_buchungen;
-    const string MENU = "Menu:\n1.login";
+    const string MENU = "Menu:\n1.login\n2.Registrieren\n3.Kunde anzeigen\n";
 };
 
 #endif /* CUI_H */
