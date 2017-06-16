@@ -229,7 +229,7 @@ const vector<Position> DungeonMap::getPathTo(const Position from, const Position
     dist[from] = 0;
 
     //loop fuer alle elemente in Q pseudocode zeile 12-21
-    while (Q.begin() != Q.end()) {
+    while (Q.size()!= 0) {
         Position u = (*Q.begin());
         //zeile 13
         for (auto itQ = Q.begin(); itQ != Q.end(); itQ++) { //fuer alle noch vorhandenen Knoten
