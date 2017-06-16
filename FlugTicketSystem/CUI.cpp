@@ -15,9 +15,11 @@
 
 #include "CUI.h"
 
-
 CUI::CUI() {
-    m_kunden["Corship"] = Kunde("First Second", "APhoneNumer", "AIban", "ABic", "AUsername", "123");
+    m_kunden["root"] = Kunde("Admin Account", "root@localhost.de", "000000", "000000", "root", "toor");
+    m_loggedIn = "";
+    m_flugplan = Flugplan();
+    m_flugplan.ladeFluege("fluege");
 }
 
 CUI::CUI(const CUI& orig) {
@@ -27,9 +29,13 @@ CUI::~CUI() {
 }
 
 bool CUI::zeigeMenue() {
+
+    if (m_loggedIn != "")
+        cout << "Aktuell eingeloggt als: " << m_loggedIn << endl << endl;
+    else
+        cout << "Nicht eingeloggt." << endl << endl;
     int eingabe, flugnummer, nTickets;
     string username, pwd, name, tel, iban, bic;
-    Kunde neuerKunde;
     cout << MENU << endl;
     cin >> eingabe;
 
@@ -37,12 +43,13 @@ bool CUI::zeigeMenue() {
         case 1:
             cout << "Username und Password:" << endl;
             cin >> username >> pwd;
-            login(username, pwd);
+            if (login(username, pwd))
+                m_loggedIn = username;
             return true;
         case 2:
             cout << endl << "Nutzername:";
             cin >> username;
-            if((m_kunden.find(username) != m_kunden.end()) && m_kunden.begin() != m_kunden.end()){
+            if ((m_kunden.find(username) != m_kunden.end()) && m_kunden.begin() != m_kunden.end()) {
                 cerr << endl << "Nutzername schon vergeben!" << endl;
                 return true;
             }
@@ -69,9 +76,8 @@ bool CUI::zeigeMenue() {
 
             cout << endl << "Passwort: ";
             cin >> pwd;
-            //getline(cin, pwd);
-
             m_kunden[username] = Kunde(name, tel, iban, bic, username, pwd);
+            m_loggedIn = username;
             return true;
 
         case 3:
@@ -81,7 +87,8 @@ bool CUI::zeigeMenue() {
             cout << endl << endl << m_kunden[username] << endl;
             return true;
         case 4:
-            break;
+            m_loggedIn = "";
+            return true;
 
         case 5:
             break;
@@ -96,7 +103,8 @@ bool CUI::zeigeMenue() {
 bool CUI::login(string username, string pwd) {
     if (m_kunden.find(username) != m_kunden.end())
         return m_kunden[username].login(pwd);
-    else{
+    else {
         cout << "Unbekannter nutzername" << std::endl;
         return false;
-    }}
+    }
+}

@@ -23,13 +23,15 @@ public:
     Flug(int kapazitaet);
     Flug(const Flug& orig);
     virtual ~Flug();
-    
+
     friend istream& operator>>(istream& inputstream, Flug& flug);
     friend ostream& operator<<(ostream& inputstream, const Flug& flug);
     const int getFlugnummer();
     int hasStart(const string startOrt);
     int hasStopAfter(const string landeOrt, const int pos);
     void addSubFlight(const string startOrt, const string landeOrt);
+    bool operator<(const Flug& rechts) const;
+    bool operator>(const Flug& rechts) const;
 private:
 
     int m_flugnummer;

@@ -14,7 +14,7 @@
 #ifndef FLUGPLAN_H
 #define FLUGPLAN_H
 #include "Flug.h"
-
+#include <map>
 class Flugplan {
 public:
     Flugplan();
@@ -25,7 +25,7 @@ public:
     Flug* sucheFlug(const int flugnummer);
     vector<Flug*> sucheFlug(const string startOrt, const string landeOrt);
 private:
-    vector<Flug*> m_fluege;
+    map<int, Flug*> m_fluege;
 
 };
 

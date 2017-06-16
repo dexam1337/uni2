@@ -11,12 +11,12 @@
  * Created on 7. Juni 2017, 23:45
  */
 
+#include <map>
+
 #include "Flugplan.h"
 
 Flugplan::Flugplan() {
-    Flug* flug = new Flug(100);
-    flug->addSubFlight("start1", "lande1");
-    m_fluege.push_back(flug);
+    
     
 }
 
@@ -24,7 +24,7 @@ Flugplan::Flugplan(const Flugplan& orig) {
 }
 
 Flugplan::~Flugplan() {
-    vector<Flug*>::iterator it;
+    map<int, Flug*>::iterator it;
     for(it = m_fluege.begin(); it < m_fluege.end(); it++)
         delete (*it);
     
@@ -32,15 +32,13 @@ Flugplan::~Flugplan() {
 }
 
 void Flugplan::ladeFluege(const string dateiPfad){
-    
+    Flug* flug = new Flug(100);
+    flug->addSubFlight("start1", "lande1");
+    m_fluege.insert(flug);
 }
 
 Flug* Flugplan::sucheFlug(const int flugnummer){
-    vector<Flug*>::iterator it;
-    for(it = m_fluege.begin(); it < m_fluege.end(); it++)
-        if((*it)->getFlugnummer() == flugnummer)
-            return *it;
-    return nullptr;
+    return m_fluege[flugnummer];
 }
 
 vector<Flug*> Flugplan::sucheFlug(const string startOrt, const string landeOrt){
