@@ -15,9 +15,9 @@
 #define FLUG_H
 #include <vector>
 #include <string>
+#include <iostream>
 
 using namespace std;
-
 class Flug {
 public:
     Flug(int kapazitaet);
@@ -30,8 +30,8 @@ public:
     int hasStart(const string startOrt);
     int hasStopAfter(const string landeOrt, const int pos);
     void addSubFlight(const string startOrt, const string landeOrt);
-    bool operator<(const Flug& rechts) const;
-    bool operator>(const Flug& rechts) const;
+    inline bool operator<(const Flug& rechts) const;
+    inline bool operator>(const Flug& rechts) const;
 private:
 
     int m_flugnummer;

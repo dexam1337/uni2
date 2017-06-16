@@ -92,7 +92,10 @@ bool CUI::zeigeMenue() {
 
         case 5:
             break;
-
+        case 9:
+            if(m_loggedIn == "root")
+                m_flugplan.alleFluegeAnzeigen();
+            return 0;
         default:
 
             break;
@@ -108,3 +111,4 @@ bool CUI::login(string username, string pwd) {
         return false;
     }
 }
+

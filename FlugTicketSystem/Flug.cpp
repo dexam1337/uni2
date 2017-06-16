@@ -63,10 +63,20 @@ void Flug::addSubFlight(const string startOrt, const string landeOrt) {
     m_landeOrt.push_back(landeOrt);
 }
 
-bool Flug::operator<(const Flug& rechts) const {
+inline bool Flug::operator<(const Flug& rechts) const {
     return (m_flugnummer < rechts.m_flugnummer);
 }
 
-bool Flug::operator>(const Flug& rechts) const {
+inline bool Flug::operator>(const Flug& rechts) const {
     return (*this < rechts);
 }
+/*
+ostream& operator<<(ostream& outStream, const Flug& flug) {
+    outStream << "Flugnr: " << flug.getFlugnummer() << "\n";
+    for (int i = 0; i < flug.getStartZ().size(); i++) {
+        outStream << "Startet in " << flug.getStartO().at(i) << " um " << flug.getStartZ().at(i) << "\n";
+        outStream << "Landet in " << flug.getLandeO().at(i) << " um " << flug.getLandeZ().at(i) << "\n";
+    }
+    outStream << "Der Flug hat eine Kapazität von: " << flug.getKapazitaet() << " mit " << flug.getFreiePlaetze() << " freien Plätzen" << endl;
+    return outStream;
+}*/

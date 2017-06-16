@@ -24,6 +24,7 @@ public:
     void ladeFluege(const string dateiPfad);
     Flug* sucheFlug(const int flugnummer);
     vector<Flug*> sucheFlug(const string startOrt, const string landeOrt);
+    void alleFluegeAnzeigen() const;
 private:
     map<int, Flug*> m_fluege;
 

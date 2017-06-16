@@ -25,9 +25,10 @@ Ticket::Ticket(const Ticket& orig) {
 Ticket::~Ticket() {
 }
 
-    inline bool Ticket::operator>(const Ticket& rigth) const{
-        return m_ticketnummer > rigth.m_ticketnummer;
-    }
-    inline bool Ticket::operator<(const Ticket& rigth) const{
-        return (*this > rigth);
-    }
+inline bool Ticket::operator>(const Ticket& rigth) const {
+    return m_ticketnummer > rigth.m_ticketnummer;
+}
+
+inline bool Ticket::operator<(const Ticket& rigth) const {
+    return (*this > rigth);
+}

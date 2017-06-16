@@ -65,4 +65,5 @@ inline bool Kunde::operator<(const Kunde& rigth) const{
 ostream& operator<<(ostream& outStream, const Kunde& kunde){
     
     outStream << kunde.m_name << endl << "Telefonnummer: " << kunde.m_tel << endl << "Iban: " << kunde.m_iban << " Bic: " << kunde.m_bic << endl;
+    return outStream;
 }
