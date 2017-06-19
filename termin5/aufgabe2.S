@@ -11,32 +11,28 @@
 main:
 
 	push	{lr}
-
-	bal	up1
-up1fertig:
 	
-	mov r0, #0
+        mov r0, #0
 	mov r1, #1
 	mov r2, #1
 	mov r3, #1
-	
-	bal	up2
-	
-up2fertig:
-	bal	up3
 
-up3fertig:
-
+	bl	up1
 	
-	bal fertig
+
+    
+	bl	up2
+	bl	up3
+	
 
 // UP1 benutzt nur Scratchregister und stellt keine Blattroutine dar (ruft somit weitere
 // Unterprogramme auf)	
 up1:
-    stmfd 	sp!, {r4, r5, r6, r7, r8, r9, r10, r11}
-    mov r10, #0
-    ldmfd	sp!, {r4, r5, r6, r7, r8, r9, r10, r11}
-  bal up1fertig
+    
+    bl up2
+    
+     MOV PC, LR 
+    
 // UP2 benutzt nur Scratchregister und stellt eine Blattroutine dar (ruft somit keine weiteren
 // Unterprogramme auf)
 up2: @summiert 4 parameter auf
@@ -45,13 +41,14 @@ up2: @summiert 4 parameter auf
     add r0, r2
     add r0, r3
 
-bal up2fertig
-
+     MOV PC, LR 
 //UP3 benutzt Nicht-Scratchregister und stellt keine Blattroutine dar
 up3:
 
+    stmfd 	sp!, {r4, r5, r6, r7, r8, r9, r10, r11}
+    mov r10, #0
+    ldmfd	sp!, {r4, r5, r6, r7, r8, r9, r10, r11}
 
-  bal up3fertig
 fertig:
 
 	pop	{pc}

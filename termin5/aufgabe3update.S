@@ -10,20 +10,9 @@
 	.type	main,function
 main:
 
-Loop: 
-    LDR r0, Total
-Add_instr:
-    LDR r1, Table
-    ADD r0, r1
-    STR r0, Total
-    LDR r2, Add_instr
-    ADD r2, #4
-    STR r2, Add_instr
-    LDR r3, Count
-    SUBS r3, #1
-    STR r3, Count
-    BNE Loop
 
+Halt:
+	b	Halt
 
 //; Data definitions
 //Total 	DEFW 0 ; Total - initially zero
