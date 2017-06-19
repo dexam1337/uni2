@@ -10,8 +10,28 @@
 	.type	main,function
 main:
 
+Loop:	   LDA 	Total	; Accumulate total
+Add_instr: ADD Table	; Begin at head of table
+	   STO Total	;
+	   LDA Add_instr; Change address ...
+	   ADD One	; by modifying instruction!
+	   STO Add_instr;
+	   LDA Count	; Count iterations
+	   SUB One	; Count down to zero
+	   STO Count	;
+	   JGE Loop	; If >= 0 repeat
+	   STP		; Halt execution
 
-    
+; Data definitions
+Total	DEFW 0 	; Total - initially zero
+One	DEFW 1 	; The number one
+Count	DEFW 4 	; Loop counter (loop 5x)
+Table	DEFW 39 ; The numbers to total ...
+	DEFW 25 ;
+	DEFW 4 	;
+	DEFW 98 ;
+	DEFW 17 ;
+
 Halt:
 	b	Halt
 
