@@ -16,20 +16,58 @@
 	.global	Operationen 
 	.type	Operationen, %function 
 Operationen: 
+        PUSH {r4, r5}
+	 
+	 LDR r2, [r0] //lade werte der schalter
+	 EOR r2, r2, #0x38 //negieren wie aus "Hilfe" vorgegeben
+	 MOV r3, r2 //kopiere
+	 MOV r4, r2
+	 
+	 LSR r2, r2, #3 //Unterster bit ist jetzt taster 1
+	 LSR r3, r3, #4 //fuer taster 2
+	 LSR r4, r4, #5 //fuer taster 3
+	 
+	 AND r2, r2, #1   //isoliere letzes bit
+	 AND r3, r3, #1  //isoliere letzes bit
+	 AND r4, r4, #1 //isoliere letzes bit
+	 
 	 
 // AND	 
+    
+        AND r5, r2, r3 // compare SW1 und SW2
+        LSL r5, #8 //shifte um eins nach links
+        STR r5, [r1]
 
 // OR	 
 
+        ORR r5, r2, r3
+        LSL r5, #9
+        STR r5, [r1]
+
 // EOR 
 
+        EOR r5, r2, r3
+        LSL r5, #10
+        STR r5, [r1]
+
 // ADDITION	 
+        
+        ADD r5, r2, r3
+        LSL r5, #11
+        STR r5, [r1]
 
 // SUBTRAKTION 
-
+        
+        SUB r5, r2, r3 //Sicherlich falsch wenn r2 = 0, r3 = 1 dann irgendwas 0xffff
+        LSL r5, #13
+        AND r5, r5, #0x6000
+        STR r5, [r1]
 	 
 // Beenden 
 
+    mov r0, r4 //wenn taste 3 gedr?ckt war wird beim verlassen der schleife geloescht
+    pop {r4, r5}
+    bx lr
  
 .Lfe1: 
 	.size	Operationen,.Lfe1- Operationen 

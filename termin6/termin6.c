@@ -2,8 +2,8 @@
 // von: Manfred Pester
 // vom:  18.02.2013
 
-#include "../h/pmc.h"
-#include "../h/pio.h"
+#include "./h/pmc.h"
+#include "./h/pio.h"
 
 // Die Funktion f_int_Funktionen erwartet die Registeradresse fuer das Pin Data Status Register PDSR aus dem die
 // Tasteninformationen SW1 bis SW3 (Bit 3 bis Bit5) gelesen werden koennen 
