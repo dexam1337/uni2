@@ -29,3 +29,6 @@ Character* Controller::getCharacter(){
     return m_character;
 }
 
+void Controller::setCharacter(Character* c){
+    m_character = c;
+}

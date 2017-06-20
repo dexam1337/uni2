@@ -17,6 +17,7 @@
 
 AttackController::AttackController(Character* character, DungeonMap* map) : Controller(character) {
     m_map = map;
+    Controller::setCharacter(character);
 }
 
 //AttackController::AttackController(const AttackController& orig) {
@@ -30,18 +31,13 @@ std::string AttackController::getControllerName() {
 }
 
 int AttackController::move() {
-    vector<Position> newPath;
-    Position foundCharacter = seesCharacter();
-    if (foundCharacter != Position(-1, -1))
-        newPath = m_map->getPathTo(Position(18,18),foundCharacter);//m_map->findCharacter(dynamic_cast<Character*> (this)), foundCharacter);
-
-    if (newPath.size() != 0)
-        m_lastPath = newPath;
+    seesCharacter();
 
     if (m_lastPath.size() == 0)
         return 5;
 
-    Position dp = m_map->findCharacter(dynamic_cast<Character*> (this)) - m_lastPath.at(0);
+    Position lp = m_map->findCharacter(Controller::getCharacter());
+    Position dp = lp - m_lastPath.at(0);
     m_lastPath.erase(m_lastPath.begin());
 
     if (dp.height == 1 && dp.width == -1)
@@ -62,8 +58,8 @@ int AttackController::move() {
         return 8;
     else if (dp.height == -1 && dp.width == 1)
         return 9;
-    else{
-        cerr<<"alter Pfad ungueltig geworden.";
+    else {
+        cerr << "alter Pfad ungueltig geworden.";
         m_lastPath.clear();
         return 5;
     }
@@ -72,6 +68,28 @@ int AttackController::move() {
 
 }
 
-Position AttackController::seesCharacter() {
-    return Position(16,16);
+void AttackController::seesCharacter() {
+    vector<int> dim = m_map->getDimensions();
+    vector<Position> shortest, current;
+    Position pos(0, 0);
+    for (pos.height; pos.height < dim.at(0); pos.height++) {
+        for (pos.width; pos.width < dim.at(1); pos.width++) {
+            if (m_map->findTile(pos)->getCharacter() != nullptr && m_map->findTile(pos)->getCharacter() != Controller::getCharacter()) {
+                if (m_map->hasLineOfSight(m_map->findCharacter(Controller::getCharacter()), pos)) {
+                    current = m_map->getPathTo(m_map->findCharacter(Controller::getCharacter()), pos);
+                    if (shortest.size() == 0 || (shortest.size() > current.size() && current.size() != 0)) {
+                        shortest = current;
+                    }
+                }
+
+            }
+
+
+        }
+        pos.width = 0;
+    }
+
+
+    if (shortest.size() != 0)
+        m_lastPath = shortest;
 }

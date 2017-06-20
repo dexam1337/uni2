@@ -270,3 +270,7 @@ const vector<Position> DungeonMap::getPathTo(const Position from, const Position
 
     return pfad;
 }
+
+vector<int> DungeonMap::getDimensions(){
+    return vector<int>{m_maxHeight, m_maxWidth};
+}

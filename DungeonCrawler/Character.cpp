@@ -29,6 +29,7 @@ Character::Character(string name, char symbol, int strength, int stamina, Contro
     m_hitpoints = getMaxHP();
 }
 
+
 Character::~Character() {
     delete m_controller;
     m_controller = nullptr;
@@ -107,3 +108,4 @@ bool Character::isPlayer(){
     else 
         return false;
 }
+

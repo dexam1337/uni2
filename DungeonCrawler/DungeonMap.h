@@ -35,8 +35,8 @@ class DungeonMap {
 private:
     Tile*** m_map;
     DungeonMap(DungeonMap& map); //Nicht implementierter KopierKonstruktor
-    unsigned int m_maxHeight;
-    unsigned int m_maxWidth;
+    int m_maxHeight;
+    int m_maxWidth;
 
 public:
     DungeonMap(const unsigned int height, const unsigned int width,
@@ -51,6 +51,7 @@ public:
     friend ostream& operator<<(ostream& outputstream, const DungeonMap& map);
     void saveItems(ostream& outputstream);
     const vector<Position> getPathTo(const Position from, const Position to);
+    vector<int> getDimensions();
 };
 
 #endif /* DUNGEONMAP_H_ */

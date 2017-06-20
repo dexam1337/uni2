@@ -87,10 +87,10 @@ void GameEngine::turn() {
                 break;
         }
 
-        system("clear"); //nicht gut, unix befehl an cli, sicherheitslücke und systemabhängig
+        //system("clear"); //nicht gut, unix befehl an cli, sicherheitslücke und systemabhängig
         newTile = m_map->findTile(newPos);
         oldTile->onLeave(newTile);
-        m_map->print(newPos);
+        //m_map->print(newPos);
     }
 
 }
@@ -183,6 +183,7 @@ void GameEngine::placeCharacter(istringstream& stream) {
     else if (target == "AttackController")
         controller = new AttackController(nullptr, m_map);
     characters.push_back(new Character(name, symbol, strength, stamina, controller)); //Characterpointer von auf Heap abgelegten Character speichern
+    controller->setCharacter(characters.at(characters.size()-1));
     m_map->place(pos, characters.back()); //Charakter in der Spielwelt platzieren
 }
 

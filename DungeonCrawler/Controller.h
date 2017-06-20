@@ -25,6 +25,7 @@ public:
     virtual int move() = 0;
     Character* getCharacter();
     virtual std::string getControllerName() = 0;
+    void setCharacter(Character* c);
 private:
     Character* m_character;
 };
