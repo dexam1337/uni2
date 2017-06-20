@@ -30,15 +30,12 @@ istream& operator>>(istream& inputstream, Flug& flug) {
 }
 
 std::ostream& operator<<(std::ostream& outputstream, const Flug& flug) {
-    /* outputstream << "Flugnr: " << flug.m_flugnummer << " hat " << flug.m_kapazitaet << " Plaetze und insgesamt " << flug.m_startOrt.size() << " Abfluege.\n\n" ;
-     iterator<string> it;
-     for (it = flug.m_startOrt.begin(); it < flug.m_startOrt.end(); it++ ){
-         outputstream << "Startet in " << flug.m_startOrt.at(it) << " um " << flug.m_startZeiten.at(it) << "\nLandet in " << flug.m_landeOrt.at(it) << " um " << flug.m_landeZeiten.at(it) << "\n" << endl;
-     }*/
+     
+    outputstream << "Flugnummer: " << flug.getFlugnummer();
     return outputstream;
 }
 
-const int Flug::getFlugnummer() {
+int Flug::getFlugnummer() const{
     return m_flugnummer;
 }
 
@@ -79,4 +76,5 @@ ostream& operator<<(ostream& outStream, const Flug& flug) {
     }
     outStream << "Der Flug hat eine Kapazität von: " << flug.getKapazitaet() << " mit " << flug.getFreiePlaetze() << " freien Plätzen" << endl;
     return outStream;
-}*/
+}
+*/

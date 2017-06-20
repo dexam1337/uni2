@@ -14,7 +14,13 @@
 #ifndef FLUGPLAN_H
 #define FLUGPLAN_H
 #include "Flug.h"
+
 #include <map>
+#include <algorithm>
+#include <cstdlib>
+#include <iostream>
+#include <ctime>
+#include <string>
 class Flugplan {
 public:
     Flugplan();

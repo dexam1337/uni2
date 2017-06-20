@@ -11,9 +11,7 @@
  * Created on 7. Juni 2017, 23:45
  */
 
-#include <map>
-#include <algorithm>
-#include <ostream>
+
 
 #include "Flugplan.h"
 
@@ -33,9 +31,12 @@ Flugplan::~Flugplan() {
 }
 
 void Flugplan::ladeFluege(const string dateiPfad) {
-    Flug* flug = new Flug(100);
-    flug->addSubFlight("start1", "lande1");
-    m_fluege[flug->getFlugnummer()] = flug;
+    
+    std::srand(std::time(0));
+    for(int i = 0; i < 100; i++){
+    Flug* flug = new Flug(std::rand());
+    flug->addSubFlight("start" , "lande" );
+    m_fluege[flug->getFlugnummer()] = flug;}
 }
 
 Flug* Flugplan::sucheFlug(const int flugnummer) {
@@ -47,5 +48,8 @@ vector<Flug*> Flugplan::sucheFlug(const string startOrt, const string landeOrt) 
 }
 
 void Flugplan::alleFluegeAnzeigen() const{
+    
+    for(auto it = m_fluege.begin(); it != m_fluege.end(); it++)
+        cout << *(it->second) << endl;
    
 }

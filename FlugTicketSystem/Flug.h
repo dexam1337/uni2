@@ -25,8 +25,8 @@ public:
     virtual ~Flug();
 
     friend istream& operator>>(istream& inputstream, Flug& flug);
-    friend ostream& operator<<(ostream& inputstream, const Flug& flug);
-    const int getFlugnummer();
+    friend ostream& operator<<(ostream& outputstream, const Flug& flug);
+    int getFlugnummer() const;
     int hasStart(const string startOrt);
     int hasStopAfter(const string landeOrt, const int pos);
     void addSubFlight(const string startOrt, const string landeOrt);
