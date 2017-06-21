@@ -18,20 +18,19 @@ Kunde::Kunde(){
     
 }
 Kunde::Kunde(string name, string tel, string iban, string bic, string username, string pwd) { //Konstruktor des Kunden
-    m_name = name; //speichere übergebenen namensstring in memberattribut
-    m_tel = tel; //speichere übergebene telefonnummer in memeberattriubt
-    m_iban = iban; //speichere übergebene iban in memberattribut
-    m_bic = bic; //speichere übergebene bic in memberattribut
-    m_username = username; //speichere übergebenen username in memberattribut
-    m_pwd = pwd; //speichere übergebenes passwort in memberattribut
+    m_name = name; 
+    m_tel = tel; 
+    m_iban = iban;
+    m_bic = bic;
+    m_username = username; 
+    m_pwd = pwd; 
 }
 
 Kunde::Kunde(const Kunde& orig) { //kopierkonstruktor 
-    (*this) = orig; //dereferenziert den this pointer des neuen objektes und benutzt zuweisungsoperator;
+    (*this) = orig; 
 }
 
 Kunde::~Kunde() { //destruktor
-    //vector<Buchung*>::iterator it;
     for(auto it = m_buchungen.begin(); it < m_buchungen.end(); it++) //iterator über alle elemente des arrays
         delete (*it); //lösche jede buchung in m_buchungen
     m_buchungen.clear(); //lösche pointer in m_buchungen
@@ -39,11 +38,9 @@ Kunde::~Kunde() { //destruktor
 
 bool Kunde::login(string pwd) { //login funktion zum überprüfen des passwortes
     if (pwd == m_pwd){ //wenn übergebenes passwort gleich dem gespeicherten
-        std::cout << "Login erfolgreich" << std::endl; //meldung über erfolg
         return true; //gib erfolg zurück
     }
-    else{ //ansonsten
-        std::cout <<"Falsches Password" << std::endl; //meldung über falsches Passwort
+    else{
         return false; //gibt fehler zurück
     }
 }
@@ -58,8 +55,8 @@ inline bool Kunde::operator>(const Kunde& rigth) const{ //vergleichsoperator
     return (m_username > rigth.m_username); //sortierung erfolg nach username
 } 
 
-inline bool Kunde::operator<(const Kunde& rigth) const{ //anderer vergleichsoperator
-    return (*this > rigth); //gegenteil zu vorherigem vergleichsoperator
+inline bool Kunde::operator<(const Kunde& rigth) const{ 
+    return (*this > rigth); 
 }
 
 ostream& operator<<(ostream& outStream, const Kunde& kunde){ //outputstream von kunde

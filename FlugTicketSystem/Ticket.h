@@ -37,12 +37,13 @@ public:
     Reiseklasse getKlasse() {
         return m_klasse;
     };
+    
 
     inline bool operator>(const Ticket& rigth) const;
     inline bool operator<(const Ticket& rigth) const;
 private:
 
-    unsigned int m_preis;
+    float m_preis;
     int m_ticketnummer;
     Reiseklasse m_klasse;
     static int counter;

@@ -21,12 +21,13 @@ class Kunde;
 class Buchung { //Verknüpft tickets mit kunde
 public:
     Buchung(Kunde& kunde);
-    //Buchung(const Buchung& orig);
+    Buchung(const Buchung& orig);
     virtual ~Buchung();
-    Kunde& getKunde(){return m_kunde;}; //trivial?
+    Kunde& getKunde(){return m_kunde;}; 
     int getBuchungsnummer(){return m_buchungsnummer;};
     void setTickets(std::vector<Ticket> tickets){m_tickets = tickets;};
     std::vector<Ticket> getTickets(){return m_tickets;};
+    float getPreis();
 private:
     
     int m_buchungsnummer;

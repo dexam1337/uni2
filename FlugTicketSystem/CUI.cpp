@@ -116,7 +116,7 @@ bool CUI::zeigeMenue() { //zeigt menu an
             return true;
         case 9: //alle fluege anzeigen
             if(m_loggedIn == "root")
-                m_flugplan.alleFluegeAnzeigen();
+                cout << m_flugplan;
             return true;
         default:
 
@@ -142,6 +142,9 @@ void CUI::kaufeTicket(){ //kauft ticket
     cout << endl << "Flugnummer:" << endl;
     cin >> flugnummer;
     
+    if(m_flugplan.sucheFlug(flugnummer)->getFreiePlaetze() < n)
+        cerr << "Nicht genügend Plätze frei" << endl;
+    
     srand(time(0)); //preis wird noch zufällig generiert
     int preis = ((rand()+1)%100)+11;
     
@@ -151,7 +154,10 @@ void CUI::kaufeTicket(){ //kauft ticket
     Buchung buchung(m_kunden[m_loggedIn]); //ordne buchung aktuell eingeloggtem kunden zu
     buchung.setTickets(tickets);
     
+    m_flugplan.sucheFlug(flugnummer)->belegeTickets(n);
+    
     for(int i = 0; i < tickets.size(); i++){ //zeige jetzt gekaufte tickets an
         cout << "Ticketnummer: " << tickets.at(i).getTicketnummer() << " Preis: " << tickets.at(i).getPreis() << endl;
     }
+    cout << endl << "Gesamtpreis: " << buchung.getPreis() << endl;
 }

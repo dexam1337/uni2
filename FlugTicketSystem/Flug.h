@@ -46,7 +46,7 @@ public:
         return m_landeOrt;
     }
 
-    vector<int> getLandeZeiten() const {
+    vector<float> getLandeZeiten() const {
         return m_landeZeiten;
     }
 
@@ -54,16 +54,17 @@ public:
         return m_startOrt;
     }
 
-    vector<int> getStartZeiten() const {
+    vector<float> getStartZeiten() const {
         return m_startZeiten;
     }
 
+    void belegeTickets(int n);
     
 private:
 
     int m_flugnummer;
-    vector<int> m_startZeiten;
-    vector<int> m_landeZeiten;
+    vector<float> m_startZeiten;
+    vector<float> m_landeZeiten;
     vector<string> m_startOrt;
     vector<string> m_landeOrt;
     int m_kapazitaet;

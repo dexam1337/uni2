@@ -21,10 +21,17 @@ Buchung::Buchung(Kunde& kunde) : m_kunde(kunde){
     counter++;
 }
 
-//Buchung::Buchung(const Buchung& orig) {
-
-//}
+Buchung::Buchung(const Buchung& orig) : m_kunde(orig.m_kunde){
+    m_buchungsnummer = orig.m_buchungsnummer;
+    m_tickets = orig.m_tickets;
+}
 
 Buchung::~Buchung() {
 }
 
+float Buchung::getPreis(){
+    float preis = 0;
+    for(auto it = m_tickets.begin(); it != m_tickets.end(); it++)
+        preis = preis + (*it).getPreis();
+    return preis;
+}

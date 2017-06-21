@@ -33,23 +33,22 @@ Flugplan::~Flugplan() { //destruktor von Flugplan
 
 void Flugplan::ladeFluege(const string dateiPfad) { //lade fluege aus datei
 
-    ifstream save; //streamobjekt
+    ifstream save; 
     save.open(dateiPfad); //öffne datei mit dem pfad dateipfad
     if (save.good() == false) { //sollte datei nicht geöffnet werden können
-        cerr << "Datei konnte nicht geöffnet werden!" << endl; //gib fehlermeldung aus
         return; //beende funktion
     }
     
     while(save.good()){ //solange datei noch nicht am ende
         Flug* flug = new Flug(0); //erstelle neuen flug
-        save >> *flug; //nutze input operator von FLug zum initialisieren des Fluges
+        save >> *flug; //nutze instream operator von FLug zum initialisieren des Fluges
         m_fluege[flug->getFlugnummer()] = flug; //speichere flug in map
     }
 }
 
 
 Flug* Flugplan::sucheFlug(const int flugnummer) { //suche flug über flugnummer
-    return m_fluege[flugnummer]; //fluge werden in der map an der stelle ihrer flugnummer gespeichert
+    return m_fluege[flugnummer]; 
 }
 
 vector<Flug*> Flugplan::sucheFlug(const string startOrt, const string landeOrt) { //sucht flug über start und landeort
@@ -61,9 +60,9 @@ vector<Flug*> Flugplan::sucheFlug(const string startOrt, const string landeOrt) 
     return gefundene; //gibt alle gefundenen flüge zurück
 }
 
-void Flugplan::alleFluegeAnzeigen() const { //zeigt alle flüge an
 
-    for (auto it = m_fluege.begin(); it != m_fluege.end(); it++) //iterator über alle elemenete
-        cout << *(it->second) << endl; //gib das an der stelle gespeicheter element aus
-
-}
+std::ostream& operator<<(std::ostream& os, const Flugplan& obj) {
+    for (auto it = obj.m_fluege.begin(); it != obj.m_fluege.end(); it++) //iterator über alle elemenete
+        cout << *(it->second) << endl; 
+        return os;
+    }
