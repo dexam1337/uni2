@@ -15,11 +15,17 @@
 
 int Ticket::counter = 0;
 
-Ticket::Ticket(float preis, Reiseklasse klasse) : m_klasse(klasse), m_preis(preis), m_ticketnummer(counter) {
+Ticket::Ticket(float preis, Reiseklasse klasse) {
+    m_preis = preis;
+    m_ticketnummer = counter;
     counter++;
+    m_klasse = klasse;
 }
 
 Ticket::Ticket(const Ticket& orig) {
+    m_preis = orig.m_preis;
+    m_ticketnummer = orig.m_ticketnummer;
+    m_klasse = orig.m_klasse;
 }
 
 Ticket::~Ticket() {

@@ -25,31 +25,44 @@ Flugplan::Flugplan(const Flugplan& orig) {
 
 Flugplan::~Flugplan() {
     for (auto it = m_fluege.begin(); it != m_fluege.end(); it++)
-       delete (it->second);
+        delete (it->second);
 
     m_fluege.clear();
 }
 
 void Flugplan::ladeFluege(const string dateiPfad) {
+
+    ifstream save;
+    save.open(dateiPfad);
+    if (save.good() == false) {
+        cerr << "Datei konnte nicht geöffnet werden!" << endl;
+        return;
+    }
     
-    std::srand(std::time(0));
-    for(int i = 0; i < 100; i++){
-    Flug* flug = new Flug(std::rand());
-    flug->addSubFlight("start" , "lande" );
-    m_fluege[flug->getFlugnummer()] = flug;}
+    while(save.good()){
+        Flug* flug = new Flug(0);
+        save >> *flug;
+        m_fluege[flug->getFlugnummer()] = flug;
+    }
 }
+
 
 Flug* Flugplan::sucheFlug(const int flugnummer) {
     return m_fluege[flugnummer];
 }
 
 vector<Flug*> Flugplan::sucheFlug(const string startOrt, const string landeOrt) {
-
+    vector<Flug*> gefundene;
+    for (auto it = m_fluege.begin(); it != m_fluege.end(); it++) {
+        if ((*it).second->hasStopAfter(landeOrt, (*it).second->hasStart(startOrt)) != -1)
+            gefundene.push_back((*it).second);
+    }
+    return gefundene;
 }
 
-void Flugplan::alleFluegeAnzeigen() const{
-    
-    for(auto it = m_fluege.begin(); it != m_fluege.end(); it++)
+void Flugplan::alleFluegeAnzeigen() const {
+
+    for (auto it = m_fluege.begin(); it != m_fluege.end(); it++)
         cout << *(it->second) << endl;
-   
+
 }

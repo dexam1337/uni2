@@ -18,13 +18,15 @@
 #include <vector>
 class Kunde;
 
-class Buchung {
+class Buchung { //Verknüpft tickets mit kunde
 public:
     Buchung(Kunde& kunde);
     //Buchung(const Buchung& orig);
     virtual ~Buchung();
-    Kunde& getKunde(){return m_kunde;};
+    Kunde& getKunde(){return m_kunde;}; //trivial?
     int getBuchungsnummer(){return m_buchungsnummer;};
+    void setTickets(std::vector<Ticket> tickets){m_tickets = tickets;};
+    std::vector<Ticket> getTickets(){return m_tickets;};
 private:
     
     int m_buchungsnummer;

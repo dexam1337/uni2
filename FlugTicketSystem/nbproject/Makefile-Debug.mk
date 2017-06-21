@@ -68,37 +68,37 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/flugticketsystem: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/flugticketsystem ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/Buchung.o: Buchung.cpp
+${OBJECTDIR}/Buchung.o: Buchung.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Buchung.o Buchung.cpp
 
-${OBJECTDIR}/CUI.o: CUI.cpp
+${OBJECTDIR}/CUI.o: CUI.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/CUI.o CUI.cpp
 
-${OBJECTDIR}/Flug.o: Flug.cpp
+${OBJECTDIR}/Flug.o: Flug.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Flug.o Flug.cpp
 
-${OBJECTDIR}/Flugplan.o: Flugplan.cpp
+${OBJECTDIR}/Flugplan.o: Flugplan.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Flugplan.o Flugplan.cpp
 
-${OBJECTDIR}/Kunde.o: Kunde.cpp
+${OBJECTDIR}/Kunde.o: Kunde.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Kunde.o Kunde.cpp
 
-${OBJECTDIR}/Ticket.o: Ticket.cpp
+${OBJECTDIR}/Ticket.o: Ticket.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Ticket.o Ticket.cpp
 
-${OBJECTDIR}/main.o: main.cpp
+${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
@@ -109,6 +109,7 @@ ${OBJECTDIR}/main.o: main.cpp
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/flugticketsystem
 
 # Subprojects
 .clean-subprojects:

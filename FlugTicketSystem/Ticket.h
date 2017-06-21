@@ -42,7 +42,7 @@ public:
     inline bool operator<(const Ticket& rigth) const;
 private:
 
-    float m_preis;
+    unsigned int m_preis;
     int m_ticketnummer;
     Reiseklasse m_klasse;
     static int counter;

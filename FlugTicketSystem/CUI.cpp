@@ -35,7 +35,8 @@ bool CUI::zeigeMenue() {
     else
         cout << "Nicht eingeloggt." << endl << endl;
     int eingabe, flugnummer, nTickets;
-    string username, pwd, name, tel, iban, bic;
+    string username, pwd, name, tel, iban, bic, startOrt, landeOrt;
+    vector<Flug*> found;
     cout << MENU << endl;
     cin >> eingabe;
 
@@ -91,7 +92,28 @@ bool CUI::zeigeMenue() {
             return true;
 
         case 5:
-            break;
+            cout << "Flugnummer: " << endl;
+            cin >> flugnummer;
+            cout << endl << *(m_flugplan.sucheFlug(flugnummer)) << endl;
+            return true;
+            
+        case 6:
+            cout << endl << "Start und Zielort: " << endl;
+            cin >> startOrt >> landeOrt;
+            found = m_flugplan.sucheFlug(startOrt, landeOrt);
+            for(auto it = found.begin(); it != found.end(); it++){
+                cout << endl << *(*it) << endl;
+            }
+            return true;
+            
+        case 7:
+            if(m_loggedIn != "")
+            kaufeTicket();
+            return true;
+            
+        case 8:
+            m_flugplan.ladeFluege("fluege.txt");
+            return true;
         case 9:
             if(m_loggedIn == "root")
                 m_flugplan.alleFluegeAnzeigen();
@@ -112,3 +134,24 @@ bool CUI::login(string username, string pwd) {
     }
 }
 
+void CUI::kaufeTicket(){
+    int n, flugnummer;
+    vector<Ticket> tickets;
+    cout << "Wie viele Ticket?:" << endl;
+    cin >> n;
+    cout << endl << "Flugnummer:" << endl;
+    cin >> flugnummer;
+    
+    srand(time(0));
+    int preis = ((rand()+1)%100)+11;
+    
+    for(int i = 0; i < n; i++)
+        tickets.push_back(Ticket(preis, Reiseklasse::ECONOMY));
+    
+    Buchung buchung(m_kunden[m_loggedIn]);
+    buchung.setTickets(tickets);
+    
+    for(int i = 0; i < tickets.size(); i++){
+        cout << "Ticketnummer: " << tickets.at(i).getTicketnummer() << " Preis: " << tickets.at(i).getPreis() << endl;
+    }
+}

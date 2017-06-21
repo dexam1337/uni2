@@ -16,6 +16,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <sstream>
 
 using namespace std;
 class Flug {
@@ -24,14 +25,40 @@ public:
     Flug(const Flug& orig);
     virtual ~Flug();
 
-    friend istream& operator>>(istream& inputstream, Flug& flug);
+    friend istream& operator>>(istream& inputstream, Flug& flug); //Aus und eingeabeoperatoren
     friend ostream& operator<<(ostream& outputstream, const Flug& flug);
     int getFlugnummer() const;
-    int hasStart(const string startOrt);
-    int hasStopAfter(const string landeOrt, const int pos);
-    void addSubFlight(const string startOrt, const string landeOrt);
-    inline bool operator<(const Flug& rechts) const;
+    int hasStart(const string startOrt); //sucht start und gibt position an
+    int hasStopAfter(const string landeOrt, const int pos); //sucht ob nach start egewünschte landeort vorhanden
+    void addSubFlight(const string startOrt, const string landeOrt); //fuegt hop ein
+    inline bool operator<(const Flug& rechts) const; // vergleichsoperatoren 
     inline bool operator>(const Flug& rechts) const;
+
+    int getFreiePlaetze() const {
+        return m_freiePlaetze;
+    }
+
+    int getKapazitaet() const {
+        return m_kapazitaet;
+    }
+
+    vector<string> getLandeOrt() const {
+        return m_landeOrt;
+    }
+
+    vector<int> getLandeZeiten() const {
+        return m_landeZeiten;
+    }
+
+    vector<string> getStartOrt() const {
+        return m_startOrt;
+    }
+
+    vector<int> getStartZeiten() const {
+        return m_startZeiten;
+    }
+
+    
 private:
 
     int m_flugnummer;

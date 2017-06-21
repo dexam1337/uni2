@@ -19,18 +19,21 @@
 #include <algorithm>
 #include <cstdlib>
 #include <iostream>
+#include <fstream>
 #include <ctime>
 #include <string>
+
+using namespace std;
 class Flugplan {
 public:
     Flugplan();
     Flugplan(const Flugplan& orig);
     virtual ~Flugplan();
     
-    void ladeFluege(const string dateiPfad);
-    Flug* sucheFlug(const int flugnummer);
-    vector<Flug*> sucheFlug(const string startOrt, const string landeOrt);
-    void alleFluegeAnzeigen() const;
+    void ladeFluege(const string dateiPfad); //laed fluege aus datei
+    Flug* sucheFlug(const int flugnummer); //sucht flug über nummer 
+    vector<Flug*> sucheFlug(const string startOrt, const string landeOrt); //gibt alle fluege die kriterien erfüllen 
+    void alleFluegeAnzeigen() const; //ztegt alle fluege an, nur fuer admin
 private:
     map<int, Flug*> m_fluege;
 
