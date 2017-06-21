@@ -13,28 +13,28 @@
 
 #include "Ticket.h"
 
-int Ticket::counter = 0;
+int Ticket::counter = 0; //statisches Element der Klasse zur vergabe der ticketnummern
 
-Ticket::Ticket(float preis, Reiseklasse klasse) {
-    m_preis = preis;
-    m_ticketnummer = counter;
-    counter++;
-    m_klasse = klasse;
+Ticket::Ticket(float preis, Reiseklasse klasse) { //Konstruktor des Tickets
+    m_preis = preis; //Übernehme übergebenen Preis in member attribut
+    m_ticketnummer = counter; //Übernehme aktuelle Ticketnummer 
+    counter++; //zähle Ticketnummercounter hoch, für nächstes Ticket
+    m_klasse = klasse; //speichere übergebene Reiseklasse des Tickets in member attribut
 }
 
-Ticket::Ticket(const Ticket& orig) {
-    m_preis = orig.m_preis;
-    m_ticketnummer = orig.m_ticketnummer;
-    m_klasse = orig.m_klasse;
+Ticket::Ticket(const Ticket& orig) { //kopierkonstruktor
+    m_preis = orig.m_preis; //Kopiere preis des Orginalen objekts
+    m_ticketnummer = orig.m_ticketnummer; //kopiere Ticketnummer des orginalen, da ticket "kopiert" wurde ist das zulässig
+    m_klasse = orig.m_klasse; //kopiere reiseklasse des orginalen objektes
 }
 
-Ticket::~Ticket() {
+Ticket::~Ticket() { //generischer destruktor da keine Pointer in klasse vorhanden
 }
 
-inline bool Ticket::operator>(const Ticket& rigth) const {
-    return m_ticketnummer > rigth.m_ticketnummer;
+inline bool Ticket::operator>(const Ticket& rigth) const { //vergleichsoperator
+    return m_ticketnummer > rigth.m_ticketnummer; //soriterung der tickets erfolg nach ticketnummer
 }
 
-inline bool Ticket::operator<(const Ticket& rigth) const {
-    return (*this > rigth);
+inline bool Ticket::operator<(const Ticket& rigth) const { //anderer vergleichsoperator
+    return (*this > rigth); //ist das gegenteil des oben definierten operators
 }

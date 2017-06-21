@@ -28,7 +28,7 @@ CUI::CUI(const CUI& orig) {
 CUI::~CUI() {
 }
 
-bool CUI::zeigeMenue() {
+bool CUI::zeigeMenue() { //zeigt menu an
 
     if (m_loggedIn != "")
         cout << "Aktuell eingeloggt als: " << m_loggedIn << endl << endl;
@@ -40,14 +40,14 @@ bool CUI::zeigeMenue() {
     cout << MENU << endl;
     cin >> eingabe;
 
-    switch (eingabe) {
-        case 1:
+    switch (eingabe) { //switch der die eingabe verarbeitet
+        case 1: //eingloggen
             cout << "Username und Password:" << endl;
             cin >> username >> pwd;
             if (login(username, pwd))
                 m_loggedIn = username;
             return true;
-        case 2:
+        case 2: //registrieren
             cout << endl << "Nutzername:";
             cin >> username;
             if ((m_kunden.find(username) != m_kunden.end()) && m_kunden.begin() != m_kunden.end()) {
@@ -81,23 +81,23 @@ bool CUI::zeigeMenue() {
             m_loggedIn = username;
             return true;
 
-        case 3:
+        case 3: //kunde suchen
             cout << "Nutzername des Anzuzeigenden kunden:";
             //cin.ignore();
             cin >> username;
             cout << endl << endl << m_kunden[username] << endl;
             return true;
-        case 4:
+        case 4: //ausloggen
             m_loggedIn = "";
             return true;
 
-        case 5:
+        case 5: //flug per flugnummer suchen
             cout << "Flugnummer: " << endl;
             cin >> flugnummer;
             cout << endl << *(m_flugplan.sucheFlug(flugnummer)) << endl;
             return true;
             
-        case 6:
+        case 6: //flug per start und zielort suchen
             cout << endl << "Start und Zielort: " << endl;
             cin >> startOrt >> landeOrt;
             found = m_flugplan.sucheFlug(startOrt, landeOrt);
@@ -106,15 +106,15 @@ bool CUI::zeigeMenue() {
             }
             return true;
             
-        case 7:
+        case 7: //ticket kaufen
             if(m_loggedIn != "")
             kaufeTicket();
             return true;
             
-        case 8:
+        case 8: //initalisieren
             m_flugplan.ladeFluege("fluege.txt");
             return true;
-        case 9:
+        case 9: //alle fluege anzeigen
             if(m_loggedIn == "root")
                 m_flugplan.alleFluegeAnzeigen();
             return true;
@@ -125,7 +125,7 @@ bool CUI::zeigeMenue() {
     return false;
 }
 
-bool CUI::login(string username, string pwd) {
+bool CUI::login(string username, string pwd) { //überprüft ob login korrekt ist
     if (m_kunden.find(username) != m_kunden.end())
         return m_kunden[username].login(pwd);
     else {
@@ -134,7 +134,7 @@ bool CUI::login(string username, string pwd) {
     }
 }
 
-void CUI::kaufeTicket(){
+void CUI::kaufeTicket(){ //kauft ticket
     int n, flugnummer;
     vector<Ticket> tickets;
     cout << "Wie viele Ticket?:" << endl;
@@ -142,16 +142,16 @@ void CUI::kaufeTicket(){
     cout << endl << "Flugnummer:" << endl;
     cin >> flugnummer;
     
-    srand(time(0));
+    srand(time(0)); //preis wird noch zufällig generiert
     int preis = ((rand()+1)%100)+11;
     
     for(int i = 0; i < n; i++)
         tickets.push_back(Ticket(preis, Reiseklasse::ECONOMY));
     
-    Buchung buchung(m_kunden[m_loggedIn]);
+    Buchung buchung(m_kunden[m_loggedIn]); //ordne buchung aktuell eingeloggtem kunden zu
     buchung.setTickets(tickets);
     
-    for(int i = 0; i < tickets.size(); i++){
+    for(int i = 0; i < tickets.size(); i++){ //zeige jetzt gekaufte tickets an
         cout << "Ticketnummer: " << tickets.at(i).getTicketnummer() << " Preis: " << tickets.at(i).getPreis() << endl;
     }
 }
