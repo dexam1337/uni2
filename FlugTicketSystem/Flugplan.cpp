@@ -17,6 +17,7 @@
 
 Flugplan::Flugplan() { //konstruktor für flugplan
 
+    ladeFluege("fluege.txt");
 
 }
 
@@ -33,6 +34,11 @@ Flugplan::~Flugplan() { //destruktor von Flugplan
 
 void Flugplan::ladeFluege(const string dateiPfad) { //lade fluege aus datei
 
+    for (auto it = m_fluege.begin(); it != m_fluege.end(); it++) //forschelife mit iterator über alle elemente
+        delete (it->second); //lösche jedes element das in der map GESPEICHERT ist
+
+    m_fluege.clear(); //leere map
+    
     ifstream save; 
     save.open(dateiPfad); //öffne datei mit dem pfad dateipfad
     if (save.good() == false) { //sollte datei nicht geöffnet werden können
