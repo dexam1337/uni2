@@ -40,29 +40,41 @@ int AttackController::move() {
     Position dp = lp - m_lastPath.at(0);
     m_lastPath.erase(m_lastPath.begin());
 
-    if (dp.height == 1 && dp.width == -1)
-        return 1;
-    else if (dp.height == 0 && dp.width == -1)
-        return 2;
-    else if (dp.height == -1 && dp.width == -1)
-        return 3;
-    else if (dp.height == 1 && dp.width == 0)
-        return 4;
-    else if (dp.height == 0 && dp.width == 0)
-        return 5;
+    if (dp.height == -1 && dp.width == 1)           
+            return 1;
     else if (dp.height == -1 && dp.width == 0)
-        return 6;
-    else if (dp.height == 1 && dp.width == 1)
-        return 7;
+            return 2;
+    else if (dp.height == -1 && dp.width == -1)
+            return 3;
     else if (dp.height == 0 && dp.width == 1)
-        return 8;
-    else if (dp.height == -1 && dp.width == 1)
-        return 9;
+            return 4;
+    else if (dp.height == 0 && dp.width == 0)
+            return 5;
+    else if (dp.height == 0 && dp.width == -1)
+            return 6;
+    else if (dp.height == 1 && dp.width == 1)
+            return 7;
+    else if (dp.height == 1 && dp.width == 0)
+            return 8;
+    else if (dp.height == 1 && dp.width == -1)
+            return 9;
     else {
         cerr << "alter Pfad ungueltig geworden.";
         m_lastPath.clear();
         return 5;
     }
+    /*
+         upper left     up   upper right            e.g. u - upper left = delta
+                    \   I   /                               delta can replace Position dp
+                     \  I  /
+                      \ I /
+     Neighbour left ----u----Neighbour right
+                      / I \
+                     /  I  \ 
+                    /   I   \
+          lower left  lower  lower right
+     
+     */
 
 
 
